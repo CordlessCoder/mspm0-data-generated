@@ -260,6 +260,7 @@
     "FLASHCTL": {
       "name": "FLASHCTL",
       "type": "FlashCtl",
+      "version": "v1",
       "address": 1074581504,
       "power_domain": "Pd0",
       "pins": []

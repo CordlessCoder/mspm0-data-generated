@@ -121,6 +121,8 @@ pub mod adc;
 pub mod cpuss;
 #[path = "../../peripherals/dma_v1.rs"]
 pub mod dma;
+#[path = "../../peripherals/flashctl_v1.rs"]
+pub mod flashctl;
 #[path = "../../peripherals/gpio_v1.rs"]
 pub mod gpio;
 #[path = "../../peripherals/iomux_v1.rs"]
@@ -144,8 +146,8 @@ pub const DEBUGSS: () = ();
 pub const DMA: dma::Dma = unsafe { dma::Dma::from_ptr(1078108160 as *mut _) };
 #[doc = "Address: 1074565120"]
 pub const EVENT: () = ();
-#[doc = "Address: 1074581504"]
-pub const FLASHCTL: () = ();
+pub const FLASHCTL: flashctl::Flashctl =
+    unsafe { flashctl::Flashctl::from_ptr(1074581504 as *mut _) };
 pub const GPIOA: gpio::Gpio = unsafe { gpio::Gpio::from_ptr(1074397184 as *mut _) };
 pub const GPIOB: gpio::Gpio = unsafe { gpio::Gpio::from_ptr(1074405376 as *mut _) };
 pub const IOMUX: iomux::Iomux = unsafe { iomux::Iomux::from_ptr(1078099968 as *mut _) };
