@@ -141,6 +141,8 @@ pub mod gpio;
 pub mod i2c;
 #[path = "../../peripherals/iomux_v1.rs"]
 pub mod iomux;
+#[path = "../../peripherals/opa_v1.rs"]
+pub mod opa;
 #[path = "../../peripherals/sysctl_l110x_l130x_l134x.rs"]
 pub mod sysctl;
 #[path = "../../peripherals/tim_v1.rs"]
@@ -166,10 +168,8 @@ pub const GPIOA: gpio::Gpio = unsafe { gpio::Gpio::from_ptr(1074397184 as *mut _
 pub const I2C0: i2c::I2c = unsafe { i2c::I2c::from_ptr(1074724864 as *mut _) };
 pub const I2C1: i2c::I2c = unsafe { i2c::I2c::from_ptr(1074733056 as *mut _) };
 pub const IOMUX: iomux::Iomux = unsafe { iomux::Iomux::from_ptr(1078099968 as *mut _) };
-#[doc = "Address: 1073872896"]
-pub const OPA0: () = ();
-#[doc = "Address: 1073881088"]
-pub const OPA1: () = ();
+pub const OPA0: opa::Opa = unsafe { opa::Opa::from_ptr(1073872896 as *mut _) };
+pub const OPA1: opa::Opa = unsafe { opa::Opa::from_ptr(1073881088 as *mut _) };
 #[doc = "Address: 1078362112"]
 pub const SPI0: () = ();
 pub const SYSCTL: sysctl::Sysctl = unsafe { sysctl::Sysctl::from_ptr(1074458624 as *mut _) };

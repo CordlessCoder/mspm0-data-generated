@@ -537,7 +537,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
     Peripheral {
         name: "OPA0",
         kind: "opa",
-        version: None,
+        version: Some("v1"),
         pins: &[
             PeripheralPin {
                 pin: "PA26",
@@ -576,7 +576,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
     Peripheral {
         name: "OPA1",
         kind: "opa",
-        version: None,
+        version: Some("v1"),
         pins: &[
             PeripheralPin {
                 pin: "PA18",

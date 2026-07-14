@@ -8,6 +8,7 @@ pub static ALL_PERIPHERAL_VERSIONS: &[(&str, &[&str])] = &[
     ("i2c", &["v1"]),
     ("iomux", &["v1"]),
     ("mathacl", &["v1"]),
+    ("opa", &["v1"]),
     (
         "sysctl",
         &[

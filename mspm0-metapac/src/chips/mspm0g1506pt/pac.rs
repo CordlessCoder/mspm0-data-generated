@@ -173,6 +173,8 @@ pub mod i2c;
 pub mod iomux;
 #[path = "../../peripherals/mathacl_v1.rs"]
 pub mod mathacl;
+#[path = "../../peripherals/opa_v1.rs"]
+pub mod opa;
 #[path = "../../peripherals/sysctl_g350x_g310x_g150x_g110x.rs"]
 pub mod sysctl;
 #[path = "../../peripherals/tim_v1.rs"]
@@ -211,10 +213,8 @@ pub const I2C0: i2c::I2c = unsafe { i2c::I2c::from_ptr(1074724864 as *mut _) };
 pub const I2C1: i2c::I2c = unsafe { i2c::I2c::from_ptr(1074733056 as *mut _) };
 pub const IOMUX: iomux::Iomux = unsafe { iomux::Iomux::from_ptr(1078099968 as *mut _) };
 pub const MATHACL: mathacl::Mathacl = unsafe { mathacl::Mathacl::from_ptr(1078001664 as *mut _) };
-#[doc = "Address: 1073872896"]
-pub const OPA0: () = ();
-#[doc = "Address: 1073881088"]
-pub const OPA1: () = ();
+pub const OPA0: opa::Opa = unsafe { opa::Opa::from_ptr(1073872896 as *mut _) };
+pub const OPA1: opa::Opa = unsafe { opa::Opa::from_ptr(1073881088 as *mut _) };
 #[doc = "Address: 1074348032"]
 pub const RTC: () = ();
 #[doc = "Address: 1078362112"]

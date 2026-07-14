@@ -649,6 +649,7 @@
     "OPA0": {
       "name": "OPA0",
       "type": "Opa",
+      "version": "v1",
       "address": 1073872896,
       "power_domain": "Pd0",
       "pins": [
@@ -672,6 +673,7 @@
     "OPA1": {
       "name": "OPA1",
       "type": "Opa",
+      "version": "v1",
       "address": 1073881088,
       "power_domain": "Pd0",
       "pins": [
