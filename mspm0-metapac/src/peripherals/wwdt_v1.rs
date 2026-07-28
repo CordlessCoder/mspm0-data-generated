@@ -22,32 +22,32 @@ impl CpuInt {
     #[doc = "Interrupt index."]
     #[inline(always)]
     pub const fn iidx(self) -> crate::common::Reg<regs::Iidx, crate::common::R> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x0usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x0usize) as _) }
     }
     #[doc = "Interrupt mask."]
     #[inline(always)]
     pub const fn imask(self) -> crate::common::Reg<regs::Int, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x08usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x08usize) as _) }
     }
     #[doc = "Raw interrupt status."]
     #[inline(always)]
     pub const fn ris(self) -> crate::common::Reg<regs::Int, crate::common::R> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x10usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x10usize) as _) }
     }
     #[doc = "Masked interrupt status."]
     #[inline(always)]
     pub const fn mis(self) -> crate::common::Reg<regs::Int, crate::common::R> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x18usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x18usize) as _) }
     }
     #[doc = "Interrupt set."]
     #[inline(always)]
     pub const fn iset(self) -> crate::common::Reg<regs::Int, crate::common::W> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x20usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x20usize) as _) }
     }
     #[doc = "Interrupt clear."]
     #[inline(always)]
     pub const fn iclr(self) -> crate::common::Reg<regs::Int, crate::common::W> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x28usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x28usize) as _) }
     }
 }
 #[derive(Copy, Clone, Eq, PartialEq)]
@@ -68,17 +68,17 @@ impl Gprcm {
     #[doc = "Power enable."]
     #[inline(always)]
     pub const fn pwren(self) -> crate::common::Reg<regs::Pwren, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x0usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x0usize) as _) }
     }
     #[doc = "Reset Control."]
     #[inline(always)]
     pub const fn rstctl(self) -> crate::common::Reg<regs::Rstctl, crate::common::W> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x04usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x04usize) as _) }
     }
     #[doc = "Status Register."]
     #[inline(always)]
     pub const fn stat(self) -> crate::common::Reg<regs::Stat, crate::common::R> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x14usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x14usize) as _) }
     }
 }
 #[doc = "WWDT."]
@@ -100,47 +100,47 @@ impl Wwdt {
     #[inline(always)]
     pub const fn gprcm(self, n: usize) -> Gprcm {
         assert!(n < 1usize);
-        unsafe { Gprcm::from_ptr(self.ptr.add(0x0800usize + n * 24usize) as _) }
+        unsafe { Gprcm::from_ptr(self.ptr.wrapping_add(0x0800usize + n * 24usize) as _) }
     }
     #[doc = "Peripheral Debug Control."]
     #[inline(always)]
     pub const fn pdbgctl(self) -> crate::common::Reg<regs::Pdbgctl, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x1018usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x1018usize) as _) }
     }
     #[inline(always)]
     pub const fn cpu_int(self, n: usize) -> CpuInt {
         assert!(n < 1usize);
-        unsafe { CpuInt::from_ptr(self.ptr.add(0x1020usize + n * 44usize) as _) }
+        unsafe { CpuInt::from_ptr(self.ptr.wrapping_add(0x1020usize + n * 44usize) as _) }
     }
     #[doc = "Event Mode."]
     #[inline(always)]
     pub const fn evt_mode(self) -> crate::common::Reg<regs::EvtMode, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x10e0usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x10e0usize) as _) }
     }
     #[doc = "Module Description."]
     #[inline(always)]
     pub const fn desc(self) -> crate::common::Reg<regs::Desc, crate::common::R> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x10fcusize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x10fcusize) as _) }
     }
     #[doc = "Window Watchdog Timer Control Register 0."]
     #[inline(always)]
     pub const fn wwdtctl0(self) -> crate::common::Reg<regs::Wwdtctl0, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x1100usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x1100usize) as _) }
     }
     #[doc = "Window Watchdog Timer Control Register 0."]
     #[inline(always)]
     pub const fn wwdtctl1(self) -> crate::common::Reg<regs::Wwdtctl1, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x1104usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x1104usize) as _) }
     }
     #[doc = "Window Watchdog Timer Counter Reset Register."]
     #[inline(always)]
     pub const fn wwdtcntrst(self) -> crate::common::Reg<regs::Wwdtcntrst, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x1108usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x1108usize) as _) }
     }
     #[doc = "Window Watchdog Timer Status Register."]
     #[inline(always)]
     pub const fn wwdtstat(self) -> crate::common::Reg<regs::Wwdtstat, crate::common::R> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x110cusize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x110cusize) as _) }
     }
 }
 pub mod regs {
@@ -150,6 +150,7 @@ pub mod regs {
     pub struct Desc(pub u32);
     impl Desc {
         #[doc = "Minor rev of the IP."]
+        #[must_use]
         #[inline(always)]
         pub const fn minrev(&self) -> u8 {
             let val = (self.0 >> 0usize) & 0x0f;
@@ -157,10 +158,11 @@ pub mod regs {
         }
         #[doc = "Minor rev of the IP."]
         #[inline(always)]
-        pub fn set_minrev(&mut self, val: u8) {
+        pub const fn set_minrev(&mut self, val: u8) {
             self.0 = (self.0 & !(0x0f << 0usize)) | (((val as u32) & 0x0f) << 0usize);
         }
         #[doc = "Major rev of the IP."]
+        #[must_use]
         #[inline(always)]
         pub const fn majrev(&self) -> u8 {
             let val = (self.0 >> 4usize) & 0x0f;
@@ -168,10 +170,11 @@ pub mod regs {
         }
         #[doc = "Major rev of the IP."]
         #[inline(always)]
-        pub fn set_majrev(&mut self, val: u8) {
+        pub const fn set_majrev(&mut self, val: u8) {
             self.0 = (self.0 & !(0x0f << 4usize)) | (((val as u32) & 0x0f) << 4usize);
         }
         #[doc = "Instance Number within the device. This will be a parameter to the RTL for modules that can have multiple instances."]
+        #[must_use]
         #[inline(always)]
         pub const fn instnum(&self) -> u8 {
             let val = (self.0 >> 8usize) & 0x0f;
@@ -179,10 +182,11 @@ pub mod regs {
         }
         #[doc = "Instance Number within the device. This will be a parameter to the RTL for modules that can have multiple instances."]
         #[inline(always)]
-        pub fn set_instnum(&mut self, val: u8) {
+        pub const fn set_instnum(&mut self, val: u8) {
             self.0 = (self.0 & !(0x0f << 8usize)) | (((val as u32) & 0x0f) << 8usize);
         }
         #[doc = "Feature Set for the module *instance*."]
+        #[must_use]
         #[inline(always)]
         pub const fn featurever(&self) -> u8 {
             let val = (self.0 >> 12usize) & 0x0f;
@@ -190,10 +194,11 @@ pub mod regs {
         }
         #[doc = "Feature Set for the module *instance*."]
         #[inline(always)]
-        pub fn set_featurever(&mut self, val: u8) {
+        pub const fn set_featurever(&mut self, val: u8) {
             self.0 = (self.0 & !(0x0f << 12usize)) | (((val as u32) & 0x0f) << 12usize);
         }
         #[doc = "Module identification contains a unique peripheral identification number. The assignments are maintained in a central database for all of the platform modules to ensure uniqueness."]
+        #[must_use]
         #[inline(always)]
         pub const fn moduleid(&self) -> u16 {
             let val = (self.0 >> 16usize) & 0xffff;
@@ -201,7 +206,7 @@ pub mod regs {
         }
         #[doc = "Module identification contains a unique peripheral identification number. The assignments are maintained in a central database for all of the platform modules to ensure uniqueness."]
         #[inline(always)]
-        pub fn set_moduleid(&mut self, val: u16) {
+        pub const fn set_moduleid(&mut self, val: u16) {
             self.0 = (self.0 & !(0xffff << 16usize)) | (((val as u32) & 0xffff) << 16usize);
         }
     }
@@ -211,12 +216,30 @@ pub mod regs {
             Desc(0)
         }
     }
+    impl core::fmt::Debug for Desc {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Desc")
+                .field("minrev", &self.minrev())
+                .field("majrev", &self.majrev())
+                .field("instnum", &self.instnum())
+                .field("featurever", &self.featurever())
+                .field("moduleid", &self.moduleid())
+                .finish()
+        }
+    }
+    #[cfg(feature = "defmt")]
+    impl defmt::Format for Desc {
+        fn format(&self, f: defmt::Formatter) {
+            defmt :: write ! (f , "Desc {{ minrev: {=u8:?}, majrev: {=u8:?}, instnum: {=u8:?}, featurever: {=u8:?}, moduleid: {=u16:?} }}" , self . minrev () , self . majrev () , self . instnum () , self . featurever () , self . moduleid ())
+        }
+    }
     #[doc = "Event Mode."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct EvtMode(pub u32);
     impl EvtMode {
         #[doc = "Event line mode select for event corresponding to \\[IPSTANDARD.INT_EVENT\\]\\[0\\]."]
+        #[must_use]
         #[inline(always)]
         pub const fn int0_cfg(&self) -> super::vals::IntCfg {
             let val = (self.0 >> 0usize) & 0x03;
@@ -224,7 +247,7 @@ pub mod regs {
         }
         #[doc = "Event line mode select for event corresponding to \\[IPSTANDARD.INT_EVENT\\]\\[0\\]."]
         #[inline(always)]
-        pub fn set_int0_cfg(&mut self, val: super::vals::IntCfg) {
+        pub const fn set_int0_cfg(&mut self, val: super::vals::IntCfg) {
             self.0 = (self.0 & !(0x03 << 0usize)) | (((val.to_bits() as u32) & 0x03) << 0usize);
         }
     }
@@ -234,12 +257,26 @@ pub mod regs {
             EvtMode(0)
         }
     }
+    impl core::fmt::Debug for EvtMode {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("EvtMode")
+                .field("int0_cfg", &self.int0_cfg())
+                .finish()
+        }
+    }
+    #[cfg(feature = "defmt")]
+    impl defmt::Format for EvtMode {
+        fn format(&self, f: defmt::Formatter) {
+            defmt::write!(f, "EvtMode {{ int0_cfg: {:?} }}", self.int0_cfg())
+        }
+    }
     #[doc = "Interrupt index."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Iidx(pub u32);
     impl Iidx {
         #[doc = "Module Interrupt Vector Value. This register provides the highest priority interrupt index. A read clears the corresponding interrupt flag in RIS and MISC."]
+        #[must_use]
         #[inline(always)]
         pub const fn stat(&self) -> super::vals::Stat {
             let val = (self.0 >> 0usize) & 0x1f;
@@ -247,7 +284,7 @@ pub mod regs {
         }
         #[doc = "Module Interrupt Vector Value. This register provides the highest priority interrupt index. A read clears the corresponding interrupt flag in RIS and MISC."]
         #[inline(always)]
-        pub fn set_stat(&mut self, val: super::vals::Stat) {
+        pub const fn set_stat(&mut self, val: super::vals::Stat) {
             self.0 = (self.0 & !(0x1f << 0usize)) | (((val.to_bits() as u32) & 0x1f) << 0usize);
         }
     }
@@ -257,12 +294,24 @@ pub mod regs {
             Iidx(0)
         }
     }
+    impl core::fmt::Debug for Iidx {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Iidx").field("stat", &self.stat()).finish()
+        }
+    }
+    #[cfg(feature = "defmt")]
+    impl defmt::Format for Iidx {
+        fn format(&self, f: defmt::Formatter) {
+            defmt::write!(f, "Iidx {{ stat: {:?} }}", self.stat())
+        }
+    }
     #[doc = "Interrupt clear."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Int(pub u32);
     impl Int {
         #[doc = "Interval Timer Interrupt."]
+        #[must_use]
         #[inline(always)]
         pub const fn inttim(&self) -> bool {
             let val = (self.0 >> 0usize) & 0x01;
@@ -270,7 +319,7 @@ pub mod regs {
         }
         #[doc = "Interval Timer Interrupt."]
         #[inline(always)]
-        pub fn set_inttim(&mut self, val: bool) {
+        pub const fn set_inttim(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 0usize)) | (((val as u32) & 0x01) << 0usize);
         }
     }
@@ -280,12 +329,26 @@ pub mod regs {
             Int(0)
         }
     }
+    impl core::fmt::Debug for Int {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Int")
+                .field("inttim", &self.inttim())
+                .finish()
+        }
+    }
+    #[cfg(feature = "defmt")]
+    impl defmt::Format for Int {
+        fn format(&self, f: defmt::Formatter) {
+            defmt::write!(f, "Int {{ inttim: {=bool:?} }}", self.inttim())
+        }
+    }
     #[doc = "Peripheral Debug Control."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Pdbgctl(pub u32);
     impl Pdbgctl {
         #[doc = "Free run control."]
+        #[must_use]
         #[inline(always)]
         pub const fn free(&self) -> bool {
             let val = (self.0 >> 0usize) & 0x01;
@@ -293,7 +356,7 @@ pub mod regs {
         }
         #[doc = "Free run control."]
         #[inline(always)]
-        pub fn set_free(&mut self, val: bool) {
+        pub const fn set_free(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 0usize)) | (((val as u32) & 0x01) << 0usize);
         }
     }
@@ -303,12 +366,26 @@ pub mod regs {
             Pdbgctl(0)
         }
     }
+    impl core::fmt::Debug for Pdbgctl {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Pdbgctl")
+                .field("free", &self.free())
+                .finish()
+        }
+    }
+    #[cfg(feature = "defmt")]
+    impl defmt::Format for Pdbgctl {
+        fn format(&self, f: defmt::Formatter) {
+            defmt::write!(f, "Pdbgctl {{ free: {=bool:?} }}", self.free())
+        }
+    }
     #[doc = "Power enable."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Pwren(pub u32);
     impl Pwren {
         #[doc = "Enable the power Note: For safety devices the power cannot be disabled once enabled."]
+        #[must_use]
         #[inline(always)]
         pub const fn enable(&self) -> bool {
             let val = (self.0 >> 0usize) & 0x01;
@@ -316,10 +393,11 @@ pub mod regs {
         }
         #[doc = "Enable the power Note: For safety devices the power cannot be disabled once enabled."]
         #[inline(always)]
-        pub fn set_enable(&mut self, val: bool) {
+        pub const fn set_enable(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 0usize)) | (((val as u32) & 0x01) << 0usize);
         }
         #[doc = "KEY to allow Power State Change 26h = KEY to allow write access to this register"]
+        #[must_use]
         #[inline(always)]
         pub const fn key(&self) -> super::vals::PwrenKey {
             let val = (self.0 >> 24usize) & 0xff;
@@ -327,7 +405,7 @@ pub mod regs {
         }
         #[doc = "KEY to allow Power State Change 26h = KEY to allow write access to this register"]
         #[inline(always)]
-        pub fn set_key(&mut self, val: super::vals::PwrenKey) {
+        pub const fn set_key(&mut self, val: super::vals::PwrenKey) {
             self.0 = (self.0 & !(0xff << 24usize)) | (((val.to_bits() as u32) & 0xff) << 24usize);
         }
     }
@@ -337,12 +415,32 @@ pub mod regs {
             Pwren(0)
         }
     }
+    impl core::fmt::Debug for Pwren {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Pwren")
+                .field("enable", &self.enable())
+                .field("key", &self.key())
+                .finish()
+        }
+    }
+    #[cfg(feature = "defmt")]
+    impl defmt::Format for Pwren {
+        fn format(&self, f: defmt::Formatter) {
+            defmt::write!(
+                f,
+                "Pwren {{ enable: {=bool:?}, key: {:?} }}",
+                self.enable(),
+                self.key()
+            )
+        }
+    }
     #[doc = "Reset Control."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Rstctl(pub u32);
     impl Rstctl {
         #[doc = "Assert reset to the peripheral Note: For safety devices a watchdog reset by software is not possible."]
+        #[must_use]
         #[inline(always)]
         pub const fn resetassert(&self) -> bool {
             let val = (self.0 >> 0usize) & 0x01;
@@ -350,10 +448,11 @@ pub mod regs {
         }
         #[doc = "Assert reset to the peripheral Note: For safety devices a watchdog reset by software is not possible."]
         #[inline(always)]
-        pub fn set_resetassert(&mut self, val: bool) {
+        pub const fn set_resetassert(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 0usize)) | (((val as u32) & 0x01) << 0usize);
         }
         #[doc = "Clear \\[GPRCM.STAT.RESETSTKY\\]."]
+        #[must_use]
         #[inline(always)]
         pub const fn resetstkyclr(&self) -> bool {
             let val = (self.0 >> 1usize) & 0x01;
@@ -361,10 +460,11 @@ pub mod regs {
         }
         #[doc = "Clear \\[GPRCM.STAT.RESETSTKY\\]."]
         #[inline(always)]
-        pub fn set_resetstkyclr(&mut self, val: bool) {
+        pub const fn set_resetstkyclr(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 1usize)) | (((val as u32) & 0x01) << 1usize);
         }
         #[doc = "Unlock key B1h = KEY to allow write access to this register"]
+        #[must_use]
         #[inline(always)]
         pub const fn key(&self) -> super::vals::ResetKey {
             let val = (self.0 >> 24usize) & 0xff;
@@ -372,7 +472,7 @@ pub mod regs {
         }
         #[doc = "Unlock key B1h = KEY to allow write access to this register"]
         #[inline(always)]
-        pub fn set_key(&mut self, val: super::vals::ResetKey) {
+        pub const fn set_key(&mut self, val: super::vals::ResetKey) {
             self.0 = (self.0 & !(0xff << 24usize)) | (((val.to_bits() as u32) & 0xff) << 24usize);
         }
     }
@@ -382,12 +482,34 @@ pub mod regs {
             Rstctl(0)
         }
     }
+    impl core::fmt::Debug for Rstctl {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Rstctl")
+                .field("resetassert", &self.resetassert())
+                .field("resetstkyclr", &self.resetstkyclr())
+                .field("key", &self.key())
+                .finish()
+        }
+    }
+    #[cfg(feature = "defmt")]
+    impl defmt::Format for Rstctl {
+        fn format(&self, f: defmt::Formatter) {
+            defmt::write!(
+                f,
+                "Rstctl {{ resetassert: {=bool:?}, resetstkyclr: {=bool:?}, key: {:?} }}",
+                self.resetassert(),
+                self.resetstkyclr(),
+                self.key()
+            )
+        }
+    }
     #[doc = "Status Register."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Stat(pub u32);
     impl Stat {
         #[doc = "This bit indicates, if the peripheral was reset, since this bit was cleared by RESETSTKYCLR in the RSTCTL register."]
+        #[must_use]
         #[inline(always)]
         pub const fn resetstky(&self) -> bool {
             let val = (self.0 >> 16usize) & 0x01;
@@ -395,7 +517,7 @@ pub mod regs {
         }
         #[doc = "This bit indicates, if the peripheral was reset, since this bit was cleared by RESETSTKYCLR in the RSTCTL register."]
         #[inline(always)]
-        pub fn set_resetstky(&mut self, val: bool) {
+        pub const fn set_resetstky(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 16usize)) | (((val as u32) & 0x01) << 16usize);
         }
     }
@@ -405,12 +527,26 @@ pub mod regs {
             Stat(0)
         }
     }
+    impl core::fmt::Debug for Stat {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Stat")
+                .field("resetstky", &self.resetstky())
+                .finish()
+        }
+    }
+    #[cfg(feature = "defmt")]
+    impl defmt::Format for Stat {
+        fn format(&self, f: defmt::Formatter) {
+            defmt::write!(f, "Stat {{ resetstky: {=bool:?} }}", self.resetstky())
+        }
+    }
     #[doc = "Window Watchdog Timer Counter Reset Register."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Wwdtcntrst(pub u32);
     impl Wwdtcntrst {
         #[doc = "Window Watchdog Timer Counter Restart Writing 00A7h to this register restarts the WWDT Counter."]
+        #[must_use]
         #[inline(always)]
         pub const fn restart(&self) -> super::vals::WwdtcntrstRestart {
             let val = (self.0 >> 0usize) & 0xffff_ffff;
@@ -418,7 +554,7 @@ pub mod regs {
         }
         #[doc = "Window Watchdog Timer Counter Restart Writing 00A7h to this register restarts the WWDT Counter."]
         #[inline(always)]
-        pub fn set_restart(&mut self, val: super::vals::WwdtcntrstRestart) {
+        pub const fn set_restart(&mut self, val: super::vals::WwdtcntrstRestart) {
             self.0 = (self.0 & !(0xffff_ffff << 0usize))
                 | (((val.to_bits() as u32) & 0xffff_ffff) << 0usize);
         }
@@ -429,12 +565,26 @@ pub mod regs {
             Wwdtcntrst(0)
         }
     }
+    impl core::fmt::Debug for Wwdtcntrst {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Wwdtcntrst")
+                .field("restart", &self.restart())
+                .finish()
+        }
+    }
+    #[cfg(feature = "defmt")]
+    impl defmt::Format for Wwdtcntrst {
+        fn format(&self, f: defmt::Formatter) {
+            defmt::write!(f, "Wwdtcntrst {{ restart: {:?} }}", self.restart())
+        }
+    }
     #[doc = "Window Watchdog Timer Control Register 0."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Wwdtctl0(pub u32);
     impl Wwdtctl0 {
         #[doc = "Module Clock Divider, Divide the clock source by CLKDIV+1. Divider values from /1 to /8 are possible. The clock divider is currently 4 bits. Bit 4 has no effect and should always be written with 0."]
+        #[must_use]
         #[inline(always)]
         pub const fn clkdiv(&self) -> u8 {
             let val = (self.0 >> 0usize) & 0x07;
@@ -442,10 +592,11 @@ pub mod regs {
         }
         #[doc = "Module Clock Divider, Divide the clock source by CLKDIV+1. Divider values from /1 to /8 are possible. The clock divider is currently 4 bits. Bit 4 has no effect and should always be written with 0."]
         #[inline(always)]
-        pub fn set_clkdiv(&mut self, val: u8) {
+        pub const fn set_clkdiv(&mut self, val: u8) {
             self.0 = (self.0 & !(0x07 << 0usize)) | (((val as u32) & 0x07) << 0usize);
         }
         #[doc = "Timer Period of the WWDT. These bits select the total watchdog timer count."]
+        #[must_use]
         #[inline(always)]
         pub const fn per(&self) -> super::vals::Per {
             let val = (self.0 >> 4usize) & 0x07;
@@ -453,10 +604,11 @@ pub mod regs {
         }
         #[doc = "Timer Period of the WWDT. These bits select the total watchdog timer count."]
         #[inline(always)]
-        pub fn set_per(&mut self, val: super::vals::Per) {
+        pub const fn set_per(&mut self, val: super::vals::Per) {
             self.0 = (self.0 & !(0x07 << 4usize)) | (((val.to_bits() as u32) & 0x07) << 4usize);
         }
         #[doc = "Closed window period in percentage of the timer interval. WWDTCTL1.WINSEL determines the active window setting (WWDTCTL0.WINDOW0 or WWDTCTL0.WINDOW1)."]
+        #[must_use]
         #[inline(always)]
         pub const fn window0(&self) -> super::vals::Window {
             let val = (self.0 >> 8usize) & 0x07;
@@ -464,10 +616,11 @@ pub mod regs {
         }
         #[doc = "Closed window period in percentage of the timer interval. WWDTCTL1.WINSEL determines the active window setting (WWDTCTL0.WINDOW0 or WWDTCTL0.WINDOW1)."]
         #[inline(always)]
-        pub fn set_window0(&mut self, val: super::vals::Window) {
+        pub const fn set_window0(&mut self, val: super::vals::Window) {
             self.0 = (self.0 & !(0x07 << 8usize)) | (((val.to_bits() as u32) & 0x07) << 8usize);
         }
         #[doc = "Closed window period in percentage of the timer interval. WWDTCTL1.WINSEL determines the active window setting (WWDTCTL0.WINDOW0 or WWDTCTL0.WINDOW1)."]
+        #[must_use]
         #[inline(always)]
         pub const fn window1(&self) -> super::vals::Window {
             let val = (self.0 >> 12usize) & 0x07;
@@ -475,10 +628,11 @@ pub mod regs {
         }
         #[doc = "Closed window period in percentage of the timer interval. WWDTCTL1.WINSEL determines the active window setting (WWDTCTL0.WINDOW0 or WWDTCTL0.WINDOW1)."]
         #[inline(always)]
-        pub fn set_window1(&mut self, val: super::vals::Window) {
+        pub const fn set_window1(&mut self, val: super::vals::Window) {
             self.0 = (self.0 & !(0x07 << 12usize)) | (((val.to_bits() as u32) & 0x07) << 12usize);
         }
         #[doc = "Window Watchdog Timer Mode."]
+        #[must_use]
         #[inline(always)]
         pub const fn mode(&self) -> super::vals::Mode {
             let val = (self.0 >> 16usize) & 0x01;
@@ -486,10 +640,11 @@ pub mod regs {
         }
         #[doc = "Window Watchdog Timer Mode."]
         #[inline(always)]
-        pub fn set_mode(&mut self, val: super::vals::Mode) {
+        pub const fn set_mode(&mut self, val: super::vals::Mode) {
             self.0 = (self.0 & !(0x01 << 16usize)) | (((val.to_bits() as u32) & 0x01) << 16usize);
         }
         #[doc = "Stop In Sleep Mode. The functionality of this bit requires that POLICY.HWCEN = 0. If POLICY.HWCEN = 1 the WWDT resets during sleep and needs re-configuration. Note: This bit has no effect for the global Window Watchdog as Sleep Mode is not supported."]
+        #[must_use]
         #[inline(always)]
         pub const fn stism(&self) -> super::vals::Stism {
             let val = (self.0 >> 17usize) & 0x01;
@@ -497,10 +652,11 @@ pub mod regs {
         }
         #[doc = "Stop In Sleep Mode. The functionality of this bit requires that POLICY.HWCEN = 0. If POLICY.HWCEN = 1 the WWDT resets during sleep and needs re-configuration. Note: This bit has no effect for the global Window Watchdog as Sleep Mode is not supported."]
         #[inline(always)]
-        pub fn set_stism(&mut self, val: super::vals::Stism) {
+        pub const fn set_stism(&mut self, val: super::vals::Stism) {
             self.0 = (self.0 & !(0x01 << 17usize)) | (((val.to_bits() as u32) & 0x01) << 17usize);
         }
         #[doc = "KEY to allow write access to WWDTCTL0 = C9h."]
+        #[must_use]
         #[inline(always)]
         pub const fn key(&self) -> super::vals::Wwdtctl0Key {
             let val = (self.0 >> 24usize) & 0xff;
@@ -508,7 +664,7 @@ pub mod regs {
         }
         #[doc = "KEY to allow write access to WWDTCTL0 = C9h."]
         #[inline(always)]
-        pub fn set_key(&mut self, val: super::vals::Wwdtctl0Key) {
+        pub const fn set_key(&mut self, val: super::vals::Wwdtctl0Key) {
             self.0 = (self.0 & !(0xff << 24usize)) | (((val.to_bits() as u32) & 0xff) << 24usize);
         }
     }
@@ -518,12 +674,32 @@ pub mod regs {
             Wwdtctl0(0)
         }
     }
+    impl core::fmt::Debug for Wwdtctl0 {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Wwdtctl0")
+                .field("clkdiv", &self.clkdiv())
+                .field("per", &self.per())
+                .field("window0", &self.window0())
+                .field("window1", &self.window1())
+                .field("mode", &self.mode())
+                .field("stism", &self.stism())
+                .field("key", &self.key())
+                .finish()
+        }
+    }
+    #[cfg(feature = "defmt")]
+    impl defmt::Format for Wwdtctl0 {
+        fn format(&self, f: defmt::Formatter) {
+            defmt :: write ! (f , "Wwdtctl0 {{ clkdiv: {=u8:?}, per: {:?}, window0: {:?}, window1: {:?}, mode: {:?}, stism: {:?}, key: {:?} }}" , self . clkdiv () , self . per () , self . window0 () , self . window1 () , self . mode () , self . stism () , self . key ())
+        }
+    }
     #[doc = "Window Watchdog Timer Control Register 0."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Wwdtctl1(pub u32);
     impl Wwdtctl1 {
         #[doc = "Close Window Select."]
+        #[must_use]
         #[inline(always)]
         pub const fn winsel(&self) -> super::vals::Winsel {
             let val = (self.0 >> 0usize) & 0x01;
@@ -531,10 +707,11 @@ pub mod regs {
         }
         #[doc = "Close Window Select."]
         #[inline(always)]
-        pub fn set_winsel(&mut self, val: super::vals::Winsel) {
+        pub const fn set_winsel(&mut self, val: super::vals::Winsel) {
             self.0 = (self.0 & !(0x01 << 0usize)) | (((val.to_bits() as u32) & 0x01) << 0usize);
         }
         #[doc = "KEY to allow write access to WWDTCTL1 = BEh."]
+        #[must_use]
         #[inline(always)]
         pub const fn key(&self) -> super::vals::Wwdtctl1Key {
             let val = (self.0 >> 24usize) & 0xff;
@@ -542,7 +719,7 @@ pub mod regs {
         }
         #[doc = "KEY to allow write access to WWDTCTL1 = BEh."]
         #[inline(always)]
-        pub fn set_key(&mut self, val: super::vals::Wwdtctl1Key) {
+        pub const fn set_key(&mut self, val: super::vals::Wwdtctl1Key) {
             self.0 = (self.0 & !(0xff << 24usize)) | (((val.to_bits() as u32) & 0xff) << 24usize);
         }
     }
@@ -552,12 +729,32 @@ pub mod regs {
             Wwdtctl1(0)
         }
     }
+    impl core::fmt::Debug for Wwdtctl1 {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Wwdtctl1")
+                .field("winsel", &self.winsel())
+                .field("key", &self.key())
+                .finish()
+        }
+    }
+    #[cfg(feature = "defmt")]
+    impl defmt::Format for Wwdtctl1 {
+        fn format(&self, f: defmt::Formatter) {
+            defmt::write!(
+                f,
+                "Wwdtctl1 {{ winsel: {:?}, key: {:?} }}",
+                self.winsel(),
+                self.key()
+            )
+        }
+    }
     #[doc = "Window Watchdog Timer Status Register."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Wwdtstat(pub u32);
     impl Wwdtstat {
         #[doc = "Watchdog running status flag."]
+        #[must_use]
         #[inline(always)]
         pub const fn run(&self) -> bool {
             let val = (self.0 >> 0usize) & 0x01;
@@ -565,7 +762,7 @@ pub mod regs {
         }
         #[doc = "Watchdog running status flag."]
         #[inline(always)]
-        pub fn set_run(&mut self, val: bool) {
+        pub const fn set_run(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 0usize)) | (((val as u32) & 0x01) << 0usize);
         }
     }
@@ -575,17 +772,31 @@ pub mod regs {
             Wwdtstat(0)
         }
     }
+    impl core::fmt::Debug for Wwdtstat {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Wwdtstat")
+                .field("run", &self.run())
+                .finish()
+        }
+    }
+    #[cfg(feature = "defmt")]
+    impl defmt::Format for Wwdtstat {
+        fn format(&self, f: defmt::Formatter) {
+            defmt::write!(f, "Wwdtstat {{ run: {=bool:?} }}", self.run())
+        }
+    }
 }
 pub mod vals {
     #[repr(u8)]
-    #[derive(Copy, Clone, Eq, PartialEq, Ord, PartialOrd)]
+    #[derive(Copy, Clone, Debug, Eq, PartialEq, Ord, PartialOrd)]
+    #[cfg_attr(feature = "defmt", derive(defmt::Format))]
     pub enum IntCfg {
         #[doc = "The interrupt or event line is disabled."]
-        DISABLE = 0x0,
+        Disable = 0x0,
         #[doc = "The interrupt or event line is in software mode. Software must clear the RIS."]
-        SOFTWARE = 0x01,
+        Software = 0x01,
         #[doc = "The interrupt or event line is in hardware mode. The hardware (another module) clears automatically the associated RIS flag."]
-        HARDWARE = 0x02,
+        Hardware = 0x02,
         _RESERVED_3 = 0x03,
     }
     impl IntCfg {
@@ -611,12 +822,13 @@ pub mod vals {
         }
     }
     #[repr(u8)]
-    #[derive(Copy, Clone, Eq, PartialEq, Ord, PartialOrd)]
+    #[derive(Copy, Clone, Debug, Eq, PartialEq, Ord, PartialOrd)]
+    #[cfg_attr(feature = "defmt", derive(defmt::Format))]
     pub enum Mode {
         #[doc = "Window Watchdog Timer Mode. The WWDT will generate a error signal to the ESM when following conditions occur: - Timer Expiration (Timeout) - Reset WWDT during the active window closed period - Keyword violation."]
-        WINDOW = 0x0,
+        Window = 0x0,
         #[doc = "Interval Timer Mode. The WWDT acts as an interval timer. It generates an interrupt on timeout."]
-        INTERVAL = 0x01,
+        Interval = 0x01,
     }
     impl Mode {
         #[inline(always)]
@@ -641,24 +853,25 @@ pub mod vals {
         }
     }
     #[repr(u8)]
-    #[derive(Copy, Clone, Eq, PartialEq, Ord, PartialOrd)]
+    #[derive(Copy, Clone, Debug, Eq, PartialEq, Ord, PartialOrd)]
+    #[cfg_attr(feature = "defmt", derive(defmt::Format))]
     pub enum Per {
         #[doc = "Total timer count is 2^25."]
-        EN_25 = 0x0,
+        En25 = 0x0,
         #[doc = "Total timer count is 2^21."]
-        EN_21 = 0x01,
+        En21 = 0x01,
         #[doc = "Total timer count is 2^18."]
-        EN_18 = 0x02,
+        En18 = 0x02,
         #[doc = "Total timer count is 2^15."]
-        EN_15 = 0x03,
+        En15 = 0x03,
         #[doc = "Total timer count is 2^12 (default)."]
-        EN_12 = 0x04,
+        En12 = 0x04,
         #[doc = "Total timer count is 2^10."]
-        EN_10 = 0x05,
+        En10 = 0x05,
         #[doc = "Total timer count is 2^8."]
-        EN_8 = 0x06,
+        En8 = 0x06,
         #[doc = "Total timer count is 2^6."]
-        EN_6 = 0x07,
+        En6 = 0x07,
     }
     impl Per {
         #[inline(always)]
@@ -684,9 +897,9 @@ pub mod vals {
     }
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq, Ord, PartialOrd)]
-    pub struct PwrenKey(pub u8);
+    pub struct PwrenKey(u8);
     impl PwrenKey {
-        pub const KEY: Self = Self(0x26);
+        pub const Key: Self = Self(0x26);
     }
     impl PwrenKey {
         pub const fn from_bits(val: u8) -> PwrenKey {
@@ -694,6 +907,23 @@ pub mod vals {
         }
         pub const fn to_bits(self) -> u8 {
             self.0
+        }
+    }
+    impl core::fmt::Debug for PwrenKey {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            match self.0 {
+                0x26 => f.write_str("Key"),
+                other => core::write!(f, "0x{:02X}", other),
+            }
+        }
+    }
+    #[cfg(feature = "defmt")]
+    impl defmt::Format for PwrenKey {
+        fn format(&self, f: defmt::Formatter) {
+            match self.0 {
+                0x26 => defmt::write!(f, "Key"),
+                other => defmt::write!(f, "0x{:02X}", other),
+            }
         }
     }
     impl From<u8> for PwrenKey {
@@ -710,9 +940,9 @@ pub mod vals {
     }
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq, Ord, PartialOrd)]
-    pub struct ResetKey(pub u8);
+    pub struct ResetKey(u8);
     impl ResetKey {
-        pub const KEY: Self = Self(0xb1);
+        pub const Key: Self = Self(0xb1);
     }
     impl ResetKey {
         pub const fn from_bits(val: u8) -> ResetKey {
@@ -720,6 +950,23 @@ pub mod vals {
         }
         pub const fn to_bits(self) -> u8 {
             self.0
+        }
+    }
+    impl core::fmt::Debug for ResetKey {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            match self.0 {
+                0xb1 => f.write_str("Key"),
+                other => core::write!(f, "0x{:02X}", other),
+            }
+        }
+    }
+    #[cfg(feature = "defmt")]
+    impl defmt::Format for ResetKey {
+        fn format(&self, f: defmt::Formatter) {
+            match self.0 {
+                0xb1 => defmt::write!(f, "Key"),
+                other => defmt::write!(f, "0x{:02X}", other),
+            }
         }
     }
     impl From<u8> for ResetKey {
@@ -734,21 +981,53 @@ pub mod vals {
             ResetKey::to_bits(val)
         }
     }
-    #[repr(transparent)]
-    #[derive(Copy, Clone, Eq, PartialEq, Ord, PartialOrd)]
-    pub struct Stat(pub u8);
-    impl Stat {
+    #[repr(u8)]
+    #[derive(Copy, Clone, Debug, Eq, PartialEq, Ord, PartialOrd)]
+    #[cfg_attr(feature = "defmt", derive(defmt::Format))]
+    pub enum Stat {
         #[doc = "No interrupt pending."]
-        pub const NO_INTR: Self = Self(0x0);
+        NoIntr = 0x0,
         #[doc = "Interval Timer Interrupt; Interrupt Flag: INTTIM; Interrupt Priority: Highest."]
-        pub const INTTIM: Self = Self(0x01);
+        Inttim = 0x01,
+        _RESERVED_2 = 0x02,
+        _RESERVED_3 = 0x03,
+        _RESERVED_4 = 0x04,
+        _RESERVED_5 = 0x05,
+        _RESERVED_6 = 0x06,
+        _RESERVED_7 = 0x07,
+        _RESERVED_8 = 0x08,
+        _RESERVED_9 = 0x09,
+        _RESERVED_a = 0x0a,
+        _RESERVED_b = 0x0b,
+        _RESERVED_c = 0x0c,
+        _RESERVED_d = 0x0d,
+        _RESERVED_e = 0x0e,
+        _RESERVED_f = 0x0f,
+        _RESERVED_10 = 0x10,
+        _RESERVED_11 = 0x11,
+        _RESERVED_12 = 0x12,
+        _RESERVED_13 = 0x13,
+        _RESERVED_14 = 0x14,
+        _RESERVED_15 = 0x15,
+        _RESERVED_16 = 0x16,
+        _RESERVED_17 = 0x17,
+        _RESERVED_18 = 0x18,
+        _RESERVED_19 = 0x19,
+        _RESERVED_1a = 0x1a,
+        _RESERVED_1b = 0x1b,
+        _RESERVED_1c = 0x1c,
+        _RESERVED_1d = 0x1d,
+        _RESERVED_1e = 0x1e,
+        _RESERVED_1f = 0x1f,
     }
     impl Stat {
+        #[inline(always)]
         pub const fn from_bits(val: u8) -> Stat {
-            Self(val & 0x1f)
+            unsafe { core::mem::transmute(val & 0x1f) }
         }
+        #[inline(always)]
         pub const fn to_bits(self) -> u8 {
-            self.0
+            unsafe { core::mem::transmute(self) }
         }
     }
     impl From<u8> for Stat {
@@ -764,12 +1043,13 @@ pub mod vals {
         }
     }
     #[repr(u8)]
-    #[derive(Copy, Clone, Eq, PartialEq, Ord, PartialOrd)]
+    #[derive(Copy, Clone, Debug, Eq, PartialEq, Ord, PartialOrd)]
+    #[cfg_attr(feature = "defmt", derive(defmt::Format))]
     pub enum Stism {
         #[doc = "The WWDT continues to function in Sleep mode."]
-        CONT = 0x0,
+        Cont = 0x0,
         #[doc = "The WWDT stops in Sleep mode and resumes where it was stopped after wakeup."]
-        STOP = 0x01,
+        Stop = 0x01,
     }
     impl Stism {
         #[inline(always)]
@@ -794,24 +1074,25 @@ pub mod vals {
         }
     }
     #[repr(u8)]
-    #[derive(Copy, Clone, Eq, PartialEq, Ord, PartialOrd)]
+    #[derive(Copy, Clone, Debug, Eq, PartialEq, Ord, PartialOrd)]
+    #[cfg_attr(feature = "defmt", derive(defmt::Format))]
     pub enum Window {
         #[doc = "0% (No closed Window)."]
-        SIZE_0 = 0x0,
+        Size0 = 0x0,
         #[doc = "12.50% of the total timer period is closed window."]
-        SIZE_12 = 0x01,
+        Size12 = 0x01,
         #[doc = "18.75% of the total timer period is closed window."]
-        SIZE_18 = 0x02,
+        Size18 = 0x02,
         #[doc = "25% of the total timer period is closed window."]
-        SIZE_25 = 0x03,
+        Size25 = 0x03,
         #[doc = "50% of the total timer period is closed window."]
-        SIZE_50 = 0x04,
+        Size50 = 0x04,
         #[doc = "75% of the total timer period is closed window."]
-        SIZE_75 = 0x05,
+        Size75 = 0x05,
         #[doc = "81.25% of the total timer period is closed window."]
-        SIZE_81 = 0x06,
+        Size81 = 0x06,
         #[doc = "87.50% of the total timer period is closed window."]
-        SIZE_87 = 0x07,
+        Size87 = 0x07,
     }
     impl Window {
         #[inline(always)]
@@ -836,12 +1117,13 @@ pub mod vals {
         }
     }
     #[repr(u8)]
-    #[derive(Copy, Clone, Eq, PartialEq, Ord, PartialOrd)]
+    #[derive(Copy, Clone, Debug, Eq, PartialEq, Ord, PartialOrd)]
+    #[cfg_attr(feature = "defmt", derive(defmt::Format))]
     pub enum Winsel {
         #[doc = "In window mode field WINDOW0 of WDDTCTL0 defines the closed window size."]
-        WIN0 = 0x0,
+        Win0 = 0x0,
         #[doc = "In window mode field WINDOW1 of WDDTCTL0 defines the closed window size."]
-        WIN1 = 0x01,
+        Win1 = 0x01,
     }
     impl Winsel {
         #[inline(always)]
@@ -867,9 +1149,9 @@ pub mod vals {
     }
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq, Ord, PartialOrd)]
-    pub struct WwdtcntrstRestart(pub u32);
+    pub struct WwdtcntrstRestart(u32);
     impl WwdtcntrstRestart {
-        pub const RESTART: Self = Self(0xa7);
+        pub const Restart: Self = Self(0xa7);
     }
     impl WwdtcntrstRestart {
         pub const fn from_bits(val: u32) -> WwdtcntrstRestart {
@@ -877,6 +1159,23 @@ pub mod vals {
         }
         pub const fn to_bits(self) -> u32 {
             self.0
+        }
+    }
+    impl core::fmt::Debug for WwdtcntrstRestart {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            match self.0 {
+                0xa7 => f.write_str("Restart"),
+                other => core::write!(f, "0x{:02X}", other),
+            }
+        }
+    }
+    #[cfg(feature = "defmt")]
+    impl defmt::Format for WwdtcntrstRestart {
+        fn format(&self, f: defmt::Formatter) {
+            match self.0 {
+                0xa7 => defmt::write!(f, "Restart"),
+                other => defmt::write!(f, "0x{:02X}", other),
+            }
         }
     }
     impl From<u32> for WwdtcntrstRestart {
@@ -893,9 +1192,9 @@ pub mod vals {
     }
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq, Ord, PartialOrd)]
-    pub struct Wwdtctl0Key(pub u8);
+    pub struct Wwdtctl0Key(u8);
     impl Wwdtctl0Key {
-        pub const KEY: Self = Self(0xc9);
+        pub const Key: Self = Self(0xc9);
     }
     impl Wwdtctl0Key {
         pub const fn from_bits(val: u8) -> Wwdtctl0Key {
@@ -903,6 +1202,23 @@ pub mod vals {
         }
         pub const fn to_bits(self) -> u8 {
             self.0
+        }
+    }
+    impl core::fmt::Debug for Wwdtctl0Key {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            match self.0 {
+                0xc9 => f.write_str("Key"),
+                other => core::write!(f, "0x{:02X}", other),
+            }
+        }
+    }
+    #[cfg(feature = "defmt")]
+    impl defmt::Format for Wwdtctl0Key {
+        fn format(&self, f: defmt::Formatter) {
+            match self.0 {
+                0xc9 => defmt::write!(f, "Key"),
+                other => defmt::write!(f, "0x{:02X}", other),
+            }
         }
     }
     impl From<u8> for Wwdtctl0Key {
@@ -919,9 +1235,9 @@ pub mod vals {
     }
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq, Ord, PartialOrd)]
-    pub struct Wwdtctl1Key(pub u8);
+    pub struct Wwdtctl1Key(u8);
     impl Wwdtctl1Key {
-        pub const KEY: Self = Self(0xbe);
+        pub const Key: Self = Self(0xbe);
     }
     impl Wwdtctl1Key {
         pub const fn from_bits(val: u8) -> Wwdtctl1Key {
@@ -929,6 +1245,23 @@ pub mod vals {
         }
         pub const fn to_bits(self) -> u8 {
             self.0
+        }
+    }
+    impl core::fmt::Debug for Wwdtctl1Key {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            match self.0 {
+                0xbe => f.write_str("Key"),
+                other => core::write!(f, "0x{:02X}", other),
+            }
+        }
+    }
+    #[cfg(feature = "defmt")]
+    impl defmt::Format for Wwdtctl1Key {
+        fn format(&self, f: defmt::Formatter) {
+            match self.0 {
+                0xbe => defmt::write!(f, "Key"),
+                other => defmt::write!(f, "0x{:02X}", other),
+            }
         }
     }
     impl From<u8> for Wwdtctl1Key {

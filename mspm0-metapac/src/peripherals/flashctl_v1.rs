@@ -23,78 +23,80 @@ impl Flashctl {
     #[doc = "Interrupt Index Register."]
     #[inline(always)]
     pub const fn iidx(self) -> crate::common::Reg<regs::Iidx, crate::common::R> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x1020usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x1020usize) as _) }
     }
     #[doc = "Interrupt Mask Register."]
     #[inline(always)]
     pub const fn imask(self) -> crate::common::Reg<regs::Int, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x1028usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x1028usize) as _) }
     }
     #[doc = "Raw Interrupt Status Register."]
     #[inline(always)]
     pub const fn ris(self) -> crate::common::Reg<regs::Int, crate::common::R> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x1030usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x1030usize) as _) }
     }
     #[doc = "Masked Interrupt Status Register."]
     #[inline(always)]
     pub const fn mis(self) -> crate::common::Reg<regs::Int, crate::common::R> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x1038usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x1038usize) as _) }
     }
     #[doc = "Interrupt Set Register."]
     #[inline(always)]
     pub const fn iset(self) -> crate::common::Reg<regs::Int, crate::common::W> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x1040usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x1040usize) as _) }
     }
     #[doc = "Interrupt Clear Register."]
     #[inline(always)]
     pub const fn iclr(self) -> crate::common::Reg<regs::Int, crate::common::W> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x1048usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x1048usize) as _) }
     }
     #[doc = "Event Mode."]
     #[inline(always)]
     pub const fn evt_mode(self) -> crate::common::Reg<regs::EvtMode, crate::common::R> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x10e0usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x10e0usize) as _) }
     }
     #[doc = "Hardware Version Description Register."]
     #[inline(always)]
     pub const fn desc(self) -> crate::common::Reg<regs::Desc, crate::common::R> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x10fcusize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x10fcusize) as _) }
     }
     #[doc = "Command Execute Register."]
     #[inline(always)]
     pub const fn cmdexec(self) -> crate::common::Reg<regs::Cmdexec, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x1100usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x1100usize) as _) }
     }
     #[doc = "Command Type Register."]
     #[inline(always)]
     pub const fn cmdtype(self) -> crate::common::Reg<regs::Cmdtype, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x1104usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x1104usize) as _) }
     }
     #[doc = "Command Control Register."]
     #[inline(always)]
     pub const fn cmdctl(self) -> crate::common::Reg<regs::Cmdctl, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x1108usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x1108usize) as _) }
     }
     #[doc = "Command Address Register."]
     #[inline(always)]
     pub const fn cmdaddr(self) -> crate::common::Reg<u32, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x1120usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x1120usize) as _) }
     }
     #[doc = "Command Program Byte Enable Register."]
     #[inline(always)]
     pub const fn cmdbyten(self) -> crate::common::Reg<regs::Cmdbyten, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x1124usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x1124usize) as _) }
     }
     #[doc = "Command Data Index Register."]
     #[inline(always)]
     pub const fn cmddataindex(self) -> crate::common::Reg<regs::Cmddataindex, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x112cusize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x112cusize) as _) }
     }
     #[doc = "Command Data Register 0."]
     #[inline(always)]
     pub const fn cmddata(self, n: usize) -> crate::common::Reg<u32, crate::common::RW> {
         assert!(n < 32usize);
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x1130usize + n * 4usize) as _) }
+        unsafe {
+            crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x1130usize + n * 4usize) as _)
+        }
     }
     #[doc = "Command Data Register ECC 0."]
     #[inline(always)]
@@ -103,82 +105,84 @@ impl Flashctl {
         n: usize,
     ) -> crate::common::Reg<regs::Cmddataecc, crate::common::RW> {
         assert!(n < 8usize);
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x11b0usize + n * 4usize) as _) }
+        unsafe {
+            crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x11b0usize + n * 4usize) as _)
+        }
     }
     #[doc = "Command Write Erase Protect A Register."]
     #[inline(always)]
     pub const fn cmdweprota(self) -> crate::common::Reg<regs::Cmdweprot, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x11d0usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x11d0usize) as _) }
     }
     #[doc = "Command Write Erase Protect B Register."]
     #[inline(always)]
     pub const fn cmdweprotb(self) -> crate::common::Reg<regs::Cmdweprot, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x11d4usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x11d4usize) as _) }
     }
     #[doc = "Command Write Erase Protect C Register."]
     #[inline(always)]
     pub const fn cmdweprotc(self) -> crate::common::Reg<regs::Cmdweprot, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x11d8usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x11d8usize) as _) }
     }
     #[doc = "Command Write Erase Protect Non-Main Register."]
     #[inline(always)]
     pub const fn cmdweprotnm(self) -> crate::common::Reg<regs::Cmdweprot, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x1210usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x1210usize) as _) }
     }
     #[doc = "Command Write Erase Protect Trim Register."]
     #[inline(always)]
     pub const fn cmdweprottr(self) -> crate::common::Reg<regs::Cmdweprot, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x1214usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x1214usize) as _) }
     }
     #[doc = "Command Write Erase Protect Engr Register."]
     #[inline(always)]
     pub const fn cmdweproten(self) -> crate::common::Reg<regs::Cmdweprot, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x1218usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x1218usize) as _) }
     }
     #[doc = "Command Configuration Register."]
     #[inline(always)]
     pub const fn cfgcmd(self) -> crate::common::Reg<regs::Cfgcmd, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x13b0usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x13b0usize) as _) }
     }
     #[doc = "Pulse Counter Configuration Register."]
     #[inline(always)]
     pub const fn cfgpcnt(self) -> crate::common::Reg<regs::Cfgpcnt, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x13b4usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x13b4usize) as _) }
     }
     #[doc = "Command Status Register."]
     #[inline(always)]
     pub const fn statcmd(self) -> crate::common::Reg<regs::Statcmd, crate::common::R> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x13d0usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x13d0usize) as _) }
     }
     #[doc = "Address Status Register."]
     #[inline(always)]
     pub const fn stataddr(self) -> crate::common::Reg<regs::Stataddr, crate::common::R> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x13d4usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x13d4usize) as _) }
     }
     #[doc = "Pulse Count Status Register."]
     #[inline(always)]
     pub const fn statpcnt(self) -> crate::common::Reg<regs::Statpcnt, crate::common::R> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x13d8usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x13d8usize) as _) }
     }
     #[doc = "Mode Status Register."]
     #[inline(always)]
     pub const fn statmode(self) -> crate::common::Reg<regs::Statmode, crate::common::R> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x13dcusize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x13dcusize) as _) }
     }
     #[doc = "Global Information Register 0."]
     #[inline(always)]
     pub const fn gblinfo0(self) -> crate::common::Reg<regs::Gblinfo0, crate::common::R> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x13f0usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x13f0usize) as _) }
     }
     #[doc = "Global Information Register 1."]
     #[inline(always)]
     pub const fn gblinfo1(self) -> crate::common::Reg<regs::Gblinfo1, crate::common::R> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x13f4usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x13f4usize) as _) }
     }
     #[doc = "Global Information Register 2."]
     #[inline(always)]
     pub const fn gblinfo2(self) -> crate::common::Reg<regs::Gblinfo2, crate::common::R> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x13f8usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x13f8usize) as _) }
     }
     #[doc = "Bank Information Register 0."]
     #[inline(always)]
@@ -187,7 +191,9 @@ impl Flashctl {
         n: usize,
     ) -> crate::common::Reg<regs::Bankinfo0, crate::common::R> {
         assert!(n < 5usize);
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x1400usize + n * 16usize) as _) }
+        unsafe {
+            crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x1400usize + n * 16usize) as _)
+        }
     }
     #[doc = "Bank Information Register 1."]
     #[inline(always)]
@@ -196,7 +202,9 @@ impl Flashctl {
         n: usize,
     ) -> crate::common::Reg<regs::Bankinfo1, crate::common::R> {
         assert!(n < 5usize);
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x1404usize + n * 16usize) as _) }
+        unsafe {
+            crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x1404usize + n * 16usize) as _)
+        }
     }
 }
 pub mod regs {
@@ -206,6 +214,7 @@ pub mod regs {
     pub struct Bankinfo0(pub u32);
     impl Bankinfo0 {
         #[doc = "Main region size in sectors Minimum: 0x8 (8) Maximum: 0x200 (512)."]
+        #[must_use]
         #[inline(always)]
         pub const fn mainsize(&self) -> super::vals::BankinfoMainsize {
             let val = (self.0 >> 0usize) & 0x0fff;
@@ -213,7 +222,7 @@ pub mod regs {
         }
         #[doc = "Main region size in sectors Minimum: 0x8 (8) Maximum: 0x200 (512)."]
         #[inline(always)]
-        pub fn set_mainsize(&mut self, val: super::vals::BankinfoMainsize) {
+        pub const fn set_mainsize(&mut self, val: super::vals::BankinfoMainsize) {
             self.0 = (self.0 & !(0x0fff << 0usize)) | (((val.to_bits() as u32) & 0x0fff) << 0usize);
         }
     }
@@ -223,12 +232,26 @@ pub mod regs {
             Bankinfo0(0)
         }
     }
+    impl core::fmt::Debug for Bankinfo0 {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Bankinfo0")
+                .field("mainsize", &self.mainsize())
+                .finish()
+        }
+    }
+    #[cfg(feature = "defmt")]
+    impl defmt::Format for Bankinfo0 {
+        fn format(&self, f: defmt::Formatter) {
+            defmt::write!(f, "Bankinfo0 {{ mainsize: {:?} }}", self.mainsize())
+        }
+    }
     #[doc = "Bank Information Register 1."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Bankinfo1(pub u32);
     impl Bankinfo1 {
         #[doc = "Non-main region size in sectors Minimum: 0x0 (0) Maximum: 0x10 (16)."]
+        #[must_use]
         #[inline(always)]
         pub const fn nonmainsize(&self) -> super::vals::BankinfoNonmainsize {
             let val = (self.0 >> 0usize) & 0xff;
@@ -236,10 +259,11 @@ pub mod regs {
         }
         #[doc = "Non-main region size in sectors Minimum: 0x0 (0) Maximum: 0x10 (16)."]
         #[inline(always)]
-        pub fn set_nonmainsize(&mut self, val: super::vals::BankinfoNonmainsize) {
+        pub const fn set_nonmainsize(&mut self, val: super::vals::BankinfoNonmainsize) {
             self.0 = (self.0 & !(0xff << 0usize)) | (((val.to_bits() as u32) & 0xff) << 0usize);
         }
         #[doc = "Trim region size in sectors Minimum: 0x0 (0) Maximum: 0x10 (16)."]
+        #[must_use]
         #[inline(always)]
         pub const fn trimsize(&self) -> super::vals::BankinfoTrimsize {
             let val = (self.0 >> 8usize) & 0xff;
@@ -247,10 +271,11 @@ pub mod regs {
         }
         #[doc = "Trim region size in sectors Minimum: 0x0 (0) Maximum: 0x10 (16)."]
         #[inline(always)]
-        pub fn set_trimsize(&mut self, val: super::vals::BankinfoTrimsize) {
+        pub const fn set_trimsize(&mut self, val: super::vals::BankinfoTrimsize) {
             self.0 = (self.0 & !(0xff << 8usize)) | (((val.to_bits() as u32) & 0xff) << 8usize);
         }
         #[doc = "Engr region size in sectors Minimum: 0x0 (0) Maximum: 0x10 (16)."]
+        #[must_use]
         #[inline(always)]
         pub const fn engrsize(&self) -> super::vals::BankinfoEngrsize {
             let val = (self.0 >> 16usize) & 0xff;
@@ -258,7 +283,7 @@ pub mod regs {
         }
         #[doc = "Engr region size in sectors Minimum: 0x0 (0) Maximum: 0x10 (16)."]
         #[inline(always)]
-        pub fn set_engrsize(&mut self, val: super::vals::BankinfoEngrsize) {
+        pub const fn set_engrsize(&mut self, val: super::vals::BankinfoEngrsize) {
             self.0 = (self.0 & !(0xff << 16usize)) | (((val.to_bits() as u32) & 0xff) << 16usize);
         }
     }
@@ -268,12 +293,34 @@ pub mod regs {
             Bankinfo1(0)
         }
     }
+    impl core::fmt::Debug for Bankinfo1 {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Bankinfo1")
+                .field("nonmainsize", &self.nonmainsize())
+                .field("trimsize", &self.trimsize())
+                .field("engrsize", &self.engrsize())
+                .finish()
+        }
+    }
+    #[cfg(feature = "defmt")]
+    impl defmt::Format for Bankinfo1 {
+        fn format(&self, f: defmt::Formatter) {
+            defmt::write!(
+                f,
+                "Bankinfo1 {{ nonmainsize: {:?}, trimsize: {:?}, engrsize: {:?} }}",
+                self.nonmainsize(),
+                self.trimsize(),
+                self.engrsize()
+            )
+        }
+    }
     #[doc = "Command Configuration Register."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Cfgcmd(pub u32);
     impl Cfgcmd {
         #[doc = "Wait State setting for program verify, erase verify and read verify."]
+        #[must_use]
         #[inline(always)]
         pub const fn waitstate(&self) -> u8 {
             let val = (self.0 >> 0usize) & 0x0f;
@@ -281,10 +328,11 @@ pub mod regs {
         }
         #[doc = "Wait State setting for program verify, erase verify and read verify."]
         #[inline(always)]
-        pub fn set_waitstate(&mut self, val: u8) {
+        pub const fn set_waitstate(&mut self, val: u8) {
             self.0 = (self.0 & !(0x0f << 0usize)) | (((val as u32) & 0x0f) << 0usize);
         }
         #[doc = "Enable pulse stretching when generating a read clock to the flash bank from the flash wrapper. This effectively divides the read clock driven to the bank in order to avoid minimum pulse width requirements at the bank."]
+        #[must_use]
         #[inline(always)]
         pub const fn rdclkstren(&self) -> bool {
             let val = (self.0 >> 4usize) & 0x01;
@@ -292,10 +340,11 @@ pub mod regs {
         }
         #[doc = "Enable pulse stretching when generating a read clock to the flash bank from the flash wrapper. This effectively divides the read clock driven to the bank in order to avoid minimum pulse width requirements at the bank."]
         #[inline(always)]
-        pub fn set_rdclkstren(&mut self, val: bool) {
+        pub const fn set_rdclkstren(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 4usize)) | (((val as u32) & 0x01) << 4usize);
         }
         #[doc = "Enable pulse stretching when generating a control clock to the flash bank from the flash wrapper. This effectively divides the control clock driven to the bank in order to avoid minimum pulse width requirements at the bank."]
+        #[must_use]
         #[inline(always)]
         pub const fn ctrlclkstren(&self) -> bool {
             let val = (self.0 >> 5usize) & 0x01;
@@ -303,10 +352,11 @@ pub mod regs {
         }
         #[doc = "Enable pulse stretching when generating a control clock to the flash bank from the flash wrapper. This effectively divides the control clock driven to the bank in order to avoid minimum pulse width requirements at the bank."]
         #[inline(always)]
-        pub fn set_ctrlclkstren(&mut self, val: bool) {
+        pub const fn set_ctrlclkstren(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 5usize)) | (((val as u32) & 0x01) << 5usize);
         }
         #[doc = "Enable pulse stretching for the clocking of the hold latches for inputs to the flash bank. This effectively divides the flash controller internal clock in order to create a 50/50 duty cycle clock for hold latching."]
+        #[must_use]
         #[inline(always)]
         pub const fn holdclkstren(&self) -> bool {
             let val = (self.0 >> 6usize) & 0x01;
@@ -314,7 +364,7 @@ pub mod regs {
         }
         #[doc = "Enable pulse stretching for the clocking of the hold latches for inputs to the flash bank. This effectively divides the flash controller internal clock in order to create a 50/50 duty cycle clock for hold latching."]
         #[inline(always)]
-        pub fn set_holdclkstren(&mut self, val: bool) {
+        pub const fn set_holdclkstren(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 6usize)) | (((val as u32) & 0x01) << 6usize);
         }
     }
@@ -324,12 +374,29 @@ pub mod regs {
             Cfgcmd(0)
         }
     }
+    impl core::fmt::Debug for Cfgcmd {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Cfgcmd")
+                .field("waitstate", &self.waitstate())
+                .field("rdclkstren", &self.rdclkstren())
+                .field("ctrlclkstren", &self.ctrlclkstren())
+                .field("holdclkstren", &self.holdclkstren())
+                .finish()
+        }
+    }
+    #[cfg(feature = "defmt")]
+    impl defmt::Format for Cfgcmd {
+        fn format(&self, f: defmt::Formatter) {
+            defmt :: write ! (f , "Cfgcmd {{ waitstate: {=u8:?}, rdclkstren: {=bool:?}, ctrlclkstren: {=bool:?}, holdclkstren: {=bool:?} }}" , self . waitstate () , self . rdclkstren () , self . ctrlclkstren () , self . holdclkstren ())
+        }
+    }
     #[doc = "Pulse Counter Configuration Register."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Cfgpcnt(pub u32);
     impl Cfgpcnt {
         #[doc = "Override hard-wired maximum pulse count. If MAXERSPCNTOVR is not set, then setting this value alone will override the max pulse count for both program and erase. If MAXERSPCNTOVR is set, then this bit will only control the max pulse count setting for program. By default, this bit is 0, and a hard-wired max pulse count is used."]
+        #[must_use]
         #[inline(always)]
         pub const fn maxpcntovr(&self) -> bool {
             let val = (self.0 >> 0usize) & 0x01;
@@ -337,10 +404,11 @@ pub mod regs {
         }
         #[doc = "Override hard-wired maximum pulse count. If MAXERSPCNTOVR is not set, then setting this value alone will override the max pulse count for both program and erase. If MAXERSPCNTOVR is set, then this bit will only control the max pulse count setting for program. By default, this bit is 0, and a hard-wired max pulse count is used."]
         #[inline(always)]
-        pub fn set_maxpcntovr(&mut self, val: bool) {
+        pub const fn set_maxpcntovr(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 0usize)) | (((val as u32) & 0x01) << 0usize);
         }
         #[doc = "Override maximum pulse counter with this value. If MAXPCNTOVR = 0, then this field is ignored. If MAXPCNTOVR = 1 and MAXERSPCNTOVR = 0, then this value will be used to override the max pulse count for both program and erase. Full max value will be {4'h0, MAXPCNTVAL} . If MAXPCNTOVR = 1 and MAXERSPCNTOVR = 1, then this value will be used to override the max pulse count for program only. Full max value will be {4'h0, MAXPCNTVAL}."]
+        #[must_use]
         #[inline(always)]
         pub const fn maxpcntval(&self) -> u8 {
             let val = (self.0 >> 4usize) & 0xff;
@@ -348,10 +416,11 @@ pub mod regs {
         }
         #[doc = "Override maximum pulse counter with this value. If MAXPCNTOVR = 0, then this field is ignored. If MAXPCNTOVR = 1 and MAXERSPCNTOVR = 0, then this value will be used to override the max pulse count for both program and erase. Full max value will be {4'h0, MAXPCNTVAL} . If MAXPCNTOVR = 1 and MAXERSPCNTOVR = 1, then this value will be used to override the max pulse count for program only. Full max value will be {4'h0, MAXPCNTVAL}."]
         #[inline(always)]
-        pub fn set_maxpcntval(&mut self, val: u8) {
+        pub const fn set_maxpcntval(&mut self, val: u8) {
             self.0 = (self.0 & !(0xff << 4usize)) | (((val as u32) & 0xff) << 4usize);
         }
         #[doc = "Override hard-wired maximum pulse count for erase. If set, then the value in MAXERSPCNTVAL will be used as the max pulse count for erase operations. By default, this bit is 0, and a hard-wired max pulse count is used."]
+        #[must_use]
         #[inline(always)]
         pub const fn maxerspcntovr(&self) -> bool {
             let val = (self.0 >> 16usize) & 0x01;
@@ -359,10 +428,11 @@ pub mod regs {
         }
         #[doc = "Override hard-wired maximum pulse count for erase. If set, then the value in MAXERSPCNTVAL will be used as the max pulse count for erase operations. By default, this bit is 0, and a hard-wired max pulse count is used."]
         #[inline(always)]
-        pub fn set_maxerspcntovr(&mut self, val: bool) {
+        pub const fn set_maxerspcntovr(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 16usize)) | (((val as u32) & 0x01) << 16usize);
         }
         #[doc = "Override maximum pulse count for erase with this value. If MAXERSPCNTOVR = 0, then this field is ignored. If MAXERSPCNTOVR = 1, then this value will be used to override the max pulse count for erase."]
+        #[must_use]
         #[inline(always)]
         pub const fn maxerspcntval(&self) -> u16 {
             let val = (self.0 >> 20usize) & 0x0fff;
@@ -370,7 +440,7 @@ pub mod regs {
         }
         #[doc = "Override maximum pulse count for erase with this value. If MAXERSPCNTOVR = 0, then this field is ignored. If MAXERSPCNTOVR = 1, then this value will be used to override the max pulse count for erase."]
         #[inline(always)]
-        pub fn set_maxerspcntval(&mut self, val: u16) {
+        pub const fn set_maxerspcntval(&mut self, val: u16) {
             self.0 = (self.0 & !(0x0fff << 20usize)) | (((val as u32) & 0x0fff) << 20usize);
         }
     }
@@ -380,12 +450,29 @@ pub mod regs {
             Cfgpcnt(0)
         }
     }
+    impl core::fmt::Debug for Cfgpcnt {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Cfgpcnt")
+                .field("maxpcntovr", &self.maxpcntovr())
+                .field("maxpcntval", &self.maxpcntval())
+                .field("maxerspcntovr", &self.maxerspcntovr())
+                .field("maxerspcntval", &self.maxerspcntval())
+                .finish()
+        }
+    }
+    #[cfg(feature = "defmt")]
+    impl defmt::Format for Cfgpcnt {
+        fn format(&self, f: defmt::Formatter) {
+            defmt :: write ! (f , "Cfgpcnt {{ maxpcntovr: {=bool:?}, maxpcntval: {=u8:?}, maxerspcntovr: {=bool:?}, maxerspcntval: {=u16:?} }}" , self . maxpcntovr () , self . maxpcntval () , self . maxerspcntovr () , self . maxerspcntval ())
+        }
+    }
     #[doc = "Command Program Byte Enable Register. Controls which bytes of the flash word (including ECC) are active."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Cmdbyten(pub u32);
     impl Cmdbyten {
         #[doc = "Data byte enable. Each bit controls one flash byte within a flash word."]
+        #[must_use]
         #[inline(always)]
         pub const fn data(&self, n: usize) -> bool {
             assert!(n < 8usize);
@@ -395,12 +482,13 @@ pub mod regs {
         }
         #[doc = "Data byte enable. Each bit controls one flash byte within a flash word."]
         #[inline(always)]
-        pub fn set_data(&mut self, n: usize, val: bool) {
+        pub const fn set_data(&mut self, n: usize, val: bool) {
             assert!(n < 8usize);
             let offs = 0usize + n * 1usize;
             self.0 = (self.0 & !(0x01 << offs)) | (((val as u32) & 0x01) << offs);
         }
         #[doc = "ECC byte enable. Controls if the ECC byte is active."]
+        #[must_use]
         #[inline(always)]
         pub const fn ecc(&self) -> bool {
             let val = (self.0 >> 8usize) & 0x01;
@@ -408,7 +496,7 @@ pub mod regs {
         }
         #[doc = "ECC byte enable. Controls if the ECC byte is active."]
         #[inline(always)]
-        pub fn set_ecc(&mut self, val: bool) {
+        pub const fn set_ecc(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 8usize)) | (((val as u32) & 0x01) << 8usize);
         }
     }
@@ -418,12 +506,34 @@ pub mod regs {
             Cmdbyten(0)
         }
     }
+    impl core::fmt::Debug for Cmdbyten {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Cmdbyten")
+                .field("data[0]", &self.data(0usize))
+                .field("data[1]", &self.data(1usize))
+                .field("data[2]", &self.data(2usize))
+                .field("data[3]", &self.data(3usize))
+                .field("data[4]", &self.data(4usize))
+                .field("data[5]", &self.data(5usize))
+                .field("data[6]", &self.data(6usize))
+                .field("data[7]", &self.data(7usize))
+                .field("ecc", &self.ecc())
+                .finish()
+        }
+    }
+    #[cfg(feature = "defmt")]
+    impl defmt::Format for Cmdbyten {
+        fn format(&self, f: defmt::Formatter) {
+            defmt :: write ! (f , "Cmdbyten {{ data[0]: {=bool:?}, data[1]: {=bool:?}, data[2]: {=bool:?}, data[3]: {=bool:?}, data[4]: {=bool:?}, data[5]: {=bool:?}, data[6]: {=bool:?}, data[7]: {=bool:?}, ecc: {=bool:?} }}" , self . data (0usize) , self . data (1usize) , self . data (2usize) , self . data (3usize) , self . data (4usize) , self . data (5usize) , self . data (6usize) , self . data (7usize) , self . ecc ())
+        }
+    }
     #[doc = "Command Control Register."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Cmdctl(pub u32);
     impl Cmdctl {
         #[doc = "Mode This field is only used for the Mode Change command type. Otherwise, bank and pump modes are set automaticlly through the NW hardware."]
+        #[must_use]
         #[inline(always)]
         pub const fn modesel(&self) -> super::vals::Mode {
             let val = (self.0 >> 0usize) & 0x0f;
@@ -431,10 +541,11 @@ pub mod regs {
         }
         #[doc = "Mode This field is only used for the Mode Change command type. Otherwise, bank and pump modes are set automaticlly through the NW hardware."]
         #[inline(always)]
-        pub fn set_modesel(&mut self, val: super::vals::Mode) {
+        pub const fn set_modesel(&mut self, val: super::vals::Mode) {
             self.0 = (self.0 & !(0x0f << 0usize)) | (((val.to_bits() as u32) & 0x0f) << 0usize);
         }
         #[doc = "Bank Select A specific Bank ID can be written to this field to indicate to which bank an operation is to be applied if CMDCTL.ADDRXLATEOVR is set."]
+        #[must_use]
         #[inline(always)]
         pub const fn banksel(&self) -> super::vals::Bank {
             let val = (self.0 >> 4usize) & 0x1f;
@@ -442,10 +553,11 @@ pub mod regs {
         }
         #[doc = "Bank Select A specific Bank ID can be written to this field to indicate to which bank an operation is to be applied if CMDCTL.ADDRXLATEOVR is set."]
         #[inline(always)]
-        pub fn set_banksel(&mut self, val: super::vals::Bank) {
+        pub const fn set_banksel(&mut self, val: super::vals::Bank) {
             self.0 = (self.0 & !(0x1f << 4usize)) | (((val.to_bits() as u32) & 0x1f) << 4usize);
         }
         #[doc = "Bank Region A specific region ID can be written to this field to indicate to which region an operation is to be applied if CMDCTL.ADDRXLATEOVR is set."]
+        #[must_use]
         #[inline(always)]
         pub const fn regionsel(&self) -> super::vals::Regionsel {
             let val = (self.0 >> 9usize) & 0x0f;
@@ -453,10 +565,11 @@ pub mod regs {
         }
         #[doc = "Bank Region A specific region ID can be written to this field to indicate to which region an operation is to be applied if CMDCTL.ADDRXLATEOVR is set."]
         #[inline(always)]
-        pub fn set_regionsel(&mut self, val: super::vals::Regionsel) {
+        pub const fn set_regionsel(&mut self, val: super::vals::Regionsel) {
             self.0 = (self.0 & !(0x0f << 9usize)) | (((val.to_bits() as u32) & 0x0f) << 9usize);
         }
         #[doc = "Enable verify before program or erase. For program, bits already programmed to the requests value will be masked. For erase, sectors already erased will be masked."]
+        #[must_use]
         #[inline(always)]
         pub const fn preveren(&self) -> bool {
             let val = (self.0 >> 14usize) & 0x01;
@@ -464,10 +577,11 @@ pub mod regs {
         }
         #[doc = "Enable verify before program or erase. For program, bits already programmed to the requests value will be masked. For erase, sectors already erased will be masked."]
         #[inline(always)]
-        pub fn set_preveren(&mut self, val: bool) {
+        pub const fn set_preveren(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 14usize)) | (((val as u32) & 0x01) << 14usize);
         }
         #[doc = "Enable verify after program or erase"]
+        #[must_use]
         #[inline(always)]
         pub const fn postveren(&self) -> bool {
             let val = (self.0 >> 15usize) & 0x01;
@@ -475,10 +589,11 @@ pub mod regs {
         }
         #[doc = "Enable verify after program or erase"]
         #[inline(always)]
-        pub fn set_postveren(&mut self, val: bool) {
+        pub const fn set_postveren(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 15usize)) | (((val as u32) & 0x01) << 15usize);
         }
         #[doc = "Override hardware address translation of address in CMDADDR from a system address to a bank address and bank ID. Use data written to CMDADDR directly as the bank address. Use the value written to CMDCTL.BANKSEL directly as the bank ID. Use the value written to CMDCTL.REGIONSEL directly as the region ID."]
+        #[must_use]
         #[inline(always)]
         pub const fn addrxlateovr(&self) -> bool {
             let val = (self.0 >> 16usize) & 0x01;
@@ -486,10 +601,11 @@ pub mod regs {
         }
         #[doc = "Override hardware address translation of address in CMDADDR from a system address to a bank address and bank ID. Use data written to CMDADDR directly as the bank address. Use the value written to CMDCTL.BANKSEL directly as the bank ID. Use the value written to CMDCTL.REGIONSEL directly as the region ID."]
         #[inline(always)]
-        pub fn set_addrxlateovr(&mut self, val: bool) {
+        pub const fn set_addrxlateovr(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 16usize)) | (((val as u32) & 0x01) << 16usize);
         }
         #[doc = "Override hardware generation of ECC data for program. Use data written to CMDDATAECC*."]
+        #[must_use]
         #[inline(always)]
         pub const fn eccgenovr(&self) -> bool {
             let val = (self.0 >> 17usize) & 0x01;
@@ -497,10 +613,11 @@ pub mod regs {
         }
         #[doc = "Override hardware generation of ECC data for program. Use data written to CMDDATAECC*."]
         #[inline(always)]
-        pub fn set_eccgenovr(&mut self, val: bool) {
+        pub const fn set_eccgenovr(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 17usize)) | (((val as u32) & 0x01) << 17usize);
         }
         #[doc = "Disable use of program mask for programming. Bit masking will not be used during program verify. If any bits fail the verify either before (prever) or after (postver) the operation, then all specified flash entries will receive subsequent program pulse."]
+        #[must_use]
         #[inline(always)]
         pub const fn progmaskdis(&self) -> bool {
             let val = (self.0 >> 18usize) & 0x01;
@@ -508,10 +625,11 @@ pub mod regs {
         }
         #[doc = "Disable use of program mask for programming. Bit masking will not be used during program verify. If any bits fail the verify either before (prever) or after (postver) the operation, then all specified flash entries will receive subsequent program pulse."]
         #[inline(always)]
-        pub fn set_progmaskdis(&mut self, val: bool) {
+        pub const fn set_progmaskdis(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 18usize)) | (((val as u32) & 0x01) << 18usize);
         }
         #[doc = "Disable use of erase mask for erase Bit masking will not be used during erase verify. If any sectors fail the verify either before (prever) or after (postver) the operation, then all specified flash sectors will receive subsequent erase pulse."]
+        #[must_use]
         #[inline(always)]
         pub const fn erasemaskdis(&self) -> bool {
             let val = (self.0 >> 19usize) & 0x01;
@@ -519,10 +637,11 @@ pub mod regs {
         }
         #[doc = "Disable use of erase mask for erase Bit masking will not be used during erase verify. If any sectors fail the verify either before (prever) or after (postver) the operation, then all specified flash sectors will receive subsequent erase pulse."]
         #[inline(always)]
-        pub fn set_erasemaskdis(&mut self, val: bool) {
+        pub const fn set_erasemaskdis(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 19usize)) | (((val as u32) & 0x01) << 19usize);
         }
         #[doc = "Disable Stair-Step Erase. If set, the default VHV trim voltage setting will be used for all erase pulses. By default, this bit is reset, meaning that the VHV voltage will be stepped during successive erase pulses. The step count, step voltage, begin and end voltages are all hard-wired."]
+        #[must_use]
         #[inline(always)]
         pub const fn sserasedis(&self) -> bool {
             let val = (self.0 >> 20usize) & 0x01;
@@ -530,10 +649,11 @@ pub mod regs {
         }
         #[doc = "Disable Stair-Step Erase. If set, the default VHV trim voltage setting will be used for all erase pulses. By default, this bit is reset, meaning that the VHV voltage will be stepped during successive erase pulses. The step count, step voltage, begin and end voltages are all hard-wired."]
         #[inline(always)]
-        pub fn set_sserasedis(&mut self, val: bool) {
+        pub const fn set_sserasedis(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 20usize)) | (((val as u32) & 0x01) << 20usize);
         }
         #[doc = "Enable invalid data verify. This checks for 0->1 transitions in the memory when a program operation is initiated. If such a transition is found, the program will fail with an error without executing the program."]
+        #[must_use]
         #[inline(always)]
         pub const fn dataveren(&self) -> bool {
             let val = (self.0 >> 21usize) & 0x01;
@@ -541,7 +661,7 @@ pub mod regs {
         }
         #[doc = "Enable invalid data verify. This checks for 0->1 transitions in the memory when a program operation is initiated. If such a transition is found, the program will fail with an error without executing the program."]
         #[inline(always)]
-        pub fn set_dataveren(&mut self, val: bool) {
+        pub const fn set_dataveren(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 21usize)) | (((val as u32) & 0x01) << 21usize);
         }
     }
@@ -551,12 +671,36 @@ pub mod regs {
             Cmdctl(0)
         }
     }
+    impl core::fmt::Debug for Cmdctl {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Cmdctl")
+                .field("modesel", &self.modesel())
+                .field("banksel", &self.banksel())
+                .field("regionsel", &self.regionsel())
+                .field("preveren", &self.preveren())
+                .field("postveren", &self.postveren())
+                .field("addrxlateovr", &self.addrxlateovr())
+                .field("eccgenovr", &self.eccgenovr())
+                .field("progmaskdis", &self.progmaskdis())
+                .field("erasemaskdis", &self.erasemaskdis())
+                .field("sserasedis", &self.sserasedis())
+                .field("dataveren", &self.dataveren())
+                .finish()
+        }
+    }
+    #[cfg(feature = "defmt")]
+    impl defmt::Format for Cmdctl {
+        fn format(&self, f: defmt::Formatter) {
+            defmt :: write ! (f , "Cmdctl {{ modesel: {:?}, banksel: {:?}, regionsel: {:?}, preveren: {=bool:?}, postveren: {=bool:?}, addrxlateovr: {=bool:?}, eccgenovr: {=bool:?}, progmaskdis: {=bool:?}, erasemaskdis: {=bool:?}, sserasedis: {=bool:?}, dataveren: {=bool:?} }}" , self . modesel () , self . banksel () , self . regionsel () , self . preveren () , self . postveren () , self . addrxlateovr () , self . eccgenovr () , self . progmaskdis () , self . erasemaskdis () , self . sserasedis () , self . dataveren ())
+        }
+    }
     #[doc = "Command Data Register ECC 0."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Cmddataecc(pub u32);
     impl Cmddataecc {
         #[doc = "ECC data for bits 63:0 of the data is placed here."]
+        #[must_use]
         #[inline(always)]
         pub const fn val0(&self) -> u8 {
             let val = (self.0 >> 0usize) & 0xff;
@@ -564,10 +708,11 @@ pub mod regs {
         }
         #[doc = "ECC data for bits 63:0 of the data is placed here."]
         #[inline(always)]
-        pub fn set_val0(&mut self, val: u8) {
+        pub const fn set_val0(&mut self, val: u8) {
             self.0 = (self.0 & !(0xff << 0usize)) | (((val as u32) & 0xff) << 0usize);
         }
         #[doc = "ECC data for bits 127:64 of the data is placed here."]
+        #[must_use]
         #[inline(always)]
         pub const fn val1(&self) -> u8 {
             let val = (self.0 >> 8usize) & 0xff;
@@ -575,7 +720,7 @@ pub mod regs {
         }
         #[doc = "ECC data for bits 127:64 of the data is placed here."]
         #[inline(always)]
-        pub fn set_val1(&mut self, val: u8) {
+        pub const fn set_val1(&mut self, val: u8) {
             self.0 = (self.0 & !(0xff << 8usize)) | (((val as u32) & 0xff) << 8usize);
         }
     }
@@ -585,12 +730,32 @@ pub mod regs {
             Cmddataecc(0)
         }
     }
+    impl core::fmt::Debug for Cmddataecc {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Cmddataecc")
+                .field("val0", &self.val0())
+                .field("val1", &self.val1())
+                .finish()
+        }
+    }
+    #[cfg(feature = "defmt")]
+    impl defmt::Format for Cmddataecc {
+        fn format(&self, f: defmt::Formatter) {
+            defmt::write!(
+                f,
+                "Cmddataecc {{ val0: {=u8:?}, val1: {=u8:?} }}",
+                self.val0(),
+                self.val1()
+            )
+        }
+    }
     #[doc = "Command Data Index Register."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Cmddataindex(pub u32);
     impl Cmddataindex {
         #[doc = "Data register index."]
+        #[must_use]
         #[inline(always)]
         pub const fn val(&self) -> u8 {
             let val = (self.0 >> 0usize) & 0x07;
@@ -598,7 +763,7 @@ pub mod regs {
         }
         #[doc = "Data register index."]
         #[inline(always)]
-        pub fn set_val(&mut self, val: u8) {
+        pub const fn set_val(&mut self, val: u8) {
             self.0 = (self.0 & !(0x07 << 0usize)) | (((val as u32) & 0x07) << 0usize);
         }
     }
@@ -608,12 +773,26 @@ pub mod regs {
             Cmddataindex(0)
         }
     }
+    impl core::fmt::Debug for Cmddataindex {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Cmddataindex")
+                .field("val", &self.val())
+                .finish()
+        }
+    }
+    #[cfg(feature = "defmt")]
+    impl defmt::Format for Cmddataindex {
+        fn format(&self, f: defmt::Formatter) {
+            defmt::write!(f, "Cmddataindex {{ val: {=u8:?} }}", self.val())
+        }
+    }
     #[doc = "Command Execute Register."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Cmdexec(pub u32);
     impl Cmdexec {
         #[doc = "Command Execute value. Initiates execution of the command specified in the CMDTYPE register. This register is blocked for writes after being written to 1 and prior to STATCMD.DONE being set by the flash wrapper hardware. Flash wrapper hardware clears this register after the processing of the command has completed."]
+        #[must_use]
         #[inline(always)]
         pub const fn val(&self) -> bool {
             let val = (self.0 >> 0usize) & 0x01;
@@ -621,7 +800,7 @@ pub mod regs {
         }
         #[doc = "Command Execute value. Initiates execution of the command specified in the CMDTYPE register. This register is blocked for writes after being written to 1 and prior to STATCMD.DONE being set by the flash wrapper hardware. Flash wrapper hardware clears this register after the processing of the command has completed."]
         #[inline(always)]
-        pub fn set_val(&mut self, val: bool) {
+        pub const fn set_val(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 0usize)) | (((val as u32) & 0x01) << 0usize);
         }
     }
@@ -631,12 +810,24 @@ pub mod regs {
             Cmdexec(0)
         }
     }
+    impl core::fmt::Debug for Cmdexec {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Cmdexec").field("val", &self.val()).finish()
+        }
+    }
+    #[cfg(feature = "defmt")]
+    impl defmt::Format for Cmdexec {
+        fn format(&self, f: defmt::Formatter) {
+            defmt::write!(f, "Cmdexec {{ val: {=bool:?} }}", self.val())
+        }
+    }
     #[doc = "Command Type Register."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Cmdtype(pub u32);
     impl Cmdtype {
         #[doc = "Command type."]
+        #[must_use]
         #[inline(always)]
         pub const fn command(&self) -> super::vals::Command {
             let val = (self.0 >> 0usize) & 0x07;
@@ -644,10 +835,11 @@ pub mod regs {
         }
         #[doc = "Command type."]
         #[inline(always)]
-        pub fn set_command(&mut self, val: super::vals::Command) {
+        pub const fn set_command(&mut self, val: super::vals::Command) {
             self.0 = (self.0 & !(0x07 << 0usize)) | (((val.to_bits() as u32) & 0x07) << 0usize);
         }
         #[doc = "Command size."]
+        #[must_use]
         #[inline(always)]
         pub const fn size(&self) -> super::vals::Size {
             let val = (self.0 >> 4usize) & 0x07;
@@ -655,7 +847,7 @@ pub mod regs {
         }
         #[doc = "Command size."]
         #[inline(always)]
-        pub fn set_size(&mut self, val: super::vals::Size) {
+        pub const fn set_size(&mut self, val: super::vals::Size) {
             self.0 = (self.0 & !(0x07 << 4usize)) | (((val.to_bits() as u32) & 0x07) << 4usize);
         }
     }
@@ -665,12 +857,32 @@ pub mod regs {
             Cmdtype(0)
         }
     }
+    impl core::fmt::Debug for Cmdtype {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Cmdtype")
+                .field("command", &self.command())
+                .field("size", &self.size())
+                .finish()
+        }
+    }
+    #[cfg(feature = "defmt")]
+    impl defmt::Format for Cmdtype {
+        fn format(&self, f: defmt::Formatter) {
+            defmt::write!(
+                f,
+                "Cmdtype {{ command: {:?}, size: {:?} }}",
+                self.command(),
+                self.size()
+            )
+        }
+    }
     #[doc = "Command write enable protection register"]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Cmdweprot(pub u32);
     impl Cmdweprot {
         #[doc = "Region of flash being write (un)protected"]
+        #[must_use]
         #[inline(always)]
         pub const fn region(&self, n: usize) -> bool {
             assert!(n < 32usize);
@@ -680,7 +892,7 @@ pub mod regs {
         }
         #[doc = "Region of flash being write (un)protected"]
         #[inline(always)]
-        pub fn set_region(&mut self, n: usize, val: bool) {
+        pub const fn set_region(&mut self, n: usize, val: bool) {
             assert!(n < 32usize);
             let offs = 0usize + n * 1usize;
             self.0 = (self.0 & !(0x01 << offs)) | (((val as u32) & 0x01) << offs);
@@ -692,12 +904,57 @@ pub mod regs {
             Cmdweprot(0)
         }
     }
+    impl core::fmt::Debug for Cmdweprot {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Cmdweprot")
+                .field("region[0]", &self.region(0usize))
+                .field("region[1]", &self.region(1usize))
+                .field("region[2]", &self.region(2usize))
+                .field("region[3]", &self.region(3usize))
+                .field("region[4]", &self.region(4usize))
+                .field("region[5]", &self.region(5usize))
+                .field("region[6]", &self.region(6usize))
+                .field("region[7]", &self.region(7usize))
+                .field("region[8]", &self.region(8usize))
+                .field("region[9]", &self.region(9usize))
+                .field("region[10]", &self.region(10usize))
+                .field("region[11]", &self.region(11usize))
+                .field("region[12]", &self.region(12usize))
+                .field("region[13]", &self.region(13usize))
+                .field("region[14]", &self.region(14usize))
+                .field("region[15]", &self.region(15usize))
+                .field("region[16]", &self.region(16usize))
+                .field("region[17]", &self.region(17usize))
+                .field("region[18]", &self.region(18usize))
+                .field("region[19]", &self.region(19usize))
+                .field("region[20]", &self.region(20usize))
+                .field("region[21]", &self.region(21usize))
+                .field("region[22]", &self.region(22usize))
+                .field("region[23]", &self.region(23usize))
+                .field("region[24]", &self.region(24usize))
+                .field("region[25]", &self.region(25usize))
+                .field("region[26]", &self.region(26usize))
+                .field("region[27]", &self.region(27usize))
+                .field("region[28]", &self.region(28usize))
+                .field("region[29]", &self.region(29usize))
+                .field("region[30]", &self.region(30usize))
+                .field("region[31]", &self.region(31usize))
+                .finish()
+        }
+    }
+    #[cfg(feature = "defmt")]
+    impl defmt::Format for Cmdweprot {
+        fn format(&self, f: defmt::Formatter) {
+            defmt :: write ! (f , "Cmdweprot {{ region[0]: {=bool:?}, region[1]: {=bool:?}, region[2]: {=bool:?}, region[3]: {=bool:?}, region[4]: {=bool:?}, region[5]: {=bool:?}, region[6]: {=bool:?}, region[7]: {=bool:?}, region[8]: {=bool:?}, region[9]: {=bool:?}, region[10]: {=bool:?}, region[11]: {=bool:?}, region[12]: {=bool:?}, region[13]: {=bool:?}, region[14]: {=bool:?}, region[15]: {=bool:?}, region[16]: {=bool:?}, region[17]: {=bool:?}, region[18]: {=bool:?}, region[19]: {=bool:?}, region[20]: {=bool:?}, region[21]: {=bool:?}, region[22]: {=bool:?}, region[23]: {=bool:?}, region[24]: {=bool:?}, region[25]: {=bool:?}, region[26]: {=bool:?}, region[27]: {=bool:?}, region[28]: {=bool:?}, region[29]: {=bool:?}, region[30]: {=bool:?}, region[31]: {=bool:?} }}" , self . region (0usize) , self . region (1usize) , self . region (2usize) , self . region (3usize) , self . region (4usize) , self . region (5usize) , self . region (6usize) , self . region (7usize) , self . region (8usize) , self . region (9usize) , self . region (10usize) , self . region (11usize) , self . region (12usize) , self . region (13usize) , self . region (14usize) , self . region (15usize) , self . region (16usize) , self . region (17usize) , self . region (18usize) , self . region (19usize) , self . region (20usize) , self . region (21usize) , self . region (22usize) , self . region (23usize) , self . region (24usize) , self . region (25usize) , self . region (26usize) , self . region (27usize) , self . region (28usize) , self . region (29usize) , self . region (30usize) , self . region (31usize))
+        }
+    }
     #[doc = "Hardware Version Description Register."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Desc(pub u32);
     impl Desc {
         #[doc = "Minor Revision."]
+        #[must_use]
         #[inline(always)]
         pub const fn minrev(&self) -> u8 {
             let val = (self.0 >> 0usize) & 0x0f;
@@ -705,10 +962,11 @@ pub mod regs {
         }
         #[doc = "Minor Revision."]
         #[inline(always)]
-        pub fn set_minrev(&mut self, val: u8) {
+        pub const fn set_minrev(&mut self, val: u8) {
             self.0 = (self.0 & !(0x0f << 0usize)) | (((val as u32) & 0x0f) << 0usize);
         }
         #[doc = "Major Revision."]
+        #[must_use]
         #[inline(always)]
         pub const fn majrev(&self) -> u8 {
             let val = (self.0 >> 4usize) & 0x0f;
@@ -716,10 +974,11 @@ pub mod regs {
         }
         #[doc = "Major Revision."]
         #[inline(always)]
-        pub fn set_majrev(&mut self, val: u8) {
+        pub const fn set_majrev(&mut self, val: u8) {
             self.0 = (self.0 & !(0x0f << 4usize)) | (((val as u32) & 0x0f) << 4usize);
         }
         #[doc = "Instance number."]
+        #[must_use]
         #[inline(always)]
         pub const fn instnum(&self) -> u8 {
             let val = (self.0 >> 8usize) & 0x0f;
@@ -727,10 +986,11 @@ pub mod regs {
         }
         #[doc = "Instance number."]
         #[inline(always)]
-        pub fn set_instnum(&mut self, val: u8) {
+        pub const fn set_instnum(&mut self, val: u8) {
             self.0 = (self.0 & !(0x0f << 8usize)) | (((val as u32) & 0x0f) << 8usize);
         }
         #[doc = "Feature set."]
+        #[must_use]
         #[inline(always)]
         pub const fn featurever(&self) -> u8 {
             let val = (self.0 >> 12usize) & 0x0f;
@@ -738,10 +998,11 @@ pub mod regs {
         }
         #[doc = "Feature set."]
         #[inline(always)]
-        pub fn set_featurever(&mut self, val: u8) {
+        pub const fn set_featurever(&mut self, val: u8) {
             self.0 = (self.0 & !(0x0f << 12usize)) | (((val as u32) & 0x0f) << 12usize);
         }
         #[doc = "Module ID."]
+        #[must_use]
         #[inline(always)]
         pub const fn moduleid(&self) -> u16 {
             let val = (self.0 >> 16usize) & 0xffff;
@@ -749,7 +1010,7 @@ pub mod regs {
         }
         #[doc = "Module ID."]
         #[inline(always)]
-        pub fn set_moduleid(&mut self, val: u16) {
+        pub const fn set_moduleid(&mut self, val: u16) {
             self.0 = (self.0 & !(0xffff << 16usize)) | (((val as u32) & 0xffff) << 16usize);
         }
     }
@@ -759,12 +1020,30 @@ pub mod regs {
             Desc(0)
         }
     }
+    impl core::fmt::Debug for Desc {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Desc")
+                .field("minrev", &self.minrev())
+                .field("majrev", &self.majrev())
+                .field("instnum", &self.instnum())
+                .field("featurever", &self.featurever())
+                .field("moduleid", &self.moduleid())
+                .finish()
+        }
+    }
+    #[cfg(feature = "defmt")]
+    impl defmt::Format for Desc {
+        fn format(&self, f: defmt::Formatter) {
+            defmt :: write ! (f , "Desc {{ minrev: {=u8:?}, majrev: {=u8:?}, instnum: {=u8:?}, featurever: {=u8:?}, moduleid: {=u16:?} }}" , self . minrev () , self . majrev () , self . instnum () , self . featurever () , self . moduleid ())
+        }
+    }
     #[doc = "Event Mode."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct EvtMode(pub u32);
     impl EvtMode {
         #[doc = "Event line mode select for peripheral event."]
+        #[must_use]
         #[inline(always)]
         pub const fn int0_cfg(&self) -> super::vals::Int0Cfg {
             let val = (self.0 >> 0usize) & 0x03;
@@ -772,7 +1051,7 @@ pub mod regs {
         }
         #[doc = "Event line mode select for peripheral event."]
         #[inline(always)]
-        pub fn set_int0_cfg(&mut self, val: super::vals::Int0Cfg) {
+        pub const fn set_int0_cfg(&mut self, val: super::vals::Int0Cfg) {
             self.0 = (self.0 & !(0x03 << 0usize)) | (((val.to_bits() as u32) & 0x03) << 0usize);
         }
     }
@@ -782,12 +1061,26 @@ pub mod regs {
             EvtMode(0)
         }
     }
+    impl core::fmt::Debug for EvtMode {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("EvtMode")
+                .field("int0_cfg", &self.int0_cfg())
+                .finish()
+        }
+    }
+    #[cfg(feature = "defmt")]
+    impl defmt::Format for EvtMode {
+        fn format(&self, f: defmt::Formatter) {
+            defmt::write!(f, "EvtMode {{ int0_cfg: {:?} }}", self.int0_cfg())
+        }
+    }
     #[doc = "Global Information Register 0."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Gblinfo0(pub u32);
     impl Gblinfo0 {
         #[doc = "Sector size in bytes."]
+        #[must_use]
         #[inline(always)]
         pub const fn sectorsize(&self) -> super::vals::Sectorsize {
             let val = (self.0 >> 0usize) & 0xffff;
@@ -795,10 +1088,11 @@ pub mod regs {
         }
         #[doc = "Sector size in bytes."]
         #[inline(always)]
-        pub fn set_sectorsize(&mut self, val: super::vals::Sectorsize) {
+        pub const fn set_sectorsize(&mut self, val: super::vals::Sectorsize) {
             self.0 = (self.0 & !(0xffff << 0usize)) | (((val.to_bits() as u32) & 0xffff) << 0usize);
         }
         #[doc = "Number of banks instantiated Minimum: 1 Maximum: 5."]
+        #[must_use]
         #[inline(always)]
         pub const fn numbanks(&self) -> super::vals::Numbanks {
             let val = (self.0 >> 16usize) & 0x07;
@@ -806,7 +1100,7 @@ pub mod regs {
         }
         #[doc = "Number of banks instantiated Minimum: 1 Maximum: 5."]
         #[inline(always)]
-        pub fn set_numbanks(&mut self, val: super::vals::Numbanks) {
+        pub const fn set_numbanks(&mut self, val: super::vals::Numbanks) {
             self.0 = (self.0 & !(0x07 << 16usize)) | (((val.to_bits() as u32) & 0x07) << 16usize);
         }
     }
@@ -816,12 +1110,32 @@ pub mod regs {
             Gblinfo0(0)
         }
     }
+    impl core::fmt::Debug for Gblinfo0 {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Gblinfo0")
+                .field("sectorsize", &self.sectorsize())
+                .field("numbanks", &self.numbanks())
+                .finish()
+        }
+    }
+    #[cfg(feature = "defmt")]
+    impl defmt::Format for Gblinfo0 {
+        fn format(&self, f: defmt::Formatter) {
+            defmt::write!(
+                f,
+                "Gblinfo0 {{ sectorsize: {:?}, numbanks: {:?} }}",
+                self.sectorsize(),
+                self.numbanks()
+            )
+        }
+    }
     #[doc = "Global Information Register 1."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Gblinfo1(pub u32);
     impl Gblinfo1 {
         #[doc = "Data width in bits."]
+        #[must_use]
         #[inline(always)]
         pub const fn datawidth(&self) -> super::vals::Datawidth {
             let val = (self.0 >> 0usize) & 0xff;
@@ -829,10 +1143,11 @@ pub mod regs {
         }
         #[doc = "Data width in bits."]
         #[inline(always)]
-        pub fn set_datawidth(&mut self, val: super::vals::Datawidth) {
+        pub const fn set_datawidth(&mut self, val: super::vals::Datawidth) {
             self.0 = (self.0 & !(0xff << 0usize)) | (((val.to_bits() as u32) & 0xff) << 0usize);
         }
         #[doc = "ECC data width in bits."]
+        #[must_use]
         #[inline(always)]
         pub const fn eccwidth(&self) -> super::vals::Eccwidth {
             let val = (self.0 >> 8usize) & 0x1f;
@@ -840,10 +1155,11 @@ pub mod regs {
         }
         #[doc = "ECC data width in bits."]
         #[inline(always)]
-        pub fn set_eccwidth(&mut self, val: super::vals::Eccwidth) {
+        pub const fn set_eccwidth(&mut self, val: super::vals::Eccwidth) {
             self.0 = (self.0 & !(0x1f << 8usize)) | (((val.to_bits() as u32) & 0x1f) << 8usize);
         }
         #[doc = "Redundant data width in bits."]
+        #[must_use]
         #[inline(always)]
         pub const fn redwidth(&self) -> super::vals::Redwidth {
             let val = (self.0 >> 16usize) & 0x07;
@@ -851,7 +1167,7 @@ pub mod regs {
         }
         #[doc = "Redundant data width in bits."]
         #[inline(always)]
-        pub fn set_redwidth(&mut self, val: super::vals::Redwidth) {
+        pub const fn set_redwidth(&mut self, val: super::vals::Redwidth) {
             self.0 = (self.0 & !(0x07 << 16usize)) | (((val.to_bits() as u32) & 0x07) << 16usize);
         }
     }
@@ -861,12 +1177,34 @@ pub mod regs {
             Gblinfo1(0)
         }
     }
+    impl core::fmt::Debug for Gblinfo1 {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Gblinfo1")
+                .field("datawidth", &self.datawidth())
+                .field("eccwidth", &self.eccwidth())
+                .field("redwidth", &self.redwidth())
+                .finish()
+        }
+    }
+    #[cfg(feature = "defmt")]
+    impl defmt::Format for Gblinfo1 {
+        fn format(&self, f: defmt::Formatter) {
+            defmt::write!(
+                f,
+                "Gblinfo1 {{ datawidth: {:?}, eccwidth: {:?}, redwidth: {:?} }}",
+                self.datawidth(),
+                self.eccwidth(),
+                self.redwidth()
+            )
+        }
+    }
     #[doc = "Global Information Register 2."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Gblinfo2(pub u32);
     impl Gblinfo2 {
         #[doc = "Number of data registers present."]
+        #[must_use]
         #[inline(always)]
         pub const fn dataregisters(&self) -> u8 {
             let val = (self.0 >> 0usize) & 0x0f;
@@ -874,7 +1212,7 @@ pub mod regs {
         }
         #[doc = "Number of data registers present."]
         #[inline(always)]
-        pub fn set_dataregisters(&mut self, val: u8) {
+        pub const fn set_dataregisters(&mut self, val: u8) {
             self.0 = (self.0 & !(0x0f << 0usize)) | (((val as u32) & 0x0f) << 0usize);
         }
     }
@@ -884,12 +1222,30 @@ pub mod regs {
             Gblinfo2(0)
         }
     }
+    impl core::fmt::Debug for Gblinfo2 {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Gblinfo2")
+                .field("dataregisters", &self.dataregisters())
+                .finish()
+        }
+    }
+    #[cfg(feature = "defmt")]
+    impl defmt::Format for Gblinfo2 {
+        fn format(&self, f: defmt::Formatter) {
+            defmt::write!(
+                f,
+                "Gblinfo2 {{ dataregisters: {=u8:?} }}",
+                self.dataregisters()
+            )
+        }
+    }
     #[doc = "Interrupt Index Register."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Iidx(pub u32);
     impl Iidx {
         #[doc = "Indicates which interrupt has fired. 0x0 means no event pending. The priority order is fixed. On each read, only one interrupt is indicated. On a read, the current interrupt (highest priority) is automatically cleared by the hardware and the corresponding interrupt flags in the RIS and MIS are cleared as well. After a read from the CPU (not from the debug interface), the register must be updated with the next highest priority interrupt."]
+        #[must_use]
         #[inline(always)]
         pub const fn stat(&self) -> super::vals::Stat {
             let val = (self.0 >> 0usize) & 0x01;
@@ -897,7 +1253,7 @@ pub mod regs {
         }
         #[doc = "Indicates which interrupt has fired. 0x0 means no event pending. The priority order is fixed. On each read, only one interrupt is indicated. On a read, the current interrupt (highest priority) is automatically cleared by the hardware and the corresponding interrupt flags in the RIS and MIS are cleared as well. After a read from the CPU (not from the debug interface), the register must be updated with the next highest priority interrupt."]
         #[inline(always)]
-        pub fn set_stat(&mut self, val: super::vals::Stat) {
+        pub const fn set_stat(&mut self, val: super::vals::Stat) {
             self.0 = (self.0 & !(0x01 << 0usize)) | (((val.to_bits() as u32) & 0x01) << 0usize);
         }
     }
@@ -907,12 +1263,24 @@ pub mod regs {
             Iidx(0)
         }
     }
+    impl core::fmt::Debug for Iidx {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Iidx").field("stat", &self.stat()).finish()
+        }
+    }
+    #[cfg(feature = "defmt")]
+    impl defmt::Format for Iidx {
+        fn format(&self, f: defmt::Formatter) {
+            defmt::write!(f, "Iidx {{ stat: {:?} }}", self.stat())
+        }
+    }
     #[doc = "Interrupt Clear Register."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Int(pub u32);
     impl Int {
         #[doc = "0: No effect 1: Clear the DONE interrupt in the RIS register."]
+        #[must_use]
         #[inline(always)]
         pub const fn done(&self) -> bool {
             let val = (self.0 >> 0usize) & 0x01;
@@ -920,7 +1288,7 @@ pub mod regs {
         }
         #[doc = "0: No effect 1: Clear the DONE interrupt in the RIS register."]
         #[inline(always)]
-        pub fn set_done(&mut self, val: bool) {
+        pub const fn set_done(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 0usize)) | (((val as u32) & 0x01) << 0usize);
         }
     }
@@ -930,12 +1298,24 @@ pub mod regs {
             Int(0)
         }
     }
+    impl core::fmt::Debug for Int {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Int").field("done", &self.done()).finish()
+        }
+    }
+    #[cfg(feature = "defmt")]
+    impl defmt::Format for Int {
+        fn format(&self, f: defmt::Formatter) {
+            defmt::write!(f, "Int {{ done: {=bool:?} }}", self.done())
+        }
+    }
     #[doc = "Address Status Register."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Stataddr(pub u32);
     impl Stataddr {
         #[doc = "Current Bank Address A bank offset address is stored in this register."]
+        #[must_use]
         #[inline(always)]
         pub const fn bankaddr(&self) -> u16 {
             let val = (self.0 >> 0usize) & 0xffff;
@@ -943,10 +1323,11 @@ pub mod regs {
         }
         #[doc = "Current Bank Address A bank offset address is stored in this register."]
         #[inline(always)]
-        pub fn set_bankaddr(&mut self, val: u16) {
+        pub const fn set_bankaddr(&mut self, val: u16) {
             self.0 = (self.0 & !(0xffff << 0usize)) | (((val as u32) & 0xffff) << 0usize);
         }
         #[doc = "Current Region ID A region indicator is stored in this register which represents the current flash region on which the state machine is operating."]
+        #[must_use]
         #[inline(always)]
         pub const fn regionid(&self) -> super::vals::Regionid {
             let val = (self.0 >> 16usize) & 0x1f;
@@ -954,10 +1335,11 @@ pub mod regs {
         }
         #[doc = "Current Region ID A region indicator is stored in this register which represents the current flash region on which the state machine is operating."]
         #[inline(always)]
-        pub fn set_regionid(&mut self, val: super::vals::Regionid) {
+        pub const fn set_regionid(&mut self, val: super::vals::Regionid) {
             self.0 = (self.0 & !(0x1f << 16usize)) | (((val.to_bits() as u32) & 0x1f) << 16usize);
         }
         #[doc = "Current Bank ID A bank indicator is stored in this register which represents the current bank on which the state machine is operating. There is 1 bit per bank."]
+        #[must_use]
         #[inline(always)]
         pub const fn bankid(&self) -> super::vals::Bankid {
             let val = (self.0 >> 21usize) & 0x1f;
@@ -965,7 +1347,7 @@ pub mod regs {
         }
         #[doc = "Current Bank ID A bank indicator is stored in this register which represents the current bank on which the state machine is operating. There is 1 bit per bank."]
         #[inline(always)]
-        pub fn set_bankid(&mut self, val: super::vals::Bankid) {
+        pub const fn set_bankid(&mut self, val: super::vals::Bankid) {
             self.0 = (self.0 & !(0x1f << 21usize)) | (((val.to_bits() as u32) & 0x1f) << 21usize);
         }
     }
@@ -975,12 +1357,34 @@ pub mod regs {
             Stataddr(0)
         }
     }
+    impl core::fmt::Debug for Stataddr {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Stataddr")
+                .field("bankaddr", &self.bankaddr())
+                .field("regionid", &self.regionid())
+                .field("bankid", &self.bankid())
+                .finish()
+        }
+    }
+    #[cfg(feature = "defmt")]
+    impl defmt::Format for Stataddr {
+        fn format(&self, f: defmt::Formatter) {
+            defmt::write!(
+                f,
+                "Stataddr {{ bankaddr: {=u16:?}, regionid: {:?}, bankid: {:?} }}",
+                self.bankaddr(),
+                self.regionid(),
+                self.bankid()
+            )
+        }
+    }
     #[doc = "Command Status Register."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Statcmd(pub u32);
     impl Statcmd {
         #[doc = "Command Done."]
+        #[must_use]
         #[inline(always)]
         pub const fn done(&self) -> bool {
             let val = (self.0 >> 0usize) & 0x01;
@@ -988,10 +1392,11 @@ pub mod regs {
         }
         #[doc = "Command Done."]
         #[inline(always)]
-        pub fn set_done(&mut self, val: bool) {
+        pub const fn set_done(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 0usize)) | (((val as u32) & 0x01) << 0usize);
         }
         #[doc = "Command Pass - valid when CMD_DONE field is 1."]
+        #[must_use]
         #[inline(always)]
         pub const fn pass(&self) -> bool {
             let val = (self.0 >> 1usize) & 0x01;
@@ -999,10 +1404,11 @@ pub mod regs {
         }
         #[doc = "Command Pass - valid when CMD_DONE field is 1."]
         #[inline(always)]
-        pub fn set_pass(&mut self, val: bool) {
+        pub const fn set_pass(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 1usize)) | (((val as u32) & 0x01) << 1usize);
         }
         #[doc = "Command In Progress."]
+        #[must_use]
         #[inline(always)]
         pub const fn inprogress(&self) -> bool {
             let val = (self.0 >> 2usize) & 0x01;
@@ -1010,10 +1416,11 @@ pub mod regs {
         }
         #[doc = "Command In Progress."]
         #[inline(always)]
-        pub fn set_inprogress(&mut self, val: bool) {
+        pub const fn set_inprogress(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 2usize)) | (((val as u32) & 0x01) << 2usize);
         }
         #[doc = "Command failed due to Write/Erase Protect Sector Violation."]
+        #[must_use]
         #[inline(always)]
         pub const fn failweprot(&self) -> bool {
             let val = (self.0 >> 4usize) & 0x01;
@@ -1021,10 +1428,11 @@ pub mod regs {
         }
         #[doc = "Command failed due to Write/Erase Protect Sector Violation."]
         #[inline(always)]
-        pub fn set_failweprot(&mut self, val: bool) {
+        pub const fn set_failweprot(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 4usize)) | (((val as u32) & 0x01) << 4usize);
         }
         #[doc = "Command failed due to verify error."]
+        #[must_use]
         #[inline(always)]
         pub const fn failverify(&self) -> bool {
             let val = (self.0 >> 5usize) & 0x01;
@@ -1032,10 +1440,11 @@ pub mod regs {
         }
         #[doc = "Command failed due to verify error."]
         #[inline(always)]
-        pub fn set_failverify(&mut self, val: bool) {
+        pub const fn set_failverify(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 5usize)) | (((val as u32) & 0x01) << 5usize);
         }
         #[doc = "Command failed due to the use of an illegal address."]
+        #[must_use]
         #[inline(always)]
         pub const fn faililladdr(&self) -> bool {
             let val = (self.0 >> 6usize) & 0x01;
@@ -1043,10 +1452,11 @@ pub mod regs {
         }
         #[doc = "Command failed due to the use of an illegal address."]
         #[inline(always)]
-        pub fn set_faililladdr(&mut self, val: bool) {
+        pub const fn set_faililladdr(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 6usize)) | (((val as u32) & 0x01) << 6usize);
         }
         #[doc = "Command failed because a bank has been set to a mode other than READ. Program and Erase commands cannot be initiated unless all banks are in READ mode."]
+        #[must_use]
         #[inline(always)]
         pub const fn failmode(&self) -> bool {
             let val = (self.0 >> 7usize) & 0x01;
@@ -1054,10 +1464,11 @@ pub mod regs {
         }
         #[doc = "Command failed because a bank has been set to a mode other than READ. Program and Erase commands cannot be initiated unless all banks are in READ mode."]
         #[inline(always)]
-        pub fn set_failmode(&mut self, val: bool) {
+        pub const fn set_failmode(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 7usize)) | (((val as u32) & 0x01) << 7usize);
         }
         #[doc = "Program command failed because an attempt was made to program a stored 0 value to a 1."]
+        #[must_use]
         #[inline(always)]
         pub const fn failinvdata(&self) -> bool {
             let val = (self.0 >> 8usize) & 0x01;
@@ -1065,10 +1476,11 @@ pub mod regs {
         }
         #[doc = "Program command failed because an attempt was made to program a stored 0 value to a 1."]
         #[inline(always)]
-        pub fn set_failinvdata(&mut self, val: bool) {
+        pub const fn set_failinvdata(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 8usize)) | (((val as u32) & 0x01) << 8usize);
         }
         #[doc = "Command failed due to error other than write/erase protect violation or verify error. This is an extra bit in case a new failure mechanism is added which requires a status bit."]
+        #[must_use]
         #[inline(always)]
         pub const fn failmisc(&self) -> bool {
             let val = (self.0 >> 12usize) & 0x01;
@@ -1076,7 +1488,7 @@ pub mod regs {
         }
         #[doc = "Command failed due to error other than write/erase protect violation or verify error. This is an extra bit in case a new failure mechanism is added which requires a status bit."]
         #[inline(always)]
-        pub fn set_failmisc(&mut self, val: bool) {
+        pub const fn set_failmisc(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 12usize)) | (((val as u32) & 0x01) << 12usize);
         }
     }
@@ -1086,12 +1498,34 @@ pub mod regs {
             Statcmd(0)
         }
     }
+    impl core::fmt::Debug for Statcmd {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Statcmd")
+                .field("done", &self.done())
+                .field("pass", &self.pass())
+                .field("inprogress", &self.inprogress())
+                .field("failweprot", &self.failweprot())
+                .field("failverify", &self.failverify())
+                .field("faililladdr", &self.faililladdr())
+                .field("failmode", &self.failmode())
+                .field("failinvdata", &self.failinvdata())
+                .field("failmisc", &self.failmisc())
+                .finish()
+        }
+    }
+    #[cfg(feature = "defmt")]
+    impl defmt::Format for Statcmd {
+        fn format(&self, f: defmt::Formatter) {
+            defmt :: write ! (f , "Statcmd {{ done: {=bool:?}, pass: {=bool:?}, inprogress: {=bool:?}, failweprot: {=bool:?}, failverify: {=bool:?}, faililladdr: {=bool:?}, failmode: {=bool:?}, failinvdata: {=bool:?}, failmisc: {=bool:?} }}" , self . done () , self . pass () , self . inprogress () , self . failweprot () , self . failverify () , self . faililladdr () , self . failmode () , self . failinvdata () , self . failmisc ())
+        }
+    }
     #[doc = "Mode Status Register."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Statmode(pub u32);
     impl Statmode {
         #[doc = "Bank not in read mode. Indicates which banks are not in READ mode. There is 1 bit per bank."]
+        #[must_use]
         #[inline(always)]
         pub const fn banknotinrd(&self) -> super::vals::Bank {
             let val = (self.0 >> 0usize) & 0x1f;
@@ -1099,10 +1533,11 @@ pub mod regs {
         }
         #[doc = "Bank not in read mode. Indicates which banks are not in READ mode. There is 1 bit per bank."]
         #[inline(always)]
-        pub fn set_banknotinrd(&mut self, val: super::vals::Bank) {
+        pub const fn set_banknotinrd(&mut self, val: super::vals::Bank) {
             self.0 = (self.0 & !(0x1f << 0usize)) | (((val.to_bits() as u32) & 0x1f) << 0usize);
         }
         #[doc = "Indicates mode of bank(s) that are not in READ mode."]
+        #[must_use]
         #[inline(always)]
         pub const fn bankmode(&self) -> super::vals::Mode {
             let val = (self.0 >> 8usize) & 0x0f;
@@ -1110,10 +1545,11 @@ pub mod regs {
         }
         #[doc = "Indicates mode of bank(s) that are not in READ mode."]
         #[inline(always)]
-        pub fn set_bankmode(&mut self, val: super::vals::Mode) {
+        pub const fn set_bankmode(&mut self, val: super::vals::Mode) {
             self.0 = (self.0 & !(0x0f << 8usize)) | (((val.to_bits() as u32) & 0x0f) << 8usize);
         }
         #[doc = "Bank 2T Ready. Bank(s) are ready for 2T access. This is accomplished when the pump has fully driven power rails to the bank(s)."]
+        #[must_use]
         #[inline(always)]
         pub const fn bank2trdy(&self) -> bool {
             let val = (self.0 >> 16usize) & 0x01;
@@ -1121,10 +1557,11 @@ pub mod regs {
         }
         #[doc = "Bank 2T Ready. Bank(s) are ready for 2T access. This is accomplished when the pump has fully driven power rails to the bank(s)."]
         #[inline(always)]
-        pub fn set_bank2trdy(&mut self, val: bool) {
+        pub const fn set_bank2trdy(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 16usize)) | (((val as u32) & 0x01) << 16usize);
         }
         #[doc = "Bank 1T Ready. Bank(s) are ready for 1T access. This is accomplished when the bank and pump have been trimmed."]
+        #[must_use]
         #[inline(always)]
         pub const fn bank1trdy(&self) -> bool {
             let val = (self.0 >> 17usize) & 0x01;
@@ -1132,7 +1569,7 @@ pub mod regs {
         }
         #[doc = "Bank 1T Ready. Bank(s) are ready for 1T access. This is accomplished when the bank and pump have been trimmed."]
         #[inline(always)]
-        pub fn set_bank1trdy(&mut self, val: bool) {
+        pub const fn set_bank1trdy(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 17usize)) | (((val as u32) & 0x01) << 17usize);
         }
     }
@@ -1142,12 +1579,29 @@ pub mod regs {
             Statmode(0)
         }
     }
+    impl core::fmt::Debug for Statmode {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Statmode")
+                .field("banknotinrd", &self.banknotinrd())
+                .field("bankmode", &self.bankmode())
+                .field("bank2trdy", &self.bank2trdy())
+                .field("bank1trdy", &self.bank1trdy())
+                .finish()
+        }
+    }
+    #[cfg(feature = "defmt")]
+    impl defmt::Format for Statmode {
+        fn format(&self, f: defmt::Formatter) {
+            defmt :: write ! (f , "Statmode {{ banknotinrd: {:?}, bankmode: {:?}, bank2trdy: {=bool:?}, bank1trdy: {=bool:?} }}" , self . banknotinrd () , self . bankmode () , self . bank2trdy () , self . bank1trdy ())
+        }
+    }
     #[doc = "Pulse Count Status Register."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Statpcnt(pub u32);
     impl Statpcnt {
         #[doc = "Current Pulse Counter Value."]
+        #[must_use]
         #[inline(always)]
         pub const fn pulsecnt(&self) -> u16 {
             let val = (self.0 >> 0usize) & 0x0fff;
@@ -1155,7 +1609,7 @@ pub mod regs {
         }
         #[doc = "Current Pulse Counter Value."]
         #[inline(always)]
-        pub fn set_pulsecnt(&mut self, val: u16) {
+        pub const fn set_pulsecnt(&mut self, val: u16) {
             self.0 = (self.0 & !(0x0fff << 0usize)) | (((val as u32) & 0x0fff) << 0usize);
         }
     }
@@ -1165,29 +1619,71 @@ pub mod regs {
             Statpcnt(0)
         }
     }
+    impl core::fmt::Debug for Statpcnt {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Statpcnt")
+                .field("pulsecnt", &self.pulsecnt())
+                .finish()
+        }
+    }
+    #[cfg(feature = "defmt")]
+    impl defmt::Format for Statpcnt {
+        fn format(&self, f: defmt::Formatter) {
+            defmt::write!(f, "Statpcnt {{ pulsecnt: {=u16:?} }}", self.pulsecnt())
+        }
+    }
 }
 pub mod vals {
-    #[repr(transparent)]
-    #[derive(Copy, Clone, Eq, PartialEq, Ord, PartialOrd)]
-    pub struct Bank(pub u8);
-    impl Bank {
+    #[repr(u8)]
+    #[derive(Copy, Clone, Debug, Eq, PartialEq, Ord, PartialOrd)]
+    #[cfg_attr(feature = "defmt", derive(defmt::Format))]
+    pub enum Bank {
+        _RESERVED_0 = 0x0,
         #[doc = "Bank 0."]
-        pub const BANK0: Self = Self(0x01);
+        Bank0 = 0x01,
         #[doc = "Bank 1."]
-        pub const BANK1: Self = Self(0x02);
+        Bank1 = 0x02,
+        _RESERVED_3 = 0x03,
         #[doc = "Bank 2."]
-        pub const BANK2: Self = Self(0x04);
+        Bank2 = 0x04,
+        _RESERVED_5 = 0x05,
+        _RESERVED_6 = 0x06,
+        _RESERVED_7 = 0x07,
         #[doc = "Bank 3."]
-        pub const BANK3: Self = Self(0x08);
+        Bank3 = 0x08,
+        _RESERVED_9 = 0x09,
+        _RESERVED_a = 0x0a,
+        _RESERVED_b = 0x0b,
+        _RESERVED_c = 0x0c,
+        _RESERVED_d = 0x0d,
+        _RESERVED_e = 0x0e,
+        _RESERVED_f = 0x0f,
         #[doc = "Bank 4."]
-        pub const BANK4: Self = Self(0x10);
+        Bank4 = 0x10,
+        _RESERVED_11 = 0x11,
+        _RESERVED_12 = 0x12,
+        _RESERVED_13 = 0x13,
+        _RESERVED_14 = 0x14,
+        _RESERVED_15 = 0x15,
+        _RESERVED_16 = 0x16,
+        _RESERVED_17 = 0x17,
+        _RESERVED_18 = 0x18,
+        _RESERVED_19 = 0x19,
+        _RESERVED_1a = 0x1a,
+        _RESERVED_1b = 0x1b,
+        _RESERVED_1c = 0x1c,
+        _RESERVED_1d = 0x1d,
+        _RESERVED_1e = 0x1e,
+        _RESERVED_1f = 0x1f,
     }
     impl Bank {
+        #[inline(always)]
         pub const fn from_bits(val: u8) -> Bank {
-            Self(val & 0x1f)
+            unsafe { core::mem::transmute(val & 0x1f) }
         }
+        #[inline(always)]
         pub const fn to_bits(self) -> u8 {
-            self.0
+            unsafe { core::mem::transmute(self) }
         }
     }
     impl From<u8> for Bank {
@@ -1202,27 +1698,56 @@ pub mod vals {
             Bank::to_bits(val)
         }
     }
-    #[repr(transparent)]
-    #[derive(Copy, Clone, Eq, PartialEq, Ord, PartialOrd)]
-    pub struct Bankid(pub u8);
-    impl Bankid {
+    #[repr(u8)]
+    #[derive(Copy, Clone, Debug, Eq, PartialEq, Ord, PartialOrd)]
+    #[cfg_attr(feature = "defmt", derive(defmt::Format))]
+    pub enum Bankid {
+        _RESERVED_0 = 0x0,
         #[doc = "Bank 0."]
-        pub const BANK0: Self = Self(0x01);
+        Bank0 = 0x01,
         #[doc = "Bank 1."]
-        pub const BANK1: Self = Self(0x02);
+        Bank1 = 0x02,
+        _RESERVED_3 = 0x03,
         #[doc = "Bank 2."]
-        pub const BANK2: Self = Self(0x04);
+        Bank2 = 0x04,
+        _RESERVED_5 = 0x05,
+        _RESERVED_6 = 0x06,
+        _RESERVED_7 = 0x07,
         #[doc = "Bank 3."]
-        pub const BANK3: Self = Self(0x08);
+        Bank3 = 0x08,
+        _RESERVED_9 = 0x09,
+        _RESERVED_a = 0x0a,
+        _RESERVED_b = 0x0b,
+        _RESERVED_c = 0x0c,
+        _RESERVED_d = 0x0d,
+        _RESERVED_e = 0x0e,
+        _RESERVED_f = 0x0f,
         #[doc = "Bank 4."]
-        pub const BANK4: Self = Self(0x10);
+        Bank4 = 0x10,
+        _RESERVED_11 = 0x11,
+        _RESERVED_12 = 0x12,
+        _RESERVED_13 = 0x13,
+        _RESERVED_14 = 0x14,
+        _RESERVED_15 = 0x15,
+        _RESERVED_16 = 0x16,
+        _RESERVED_17 = 0x17,
+        _RESERVED_18 = 0x18,
+        _RESERVED_19 = 0x19,
+        _RESERVED_1a = 0x1a,
+        _RESERVED_1b = 0x1b,
+        _RESERVED_1c = 0x1c,
+        _RESERVED_1d = 0x1d,
+        _RESERVED_1e = 0x1e,
+        _RESERVED_1f = 0x1f,
     }
     impl Bankid {
+        #[inline(always)]
         pub const fn from_bits(val: u8) -> Bankid {
-            Self(val & 0x1f)
+            unsafe { core::mem::transmute(val & 0x1f) }
         }
+        #[inline(always)]
         pub const fn to_bits(self) -> u8 {
-            self.0
+            unsafe { core::mem::transmute(self) }
         }
     }
     impl From<u8> for Bankid {
@@ -1239,12 +1764,12 @@ pub mod vals {
     }
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq, Ord, PartialOrd)]
-    pub struct BankinfoEngrsize(pub u8);
+    pub struct BankinfoEngrsize(u8);
     impl BankinfoEngrsize {
         #[doc = "Minimum value of \\[ENGRSIZE\\]."]
-        pub const MINSECTORS: Self = Self(0x0);
+        pub const Minsectors: Self = Self(0x0);
         #[doc = "Maximum value of \\[ENGRSIZE\\]."]
-        pub const MAXSECTORS: Self = Self(0x20);
+        pub const Maxsectors: Self = Self(0x20);
     }
     impl BankinfoEngrsize {
         pub const fn from_bits(val: u8) -> BankinfoEngrsize {
@@ -1252,6 +1777,25 @@ pub mod vals {
         }
         pub const fn to_bits(self) -> u8 {
             self.0
+        }
+    }
+    impl core::fmt::Debug for BankinfoEngrsize {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            match self.0 {
+                0x0 => f.write_str("Minsectors"),
+                0x20 => f.write_str("Maxsectors"),
+                other => core::write!(f, "0x{:02X}", other),
+            }
+        }
+    }
+    #[cfg(feature = "defmt")]
+    impl defmt::Format for BankinfoEngrsize {
+        fn format(&self, f: defmt::Formatter) {
+            match self.0 {
+                0x0 => defmt::write!(f, "Minsectors"),
+                0x20 => defmt::write!(f, "Maxsectors"),
+                other => defmt::write!(f, "0x{:02X}", other),
+            }
         }
     }
     impl From<u8> for BankinfoEngrsize {
@@ -1268,12 +1812,12 @@ pub mod vals {
     }
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq, Ord, PartialOrd)]
-    pub struct BankinfoMainsize(pub u16);
+    pub struct BankinfoMainsize(u16);
     impl BankinfoMainsize {
         #[doc = "Minimum value of \\[MAINSIZE\\]."]
-        pub const MINSECTORS: Self = Self(0x08);
+        pub const Minsectors: Self = Self(0x08);
         #[doc = "Maximum value of \\[MAINSIZE\\]."]
-        pub const MAXSECTORS: Self = Self(0x0200);
+        pub const Maxsectors: Self = Self(0x0200);
     }
     impl BankinfoMainsize {
         pub const fn from_bits(val: u16) -> BankinfoMainsize {
@@ -1281,6 +1825,25 @@ pub mod vals {
         }
         pub const fn to_bits(self) -> u16 {
             self.0
+        }
+    }
+    impl core::fmt::Debug for BankinfoMainsize {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            match self.0 {
+                0x08 => f.write_str("Minsectors"),
+                0x0200 => f.write_str("Maxsectors"),
+                other => core::write!(f, "0x{:02X}", other),
+            }
+        }
+    }
+    #[cfg(feature = "defmt")]
+    impl defmt::Format for BankinfoMainsize {
+        fn format(&self, f: defmt::Formatter) {
+            match self.0 {
+                0x08 => defmt::write!(f, "Minsectors"),
+                0x0200 => defmt::write!(f, "Maxsectors"),
+                other => defmt::write!(f, "0x{:02X}", other),
+            }
         }
     }
     impl From<u16> for BankinfoMainsize {
@@ -1297,12 +1860,12 @@ pub mod vals {
     }
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq, Ord, PartialOrd)]
-    pub struct BankinfoNonmainsize(pub u8);
+    pub struct BankinfoNonmainsize(u8);
     impl BankinfoNonmainsize {
         #[doc = "Minimum value of \\[NONMAINSIZE\\]."]
-        pub const MINSECTORS: Self = Self(0x0);
+        pub const Minsectors: Self = Self(0x0);
         #[doc = "Maximum value of \\[NONMAINSIZE\\]."]
-        pub const MAXSECTORS: Self = Self(0x20);
+        pub const Maxsectors: Self = Self(0x20);
     }
     impl BankinfoNonmainsize {
         pub const fn from_bits(val: u8) -> BankinfoNonmainsize {
@@ -1310,6 +1873,25 @@ pub mod vals {
         }
         pub const fn to_bits(self) -> u8 {
             self.0
+        }
+    }
+    impl core::fmt::Debug for BankinfoNonmainsize {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            match self.0 {
+                0x0 => f.write_str("Minsectors"),
+                0x20 => f.write_str("Maxsectors"),
+                other => core::write!(f, "0x{:02X}", other),
+            }
+        }
+    }
+    #[cfg(feature = "defmt")]
+    impl defmt::Format for BankinfoNonmainsize {
+        fn format(&self, f: defmt::Formatter) {
+            match self.0 {
+                0x0 => defmt::write!(f, "Minsectors"),
+                0x20 => defmt::write!(f, "Maxsectors"),
+                other => defmt::write!(f, "0x{:02X}", other),
+            }
         }
     }
     impl From<u8> for BankinfoNonmainsize {
@@ -1326,12 +1908,12 @@ pub mod vals {
     }
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq, Ord, PartialOrd)]
-    pub struct BankinfoTrimsize(pub u8);
+    pub struct BankinfoTrimsize(u8);
     impl BankinfoTrimsize {
         #[doc = "Minimum value of \\[TRIMSIZE\\]."]
-        pub const MINSECTORS: Self = Self(0x0);
+        pub const Minsectors: Self = Self(0x0);
         #[doc = "Maximum value of \\[TRIMSIZE\\]."]
-        pub const MAXSECTORS: Self = Self(0x20);
+        pub const Maxsectors: Self = Self(0x20);
     }
     impl BankinfoTrimsize {
         pub const fn from_bits(val: u8) -> BankinfoTrimsize {
@@ -1339,6 +1921,25 @@ pub mod vals {
         }
         pub const fn to_bits(self) -> u8 {
             self.0
+        }
+    }
+    impl core::fmt::Debug for BankinfoTrimsize {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            match self.0 {
+                0x0 => f.write_str("Minsectors"),
+                0x20 => f.write_str("Maxsectors"),
+                other => core::write!(f, "0x{:02X}", other),
+            }
+        }
+    }
+    #[cfg(feature = "defmt")]
+    impl defmt::Format for BankinfoTrimsize {
+        fn format(&self, f: defmt::Formatter) {
+            match self.0 {
+                0x0 => defmt::write!(f, "Minsectors"),
+                0x20 => defmt::write!(f, "Maxsectors"),
+                other => defmt::write!(f, "0x{:02X}", other),
+            }
         }
     }
     impl From<u8> for BankinfoTrimsize {
@@ -1354,22 +1955,23 @@ pub mod vals {
         }
     }
     #[repr(u8)]
-    #[derive(Copy, Clone, Eq, PartialEq, Ord, PartialOrd)]
+    #[derive(Copy, Clone, Debug, Eq, PartialEq, Ord, PartialOrd)]
+    #[cfg_attr(feature = "defmt", derive(defmt::Format))]
     pub enum Command {
         #[doc = "No Operation."]
-        NOOP = 0x0,
+        Noop = 0x0,
         #[doc = "Program."]
-        PROGRAM = 0x01,
+        Program = 0x01,
         #[doc = "Erase."]
-        ERASE = 0x02,
+        Erase = 0x02,
         #[doc = "Read Verify - Perform a standalone read verify operation."]
-        READVERIFY = 0x03,
+        Readverify = 0x03,
         #[doc = "Mode Change - Perform a mode change only, no other operation."]
-        MODECHANGE = 0x04,
+        Modechange = 0x04,
         #[doc = "Clear Status - Clear status bits in FW_SMSTAT only."]
-        CLEARSTATUS = 0x05,
+        Clearstatus = 0x05,
         #[doc = "Blank Verify - Check whether a flash word is in the erased state. This command may only be used with CMDTYPE.SIZE = ONEWORD."]
-        BLANKVERIFY = 0x06,
+        Blankverify = 0x06,
         _RESERVED_7 = 0x07,
     }
     impl Command {
@@ -1396,12 +1998,12 @@ pub mod vals {
     }
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq, Ord, PartialOrd)]
-    pub struct Datawidth(pub u8);
+    pub struct Datawidth(u8);
     impl Datawidth {
         #[doc = "Data width is 64 bits."]
-        pub const W64BIT: Self = Self(0x40);
+        pub const W64bit: Self = Self(0x40);
         #[doc = "Data width is 128 bits."]
-        pub const W128BIT: Self = Self(0x80);
+        pub const W128bit: Self = Self(0x80);
     }
     impl Datawidth {
         pub const fn from_bits(val: u8) -> Datawidth {
@@ -1409,6 +2011,25 @@ pub mod vals {
         }
         pub const fn to_bits(self) -> u8 {
             self.0
+        }
+    }
+    impl core::fmt::Debug for Datawidth {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            match self.0 {
+                0x40 => f.write_str("W64bit"),
+                0x80 => f.write_str("W128bit"),
+                other => core::write!(f, "0x{:02X}", other),
+            }
+        }
+    }
+    #[cfg(feature = "defmt")]
+    impl defmt::Format for Datawidth {
+        fn format(&self, f: defmt::Formatter) {
+            match self.0 {
+                0x40 => defmt::write!(f, "W64bit"),
+                0x80 => defmt::write!(f, "W128bit"),
+                other => defmt::write!(f, "0x{:02X}", other),
+            }
         }
     }
     impl From<u8> for Datawidth {
@@ -1423,23 +2044,54 @@ pub mod vals {
             Datawidth::to_bits(val)
         }
     }
-    #[repr(transparent)]
-    #[derive(Copy, Clone, Eq, PartialEq, Ord, PartialOrd)]
-    pub struct Eccwidth(pub u8);
-    impl Eccwidth {
+    #[repr(u8)]
+    #[derive(Copy, Clone, Debug, Eq, PartialEq, Ord, PartialOrd)]
+    #[cfg_attr(feature = "defmt", derive(defmt::Format))]
+    pub enum Eccwidth {
         #[doc = "ECC data width is 0. ECC not used."]
-        pub const W0BIT: Self = Self(0x0);
+        W0bit = 0x0,
+        _RESERVED_1 = 0x01,
+        _RESERVED_2 = 0x02,
+        _RESERVED_3 = 0x03,
+        _RESERVED_4 = 0x04,
+        _RESERVED_5 = 0x05,
+        _RESERVED_6 = 0x06,
+        _RESERVED_7 = 0x07,
         #[doc = "ECC data width is 8 bits."]
-        pub const W8BIT: Self = Self(0x08);
+        W8bit = 0x08,
+        _RESERVED_9 = 0x09,
+        _RESERVED_a = 0x0a,
+        _RESERVED_b = 0x0b,
+        _RESERVED_c = 0x0c,
+        _RESERVED_d = 0x0d,
+        _RESERVED_e = 0x0e,
+        _RESERVED_f = 0x0f,
         #[doc = "ECC data width is 16 bits."]
-        pub const W16BIT: Self = Self(0x10);
+        W16bit = 0x10,
+        _RESERVED_11 = 0x11,
+        _RESERVED_12 = 0x12,
+        _RESERVED_13 = 0x13,
+        _RESERVED_14 = 0x14,
+        _RESERVED_15 = 0x15,
+        _RESERVED_16 = 0x16,
+        _RESERVED_17 = 0x17,
+        _RESERVED_18 = 0x18,
+        _RESERVED_19 = 0x19,
+        _RESERVED_1a = 0x1a,
+        _RESERVED_1b = 0x1b,
+        _RESERVED_1c = 0x1c,
+        _RESERVED_1d = 0x1d,
+        _RESERVED_1e = 0x1e,
+        _RESERVED_1f = 0x1f,
     }
     impl Eccwidth {
+        #[inline(always)]
         pub const fn from_bits(val: u8) -> Eccwidth {
-            Self(val & 0x1f)
+            unsafe { core::mem::transmute(val & 0x1f) }
         }
+        #[inline(always)]
         pub const fn to_bits(self) -> u8 {
-            self.0
+            unsafe { core::mem::transmute(self) }
         }
     }
     impl From<u8> for Eccwidth {
@@ -1455,14 +2107,15 @@ pub mod vals {
         }
     }
     #[repr(u8)]
-    #[derive(Copy, Clone, Eq, PartialEq, Ord, PartialOrd)]
+    #[derive(Copy, Clone, Debug, Eq, PartialEq, Ord, PartialOrd)]
+    #[cfg_attr(feature = "defmt", derive(defmt::Format))]
     pub enum Int0Cfg {
         #[doc = "The interrupt or event line is disabled."]
-        DISABLE = 0x0,
+        Disable = 0x0,
         #[doc = "The interrupt or event line is in software mode. Software must clear the RIS."]
-        SOFTWARE = 0x01,
+        Software = 0x01,
         #[doc = "The interrupt or event line is in hardware mode. Hardware must clear the RIS."]
-        HARDWARE = 0x02,
+        Hardware = 0x02,
         _RESERVED_3 = 0x03,
     }
     impl Int0Cfg {
@@ -1488,35 +2141,36 @@ pub mod vals {
         }
     }
     #[repr(u8)]
-    #[derive(Copy, Clone, Eq, PartialEq, Ord, PartialOrd)]
+    #[derive(Copy, Clone, Debug, Eq, PartialEq, Ord, PartialOrd)]
+    #[cfg_attr(feature = "defmt", derive(defmt::Format))]
     pub enum Mode {
         #[doc = "Read Mode."]
-        READ = 0x0,
+        Read = 0x0,
         _RESERVED_1 = 0x01,
         #[doc = "Read Margin 0 Mode."]
-        RDMARG0 = 0x02,
+        Rdmarg0 = 0x02,
         _RESERVED_3 = 0x03,
         #[doc = "Read Margin 1 Mode."]
-        RDMARG1 = 0x04,
+        Rdmarg1 = 0x04,
         _RESERVED_5 = 0x05,
         #[doc = "Read Margin 0B Mode."]
-        RDMARG0B = 0x06,
+        Rdmarg0b = 0x06,
         #[doc = "Read Margin 1B Mode."]
-        RDMARG1B = 0x07,
+        Rdmarg1b = 0x07,
         _RESERVED_8 = 0x08,
         #[doc = "Program Verify Mode."]
-        PGMVER = 0x09,
+        Pgmver = 0x09,
         #[doc = "Program Single Word."]
-        PGMSW = 0x0a,
+        Pgmsw = 0x0a,
         #[doc = "Erase Verify Mode."]
-        ERASEVER = 0x0b,
+        Erasever = 0x0b,
         #[doc = "Erase Sector."]
-        ERASESECT = 0x0c,
+        Erasesect = 0x0c,
         _RESERVED_d = 0x0d,
         #[doc = "Program Multiple Word."]
-        PGMMW = 0x0e,
+        Pgmmw = 0x0e,
         #[doc = "Erase Bank."]
-        ERASEBNK = 0x0f,
+        Erasebnk = 0x0f,
     }
     impl Mode {
         #[inline(always)]
@@ -1541,14 +2195,15 @@ pub mod vals {
         }
     }
     #[repr(u8)]
-    #[derive(Copy, Clone, Eq, PartialEq, Ord, PartialOrd)]
+    #[derive(Copy, Clone, Debug, Eq, PartialEq, Ord, PartialOrd)]
+    #[cfg_attr(feature = "defmt", derive(defmt::Format))]
     pub enum Numbanks {
         _RESERVED_0 = 0x0,
-        MINBANKS = 0x01,
+        Minbanks = 0x01,
         _RESERVED_2 = 0x02,
         _RESERVED_3 = 0x03,
         _RESERVED_4 = 0x04,
-        MAXBANKS = 0x05,
+        Maxbanks = 0x05,
         _RESERVED_6 = 0x06,
         _RESERVED_7 = 0x07,
     }
@@ -1575,16 +2230,17 @@ pub mod vals {
         }
     }
     #[repr(u8)]
-    #[derive(Copy, Clone, Eq, PartialEq, Ord, PartialOrd)]
+    #[derive(Copy, Clone, Debug, Eq, PartialEq, Ord, PartialOrd)]
+    #[cfg_attr(feature = "defmt", derive(defmt::Format))]
     pub enum Redwidth {
         #[doc = "Redundant data width is 0. Redundancy/Repair not present."]
-        W0BIT = 0x0,
+        W0bit = 0x0,
         _RESERVED_1 = 0x01,
         #[doc = "Redundant data width is 2 bits."]
-        W2BIT = 0x02,
+        W2bit = 0x02,
         _RESERVED_3 = 0x03,
         #[doc = "Redundant data width is 4 bits."]
-        W4BIT = 0x04,
+        W4bit = 0x04,
         _RESERVED_5 = 0x05,
         _RESERVED_6 = 0x06,
         _RESERVED_7 = 0x07,
@@ -1611,25 +2267,55 @@ pub mod vals {
             Redwidth::to_bits(val)
         }
     }
-    #[repr(transparent)]
-    #[derive(Copy, Clone, Eq, PartialEq, Ord, PartialOrd)]
-    pub struct Regionid(pub u8);
-    impl Regionid {
+    #[repr(u8)]
+    #[derive(Copy, Clone, Debug, Eq, PartialEq, Ord, PartialOrd)]
+    #[cfg_attr(feature = "defmt", derive(defmt::Format))]
+    pub enum Regionid {
+        _RESERVED_0 = 0x0,
         #[doc = "Main Region."]
-        pub const MAIN: Self = Self(0x01);
+        Main = 0x01,
         #[doc = "Non-Main Region."]
-        pub const NONMAIN: Self = Self(0x02);
+        Nonmain = 0x02,
+        _RESERVED_3 = 0x03,
         #[doc = "Trim Region."]
-        pub const TRIM: Self = Self(0x04);
+        Trim = 0x04,
+        _RESERVED_5 = 0x05,
+        _RESERVED_6 = 0x06,
+        _RESERVED_7 = 0x07,
         #[doc = "Engr Region."]
-        pub const ENGR: Self = Self(0x08);
+        Engr = 0x08,
+        _RESERVED_9 = 0x09,
+        _RESERVED_a = 0x0a,
+        _RESERVED_b = 0x0b,
+        _RESERVED_c = 0x0c,
+        _RESERVED_d = 0x0d,
+        _RESERVED_e = 0x0e,
+        _RESERVED_f = 0x0f,
+        _RESERVED_10 = 0x10,
+        _RESERVED_11 = 0x11,
+        _RESERVED_12 = 0x12,
+        _RESERVED_13 = 0x13,
+        _RESERVED_14 = 0x14,
+        _RESERVED_15 = 0x15,
+        _RESERVED_16 = 0x16,
+        _RESERVED_17 = 0x17,
+        _RESERVED_18 = 0x18,
+        _RESERVED_19 = 0x19,
+        _RESERVED_1a = 0x1a,
+        _RESERVED_1b = 0x1b,
+        _RESERVED_1c = 0x1c,
+        _RESERVED_1d = 0x1d,
+        _RESERVED_1e = 0x1e,
+        _RESERVED_1f = 0x1f,
     }
     impl Regionid {
+        #[inline(always)]
         pub const fn from_bits(val: u8) -> Regionid {
-            Self(val & 0x1f)
+            unsafe { core::mem::transmute(val & 0x1f) }
         }
+        #[inline(always)]
         pub const fn to_bits(self) -> u8 {
-            self.0
+            unsafe { core::mem::transmute(self) }
         }
     }
     impl From<u8> for Regionid {
@@ -1645,21 +2331,22 @@ pub mod vals {
         }
     }
     #[repr(u8)]
-    #[derive(Copy, Clone, Eq, PartialEq, Ord, PartialOrd)]
+    #[derive(Copy, Clone, Debug, Eq, PartialEq, Ord, PartialOrd)]
+    #[cfg_attr(feature = "defmt", derive(defmt::Format))]
     pub enum Regionsel {
         _RESERVED_0 = 0x0,
         #[doc = "Main Region."]
-        MAIN = 0x01,
+        Main = 0x01,
         #[doc = "Non-Main Region."]
-        NONMAIN = 0x02,
+        Nonmain = 0x02,
         _RESERVED_3 = 0x03,
         #[doc = "Trim Region."]
-        TRIM = 0x04,
+        Trim = 0x04,
         _RESERVED_5 = 0x05,
         _RESERVED_6 = 0x06,
         _RESERVED_7 = 0x07,
         #[doc = "Engr Region."]
-        ENGR = 0x08,
+        Engr = 0x08,
         _RESERVED_9 = 0x09,
         _RESERVED_a = 0x0a,
         _RESERVED_b = 0x0b,
@@ -1692,12 +2379,12 @@ pub mod vals {
     }
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq, Ord, PartialOrd)]
-    pub struct Sectorsize(pub u16);
+    pub struct Sectorsize(u16);
     impl Sectorsize {
         #[doc = "Sector size is ONEKB."]
-        pub const ONEKB: Self = Self(0x0400);
+        pub const Onekb: Self = Self(0x0400);
         #[doc = "Sector size is TWOKB."]
-        pub const TWOKB: Self = Self(0x0800);
+        pub const Twokb: Self = Self(0x0800);
     }
     impl Sectorsize {
         pub const fn from_bits(val: u16) -> Sectorsize {
@@ -1705,6 +2392,25 @@ pub mod vals {
         }
         pub const fn to_bits(self) -> u16 {
             self.0
+        }
+    }
+    impl core::fmt::Debug for Sectorsize {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            match self.0 {
+                0x0400 => f.write_str("Onekb"),
+                0x0800 => f.write_str("Twokb"),
+                other => core::write!(f, "0x{:02X}", other),
+            }
+        }
+    }
+    #[cfg(feature = "defmt")]
+    impl defmt::Format for Sectorsize {
+        fn format(&self, f: defmt::Formatter) {
+            match self.0 {
+                0x0400 => defmt::write!(f, "Onekb"),
+                0x0800 => defmt::write!(f, "Twokb"),
+                other => defmt::write!(f, "0x{:02X}", other),
+            }
         }
     }
     impl From<u16> for Sectorsize {
@@ -1720,20 +2426,21 @@ pub mod vals {
         }
     }
     #[repr(u8)]
-    #[derive(Copy, Clone, Eq, PartialEq, Ord, PartialOrd)]
+    #[derive(Copy, Clone, Debug, Eq, PartialEq, Ord, PartialOrd)]
+    #[cfg_attr(feature = "defmt", derive(defmt::Format))]
     pub enum Size {
         #[doc = "Operate on 1 flash word."]
-        ONEWORD = 0x0,
+        Oneword = 0x0,
         #[doc = "Operate on 2 flash words."]
-        TWOWORD = 0x01,
+        Twoword = 0x01,
         #[doc = "Operate on 4 flash words."]
-        FOURWORD = 0x02,
+        Fourword = 0x02,
         #[doc = "Operate on 8 flash words."]
-        EIGHTWORD = 0x03,
+        Eightword = 0x03,
         #[doc = "Operate on a flash sector."]
-        SECTOR = 0x04,
+        Sector = 0x04,
         #[doc = "Operate on an entire flash bank."]
-        BANK = 0x05,
+        Bank = 0x05,
         _RESERVED_6 = 0x06,
         _RESERVED_7 = 0x07,
     }
@@ -1760,12 +2467,13 @@ pub mod vals {
         }
     }
     #[repr(u8)]
-    #[derive(Copy, Clone, Eq, PartialEq, Ord, PartialOrd)]
+    #[derive(Copy, Clone, Debug, Eq, PartialEq, Ord, PartialOrd)]
+    #[cfg_attr(feature = "defmt", derive(defmt::Format))]
     pub enum Stat {
         #[doc = "No Interrupt Pending."]
-        NO_INTR = 0x0,
+        NoIntr = 0x0,
         #[doc = "DONE Interrupt Pending."]
-        DONE = 0x01,
+        Done = 0x01,
     }
     impl Stat {
         #[inline(always)]

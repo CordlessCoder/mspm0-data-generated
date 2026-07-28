@@ -23,174 +23,174 @@ impl Sysctl {
     #[doc = "SYSCTL interrupt index."]
     #[inline(always)]
     pub const fn iidx(self) -> crate::common::Reg<regs::Iidx, crate::common::R> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x1020usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x1020usize) as _) }
     }
     #[doc = "SYSCTL interrupt mask."]
     #[inline(always)]
     pub const fn imask(self) -> crate::common::Reg<regs::Int, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x1028usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x1028usize) as _) }
     }
     #[doc = "SYSCTL raw interrupt status."]
     #[inline(always)]
     pub const fn ris(self) -> crate::common::Reg<regs::Int, crate::common::R> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x1030usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x1030usize) as _) }
     }
     #[doc = "SYSCTL masked interrupt status."]
     #[inline(always)]
     pub const fn mis(self) -> crate::common::Reg<regs::Int, crate::common::R> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x1038usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x1038usize) as _) }
     }
     #[doc = "SYSCTL interrupt set."]
     #[inline(always)]
     pub const fn iset(self) -> crate::common::Reg<regs::Int, crate::common::W> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x1040usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x1040usize) as _) }
     }
     #[doc = "SYSCTL interrupt clear."]
     #[inline(always)]
     pub const fn iclr(self) -> crate::common::Reg<regs::Int, crate::common::W> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x1048usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x1048usize) as _) }
     }
     #[doc = "NMI interrupt index."]
     #[inline(always)]
     pub const fn nmiiidx(self) -> crate::common::Reg<regs::Nmiiidx, crate::common::R> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x1050usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x1050usize) as _) }
     }
     #[doc = "NMI raw interrupt status."]
     #[inline(always)]
     pub const fn nmiris(self) -> crate::common::Reg<regs::Nmi, crate::common::R> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x1060usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x1060usize) as _) }
     }
     #[doc = "NMI interrupt set."]
     #[inline(always)]
     pub const fn nmiiset(self) -> crate::common::Reg<regs::Nmi, crate::common::W> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x1070usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x1070usize) as _) }
     }
     #[doc = "NMI interrupt clear."]
     #[inline(always)]
     pub const fn nmiiclr(self) -> crate::common::Reg<regs::Nmi, crate::common::W> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x1078usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x1078usize) as _) }
     }
     #[doc = "SYSOSC configuration."]
     #[inline(always)]
     pub const fn sysosccfg(self) -> crate::common::Reg<regs::Sysosccfg, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x1100usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x1100usize) as _) }
     }
     #[doc = "Main clock (MCLK) configuration."]
     #[inline(always)]
     pub const fn mclkcfg(self) -> crate::common::Reg<regs::Mclkcfg, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x1104usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x1104usize) as _) }
     }
     #[doc = "General clock configuration."]
     #[inline(always)]
     pub const fn genclkcfg(self) -> crate::common::Reg<regs::Genclkcfg, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x1138usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x1138usize) as _) }
     }
     #[doc = "General clock enable control."]
     #[inline(always)]
     pub const fn genclken(self) -> crate::common::Reg<regs::Genclken, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x113cusize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x113cusize) as _) }
     }
     #[doc = "Power mode configuration."]
     #[inline(always)]
     pub const fn pmodecfg(self) -> crate::common::Reg<regs::Pmodecfg, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x1140usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x1140usize) as _) }
     }
     #[doc = "Frequency clock counter (FCC) count."]
     #[inline(always)]
     pub const fn fcc(self) -> crate::common::Reg<regs::Fcc, crate::common::R> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x1150usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x1150usize) as _) }
     }
     #[doc = "SYSOSC user-specified trim."]
     #[inline(always)]
     pub const fn sysosctrimuser(
         self,
     ) -> crate::common::Reg<regs::Sysosctrimuser, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x1170usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x1170usize) as _) }
     }
     #[doc = "SRAM Write Boundary."]
     #[inline(always)]
     pub const fn sramboundary(self) -> crate::common::Reg<regs::Sramboundary, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x1178usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x1178usize) as _) }
     }
     #[doc = "System configuration."]
     #[inline(always)]
     pub const fn systemcfg(self) -> crate::common::Reg<regs::Systemcfg, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x1180usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x1180usize) as _) }
     }
     #[doc = "SYSCTL register write lockout."]
     #[inline(always)]
     pub const fn writelock(self) -> crate::common::Reg<regs::Writelock, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x1200usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x1200usize) as _) }
     }
     #[doc = "Clock module (CKM) status."]
     #[inline(always)]
     pub const fn clkstatus(self) -> crate::common::Reg<regs::Clkstatus, crate::common::R> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x1204usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x1204usize) as _) }
     }
     #[doc = "System status information."]
     #[inline(always)]
     pub const fn sysstatus(self) -> crate::common::Reg<regs::Sysstatus, crate::common::R> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x1208usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x1208usize) as _) }
     }
     #[doc = "Reset cause."]
     #[inline(always)]
     pub const fn rstcause(self) -> crate::common::Reg<regs::Rstcause, crate::common::R> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x1220usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x1220usize) as _) }
     }
     #[doc = "Reset level for application-triggered reset command."]
     #[inline(always)]
     pub const fn resetlevel(self) -> crate::common::Reg<regs::Resetlevel, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x1300usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x1300usize) as _) }
     }
     #[doc = "Execute an application-triggered reset command."]
     #[inline(always)]
     pub const fn resetcmd(self) -> crate::common::Reg<regs::Resetcmd, crate::common::W> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x1304usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x1304usize) as _) }
     }
     #[doc = "BOR threshold selection."]
     #[inline(always)]
     pub const fn borthreshold(self) -> crate::common::Reg<regs::Borthreshold, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x1308usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x1308usize) as _) }
     }
     #[doc = "Set the BOR threshold."]
     #[inline(always)]
     pub const fn borclrcmd(self) -> crate::common::Reg<regs::Borclrcmd, crate::common::W> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x130cusize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x130cusize) as _) }
     }
     #[doc = "SYSOSC frequency correction loop (FCL) ROSC enable."]
     #[inline(always)]
     pub const fn sysoscfclctl(self) -> crate::common::Reg<regs::Sysoscfclctl, crate::common::W> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x1310usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x1310usize) as _) }
     }
     #[doc = "SHUTDOWN IO release control."]
     #[inline(always)]
     pub const fn shdniorel(self) -> crate::common::Reg<regs::Shdniorel, crate::common::W> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x131cusize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x131cusize) as _) }
     }
     #[doc = "Disable the reset function of the NRST pin."]
     #[inline(always)]
     pub const fn exrstpin(self) -> crate::common::Reg<regs::Exrstpin, crate::common::W> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x1320usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x1320usize) as _) }
     }
     #[doc = "Clear sticky bits of SYSSTATUS."]
     #[inline(always)]
     pub const fn sysstatusclr(self) -> crate::common::Reg<regs::Sysstatusclr, crate::common::W> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x1324usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x1324usize) as _) }
     }
     #[doc = "Disable the SWD function on the SWD pins."]
     #[inline(always)]
     pub const fn swdcfg(self) -> crate::common::Reg<regs::Swdcfg, crate::common::W> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x1328usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x1328usize) as _) }
     }
     #[doc = "Frequency clock counter start capture."]
     #[inline(always)]
     pub const fn fcccmd(self) -> crate::common::Reg<regs::Fcccmd, crate::common::W> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x132cusize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x132cusize) as _) }
     }
     #[doc = "GPAMP control."]
     #[inline(always)]
     pub const fn pmuopamp(self) -> crate::common::Reg<regs::Pmuopamp, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x1380usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x1380usize) as _) }
     }
     #[doc = "Shutdown storage memory (byte 0)."]
     #[inline(always)]
@@ -199,7 +199,9 @@ impl Sysctl {
         n: usize,
     ) -> crate::common::Reg<regs::Shutdnstore, crate::common::RW> {
         assert!(n < 4usize);
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x1400usize + n * 4usize) as _) }
+        unsafe {
+            crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x1400usize + n * 4usize) as _)
+        }
     }
 }
 pub mod regs {
@@ -209,6 +211,7 @@ pub mod regs {
     pub struct Borclrcmd(pub u32);
     impl Borclrcmd {
         #[doc = "GO clears any prior BOR violation status indications and attempts to change the active BOR mode to that specified in the LEVEL field of the BORTHRESHOLD register."]
+        #[must_use]
         #[inline(always)]
         pub const fn go(&self) -> bool {
             let val = (self.0 >> 0usize) & 0x01;
@@ -216,16 +219,17 @@ pub mod regs {
         }
         #[doc = "GO clears any prior BOR violation status indications and attempts to change the active BOR mode to that specified in the LEVEL field of the BORTHRESHOLD register."]
         #[inline(always)]
-        pub fn set_go(&mut self, val: bool) {
+        pub const fn set_go(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 0usize)) | (((val as u32) & 0x01) << 0usize);
         }
+        #[must_use]
         #[inline(always)]
         pub const fn key(&self) -> super::vals::BorclrcmdKey {
             let val = (self.0 >> 24usize) & 0xff;
             super::vals::BorclrcmdKey::from_bits(val as u8)
         }
         #[inline(always)]
-        pub fn set_key(&mut self, val: super::vals::BorclrcmdKey) {
+        pub const fn set_key(&mut self, val: super::vals::BorclrcmdKey) {
             self.0 = (self.0 & !(0xff << 24usize)) | (((val.to_bits() as u32) & 0xff) << 24usize);
         }
     }
@@ -235,12 +239,32 @@ pub mod regs {
             Borclrcmd(0)
         }
     }
+    impl core::fmt::Debug for Borclrcmd {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Borclrcmd")
+                .field("go", &self.go())
+                .field("key", &self.key())
+                .finish()
+        }
+    }
+    #[cfg(feature = "defmt")]
+    impl defmt::Format for Borclrcmd {
+        fn format(&self, f: defmt::Formatter) {
+            defmt::write!(
+                f,
+                "Borclrcmd {{ go: {=bool:?}, key: {:?} }}",
+                self.go(),
+                self.key()
+            )
+        }
+    }
     #[doc = "BOR threshold selection."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Borthreshold(pub u32);
     impl Borthreshold {
         #[doc = "LEVEL specifies the desired BOR threshold and BOR mode."]
+        #[must_use]
         #[inline(always)]
         pub const fn level(&self) -> u8 {
             let val = (self.0 >> 0usize) & 0x03;
@@ -248,7 +272,7 @@ pub mod regs {
         }
         #[doc = "LEVEL specifies the desired BOR threshold and BOR mode."]
         #[inline(always)]
-        pub fn set_level(&mut self, val: u8) {
+        pub const fn set_level(&mut self, val: u8) {
             self.0 = (self.0 & !(0x03 << 0usize)) | (((val as u32) & 0x03) << 0usize);
         }
     }
@@ -258,12 +282,26 @@ pub mod regs {
             Borthreshold(0)
         }
     }
+    impl core::fmt::Debug for Borthreshold {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Borthreshold")
+                .field("level", &self.level())
+                .finish()
+        }
+    }
+    #[cfg(feature = "defmt")]
+    impl defmt::Format for Borthreshold {
+        fn format(&self, f: defmt::Formatter) {
+            defmt::write!(f, "Borthreshold {{ level: {=u8:?} }}", self.level())
+        }
+    }
     #[doc = "Clock module (CKM) status."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Clkstatus(pub u32);
     impl Clkstatus {
         #[doc = "SYSOSCFREQ indicates the current SYSOSC operating frequency."]
+        #[must_use]
         #[inline(always)]
         pub const fn sysoscfreq(&self) -> super::vals::Sysoscfreq {
             let val = (self.0 >> 0usize) & 0x03;
@@ -271,10 +309,11 @@ pub mod regs {
         }
         #[doc = "SYSOSCFREQ indicates the current SYSOSC operating frequency."]
         #[inline(always)]
-        pub fn set_sysoscfreq(&mut self, val: super::vals::Sysoscfreq) {
+        pub const fn set_sysoscfreq(&mut self, val: super::vals::Sysoscfreq) {
             self.0 = (self.0 & !(0x03 << 0usize)) | (((val.to_bits() as u32) & 0x03) << 0usize);
         }
         #[doc = "LFCLKMUX indicates if LFCLK is sourced from the internal LFOSC, the low frequency crystal (LFXT), or the LFCLK_IN digital clock input."]
+        #[must_use]
         #[inline(always)]
         pub const fn lfclkmux(&self) -> super::vals::Lfclkmux {
             let val = (self.0 >> 6usize) & 0x03;
@@ -282,10 +321,11 @@ pub mod regs {
         }
         #[doc = "LFCLKMUX indicates if LFCLK is sourced from the internal LFOSC, the low frequency crystal (LFXT), or the LFCLK_IN digital clock input."]
         #[inline(always)]
-        pub fn set_lfclkmux(&mut self, val: super::vals::Lfclkmux) {
+        pub const fn set_lfclkmux(&mut self, val: super::vals::Lfclkmux) {
             self.0 = (self.0 & !(0x03 << 6usize)) | (((val.to_bits() as u32) & 0x03) << 6usize);
         }
         #[doc = "LFOSCGOOD indicates when the LFOSC startup has completed and the LFOSC is ready for use."]
+        #[must_use]
         #[inline(always)]
         pub const fn lfoscgood(&self) -> bool {
             let val = (self.0 >> 11usize) & 0x01;
@@ -293,10 +333,11 @@ pub mod regs {
         }
         #[doc = "LFOSCGOOD indicates when the LFOSC startup has completed and the LFOSC is ready for use."]
         #[inline(always)]
-        pub fn set_lfoscgood(&mut self, val: bool) {
+        pub const fn set_lfoscgood(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 11usize)) | (((val as u32) & 0x01) << 11usize);
         }
         #[doc = "CURMCLKSEL indicates if MCLK is currently sourced from LFCLK."]
+        #[must_use]
         #[inline(always)]
         pub const fn curmclksel(&self) -> bool {
             let val = (self.0 >> 17usize) & 0x01;
@@ -304,10 +345,11 @@ pub mod regs {
         }
         #[doc = "CURMCLKSEL indicates if MCLK is currently sourced from LFCLK."]
         #[inline(always)]
-        pub fn set_curmclksel(&mut self, val: bool) {
+        pub const fn set_curmclksel(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 17usize)) | (((val as u32) & 0x01) << 17usize);
         }
         #[doc = "FCLMODE indicates if the SYSOSC frequency correction loop (FCL) is enabled."]
+        #[must_use]
         #[inline(always)]
         pub const fn fclmode(&self) -> bool {
             let val = (self.0 >> 24usize) & 0x01;
@@ -315,10 +357,11 @@ pub mod regs {
         }
         #[doc = "FCLMODE indicates if the SYSOSC frequency correction loop (FCL) is enabled."]
         #[inline(always)]
-        pub fn set_fclmode(&mut self, val: bool) {
+        pub const fn set_fclmode(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 24usize)) | (((val as u32) & 0x01) << 24usize);
         }
         #[doc = "FCCDONE indicates when a frequency clock counter capture is complete."]
+        #[must_use]
         #[inline(always)]
         pub const fn fccdone(&self) -> bool {
             let val = (self.0 >> 25usize) & 0x01;
@@ -326,10 +369,11 @@ pub mod regs {
         }
         #[doc = "FCCDONE indicates when a frequency clock counter capture is complete."]
         #[inline(always)]
-        pub fn set_fccdone(&mut self, val: bool) {
+        pub const fn set_fccdone(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 25usize)) | (((val as u32) & 0x01) << 25usize);
         }
         #[doc = "OPAMPCLKERR is set when the device clock configuration does not support an enabled OPA mode and the OPA may not be functioning as expected."]
+        #[must_use]
         #[inline(always)]
         pub const fn opampclkerr(&self) -> bool {
             let val = (self.0 >> 30usize) & 0x01;
@@ -337,10 +381,11 @@ pub mod regs {
         }
         #[doc = "OPAMPCLKERR is set when the device clock configuration does not support an enabled OPA mode and the OPA may not be functioning as expected."]
         #[inline(always)]
-        pub fn set_opampclkerr(&mut self, val: bool) {
+        pub const fn set_opampclkerr(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 30usize)) | (((val as u32) & 0x01) << 30usize);
         }
         #[doc = "ANACLKERR is set when the device clock configuration does not support an enabled analog peripheral mode and the analog peripheral may not be functioning as expected."]
+        #[must_use]
         #[inline(always)]
         pub const fn anaclkerr(&self) -> bool {
             let val = (self.0 >> 31usize) & 0x01;
@@ -348,7 +393,7 @@ pub mod regs {
         }
         #[doc = "ANACLKERR is set when the device clock configuration does not support an enabled analog peripheral mode and the analog peripheral may not be functioning as expected."]
         #[inline(always)]
-        pub fn set_anaclkerr(&mut self, val: bool) {
+        pub const fn set_anaclkerr(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 31usize)) | (((val as u32) & 0x01) << 31usize);
         }
     }
@@ -358,12 +403,33 @@ pub mod regs {
             Clkstatus(0)
         }
     }
+    impl core::fmt::Debug for Clkstatus {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Clkstatus")
+                .field("sysoscfreq", &self.sysoscfreq())
+                .field("lfclkmux", &self.lfclkmux())
+                .field("lfoscgood", &self.lfoscgood())
+                .field("curmclksel", &self.curmclksel())
+                .field("fclmode", &self.fclmode())
+                .field("fccdone", &self.fccdone())
+                .field("opampclkerr", &self.opampclkerr())
+                .field("anaclkerr", &self.anaclkerr())
+                .finish()
+        }
+    }
+    #[cfg(feature = "defmt")]
+    impl defmt::Format for Clkstatus {
+        fn format(&self, f: defmt::Formatter) {
+            defmt :: write ! (f , "Clkstatus {{ sysoscfreq: {:?}, lfclkmux: {:?}, lfoscgood: {=bool:?}, curmclksel: {=bool:?}, fclmode: {=bool:?}, fccdone: {=bool:?}, opampclkerr: {=bool:?}, anaclkerr: {=bool:?} }}" , self . sysoscfreq () , self . lfclkmux () , self . lfoscgood () , self . curmclksel () , self . fclmode () , self . fccdone () , self . opampclkerr () , self . anaclkerr ())
+        }
+    }
     #[doc = "Disable the reset function of the NRST pin."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Exrstpin(pub u32);
     impl Exrstpin {
         #[doc = "Set DISABLE to disable the reset function of the NRST pin. Once set, this configuration is locked until the next POR."]
+        #[must_use]
         #[inline(always)]
         pub const fn disable(&self) -> bool {
             let val = (self.0 >> 0usize) & 0x01;
@@ -371,16 +437,17 @@ pub mod regs {
         }
         #[doc = "Set DISABLE to disable the reset function of the NRST pin. Once set, this configuration is locked until the next POR."]
         #[inline(always)]
-        pub fn set_disable(&mut self, val: bool) {
+        pub const fn set_disable(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 0usize)) | (((val as u32) & 0x01) << 0usize);
         }
+        #[must_use]
         #[inline(always)]
         pub const fn key(&self) -> super::vals::ExrstpinKey {
             let val = (self.0 >> 24usize) & 0xff;
             super::vals::ExrstpinKey::from_bits(val as u8)
         }
         #[inline(always)]
-        pub fn set_key(&mut self, val: super::vals::ExrstpinKey) {
+        pub const fn set_key(&mut self, val: super::vals::ExrstpinKey) {
             self.0 = (self.0 & !(0xff << 24usize)) | (((val.to_bits() as u32) & 0xff) << 24usize);
         }
     }
@@ -390,12 +457,32 @@ pub mod regs {
             Exrstpin(0)
         }
     }
+    impl core::fmt::Debug for Exrstpin {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Exrstpin")
+                .field("disable", &self.disable())
+                .field("key", &self.key())
+                .finish()
+        }
+    }
+    #[cfg(feature = "defmt")]
+    impl defmt::Format for Exrstpin {
+        fn format(&self, f: defmt::Formatter) {
+            defmt::write!(
+                f,
+                "Exrstpin {{ disable: {=bool:?}, key: {:?} }}",
+                self.disable(),
+                self.key()
+            )
+        }
+    }
     #[doc = "Frequency clock counter (FCC) count."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Fcc(pub u32);
     impl Fcc {
         #[doc = "Frequency clock counter (FCC) count value."]
+        #[must_use]
         #[inline(always)]
         pub const fn data(&self) -> u32 {
             let val = (self.0 >> 0usize) & 0x003f_ffff;
@@ -403,7 +490,7 @@ pub mod regs {
         }
         #[doc = "Frequency clock counter (FCC) count value."]
         #[inline(always)]
-        pub fn set_data(&mut self, val: u32) {
+        pub const fn set_data(&mut self, val: u32) {
             self.0 = (self.0 & !(0x003f_ffff << 0usize)) | (((val as u32) & 0x003f_ffff) << 0usize);
         }
     }
@@ -413,12 +500,24 @@ pub mod regs {
             Fcc(0)
         }
     }
+    impl core::fmt::Debug for Fcc {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Fcc").field("data", &self.data()).finish()
+        }
+    }
+    #[cfg(feature = "defmt")]
+    impl defmt::Format for Fcc {
+        fn format(&self, f: defmt::Formatter) {
+            defmt::write!(f, "Fcc {{ data: {=u32:?} }}", self.data())
+        }
+    }
     #[doc = "Frequency clock counter start capture."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Fcccmd(pub u32);
     impl Fcccmd {
         #[doc = "Set GO to start a capture with the frequency clock counter (FCC)."]
+        #[must_use]
         #[inline(always)]
         pub const fn go(&self) -> bool {
             let val = (self.0 >> 0usize) & 0x01;
@@ -426,16 +525,17 @@ pub mod regs {
         }
         #[doc = "Set GO to start a capture with the frequency clock counter (FCC)."]
         #[inline(always)]
-        pub fn set_go(&mut self, val: bool) {
+        pub const fn set_go(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 0usize)) | (((val as u32) & 0x01) << 0usize);
         }
+        #[must_use]
         #[inline(always)]
         pub const fn key(&self) -> super::vals::FcccmdKey {
             let val = (self.0 >> 24usize) & 0xff;
             super::vals::FcccmdKey::from_bits(val as u8)
         }
         #[inline(always)]
-        pub fn set_key(&mut self, val: super::vals::FcccmdKey) {
+        pub const fn set_key(&mut self, val: super::vals::FcccmdKey) {
             self.0 = (self.0 & !(0xff << 24usize)) | (((val.to_bits() as u32) & 0xff) << 24usize);
         }
     }
@@ -445,12 +545,32 @@ pub mod regs {
             Fcccmd(0)
         }
     }
+    impl core::fmt::Debug for Fcccmd {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Fcccmd")
+                .field("go", &self.go())
+                .field("key", &self.key())
+                .finish()
+        }
+    }
+    #[cfg(feature = "defmt")]
+    impl defmt::Format for Fcccmd {
+        fn format(&self, f: defmt::Formatter) {
+            defmt::write!(
+                f,
+                "Fcccmd {{ go: {=bool:?}, key: {:?} }}",
+                self.go(),
+                self.key()
+            )
+        }
+    }
     #[doc = "General clock configuration."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Genclkcfg(pub u32);
     impl Genclkcfg {
         #[doc = "EXCLKSRC selects the source for the CLK_OUT external clock output block. ULPCLK and MFPCLK require the CLK_OUT divider (EXCLKDIVEN) to be enabled."]
+        #[must_use]
         #[inline(always)]
         pub const fn exclksrc(&self) -> super::vals::Exclksrc {
             let val = (self.0 >> 0usize) & 0x07;
@@ -458,10 +578,11 @@ pub mod regs {
         }
         #[doc = "EXCLKSRC selects the source for the CLK_OUT external clock output block. ULPCLK and MFPCLK require the CLK_OUT divider (EXCLKDIVEN) to be enabled."]
         #[inline(always)]
-        pub fn set_exclksrc(&mut self, val: super::vals::Exclksrc) {
+        pub const fn set_exclksrc(&mut self, val: super::vals::Exclksrc) {
             self.0 = (self.0 & !(0x07 << 0usize)) | (((val.to_bits() as u32) & 0x07) << 0usize);
         }
         #[doc = "EXCLKDIVVAL selects the divider value for the divider in the CLK_OUT external clock output block."]
+        #[must_use]
         #[inline(always)]
         pub const fn exclkdivval(&self) -> super::vals::Exclkdivval {
             let val = (self.0 >> 4usize) & 0x07;
@@ -469,10 +590,11 @@ pub mod regs {
         }
         #[doc = "EXCLKDIVVAL selects the divider value for the divider in the CLK_OUT external clock output block."]
         #[inline(always)]
-        pub fn set_exclkdivval(&mut self, val: super::vals::Exclkdivval) {
+        pub const fn set_exclkdivval(&mut self, val: super::vals::Exclkdivval) {
             self.0 = (self.0 & !(0x07 << 4usize)) | (((val.to_bits() as u32) & 0x07) << 4usize);
         }
         #[doc = "EXCLKDIVEN enables or disables the divider function of the CLK_OUT external clock output block."]
+        #[must_use]
         #[inline(always)]
         pub const fn exclkdiven(&self) -> bool {
             let val = (self.0 >> 7usize) & 0x01;
@@ -480,10 +602,11 @@ pub mod regs {
         }
         #[doc = "EXCLKDIVEN enables or disables the divider function of the CLK_OUT external clock output block."]
         #[inline(always)]
-        pub fn set_exclkdiven(&mut self, val: bool) {
+        pub const fn set_exclkdiven(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 7usize)) | (((val as u32) & 0x01) << 7usize);
         }
         #[doc = "FCCSELCLK selectes the frequency clock counter (FCC) clock source."]
+        #[must_use]
         #[inline(always)]
         pub const fn fccselclk(&self) -> super::vals::Fccselclk {
             let val = (self.0 >> 16usize) & 0x0f;
@@ -491,10 +614,11 @@ pub mod regs {
         }
         #[doc = "FCCSELCLK selectes the frequency clock counter (FCC) clock source."]
         #[inline(always)]
-        pub fn set_fccselclk(&mut self, val: super::vals::Fccselclk) {
+        pub const fn set_fccselclk(&mut self, val: super::vals::Fccselclk) {
             self.0 = (self.0 & !(0x0f << 16usize)) | (((val.to_bits() as u32) & 0x0f) << 16usize);
         }
         #[doc = "FCCTRIGSRC selects the frequency clock counter (FCC) trigger source."]
+        #[must_use]
         #[inline(always)]
         pub const fn fcctrigsrc(&self) -> super::vals::Fcctrigsrc {
             let val = (self.0 >> 20usize) & 0x01;
@@ -502,10 +626,11 @@ pub mod regs {
         }
         #[doc = "FCCTRIGSRC selects the frequency clock counter (FCC) trigger source."]
         #[inline(always)]
-        pub fn set_fcctrigsrc(&mut self, val: super::vals::Fcctrigsrc) {
+        pub const fn set_fcctrigsrc(&mut self, val: super::vals::Fcctrigsrc) {
             self.0 = (self.0 & !(0x01 << 20usize)) | (((val.to_bits() as u32) & 0x01) << 20usize);
         }
         #[doc = "FCCLVLTRIG selects the frequency clock counter (FCC) trigger mode."]
+        #[must_use]
         #[inline(always)]
         pub const fn fcclvltrig(&self) -> super::vals::Fcclvltrig {
             let val = (self.0 >> 21usize) & 0x01;
@@ -513,10 +638,11 @@ pub mod regs {
         }
         #[doc = "FCCLVLTRIG selects the frequency clock counter (FCC) trigger mode."]
         #[inline(always)]
-        pub fn set_fcclvltrig(&mut self, val: super::vals::Fcclvltrig) {
+        pub const fn set_fcclvltrig(&mut self, val: super::vals::Fcclvltrig) {
             self.0 = (self.0 & !(0x01 << 21usize)) | (((val.to_bits() as u32) & 0x01) << 21usize);
         }
         #[doc = "ANACPUMPCFG selects the analog mux charge pump (VBOOST) enable method."]
+        #[must_use]
         #[inline(always)]
         pub const fn anacpumpcfg(&self) -> super::vals::Anacpumpcfg {
             let val = (self.0 >> 22usize) & 0x03;
@@ -524,10 +650,11 @@ pub mod regs {
         }
         #[doc = "ANACPUMPCFG selects the analog mux charge pump (VBOOST) enable method."]
         #[inline(always)]
-        pub fn set_anacpumpcfg(&mut self, val: super::vals::Anacpumpcfg) {
+        pub const fn set_anacpumpcfg(&mut self, val: super::vals::Anacpumpcfg) {
             self.0 = (self.0 & !(0x03 << 22usize)) | (((val.to_bits() as u32) & 0x03) << 22usize);
         }
         #[doc = "FCCTRIGCNT specifies the number of trigger clock periods in the trigger window. FCCTRIGCNT=0h (one trigger clock period) up to 1Fh (32 trigger clock periods) may be specified."]
+        #[must_use]
         #[inline(always)]
         pub const fn fcctrigcnt(&self) -> u8 {
             let val = (self.0 >> 24usize) & 0x1f;
@@ -535,7 +662,7 @@ pub mod regs {
         }
         #[doc = "FCCTRIGCNT specifies the number of trigger clock periods in the trigger window. FCCTRIGCNT=0h (one trigger clock period) up to 1Fh (32 trigger clock periods) may be specified."]
         #[inline(always)]
-        pub fn set_fcctrigcnt(&mut self, val: u8) {
+        pub const fn set_fcctrigcnt(&mut self, val: u8) {
             self.0 = (self.0 & !(0x1f << 24usize)) | (((val as u32) & 0x1f) << 24usize);
         }
     }
@@ -545,12 +672,33 @@ pub mod regs {
             Genclkcfg(0)
         }
     }
+    impl core::fmt::Debug for Genclkcfg {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Genclkcfg")
+                .field("exclksrc", &self.exclksrc())
+                .field("exclkdivval", &self.exclkdivval())
+                .field("exclkdiven", &self.exclkdiven())
+                .field("fccselclk", &self.fccselclk())
+                .field("fcctrigsrc", &self.fcctrigsrc())
+                .field("fcclvltrig", &self.fcclvltrig())
+                .field("anacpumpcfg", &self.anacpumpcfg())
+                .field("fcctrigcnt", &self.fcctrigcnt())
+                .finish()
+        }
+    }
+    #[cfg(feature = "defmt")]
+    impl defmt::Format for Genclkcfg {
+        fn format(&self, f: defmt::Formatter) {
+            defmt :: write ! (f , "Genclkcfg {{ exclksrc: {:?}, exclkdivval: {:?}, exclkdiven: {=bool:?}, fccselclk: {:?}, fcctrigsrc: {:?}, fcclvltrig: {:?}, anacpumpcfg: {:?}, fcctrigcnt: {=u8:?} }}" , self . exclksrc () , self . exclkdivval () , self . exclkdiven () , self . fccselclk () , self . fcctrigsrc () , self . fcclvltrig () , self . anacpumpcfg () , self . fcctrigcnt ())
+        }
+    }
     #[doc = "General clock enable control."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Genclken(pub u32);
     impl Genclken {
         #[doc = "EXCLKEN enables the CLK_OUT external clock output block."]
+        #[must_use]
         #[inline(always)]
         pub const fn exclken(&self) -> bool {
             let val = (self.0 >> 0usize) & 0x01;
@@ -558,10 +706,11 @@ pub mod regs {
         }
         #[doc = "EXCLKEN enables the CLK_OUT external clock output block."]
         #[inline(always)]
-        pub fn set_exclken(&mut self, val: bool) {
+        pub const fn set_exclken(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 0usize)) | (((val as u32) & 0x01) << 0usize);
         }
         #[doc = "MFPCLKEN enables the middle frequency precision clock (MFPCLK)."]
+        #[must_use]
         #[inline(always)]
         pub const fn mfpclken(&self) -> bool {
             let val = (self.0 >> 4usize) & 0x01;
@@ -569,7 +718,7 @@ pub mod regs {
         }
         #[doc = "MFPCLKEN enables the middle frequency precision clock (MFPCLK)."]
         #[inline(always)]
-        pub fn set_mfpclken(&mut self, val: bool) {
+        pub const fn set_mfpclken(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 4usize)) | (((val as u32) & 0x01) << 4usize);
         }
     }
@@ -579,12 +728,32 @@ pub mod regs {
             Genclken(0)
         }
     }
+    impl core::fmt::Debug for Genclken {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Genclken")
+                .field("exclken", &self.exclken())
+                .field("mfpclken", &self.mfpclken())
+                .finish()
+        }
+    }
+    #[cfg(feature = "defmt")]
+    impl defmt::Format for Genclken {
+        fn format(&self, f: defmt::Formatter) {
+            defmt::write!(
+                f,
+                "Genclken {{ exclken: {=bool:?}, mfpclken: {=bool:?} }}",
+                self.exclken(),
+                self.mfpclken()
+            )
+        }
+    }
     #[doc = "SYSCTL interrupt index."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Iidx(pub u32);
     impl Iidx {
         #[doc = "The SYSCTL interrupt index (IIDX) register generates a value corresponding to the highest priority pending interrupt source. This value may be used as an address offset for fast, deterministic handling in the interrupt service routine. A read of the IIDX register will clear the corresponding interrupt status in the RIS and MIS registers."]
+        #[must_use]
         #[inline(always)]
         pub const fn stat(&self) -> super::vals::IidxStat {
             let val = (self.0 >> 0usize) & 0x03;
@@ -592,7 +761,7 @@ pub mod regs {
         }
         #[doc = "The SYSCTL interrupt index (IIDX) register generates a value corresponding to the highest priority pending interrupt source. This value may be used as an address offset for fast, deterministic handling in the interrupt service routine. A read of the IIDX register will clear the corresponding interrupt status in the RIS and MIS registers."]
         #[inline(always)]
-        pub fn set_stat(&mut self, val: super::vals::IidxStat) {
+        pub const fn set_stat(&mut self, val: super::vals::IidxStat) {
             self.0 = (self.0 & !(0x03 << 0usize)) | (((val.to_bits() as u32) & 0x03) << 0usize);
         }
     }
@@ -602,12 +771,24 @@ pub mod regs {
             Iidx(0)
         }
     }
+    impl core::fmt::Debug for Iidx {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Iidx").field("stat", &self.stat()).finish()
+        }
+    }
+    #[cfg(feature = "defmt")]
+    impl defmt::Format for Iidx {
+        fn format(&self, f: defmt::Formatter) {
+            defmt::write!(f, "Iidx {{ stat: {:?} }}", self.stat())
+        }
+    }
     #[doc = "SYSCTL interrupt clear."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Int(pub u32);
     impl Int {
         #[doc = "Clear the LFOSCGOOD interrupt."]
+        #[must_use]
         #[inline(always)]
         pub const fn lfoscgood(&self) -> bool {
             let val = (self.0 >> 0usize) & 0x01;
@@ -615,25 +796,27 @@ pub mod regs {
         }
         #[doc = "Clear the LFOSCGOOD interrupt."]
         #[inline(always)]
-        pub fn set_lfoscgood(&mut self, val: bool) {
+        pub const fn set_lfoscgood(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 0usize)) | (((val as u32) & 0x01) << 0usize);
         }
+        #[must_use]
         #[inline(always)]
         pub const fn borlvl(&self) -> bool {
             let val = (self.0 >> 1usize) & 0x01;
             val != 0
         }
         #[inline(always)]
-        pub fn set_borlvl(&mut self, val: bool) {
+        pub const fn set_borlvl(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 1usize)) | (((val as u32) & 0x01) << 1usize);
         }
+        #[must_use]
         #[inline(always)]
         pub const fn anaclkerr(&self) -> bool {
             let val = (self.0 >> 2usize) & 0x01;
             val != 0
         }
         #[inline(always)]
-        pub fn set_anaclkerr(&mut self, val: bool) {
+        pub const fn set_anaclkerr(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 2usize)) | (((val as u32) & 0x01) << 2usize);
         }
     }
@@ -643,12 +826,34 @@ pub mod regs {
             Int(0)
         }
     }
+    impl core::fmt::Debug for Int {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Int")
+                .field("lfoscgood", &self.lfoscgood())
+                .field("borlvl", &self.borlvl())
+                .field("anaclkerr", &self.anaclkerr())
+                .finish()
+        }
+    }
+    #[cfg(feature = "defmt")]
+    impl defmt::Format for Int {
+        fn format(&self, f: defmt::Formatter) {
+            defmt::write!(
+                f,
+                "Int {{ lfoscgood: {=bool:?}, borlvl: {=bool:?}, anaclkerr: {=bool:?} }}",
+                self.lfoscgood(),
+                self.borlvl(),
+                self.anaclkerr()
+            )
+        }
+    }
     #[doc = "Main clock (MCLK) configuration."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Mclkcfg(pub u32);
     impl Mclkcfg {
         #[doc = "MDIV may be used to divide the MCLK frequency when MCLK is sourced from SYSOSC. MDIV=0h corresponds to /1 (no divider). MDIV=1h corresponds to /2 (divide-by-2). MDIV=Fh corresponds to /16 (divide-by-16). MDIV may be set between /1 and /16 on an integer basis."]
+        #[must_use]
         #[inline(always)]
         pub const fn mdiv(&self) -> u8 {
             let val = (self.0 >> 0usize) & 0x0f;
@@ -656,10 +861,11 @@ pub mod regs {
         }
         #[doc = "MDIV may be used to divide the MCLK frequency when MCLK is sourced from SYSOSC. MDIV=0h corresponds to /1 (no divider). MDIV=1h corresponds to /2 (divide-by-2). MDIV=Fh corresponds to /16 (divide-by-16). MDIV may be set between /1 and /16 on an integer basis."]
         #[inline(always)]
-        pub fn set_mdiv(&mut self, val: u8) {
+        pub const fn set_mdiv(&mut self, val: u8) {
             self.0 = (self.0 & !(0x0f << 0usize)) | (((val as u32) & 0x0f) << 0usize);
         }
         #[doc = "FLASHWAIT specifies the number of flash wait states when MCLK is sourced from HSCLK. FLASHWAIT has no effect when MCLK is sourced from SYSOSC or LFCLK."]
+        #[must_use]
         #[inline(always)]
         pub const fn flashwait(&self) -> super::vals::Flashwait {
             let val = (self.0 >> 8usize) & 0x0f;
@@ -667,10 +873,11 @@ pub mod regs {
         }
         #[doc = "FLASHWAIT specifies the number of flash wait states when MCLK is sourced from HSCLK. FLASHWAIT has no effect when MCLK is sourced from SYSOSC or LFCLK."]
         #[inline(always)]
-        pub fn set_flashwait(&mut self, val: super::vals::Flashwait) {
+        pub const fn set_flashwait(&mut self, val: super::vals::Flashwait) {
             self.0 = (self.0 & !(0x0f << 8usize)) | (((val.to_bits() as u32) & 0x0f) << 8usize);
         }
         #[doc = "USEMFTICK specifies whether the 4MHz constant-rate clock (MFCLK) to peripherals is enabled or disabled. When enabled, MDIV must be disabled (set to 0h=/1)."]
+        #[must_use]
         #[inline(always)]
         pub const fn usemftick(&self) -> bool {
             let val = (self.0 >> 12usize) & 0x01;
@@ -678,10 +885,11 @@ pub mod regs {
         }
         #[doc = "USEMFTICK specifies whether the 4MHz constant-rate clock (MFCLK) to peripherals is enabled or disabled. When enabled, MDIV must be disabled (set to 0h=/1)."]
         #[inline(always)]
-        pub fn set_usemftick(&mut self, val: bool) {
+        pub const fn set_usemftick(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 12usize)) | (((val as u32) & 0x01) << 12usize);
         }
         #[doc = "USELFCLK sets the MCLK source policy. Set USELFCLK to use LFCLK as the MCLK source. Note that setting USELFCLK does not disable SYSOSC, and SYSOSC remains available for direct use by analog modules."]
+        #[must_use]
         #[inline(always)]
         pub const fn uselfclk(&self) -> bool {
             let val = (self.0 >> 20usize) & 0x01;
@@ -689,10 +897,11 @@ pub mod regs {
         }
         #[doc = "USELFCLK sets the MCLK source policy. Set USELFCLK to use LFCLK as the MCLK source. Note that setting USELFCLK does not disable SYSOSC, and SYSOSC remains available for direct use by analog modules."]
         #[inline(always)]
-        pub fn set_uselfclk(&mut self, val: bool) {
+        pub const fn set_uselfclk(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 20usize)) | (((val as u32) & 0x01) << 20usize);
         }
         #[doc = "STOPCLKSTBY sets the STANDBY mode policy (STANDBY0 or STANDBY1). When set, ULPCLK and LFCLK are disabled to all peripherals in STANDBY mode, with the exception of TIMG0 and TIMG1 which continue to run. Wake-up is only possible via an asynchronous fast clock request."]
+        #[must_use]
         #[inline(always)]
         pub const fn stopclkstby(&self) -> bool {
             let val = (self.0 >> 21usize) & 0x01;
@@ -700,10 +909,11 @@ pub mod regs {
         }
         #[doc = "STOPCLKSTBY sets the STANDBY mode policy (STANDBY0 or STANDBY1). When set, ULPCLK and LFCLK are disabled to all peripherals in STANDBY mode, with the exception of TIMG0 and TIMG1 which continue to run. Wake-up is only possible via an asynchronous fast clock request."]
         #[inline(always)]
-        pub fn set_stopclkstby(&mut self, val: bool) {
+        pub const fn set_stopclkstby(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 21usize)) | (((val as u32) & 0x01) << 21usize);
         }
         #[doc = "MCLKDEADCHK enables or disables the continuous MCLK dead check monitor. LFCLK must be running before MCLKDEADCHK is enabled."]
+        #[must_use]
         #[inline(always)]
         pub const fn mclkdeadchk(&self) -> bool {
             let val = (self.0 >> 22usize) & 0x01;
@@ -711,7 +921,7 @@ pub mod regs {
         }
         #[doc = "MCLKDEADCHK enables or disables the continuous MCLK dead check monitor. LFCLK must be running before MCLKDEADCHK is enabled."]
         #[inline(always)]
-        pub fn set_mclkdeadchk(&mut self, val: bool) {
+        pub const fn set_mclkdeadchk(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 22usize)) | (((val as u32) & 0x01) << 22usize);
         }
     }
@@ -721,12 +931,31 @@ pub mod regs {
             Mclkcfg(0)
         }
     }
+    impl core::fmt::Debug for Mclkcfg {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Mclkcfg")
+                .field("mdiv", &self.mdiv())
+                .field("flashwait", &self.flashwait())
+                .field("usemftick", &self.usemftick())
+                .field("uselfclk", &self.uselfclk())
+                .field("stopclkstby", &self.stopclkstby())
+                .field("mclkdeadchk", &self.mclkdeadchk())
+                .finish()
+        }
+    }
+    #[cfg(feature = "defmt")]
+    impl defmt::Format for Mclkcfg {
+        fn format(&self, f: defmt::Formatter) {
+            defmt :: write ! (f , "Mclkcfg {{ mdiv: {=u8:?}, flashwait: {:?}, usemftick: {=bool:?}, uselfclk: {=bool:?}, stopclkstby: {=bool:?}, mclkdeadchk: {=bool:?} }}" , self . mdiv () , self . flashwait () , self . usemftick () , self . uselfclk () , self . stopclkstby () , self . mclkdeadchk ())
+        }
+    }
     #[doc = "NMI interrupt clear."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Nmi(pub u32);
     impl Nmi {
         #[doc = "Clr the BORLVL NMI."]
+        #[must_use]
         #[inline(always)]
         pub const fn borlvl(&self) -> bool {
             let val = (self.0 >> 0usize) & 0x01;
@@ -734,10 +963,11 @@ pub mod regs {
         }
         #[doc = "Clr the BORLVL NMI."]
         #[inline(always)]
-        pub fn set_borlvl(&mut self, val: bool) {
+        pub const fn set_borlvl(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 0usize)) | (((val as u32) & 0x01) << 0usize);
         }
         #[doc = "Watch Dog 0 Fault."]
+        #[must_use]
         #[inline(always)]
         pub const fn wwdt0(&self) -> bool {
             let val = (self.0 >> 1usize) & 0x01;
@@ -745,7 +975,7 @@ pub mod regs {
         }
         #[doc = "Watch Dog 0 Fault."]
         #[inline(always)]
-        pub fn set_wwdt0(&mut self, val: bool) {
+        pub const fn set_wwdt0(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 1usize)) | (((val as u32) & 0x01) << 1usize);
         }
     }
@@ -755,12 +985,32 @@ pub mod regs {
             Nmi(0)
         }
     }
+    impl core::fmt::Debug for Nmi {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Nmi")
+                .field("borlvl", &self.borlvl())
+                .field("wwdt0", &self.wwdt0())
+                .finish()
+        }
+    }
+    #[cfg(feature = "defmt")]
+    impl defmt::Format for Nmi {
+        fn format(&self, f: defmt::Formatter) {
+            defmt::write!(
+                f,
+                "Nmi {{ borlvl: {=bool:?}, wwdt0: {=bool:?} }}",
+                self.borlvl(),
+                self.wwdt0()
+            )
+        }
+    }
     #[doc = "NMI interrupt index."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Nmiiidx(pub u32);
     impl Nmiiidx {
         #[doc = "The NMI interrupt index (NMIIIDX) register generates a value corresponding to the highest priority pending NMI source. This value may be used as an address offset for fast, deterministic handling in the NMI service routine. A read of the NMIIIDX register will clear the corresponding interrupt status in the NMIRIS register."]
+        #[must_use]
         #[inline(always)]
         pub const fn stat(&self) -> super::vals::NmiiidxStat {
             let val = (self.0 >> 0usize) & 0x03;
@@ -768,7 +1018,7 @@ pub mod regs {
         }
         #[doc = "The NMI interrupt index (NMIIIDX) register generates a value corresponding to the highest priority pending NMI source. This value may be used as an address offset for fast, deterministic handling in the NMI service routine. A read of the NMIIIDX register will clear the corresponding interrupt status in the NMIRIS register."]
         #[inline(always)]
-        pub fn set_stat(&mut self, val: super::vals::NmiiidxStat) {
+        pub const fn set_stat(&mut self, val: super::vals::NmiiidxStat) {
             self.0 = (self.0 & !(0x03 << 0usize)) | (((val.to_bits() as u32) & 0x03) << 0usize);
         }
     }
@@ -778,12 +1028,26 @@ pub mod regs {
             Nmiiidx(0)
         }
     }
+    impl core::fmt::Debug for Nmiiidx {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Nmiiidx")
+                .field("stat", &self.stat())
+                .finish()
+        }
+    }
+    #[cfg(feature = "defmt")]
+    impl defmt::Format for Nmiiidx {
+        fn format(&self, f: defmt::Formatter) {
+            defmt::write!(f, "Nmiiidx {{ stat: {:?} }}", self.stat())
+        }
+    }
     #[doc = "Power mode configuration."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Pmodecfg(pub u32);
     impl Pmodecfg {
         #[doc = "DSLEEP selects the operating mode to enter upon a DEEPSLEEP request from the CPU."]
+        #[must_use]
         #[inline(always)]
         pub const fn dsleep(&self) -> super::vals::Dsleep {
             let val = (self.0 >> 0usize) & 0x03;
@@ -791,10 +1055,11 @@ pub mod regs {
         }
         #[doc = "DSLEEP selects the operating mode to enter upon a DEEPSLEEP request from the CPU."]
         #[inline(always)]
-        pub fn set_dsleep(&mut self, val: super::vals::Dsleep) {
+        pub const fn set_dsleep(&mut self, val: super::vals::Dsleep) {
             self.0 = (self.0 & !(0x03 << 0usize)) | (((val.to_bits() as u32) & 0x03) << 0usize);
         }
         #[doc = "SYSSRAMONSTOP selects whether the SRAM controller is enabled or disabled in STOP mode."]
+        #[must_use]
         #[inline(always)]
         pub const fn syssramonstop(&self) -> bool {
             let val = (self.0 >> 5usize) & 0x01;
@@ -802,7 +1067,7 @@ pub mod regs {
         }
         #[doc = "SYSSRAMONSTOP selects whether the SRAM controller is enabled or disabled in STOP mode."]
         #[inline(always)]
-        pub fn set_syssramonstop(&mut self, val: bool) {
+        pub const fn set_syssramonstop(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 5usize)) | (((val as u32) & 0x01) << 5usize);
         }
     }
@@ -812,12 +1077,32 @@ pub mod regs {
             Pmodecfg(0)
         }
     }
+    impl core::fmt::Debug for Pmodecfg {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Pmodecfg")
+                .field("dsleep", &self.dsleep())
+                .field("syssramonstop", &self.syssramonstop())
+                .finish()
+        }
+    }
+    #[cfg(feature = "defmt")]
+    impl defmt::Format for Pmodecfg {
+        fn format(&self, f: defmt::Formatter) {
+            defmt::write!(
+                f,
+                "Pmodecfg {{ dsleep: {:?}, syssramonstop: {=bool:?} }}",
+                self.dsleep(),
+                self.syssramonstop()
+            )
+        }
+    }
     #[doc = "GPAMP control."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Pmuopamp(pub u32);
     impl Pmuopamp {
         #[doc = "Set ENABLE to turn on the GPAMP."]
+        #[must_use]
         #[inline(always)]
         pub const fn enable(&self) -> bool {
             let val = (self.0 >> 0usize) & 0x01;
@@ -825,10 +1110,11 @@ pub mod regs {
         }
         #[doc = "Set ENABLE to turn on the GPAMP."]
         #[inline(always)]
-        pub fn set_enable(&mut self, val: bool) {
+        pub const fn set_enable(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 0usize)) | (((val as u32) & 0x01) << 0usize);
         }
         #[doc = "Set PCHENABLE to enable the positive channel input."]
+        #[must_use]
         #[inline(always)]
         pub const fn pchenable(&self) -> bool {
             let val = (self.0 >> 1usize) & 0x01;
@@ -836,10 +1122,11 @@ pub mod regs {
         }
         #[doc = "Set PCHENABLE to enable the positive channel input."]
         #[inline(always)]
-        pub fn set_pchenable(&mut self, val: bool) {
+        pub const fn set_pchenable(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 1usize)) | (((val as u32) & 0x01) << 1usize);
         }
         #[doc = "NSEL selects the GPAMP negative channel input."]
+        #[must_use]
         #[inline(always)]
         pub const fn nsel(&self) -> super::vals::Nsel {
             let val = (self.0 >> 2usize) & 0x03;
@@ -847,10 +1134,11 @@ pub mod regs {
         }
         #[doc = "NSEL selects the GPAMP negative channel input."]
         #[inline(always)]
-        pub fn set_nsel(&mut self, val: super::vals::Nsel) {
+        pub const fn set_nsel(&mut self, val: super::vals::Nsel) {
             self.0 = (self.0 & !(0x03 << 2usize)) | (((val.to_bits() as u32) & 0x03) << 2usize);
         }
         #[doc = "RRI selects the rail-to-rail input mode."]
+        #[must_use]
         #[inline(always)]
         pub const fn rri(&self) -> super::vals::Rri {
             let val = (self.0 >> 4usize) & 0x03;
@@ -858,10 +1146,11 @@ pub mod regs {
         }
         #[doc = "RRI selects the rail-to-rail input mode."]
         #[inline(always)]
-        pub fn set_rri(&mut self, val: super::vals::Rri) {
+        pub const fn set_rri(&mut self, val: super::vals::Rri) {
             self.0 = (self.0 & !(0x03 << 4usize)) | (((val.to_bits() as u32) & 0x03) << 4usize);
         }
         #[doc = "Set OUTENABLE to connect the GPAMP output signal to the GPAMP_OUT pin."]
+        #[must_use]
         #[inline(always)]
         pub const fn outenable(&self) -> bool {
             let val = (self.0 >> 6usize) & 0x01;
@@ -869,10 +1158,11 @@ pub mod regs {
         }
         #[doc = "Set OUTENABLE to connect the GPAMP output signal to the GPAMP_OUT pin."]
         #[inline(always)]
-        pub fn set_outenable(&mut self, val: bool) {
+        pub const fn set_outenable(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 6usize)) | (((val as u32) & 0x01) << 6usize);
         }
         #[doc = "CHOPCLKFREQ selects the GPAMP chopping clock frequency."]
+        #[must_use]
         #[inline(always)]
         pub const fn chopclkfreq(&self) -> super::vals::Chopclkfreq {
             let val = (self.0 >> 8usize) & 0x03;
@@ -880,10 +1170,11 @@ pub mod regs {
         }
         #[doc = "CHOPCLKFREQ selects the GPAMP chopping clock frequency."]
         #[inline(always)]
-        pub fn set_chopclkfreq(&mut self, val: super::vals::Chopclkfreq) {
+        pub const fn set_chopclkfreq(&mut self, val: super::vals::Chopclkfreq) {
             self.0 = (self.0 & !(0x03 << 8usize)) | (((val.to_bits() as u32) & 0x03) << 8usize);
         }
         #[doc = "CHOPCLKMODE selects the GPAMP chopping mode."]
+        #[must_use]
         #[inline(always)]
         pub const fn chopclkmode(&self) -> super::vals::Chopclkmode {
             let val = (self.0 >> 10usize) & 0x03;
@@ -891,7 +1182,7 @@ pub mod regs {
         }
         #[doc = "CHOPCLKMODE selects the GPAMP chopping mode."]
         #[inline(always)]
-        pub fn set_chopclkmode(&mut self, val: super::vals::Chopclkmode) {
+        pub const fn set_chopclkmode(&mut self, val: super::vals::Chopclkmode) {
             self.0 = (self.0 & !(0x03 << 10usize)) | (((val.to_bits() as u32) & 0x03) << 10usize);
         }
     }
@@ -901,12 +1192,32 @@ pub mod regs {
             Pmuopamp(0)
         }
     }
+    impl core::fmt::Debug for Pmuopamp {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Pmuopamp")
+                .field("enable", &self.enable())
+                .field("pchenable", &self.pchenable())
+                .field("nsel", &self.nsel())
+                .field("rri", &self.rri())
+                .field("outenable", &self.outenable())
+                .field("chopclkfreq", &self.chopclkfreq())
+                .field("chopclkmode", &self.chopclkmode())
+                .finish()
+        }
+    }
+    #[cfg(feature = "defmt")]
+    impl defmt::Format for Pmuopamp {
+        fn format(&self, f: defmt::Formatter) {
+            defmt :: write ! (f , "Pmuopamp {{ enable: {=bool:?}, pchenable: {=bool:?}, nsel: {:?}, rri: {:?}, outenable: {=bool:?}, chopclkfreq: {:?}, chopclkmode: {:?} }}" , self . enable () , self . pchenable () , self . nsel () , self . rri () , self . outenable () , self . chopclkfreq () , self . chopclkmode ())
+        }
+    }
     #[doc = "Execute an application-triggered reset command."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Resetcmd(pub u32);
     impl Resetcmd {
         #[doc = "Execute the reset specified in RESETLEVEL.LEVEL. Must be written together with the KEY."]
+        #[must_use]
         #[inline(always)]
         pub const fn go(&self) -> bool {
             let val = (self.0 >> 0usize) & 0x01;
@@ -914,16 +1225,17 @@ pub mod regs {
         }
         #[doc = "Execute the reset specified in RESETLEVEL.LEVEL. Must be written together with the KEY."]
         #[inline(always)]
-        pub fn set_go(&mut self, val: bool) {
+        pub const fn set_go(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 0usize)) | (((val as u32) & 0x01) << 0usize);
         }
+        #[must_use]
         #[inline(always)]
         pub const fn key(&self) -> super::vals::ResetcmdKey {
             let val = (self.0 >> 24usize) & 0xff;
             super::vals::ResetcmdKey::from_bits(val as u8)
         }
         #[inline(always)]
-        pub fn set_key(&mut self, val: super::vals::ResetcmdKey) {
+        pub const fn set_key(&mut self, val: super::vals::ResetcmdKey) {
             self.0 = (self.0 & !(0xff << 24usize)) | (((val.to_bits() as u32) & 0xff) << 24usize);
         }
     }
@@ -933,12 +1245,32 @@ pub mod regs {
             Resetcmd(0)
         }
     }
+    impl core::fmt::Debug for Resetcmd {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Resetcmd")
+                .field("go", &self.go())
+                .field("key", &self.key())
+                .finish()
+        }
+    }
+    #[cfg(feature = "defmt")]
+    impl defmt::Format for Resetcmd {
+        fn format(&self, f: defmt::Formatter) {
+            defmt::write!(
+                f,
+                "Resetcmd {{ go: {=bool:?}, key: {:?} }}",
+                self.go(),
+                self.key()
+            )
+        }
+    }
     #[doc = "Reset level for application-triggered reset command."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Resetlevel(pub u32);
     impl Resetlevel {
         #[doc = "LEVEL is used to specify the type of reset to be issued when RESETCMD is set to generate a software triggered reset."]
+        #[must_use]
         #[inline(always)]
         pub const fn level(&self) -> super::vals::ResetlevelLevel {
             let val = (self.0 >> 0usize) & 0x07;
@@ -946,7 +1278,7 @@ pub mod regs {
         }
         #[doc = "LEVEL is used to specify the type of reset to be issued when RESETCMD is set to generate a software triggered reset."]
         #[inline(always)]
-        pub fn set_level(&mut self, val: super::vals::ResetlevelLevel) {
+        pub const fn set_level(&mut self, val: super::vals::ResetlevelLevel) {
             self.0 = (self.0 & !(0x07 << 0usize)) | (((val.to_bits() as u32) & 0x07) << 0usize);
         }
     }
@@ -956,12 +1288,26 @@ pub mod regs {
             Resetlevel(0)
         }
     }
+    impl core::fmt::Debug for Resetlevel {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Resetlevel")
+                .field("level", &self.level())
+                .finish()
+        }
+    }
+    #[cfg(feature = "defmt")]
+    impl defmt::Format for Resetlevel {
+        fn format(&self, f: defmt::Formatter) {
+            defmt::write!(f, "Resetlevel {{ level: {:?} }}", self.level())
+        }
+    }
     #[doc = "Reset cause."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Rstcause(pub u32);
     impl Rstcause {
         #[doc = "ID is a read-to-clear field which indicates the lowest level reset cause since the last read."]
+        #[must_use]
         #[inline(always)]
         pub const fn id(&self) -> super::vals::Id {
             let val = (self.0 >> 0usize) & 0x1f;
@@ -969,7 +1315,7 @@ pub mod regs {
         }
         #[doc = "ID is a read-to-clear field which indicates the lowest level reset cause since the last read."]
         #[inline(always)]
-        pub fn set_id(&mut self, val: super::vals::Id) {
+        pub const fn set_id(&mut self, val: super::vals::Id) {
             self.0 = (self.0 & !(0x1f << 0usize)) | (((val.to_bits() as u32) & 0x1f) << 0usize);
         }
     }
@@ -979,12 +1325,24 @@ pub mod regs {
             Rstcause(0)
         }
     }
+    impl core::fmt::Debug for Rstcause {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Rstcause").field("id", &self.id()).finish()
+        }
+    }
+    #[cfg(feature = "defmt")]
+    impl defmt::Format for Rstcause {
+        fn format(&self, f: defmt::Formatter) {
+            defmt::write!(f, "Rstcause {{ id: {:?} }}", self.id())
+        }
+    }
     #[doc = "SHUTDOWN IO release control."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Shdniorel(pub u32);
     impl Shdniorel {
         #[doc = "Set RELEASE to release the IO after a SHUTDOWN mode exit."]
+        #[must_use]
         #[inline(always)]
         pub const fn release(&self) -> bool {
             let val = (self.0 >> 0usize) & 0x01;
@@ -992,16 +1350,17 @@ pub mod regs {
         }
         #[doc = "Set RELEASE to release the IO after a SHUTDOWN mode exit."]
         #[inline(always)]
-        pub fn set_release(&mut self, val: bool) {
+        pub const fn set_release(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 0usize)) | (((val as u32) & 0x01) << 0usize);
         }
+        #[must_use]
         #[inline(always)]
         pub const fn key(&self) -> super::vals::ShdniorelKey {
             let val = (self.0 >> 24usize) & 0xff;
             super::vals::ShdniorelKey::from_bits(val as u8)
         }
         #[inline(always)]
-        pub fn set_key(&mut self, val: super::vals::ShdniorelKey) {
+        pub const fn set_key(&mut self, val: super::vals::ShdniorelKey) {
             self.0 = (self.0 & !(0xff << 24usize)) | (((val.to_bits() as u32) & 0xff) << 24usize);
         }
     }
@@ -1011,12 +1370,32 @@ pub mod regs {
             Shdniorel(0)
         }
     }
+    impl core::fmt::Debug for Shdniorel {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Shdniorel")
+                .field("release", &self.release())
+                .field("key", &self.key())
+                .finish()
+        }
+    }
+    #[cfg(feature = "defmt")]
+    impl defmt::Format for Shdniorel {
+        fn format(&self, f: defmt::Formatter) {
+            defmt::write!(
+                f,
+                "Shdniorel {{ release: {=bool:?}, key: {:?} }}",
+                self.release(),
+                self.key()
+            )
+        }
+    }
     #[doc = "Shutdown storage memory (byte 0)."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Shutdnstore(pub u32);
     impl Shutdnstore {
         #[doc = "Shutdown storage byte 0."]
+        #[must_use]
         #[inline(always)]
         pub const fn data(&self) -> u8 {
             let val = (self.0 >> 0usize) & 0xff;
@@ -1024,25 +1403,27 @@ pub mod regs {
         }
         #[doc = "Shutdown storage byte 0."]
         #[inline(always)]
-        pub fn set_data(&mut self, val: u8) {
+        pub const fn set_data(&mut self, val: u8) {
             self.0 = (self.0 & !(0xff << 0usize)) | (((val as u32) & 0xff) << 0usize);
         }
+        #[must_use]
         #[inline(always)]
         pub const fn parity(&self) -> bool {
             let val = (self.0 >> 8usize) & 0x01;
             val != 0
         }
         #[inline(always)]
-        pub fn set_parity(&mut self, val: bool) {
+        pub const fn set_parity(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 8usize)) | (((val as u32) & 0x01) << 8usize);
         }
+        #[must_use]
         #[inline(always)]
         pub const fn parityerr(&self) -> bool {
             let val = (self.0 >> 9usize) & 0x01;
             val != 0
         }
         #[inline(always)]
-        pub fn set_parityerr(&mut self, val: bool) {
+        pub const fn set_parityerr(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 9usize)) | (((val as u32) & 0x01) << 9usize);
         }
     }
@@ -1052,12 +1433,34 @@ pub mod regs {
             Shutdnstore(0)
         }
     }
+    impl core::fmt::Debug for Shutdnstore {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Shutdnstore")
+                .field("data", &self.data())
+                .field("parity", &self.parity())
+                .field("parityerr", &self.parityerr())
+                .finish()
+        }
+    }
+    #[cfg(feature = "defmt")]
+    impl defmt::Format for Shutdnstore {
+        fn format(&self, f: defmt::Formatter) {
+            defmt::write!(
+                f,
+                "Shutdnstore {{ data: {=u8:?}, parity: {=bool:?}, parityerr: {=bool:?} }}",
+                self.data(),
+                self.parity(),
+                self.parityerr()
+            )
+        }
+    }
     #[doc = "SRAM Write Boundary."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Sramboundary(pub u32);
     impl Sramboundary {
         #[doc = "SRAM boundary configuration. The value configured into this acts such that: SRAM accesses to addresses less than or equal value will be RW only. SRAM accesses to addresses greater than value will be RX only. Value of 0 is not valid (system will have no stack). If set to 0, the system acts as if the entire SRAM is RWX. Any non-zero value can be configured, including a value = SRAM size."]
+        #[must_use]
         #[inline(always)]
         pub const fn addr(&self) -> u16 {
             let val = (self.0 >> 5usize) & 0x7fff;
@@ -1065,7 +1468,7 @@ pub mod regs {
         }
         #[doc = "SRAM boundary configuration. The value configured into this acts such that: SRAM accesses to addresses less than or equal value will be RW only. SRAM accesses to addresses greater than value will be RX only. Value of 0 is not valid (system will have no stack). If set to 0, the system acts as if the entire SRAM is RWX. Any non-zero value can be configured, including a value = SRAM size."]
         #[inline(always)]
-        pub fn set_addr(&mut self, val: u16) {
+        pub const fn set_addr(&mut self, val: u16) {
             self.0 = (self.0 & !(0x7fff << 5usize)) | (((val as u32) & 0x7fff) << 5usize);
         }
     }
@@ -1075,12 +1478,26 @@ pub mod regs {
             Sramboundary(0)
         }
     }
+    impl core::fmt::Debug for Sramboundary {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Sramboundary")
+                .field("addr", &self.addr())
+                .finish()
+        }
+    }
+    #[cfg(feature = "defmt")]
+    impl defmt::Format for Sramboundary {
+        fn format(&self, f: defmt::Formatter) {
+            defmt::write!(f, "Sramboundary {{ addr: {=u16:?} }}", self.addr())
+        }
+    }
     #[doc = "Disable the SWD function on the SWD pins."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Swdcfg(pub u32);
     impl Swdcfg {
         #[doc = "Set DISABLE to disable the SWD function on SWD pins, allowing the SWD pins to be used as GPIO."]
+        #[must_use]
         #[inline(always)]
         pub const fn disable(&self) -> bool {
             let val = (self.0 >> 0usize) & 0x01;
@@ -1088,16 +1505,17 @@ pub mod regs {
         }
         #[doc = "Set DISABLE to disable the SWD function on SWD pins, allowing the SWD pins to be used as GPIO."]
         #[inline(always)]
-        pub fn set_disable(&mut self, val: bool) {
+        pub const fn set_disable(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 0usize)) | (((val as u32) & 0x01) << 0usize);
         }
+        #[must_use]
         #[inline(always)]
         pub const fn key(&self) -> super::vals::SwdcfgKey {
             let val = (self.0 >> 24usize) & 0xff;
             super::vals::SwdcfgKey::from_bits(val as u8)
         }
         #[inline(always)]
-        pub fn set_key(&mut self, val: super::vals::SwdcfgKey) {
+        pub const fn set_key(&mut self, val: super::vals::SwdcfgKey) {
             self.0 = (self.0 & !(0xff << 24usize)) | (((val.to_bits() as u32) & 0xff) << 24usize);
         }
     }
@@ -1107,12 +1525,32 @@ pub mod regs {
             Swdcfg(0)
         }
     }
+    impl core::fmt::Debug for Swdcfg {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Swdcfg")
+                .field("disable", &self.disable())
+                .field("key", &self.key())
+                .finish()
+        }
+    }
+    #[cfg(feature = "defmt")]
+    impl defmt::Format for Swdcfg {
+        fn format(&self, f: defmt::Formatter) {
+            defmt::write!(
+                f,
+                "Swdcfg {{ disable: {=bool:?}, key: {:?} }}",
+                self.disable(),
+                self.key()
+            )
+        }
+    }
     #[doc = "SYSOSC configuration."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Sysosccfg(pub u32);
     impl Sysosccfg {
         #[doc = "Target operating frequency for the system oscillator (SYSOSC)."]
+        #[must_use]
         #[inline(always)]
         pub const fn freq(&self) -> super::vals::SysosccfgFreq {
             let val = (self.0 >> 0usize) & 0x03;
@@ -1120,10 +1558,11 @@ pub mod regs {
         }
         #[doc = "Target operating frequency for the system oscillator (SYSOSC)."]
         #[inline(always)]
-        pub fn set_freq(&mut self, val: super::vals::SysosccfgFreq) {
+        pub const fn set_freq(&mut self, val: super::vals::SysosccfgFreq) {
             self.0 = (self.0 & !(0x03 << 0usize)) | (((val.to_bits() as u32) & 0x03) << 0usize);
         }
         #[doc = "USE4MHZSTOP sets the SYSOSC stop mode frequency policy. When entering STOP mode, the SYSOSC frequency may be automatically switched to 4MHz to reduce SYSOSC power consumption."]
+        #[must_use]
         #[inline(always)]
         pub const fn use4mhzstop(&self) -> bool {
             let val = (self.0 >> 8usize) & 0x01;
@@ -1131,10 +1570,11 @@ pub mod regs {
         }
         #[doc = "USE4MHZSTOP sets the SYSOSC stop mode frequency policy. When entering STOP mode, the SYSOSC frequency may be automatically switched to 4MHz to reduce SYSOSC power consumption."]
         #[inline(always)]
-        pub fn set_use4mhzstop(&mut self, val: bool) {
+        pub const fn set_use4mhzstop(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 8usize)) | (((val as u32) & 0x01) << 8usize);
         }
         #[doc = "DISABLESTOP sets the SYSOSC stop mode enable/disable policy. When operating in STOP mode, the SYSOSC may be automatically disabled. When set, ULPCLK will run from LFCLK in STOP mode and SYSOSC will be disabled to reduce power consumption."]
+        #[must_use]
         #[inline(always)]
         pub const fn disablestop(&self) -> bool {
             let val = (self.0 >> 9usize) & 0x01;
@@ -1142,10 +1582,11 @@ pub mod regs {
         }
         #[doc = "DISABLESTOP sets the SYSOSC stop mode enable/disable policy. When operating in STOP mode, the SYSOSC may be automatically disabled. When set, ULPCLK will run from LFCLK in STOP mode and SYSOSC will be disabled to reduce power consumption."]
         #[inline(always)]
-        pub fn set_disablestop(&mut self, val: bool) {
+        pub const fn set_disablestop(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 9usize)) | (((val as u32) & 0x01) << 9usize);
         }
         #[doc = "DISABLE sets the SYSOSC enable/disable policy. SYSOSC may be powered off in RUN, SLEEP, and STOP modes to reduce power consumption. When SYSOSC is disabled, MCLK and ULPCLK are sourced from LFCLK."]
+        #[must_use]
         #[inline(always)]
         pub const fn disable(&self) -> bool {
             let val = (self.0 >> 10usize) & 0x01;
@@ -1153,10 +1594,11 @@ pub mod regs {
         }
         #[doc = "DISABLE sets the SYSOSC enable/disable policy. SYSOSC may be powered off in RUN, SLEEP, and STOP modes to reduce power consumption. When SYSOSC is disabled, MCLK and ULPCLK are sourced from LFCLK."]
         #[inline(always)]
-        pub fn set_disable(&mut self, val: bool) {
+        pub const fn set_disable(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 10usize)) | (((val as u32) & 0x01) << 10usize);
         }
         #[doc = "BLOCKASYNCALL may be used to mask block all asynchronous fast clock requests, preventing hardware from dynamically changing the active clock configuration when operating in a given mode."]
+        #[must_use]
         #[inline(always)]
         pub const fn blockasyncall(&self) -> bool {
             let val = (self.0 >> 16usize) & 0x01;
@@ -1164,10 +1606,11 @@ pub mod regs {
         }
         #[doc = "BLOCKASYNCALL may be used to mask block all asynchronous fast clock requests, preventing hardware from dynamically changing the active clock configuration when operating in a given mode."]
         #[inline(always)]
-        pub fn set_blockasyncall(&mut self, val: bool) {
+        pub const fn set_blockasyncall(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 16usize)) | (((val as u32) & 0x01) << 16usize);
         }
         #[doc = "FASTCPUEVENT may be used to assert a fast clock request when an interrupt is asserted to the CPU, reducing interrupt latency."]
+        #[must_use]
         #[inline(always)]
         pub const fn fastcpuevent(&self) -> bool {
             let val = (self.0 >> 17usize) & 0x01;
@@ -1175,7 +1618,7 @@ pub mod regs {
         }
         #[doc = "FASTCPUEVENT may be used to assert a fast clock request when an interrupt is asserted to the CPU, reducing interrupt latency."]
         #[inline(always)]
-        pub fn set_fastcpuevent(&mut self, val: bool) {
+        pub const fn set_fastcpuevent(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 17usize)) | (((val as u32) & 0x01) << 17usize);
         }
     }
@@ -1185,12 +1628,31 @@ pub mod regs {
             Sysosccfg(0)
         }
     }
+    impl core::fmt::Debug for Sysosccfg {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Sysosccfg")
+                .field("freq", &self.freq())
+                .field("use4mhzstop", &self.use4mhzstop())
+                .field("disablestop", &self.disablestop())
+                .field("disable", &self.disable())
+                .field("blockasyncall", &self.blockasyncall())
+                .field("fastcpuevent", &self.fastcpuevent())
+                .finish()
+        }
+    }
+    #[cfg(feature = "defmt")]
+    impl defmt::Format for Sysosccfg {
+        fn format(&self, f: defmt::Formatter) {
+            defmt :: write ! (f , "Sysosccfg {{ freq: {:?}, use4mhzstop: {=bool:?}, disablestop: {=bool:?}, disable: {=bool:?}, blockasyncall: {=bool:?}, fastcpuevent: {=bool:?} }}" , self . freq () , self . use4mhzstop () , self . disablestop () , self . disable () , self . blockasyncall () , self . fastcpuevent ())
+        }
+    }
     #[doc = "SYSOSC frequency correction loop (FCL) ROSC enable."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Sysoscfclctl(pub u32);
     impl Sysoscfclctl {
         #[doc = "Set SETUSEFCL to enable the frequency correction loop in SYSOSC. An appropriate resistor must be populated on the ROSC pin. Once enabled, this state is locked until the next BOOTRST."]
+        #[must_use]
         #[inline(always)]
         pub const fn setusefcl(&self) -> bool {
             let val = (self.0 >> 0usize) & 0x01;
@@ -1198,16 +1660,17 @@ pub mod regs {
         }
         #[doc = "Set SETUSEFCL to enable the frequency correction loop in SYSOSC. An appropriate resistor must be populated on the ROSC pin. Once enabled, this state is locked until the next BOOTRST."]
         #[inline(always)]
-        pub fn set_setusefcl(&mut self, val: bool) {
+        pub const fn set_setusefcl(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 0usize)) | (((val as u32) & 0x01) << 0usize);
         }
+        #[must_use]
         #[inline(always)]
         pub const fn key(&self) -> super::vals::SysoscfclctlKey {
             let val = (self.0 >> 24usize) & 0xff;
             super::vals::SysoscfclctlKey::from_bits(val as u8)
         }
         #[inline(always)]
-        pub fn set_key(&mut self, val: super::vals::SysoscfclctlKey) {
+        pub const fn set_key(&mut self, val: super::vals::SysoscfclctlKey) {
             self.0 = (self.0 & !(0xff << 24usize)) | (((val.to_bits() as u32) & 0xff) << 24usize);
         }
     }
@@ -1217,12 +1680,32 @@ pub mod regs {
             Sysoscfclctl(0)
         }
     }
+    impl core::fmt::Debug for Sysoscfclctl {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Sysoscfclctl")
+                .field("setusefcl", &self.setusefcl())
+                .field("key", &self.key())
+                .finish()
+        }
+    }
+    #[cfg(feature = "defmt")]
+    impl defmt::Format for Sysoscfclctl {
+        fn format(&self, f: defmt::Formatter) {
+            defmt::write!(
+                f,
+                "Sysoscfclctl {{ setusefcl: {=bool:?}, key: {:?} }}",
+                self.setusefcl(),
+                self.key()
+            )
+        }
+    }
     #[doc = "SYSOSC user-specified trim."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Sysosctrimuser(pub u32);
     impl Sysosctrimuser {
         #[doc = "FREQ specifies the target user-trimmed frequency for SYSOSC."]
+        #[must_use]
         #[inline(always)]
         pub const fn freq(&self) -> super::vals::SysosctrimuserFreq {
             let val = (self.0 >> 0usize) & 0x03;
@@ -1230,10 +1713,11 @@ pub mod regs {
         }
         #[doc = "FREQ specifies the target user-trimmed frequency for SYSOSC."]
         #[inline(always)]
-        pub fn set_freq(&mut self, val: super::vals::SysosctrimuserFreq) {
+        pub const fn set_freq(&mut self, val: super::vals::SysosctrimuserFreq) {
             self.0 = (self.0 & !(0x03 << 0usize)) | (((val.to_bits() as u32) & 0x03) << 0usize);
         }
         #[doc = "CAP specifies the SYSOSC capacitor trim. This value changes with the target frequency."]
+        #[must_use]
         #[inline(always)]
         pub const fn cap(&self) -> u8 {
             let val = (self.0 >> 4usize) & 0x07;
@@ -1241,10 +1725,11 @@ pub mod regs {
         }
         #[doc = "CAP specifies the SYSOSC capacitor trim. This value changes with the target frequency."]
         #[inline(always)]
-        pub fn set_cap(&mut self, val: u8) {
+        pub const fn set_cap(&mut self, val: u8) {
             self.0 = (self.0 & !(0x07 << 4usize)) | (((val as u32) & 0x07) << 4usize);
         }
         #[doc = "RESCOARSE specifies the resister coarse trim. This value changes with the target frequency."]
+        #[must_use]
         #[inline(always)]
         pub const fn rescoarse(&self) -> u8 {
             let val = (self.0 >> 8usize) & 0x3f;
@@ -1252,10 +1737,11 @@ pub mod regs {
         }
         #[doc = "RESCOARSE specifies the resister coarse trim. This value changes with the target frequency."]
         #[inline(always)]
-        pub fn set_rescoarse(&mut self, val: u8) {
+        pub const fn set_rescoarse(&mut self, val: u8) {
             self.0 = (self.0 & !(0x3f << 8usize)) | (((val as u32) & 0x3f) << 8usize);
         }
         #[doc = "RESFINE specifies the resister fine trim. This value changes with the target frequency."]
+        #[must_use]
         #[inline(always)]
         pub const fn resfine(&self) -> u8 {
             let val = (self.0 >> 16usize) & 0x0f;
@@ -1263,10 +1749,11 @@ pub mod regs {
         }
         #[doc = "RESFINE specifies the resister fine trim. This value changes with the target frequency."]
         #[inline(always)]
-        pub fn set_resfine(&mut self, val: u8) {
+        pub const fn set_resfine(&mut self, val: u8) {
             self.0 = (self.0 & !(0x0f << 16usize)) | (((val as u32) & 0x0f) << 16usize);
         }
         #[doc = "RDIV specifies the frequency correction loop (FCL) resistor trim. This value changes with the target frequency."]
+        #[must_use]
         #[inline(always)]
         pub const fn rdiv(&self) -> u16 {
             let val = (self.0 >> 20usize) & 0x01ff;
@@ -1274,7 +1761,7 @@ pub mod regs {
         }
         #[doc = "RDIV specifies the frequency correction loop (FCL) resistor trim. This value changes with the target frequency."]
         #[inline(always)]
-        pub fn set_rdiv(&mut self, val: u16) {
+        pub const fn set_rdiv(&mut self, val: u16) {
             self.0 = (self.0 & !(0x01ff << 20usize)) | (((val as u32) & 0x01ff) << 20usize);
         }
     }
@@ -1284,12 +1771,30 @@ pub mod regs {
             Sysosctrimuser(0)
         }
     }
+    impl core::fmt::Debug for Sysosctrimuser {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Sysosctrimuser")
+                .field("freq", &self.freq())
+                .field("cap", &self.cap())
+                .field("rescoarse", &self.rescoarse())
+                .field("resfine", &self.resfine())
+                .field("rdiv", &self.rdiv())
+                .finish()
+        }
+    }
+    #[cfg(feature = "defmt")]
+    impl defmt::Format for Sysosctrimuser {
+        fn format(&self, f: defmt::Formatter) {
+            defmt :: write ! (f , "Sysosctrimuser {{ freq: {:?}, cap: {=u8:?}, rescoarse: {=u8:?}, resfine: {=u8:?}, rdiv: {=u16:?} }}" , self . freq () , self . cap () , self . rescoarse () , self . resfine () , self . rdiv ())
+        }
+    }
     #[doc = "System status information."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Sysstatus(pub u32);
     impl Sysstatus {
         #[doc = "BORCURTHRESHOLD indicates the active brown-out reset supply monitor configuration."]
+        #[must_use]
         #[inline(always)]
         pub const fn borcurthreshold(&self) -> super::vals::Borcurthreshold {
             let val = (self.0 >> 2usize) & 0x03;
@@ -1297,10 +1802,11 @@ pub mod regs {
         }
         #[doc = "BORCURTHRESHOLD indicates the active brown-out reset supply monitor configuration."]
         #[inline(always)]
-        pub fn set_borcurthreshold(&mut self, val: super::vals::Borcurthreshold) {
+        pub const fn set_borcurthreshold(&mut self, val: super::vals::Borcurthreshold) {
             self.0 = (self.0 & !(0x03 << 2usize)) | (((val.to_bits() as u32) & 0x03) << 2usize);
         }
         #[doc = "BORLVL indicates if a BOR event occured and the BOR threshold was switched to BOR0 by hardware."]
+        #[must_use]
         #[inline(always)]
         pub const fn borlvl(&self) -> bool {
             let val = (self.0 >> 4usize) & 0x01;
@@ -1308,10 +1814,11 @@ pub mod regs {
         }
         #[doc = "BORLVL indicates if a BOR event occured and the BOR threshold was switched to BOR0 by hardware."]
         #[inline(always)]
-        pub fn set_borlvl(&mut self, val: bool) {
+        pub const fn set_borlvl(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 4usize)) | (((val as u32) & 0x01) << 4usize);
         }
         #[doc = "ANACPUMPGOOD is set by hardware when the VBOOST analog mux charge pump is ready."]
+        #[must_use]
         #[inline(always)]
         pub const fn anacpumpgood(&self) -> bool {
             let val = (self.0 >> 5usize) & 0x01;
@@ -1319,10 +1826,11 @@ pub mod regs {
         }
         #[doc = "ANACPUMPGOOD is set by hardware when the VBOOST analog mux charge pump is ready."]
         #[inline(always)]
-        pub fn set_anacpumpgood(&mut self, val: bool) {
+        pub const fn set_anacpumpgood(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 5usize)) | (((val as u32) & 0x01) << 5usize);
         }
         #[doc = "PMUIREFGOOD is set by hardware when the PMU current reference is ready."]
+        #[must_use]
         #[inline(always)]
         pub const fn pmuirefgood(&self) -> bool {
             let val = (self.0 >> 6usize) & 0x01;
@@ -1330,10 +1838,11 @@ pub mod regs {
         }
         #[doc = "PMUIREFGOOD is set by hardware when the PMU current reference is ready."]
         #[inline(always)]
-        pub fn set_pmuirefgood(&mut self, val: bool) {
+        pub const fn set_pmuirefgood(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 6usize)) | (((val as u32) & 0x01) << 6usize);
         }
         #[doc = "EXTRSTPINDIS indicates when user has disabled the use of external reset pin."]
+        #[must_use]
         #[inline(always)]
         pub const fn extrstpindis(&self) -> bool {
             let val = (self.0 >> 12usize) & 0x01;
@@ -1341,10 +1850,11 @@ pub mod regs {
         }
         #[doc = "EXTRSTPINDIS indicates when user has disabled the use of external reset pin."]
         #[inline(always)]
-        pub fn set_extrstpindis(&mut self, val: bool) {
+        pub const fn set_extrstpindis(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 12usize)) | (((val as u32) & 0x01) << 12usize);
         }
         #[doc = "SWDCFGDIS indicates when user has disabled the use of SWD Port."]
+        #[must_use]
         #[inline(always)]
         pub const fn swdcfgdis(&self) -> bool {
             let val = (self.0 >> 13usize) & 0x01;
@@ -1352,10 +1862,11 @@ pub mod regs {
         }
         #[doc = "SWDCFGDIS indicates when user has disabled the use of SWD Port."]
         #[inline(always)]
-        pub fn set_swdcfgdis(&mut self, val: bool) {
+        pub const fn set_swdcfgdis(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 13usize)) | (((val as u32) & 0x01) << 13usize);
         }
         #[doc = "SHDNIOLOCK indicates when IO is locked due to SHUTDOWN."]
+        #[must_use]
         #[inline(always)]
         pub const fn shdniolock(&self) -> bool {
             let val = (self.0 >> 14usize) & 0x01;
@@ -1363,10 +1874,11 @@ pub mod regs {
         }
         #[doc = "SHDNIOLOCK indicates when IO is locked due to SHUTDOWN."]
         #[inline(always)]
-        pub fn set_shdniolock(&mut self, val: bool) {
+        pub const fn set_shdniolock(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 14usize)) | (((val as u32) & 0x01) << 14usize);
         }
         #[doc = "REBOOTATTEMPTS indicates the number of boot attempts taken before the user application starts."]
+        #[must_use]
         #[inline(always)]
         pub const fn rebootattempts(&self) -> u8 {
             let val = (self.0 >> 30usize) & 0x03;
@@ -1374,7 +1886,7 @@ pub mod regs {
         }
         #[doc = "REBOOTATTEMPTS indicates the number of boot attempts taken before the user application starts."]
         #[inline(always)]
-        pub fn set_rebootattempts(&mut self, val: u8) {
+        pub const fn set_rebootattempts(&mut self, val: u8) {
             self.0 = (self.0 & !(0x03 << 30usize)) | (((val as u32) & 0x03) << 30usize);
         }
     }
@@ -1384,12 +1896,33 @@ pub mod regs {
             Sysstatus(0)
         }
     }
+    impl core::fmt::Debug for Sysstatus {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Sysstatus")
+                .field("borcurthreshold", &self.borcurthreshold())
+                .field("borlvl", &self.borlvl())
+                .field("anacpumpgood", &self.anacpumpgood())
+                .field("pmuirefgood", &self.pmuirefgood())
+                .field("extrstpindis", &self.extrstpindis())
+                .field("swdcfgdis", &self.swdcfgdis())
+                .field("shdniolock", &self.shdniolock())
+                .field("rebootattempts", &self.rebootattempts())
+                .finish()
+        }
+    }
+    #[cfg(feature = "defmt")]
+    impl defmt::Format for Sysstatus {
+        fn format(&self, f: defmt::Formatter) {
+            defmt :: write ! (f , "Sysstatus {{ borcurthreshold: {:?}, borlvl: {=bool:?}, anacpumpgood: {=bool:?}, pmuirefgood: {=bool:?}, extrstpindis: {=bool:?}, swdcfgdis: {=bool:?}, shdniolock: {=bool:?}, rebootattempts: {=u8:?} }}" , self . borcurthreshold () , self . borlvl () , self . anacpumpgood () , self . pmuirefgood () , self . extrstpindis () , self . swdcfgdis () , self . shdniolock () , self . rebootattempts ())
+        }
+    }
     #[doc = "Clear sticky bits of SYSSTATUS."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Sysstatusclr(pub u32);
     impl Sysstatusclr {
         #[doc = "Set ALLECC to clear all ECC related SYSSTATUS indicators."]
+        #[must_use]
         #[inline(always)]
         pub const fn allecc(&self) -> bool {
             let val = (self.0 >> 0usize) & 0x01;
@@ -1397,16 +1930,17 @@ pub mod regs {
         }
         #[doc = "Set ALLECC to clear all ECC related SYSSTATUS indicators."]
         #[inline(always)]
-        pub fn set_allecc(&mut self, val: bool) {
+        pub const fn set_allecc(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 0usize)) | (((val as u32) & 0x01) << 0usize);
         }
+        #[must_use]
         #[inline(always)]
         pub const fn key(&self) -> super::vals::SysstatusclrKey {
             let val = (self.0 >> 24usize) & 0xff;
             super::vals::SysstatusclrKey::from_bits(val as u8)
         }
         #[inline(always)]
-        pub fn set_key(&mut self, val: super::vals::SysstatusclrKey) {
+        pub const fn set_key(&mut self, val: super::vals::SysstatusclrKey) {
             self.0 = (self.0 & !(0xff << 24usize)) | (((val.to_bits() as u32) & 0xff) << 24usize);
         }
     }
@@ -1416,12 +1950,32 @@ pub mod regs {
             Sysstatusclr(0)
         }
     }
+    impl core::fmt::Debug for Sysstatusclr {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Sysstatusclr")
+                .field("allecc", &self.allecc())
+                .field("key", &self.key())
+                .finish()
+        }
+    }
+    #[cfg(feature = "defmt")]
+    impl defmt::Format for Sysstatusclr {
+        fn format(&self, f: defmt::Formatter) {
+            defmt::write!(
+                f,
+                "Sysstatusclr {{ allecc: {=bool:?}, key: {:?} }}",
+                self.allecc(),
+                self.key()
+            )
+        }
+    }
     #[doc = "System configuration."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Systemcfg(pub u32);
     impl Systemcfg {
         #[doc = "WWDTLP0RSTDIS specifies whether a WWDT Error Event will trigger a BOOTRST or an NMI."]
+        #[must_use]
         #[inline(always)]
         pub const fn wwdtlp0rstdis(&self) -> bool {
             let val = (self.0 >> 0usize) & 0x01;
@@ -1429,7 +1983,7 @@ pub mod regs {
         }
         #[doc = "WWDTLP0RSTDIS specifies whether a WWDT Error Event will trigger a BOOTRST or an NMI."]
         #[inline(always)]
-        pub fn set_wwdtlp0rstdis(&mut self, val: bool) {
+        pub const fn set_wwdtlp0rstdis(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 0usize)) | (((val as u32) & 0x01) << 0usize);
         }
     }
@@ -1439,12 +1993,30 @@ pub mod regs {
             Systemcfg(0)
         }
     }
+    impl core::fmt::Debug for Systemcfg {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Systemcfg")
+                .field("wwdtlp0rstdis", &self.wwdtlp0rstdis())
+                .finish()
+        }
+    }
+    #[cfg(feature = "defmt")]
+    impl defmt::Format for Systemcfg {
+        fn format(&self, f: defmt::Formatter) {
+            defmt::write!(
+                f,
+                "Systemcfg {{ wwdtlp0rstdis: {=bool:?} }}",
+                self.wwdtlp0rstdis()
+            )
+        }
+    }
     #[doc = "SYSCTL register write lockout."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Writelock(pub u32);
     impl Writelock {
         #[doc = "ACTIVE controls whether critical SYSCTL registers are write protected or not."]
+        #[must_use]
         #[inline(always)]
         pub const fn active(&self) -> bool {
             let val = (self.0 >> 0usize) & 0x01;
@@ -1452,7 +2024,7 @@ pub mod regs {
         }
         #[doc = "ACTIVE controls whether critical SYSCTL registers are write protected or not."]
         #[inline(always)]
-        pub fn set_active(&mut self, val: bool) {
+        pub const fn set_active(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 0usize)) | (((val as u32) & 0x01) << 0usize);
         }
     }
@@ -1462,17 +2034,31 @@ pub mod regs {
             Writelock(0)
         }
     }
+    impl core::fmt::Debug for Writelock {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Writelock")
+                .field("active", &self.active())
+                .finish()
+        }
+    }
+    #[cfg(feature = "defmt")]
+    impl defmt::Format for Writelock {
+        fn format(&self, f: defmt::Formatter) {
+            defmt::write!(f, "Writelock {{ active: {=bool:?} }}", self.active())
+        }
+    }
 }
 pub mod vals {
     #[repr(u8)]
-    #[derive(Copy, Clone, Eq, PartialEq, Ord, PartialOrd)]
+    #[derive(Copy, Clone, Debug, Eq, PartialEq, Ord, PartialOrd)]
+    #[cfg_attr(feature = "defmt", derive(defmt::Format))]
     pub enum Anacpumpcfg {
         #[doc = "VBOOST is enabled on request from a COMP, GPAMP, or OPA."]
-        ONDEMAND = 0x0,
+        Ondemand = 0x0,
         #[doc = "VBOOST is enabled when the device is in RUN or SLEEP mode, or when a COMP/GPAMP/OPA is enabled."]
-        ONACTIVE = 0x01,
+        Onactive = 0x01,
         #[doc = "VBOOST is always enabled."]
-        ONALWAYS = 0x02,
+        Onalways = 0x02,
         _RESERVED_3 = 0x03,
     }
     impl Anacpumpcfg {
@@ -1499,9 +2085,9 @@ pub mod vals {
     }
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq, Ord, PartialOrd)]
-    pub struct BorclrcmdKey(pub u8);
+    pub struct BorclrcmdKey(u8);
     impl BorclrcmdKey {
-        pub const KEY: Self = Self(0xc7);
+        pub const Key: Self = Self(0xc7);
     }
     impl BorclrcmdKey {
         pub const fn from_bits(val: u8) -> BorclrcmdKey {
@@ -1509,6 +2095,23 @@ pub mod vals {
         }
         pub const fn to_bits(self) -> u8 {
             self.0
+        }
+    }
+    impl core::fmt::Debug for BorclrcmdKey {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            match self.0 {
+                0xc7 => f.write_str("Key"),
+                other => core::write!(f, "0x{:02X}", other),
+            }
+        }
+    }
+    #[cfg(feature = "defmt")]
+    impl defmt::Format for BorclrcmdKey {
+        fn format(&self, f: defmt::Formatter) {
+            match self.0 {
+                0xc7 => defmt::write!(f, "Key"),
+                other => defmt::write!(f, "0x{:02X}", other),
+            }
         }
     }
     impl From<u8> for BorclrcmdKey {
@@ -1524,16 +2127,17 @@ pub mod vals {
         }
     }
     #[repr(u8)]
-    #[derive(Copy, Clone, Eq, PartialEq, Ord, PartialOrd)]
+    #[derive(Copy, Clone, Debug, Eq, PartialEq, Ord, PartialOrd)]
+    #[cfg_attr(feature = "defmt", derive(defmt::Format))]
     pub enum Borcurthreshold {
         #[doc = "Default minimum threshold; a BOR0- violation triggers a BOR."]
-        BORMIN = 0x0,
+        Bormin = 0x0,
         #[doc = "A BOR1- violation generates a BORLVL interrupt."]
-        BORLEVEL1 = 0x01,
+        Borlevel1 = 0x01,
         #[doc = "A BOR2- violation generates a BORLVL interrupt."]
-        BORLEVEL2 = 0x02,
+        Borlevel2 = 0x02,
         #[doc = "A BOR3- violation generates a BORLVL interrupt."]
-        BORLEVEL3 = 0x03,
+        Borlevel3 = 0x03,
     }
     impl Borcurthreshold {
         #[inline(always)]
@@ -1558,16 +2162,17 @@ pub mod vals {
         }
     }
     #[repr(u8)]
-    #[derive(Copy, Clone, Eq, PartialEq, Ord, PartialOrd)]
+    #[derive(Copy, Clone, Debug, Eq, PartialEq, Ord, PartialOrd)]
+    #[cfg_attr(feature = "defmt", derive(defmt::Format))]
     pub enum Chopclkfreq {
         #[doc = "16kHz."]
-        CLK16KHZ = 0x0,
+        Clk16khz = 0x0,
         #[doc = "8kHz."]
-        CLK8KHZ = 0x01,
+        Clk8khz = 0x01,
         #[doc = "4kHz."]
-        CLK4KHZ = 0x02,
+        Clk4khz = 0x02,
         #[doc = "2kHz."]
-        CLK2KHZ = 0x03,
+        Clk2khz = 0x03,
     }
     impl Chopclkfreq {
         #[inline(always)]
@@ -1592,14 +2197,15 @@ pub mod vals {
         }
     }
     #[repr(u8)]
-    #[derive(Copy, Clone, Eq, PartialEq, Ord, PartialOrd)]
+    #[derive(Copy, Clone, Debug, Eq, PartialEq, Ord, PartialOrd)]
+    #[cfg_attr(feature = "defmt", derive(defmt::Format))]
     pub enum Chopclkmode {
         #[doc = "Chopping disabled."]
-        CHOPDISABLED = 0x0,
+        Chopdisabled = 0x0,
         #[doc = "Normal chopping."]
-        REGCHOP = 0x01,
+        Regchop = 0x01,
         #[doc = "ADC Assisted chopping."]
-        ADCASSIST = 0x02,
+        Adcassist = 0x02,
         _RESERVED_3 = 0x03,
     }
     impl Chopclkmode {
@@ -1625,14 +2231,15 @@ pub mod vals {
         }
     }
     #[repr(u8)]
-    #[derive(Copy, Clone, Eq, PartialEq, Ord, PartialOrd)]
+    #[derive(Copy, Clone, Debug, Eq, PartialEq, Ord, PartialOrd)]
+    #[cfg_attr(feature = "defmt", derive(defmt::Format))]
     pub enum Dsleep {
         #[doc = "STOP mode is entered."]
-        STOP = 0x0,
+        Stop = 0x0,
         #[doc = "STANDBY mode is entered."]
-        STANDBY = 0x01,
+        Standby = 0x01,
         #[doc = "SHUTDOWN mode is entered."]
-        SHUTDOWN = 0x02,
+        Shutdown = 0x02,
         _RESERVED_3 = 0x03,
     }
     impl Dsleep {
@@ -1658,24 +2265,25 @@ pub mod vals {
         }
     }
     #[repr(u8)]
-    #[derive(Copy, Clone, Eq, PartialEq, Ord, PartialOrd)]
+    #[derive(Copy, Clone, Debug, Eq, PartialEq, Ord, PartialOrd)]
+    #[cfg_attr(feature = "defmt", derive(defmt::Format))]
     pub enum Exclkdivval {
         #[doc = "CLK_OUT source is divided by 2."]
-        DIV2 = 0x0,
+        Div2 = 0x0,
         #[doc = "CLK_OUT source is divided by 4."]
-        DIV4 = 0x01,
+        Div4 = 0x01,
         #[doc = "CLK_OUT source is divided by 6."]
-        DIV6 = 0x02,
+        Div6 = 0x02,
         #[doc = "CLK_OUT source is divided by 8."]
-        DIV8 = 0x03,
+        Div8 = 0x03,
         #[doc = "CLK_OUT source is divided by 10."]
-        DIV10 = 0x04,
+        Div10 = 0x04,
         #[doc = "CLK_OUT source is divided by 12."]
-        DIV12 = 0x05,
+        Div12 = 0x05,
         #[doc = "CLK_OUT source is divided by 14."]
-        DIV14 = 0x06,
+        Div14 = 0x06,
         #[doc = "CLK_OUT source is divided by 16."]
-        DIV16 = 0x07,
+        Div16 = 0x07,
     }
     impl Exclkdivval {
         #[inline(always)]
@@ -1700,16 +2308,17 @@ pub mod vals {
         }
     }
     #[repr(u8)]
-    #[derive(Copy, Clone, Eq, PartialEq, Ord, PartialOrd)]
+    #[derive(Copy, Clone, Debug, Eq, PartialEq, Ord, PartialOrd)]
+    #[cfg_attr(feature = "defmt", derive(defmt::Format))]
     pub enum Exclksrc {
         #[doc = "CLK_OUT is SYSOSC."]
-        SYSOSC = 0x0,
+        Sysosc = 0x0,
         #[doc = "CLK_OUT is ULPCLK (EXCLKDIVEN must be enabled)."]
-        ULPCLK = 0x01,
+        Ulpclk = 0x01,
         #[doc = "CLK_OUT is LFCLK."]
-        LFCLK = 0x02,
+        Lfclk = 0x02,
         #[doc = "CLK_OUT is MFPCLK (EXCLKDIVEN must be enabled)."]
-        MFPCLK = 0x03,
+        Mfpclk = 0x03,
         _RESERVED_4 = 0x04,
         _RESERVED_5 = 0x05,
         _RESERVED_6 = 0x06,
@@ -1739,9 +2348,9 @@ pub mod vals {
     }
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq, Ord, PartialOrd)]
-    pub struct ExrstpinKey(pub u8);
+    pub struct ExrstpinKey(u8);
     impl ExrstpinKey {
-        pub const KEY: Self = Self(0x1e);
+        pub const Key: Self = Self(0x1e);
     }
     impl ExrstpinKey {
         pub const fn from_bits(val: u8) -> ExrstpinKey {
@@ -1749,6 +2358,23 @@ pub mod vals {
         }
         pub const fn to_bits(self) -> u8 {
             self.0
+        }
+    }
+    impl core::fmt::Debug for ExrstpinKey {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            match self.0 {
+                0x1e => f.write_str("Key"),
+                other => core::write!(f, "0x{:02X}", other),
+            }
+        }
+    }
+    #[cfg(feature = "defmt")]
+    impl defmt::Format for ExrstpinKey {
+        fn format(&self, f: defmt::Formatter) {
+            match self.0 {
+                0x1e => defmt::write!(f, "Key"),
+                other => defmt::write!(f, "0x{:02X}", other),
+            }
         }
     }
     impl From<u8> for ExrstpinKey {
@@ -1765,9 +2391,9 @@ pub mod vals {
     }
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq, Ord, PartialOrd)]
-    pub struct FcccmdKey(pub u8);
+    pub struct FcccmdKey(u8);
     impl FcccmdKey {
-        pub const KEY: Self = Self(0x0e);
+        pub const Key: Self = Self(0x0e);
     }
     impl FcccmdKey {
         pub const fn from_bits(val: u8) -> FcccmdKey {
@@ -1775,6 +2401,23 @@ pub mod vals {
         }
         pub const fn to_bits(self) -> u8 {
             self.0
+        }
+    }
+    impl core::fmt::Debug for FcccmdKey {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            match self.0 {
+                0x0e => f.write_str("Key"),
+                other => core::write!(f, "0x{:02X}", other),
+            }
+        }
+    }
+    #[cfg(feature = "defmt")]
+    impl defmt::Format for FcccmdKey {
+        fn format(&self, f: defmt::Formatter) {
+            match self.0 {
+                0x0e => defmt::write!(f, "Key"),
+                other => defmt::write!(f, "0x{:02X}", other),
+            }
         }
     }
     impl From<u8> for FcccmdKey {
@@ -1790,12 +2433,13 @@ pub mod vals {
         }
     }
     #[repr(u8)]
-    #[derive(Copy, Clone, Eq, PartialEq, Ord, PartialOrd)]
+    #[derive(Copy, Clone, Debug, Eq, PartialEq, Ord, PartialOrd)]
+    #[cfg_attr(feature = "defmt", derive(defmt::Format))]
     pub enum Fcclvltrig {
         #[doc = "Rising edge to rising edge triggered."]
-        RISE2RISE = 0x0,
+        Rise2rise = 0x0,
         #[doc = "Level triggered."]
-        LEVEL = 0x01,
+        Level = 0x01,
     }
     impl Fcclvltrig {
         #[inline(always)]
@@ -1820,20 +2464,21 @@ pub mod vals {
         }
     }
     #[repr(u8)]
-    #[derive(Copy, Clone, Eq, PartialEq, Ord, PartialOrd)]
+    #[derive(Copy, Clone, Debug, Eq, PartialEq, Ord, PartialOrd)]
+    #[cfg_attr(feature = "defmt", derive(defmt::Format))]
     pub enum Fccselclk {
         #[doc = "FCC clock is MCLK."]
-        MCLK = 0x0,
+        Mclk = 0x0,
         #[doc = "FCC clock is SYSOSC."]
-        SYSOSC = 0x01,
+        Sysosc = 0x01,
         _RESERVED_2 = 0x02,
         #[doc = "FCC clock is the CLK_OUT selection."]
-        EXTCLK = 0x03,
+        Extclk = 0x03,
         _RESERVED_4 = 0x04,
         _RESERVED_5 = 0x05,
         _RESERVED_6 = 0x06,
         #[doc = "FCC clock is the FCCIN external input."]
-        FCCIN = 0x07,
+        Fccin = 0x07,
         _RESERVED_8 = 0x08,
         _RESERVED_9 = 0x09,
         _RESERVED_a = 0x0a,
@@ -1866,12 +2511,13 @@ pub mod vals {
         }
     }
     #[repr(u8)]
-    #[derive(Copy, Clone, Eq, PartialEq, Ord, PartialOrd)]
+    #[derive(Copy, Clone, Debug, Eq, PartialEq, Ord, PartialOrd)]
+    #[cfg_attr(feature = "defmt", derive(defmt::Format))]
     pub enum Fcctrigsrc {
         #[doc = "FCC trigger is the external pin."]
-        EXTPIN = 0x0,
+        Extpin = 0x0,
         #[doc = "FCC trigger is the LFCLK."]
-        LFCLK = 0x01,
+        Lfclk = 0x01,
     }
     impl Fcctrigsrc {
         #[inline(always)]
@@ -1896,14 +2542,15 @@ pub mod vals {
         }
     }
     #[repr(u8)]
-    #[derive(Copy, Clone, Eq, PartialEq, Ord, PartialOrd)]
+    #[derive(Copy, Clone, Debug, Eq, PartialEq, Ord, PartialOrd)]
+    #[cfg_attr(feature = "defmt", derive(defmt::Format))]
     pub enum Flashwait {
         #[doc = "No flash wait states are applied."]
-        WAIT0 = 0x0,
+        Wait0 = 0x0,
         #[doc = "One flash wait state is applied."]
-        WAIT1 = 0x01,
+        Wait1 = 0x01,
         #[doc = "2 flash wait states are applied."]
-        WAIT2 = 0x02,
+        Wait2 = 0x02,
         _RESERVED_3 = 0x03,
         _RESERVED_4 = 0x04,
         _RESERVED_5 = 0x05,
@@ -1941,57 +2588,58 @@ pub mod vals {
         }
     }
     #[repr(u8)]
-    #[derive(Copy, Clone, Eq, PartialEq, Ord, PartialOrd)]
+    #[derive(Copy, Clone, Debug, Eq, PartialEq, Ord, PartialOrd)]
+    #[cfg_attr(feature = "defmt", derive(defmt::Format))]
     pub enum Id {
         #[doc = "No reset since last read."]
-        NORST = 0x0,
+        Norst = 0x0,
         #[doc = "POR- violation, SHUTDNSTOREx or PMU trim parity fault."]
-        PORHWFAIL = 0x01,
+        Porhwfail = 0x01,
         #[doc = "NRST triggered POR (&gt;1s hold)."]
-        POREXNRST = 0x02,
+        Porexnrst = 0x02,
         #[doc = "Software triggered POR."]
-        PORSW = 0x03,
+        Porsw = 0x03,
         #[doc = "BOR0- violation."]
-        BORSUPPLY = 0x04,
+        Borsupply = 0x04,
         #[doc = "SHUTDOWN mode exit."]
-        BORWAKESHUTDN = 0x05,
+        Borwakeshutdn = 0x05,
         _RESERVED_6 = 0x06,
         _RESERVED_7 = 0x07,
         #[doc = "Non-PMU trim parity fault."]
-        BOOTNONPMUPARITY = 0x08,
+        Bootnonpmuparity = 0x08,
         #[doc = "Fatal clock failure."]
-        BOOTCLKFAIL = 0x09,
+        Bootclkfail = 0x09,
         #[doc = "Software triggered BOOTRST."]
-        BOOTSW = 0x0a,
+        Bootsw = 0x0a,
         _RESERVED_b = 0x0b,
         #[doc = "NRST triggered BOOTRST (&lt;1s hold)."]
-        BOOTEXNRST = 0x0c,
+        Bootexnrst = 0x0c,
         _RESERVED_d = 0x0d,
         #[doc = "WWDT0 violation."]
-        BOOTWWDT0 = 0x0e,
+        Bootwwdt0 = 0x0e,
         _RESERVED_f = 0x0f,
         #[doc = "BSL exit."]
-        SYSBSLEXIT = 0x10,
+        Sysbslexit = 0x10,
         #[doc = "BSL entry."]
-        SYSBSLENTRY = 0x11,
+        Sysbslentry = 0x11,
         _RESERVED_12 = 0x12,
         _RESERVED_13 = 0x13,
         #[doc = "Flash uncorrectable ECC error."]
-        SYSFLASHECC = 0x14,
+        Sysflashecc = 0x14,
         #[doc = "CPULOCK violation."]
-        SYSCPULOCK = 0x15,
+        Syscpulock = 0x15,
         _RESERVED_16 = 0x16,
         _RESERVED_17 = 0x17,
         _RESERVED_18 = 0x18,
         _RESERVED_19 = 0x19,
         #[doc = "Debug triggered SYSRST."]
-        SYSDBG = 0x1a,
+        Sysdbg = 0x1a,
         #[doc = "Software triggered SYSRST."]
-        SYSSW = 0x1b,
+        Syssw = 0x1b,
         #[doc = "Debug triggered CPURST."]
-        CPUDBG = 0x1c,
+        Cpudbg = 0x1c,
         #[doc = "Software triggered CPURST."]
-        CPUSW = 0x1d,
+        Cpusw = 0x1d,
         _RESERVED_1e = 0x1e,
         _RESERVED_1f = 0x1f,
     }
@@ -2018,14 +2666,15 @@ pub mod vals {
         }
     }
     #[repr(u8)]
-    #[derive(Copy, Clone, Eq, PartialEq, Ord, PartialOrd)]
+    #[derive(Copy, Clone, Debug, Eq, PartialEq, Ord, PartialOrd)]
+    #[cfg_attr(feature = "defmt", derive(defmt::Format))]
     pub enum IidxStat {
         #[doc = "No interrupt pending."]
-        NO_INTR = 0x0,
+        NoIntr = 0x0,
         #[doc = "LFOSCGOOD interrupt pending."]
-        LFOSCGOOD = 0x01,
-        BORLVL = 0x02,
-        ANACLKERR = 0x03,
+        Lfoscgood = 0x01,
+        Borlvl = 0x02,
+        Anaclkerr = 0x03,
     }
     impl IidxStat {
         #[inline(always)]
@@ -2050,14 +2699,15 @@ pub mod vals {
         }
     }
     #[repr(u8)]
-    #[derive(Copy, Clone, Eq, PartialEq, Ord, PartialOrd)]
+    #[derive(Copy, Clone, Debug, Eq, PartialEq, Ord, PartialOrd)]
+    #[cfg_attr(feature = "defmt", derive(defmt::Format))]
     pub enum Lfclkmux {
         #[doc = "LFCLK is sourced from the internal LFOSC."]
-        LFOSC = 0x0,
+        Lfosc = 0x0,
         #[doc = "LFCLK is sourced from the LFXT (crystal)."]
-        LFXT = 0x01,
+        Lfxt = 0x01,
         #[doc = "LFCLK is sourced from LFCLK_IN (external digital clock input)."]
-        EXLF = 0x02,
+        Exlf = 0x02,
         _RESERVED_3 = 0x03,
     }
     impl Lfclkmux {
@@ -2083,13 +2733,14 @@ pub mod vals {
         }
     }
     #[repr(u8)]
-    #[derive(Copy, Clone, Eq, PartialEq, Ord, PartialOrd)]
+    #[derive(Copy, Clone, Debug, Eq, PartialEq, Ord, PartialOrd)]
+    #[cfg_attr(feature = "defmt", derive(defmt::Format))]
     pub enum NmiiidxStat {
         #[doc = "No NMI pending."]
-        NO_INTR = 0x0,
+        NoIntr = 0x0,
         #[doc = "BOR Threshold NMI pending."]
-        BORLVL = 0x01,
-        WWDT0 = 0x02,
+        Borlvl = 0x01,
+        Wwdt0 = 0x02,
         _RESERVED_3 = 0x03,
     }
     impl NmiiidxStat {
@@ -2115,16 +2766,17 @@ pub mod vals {
         }
     }
     #[repr(u8)]
-    #[derive(Copy, Clone, Eq, PartialEq, Ord, PartialOrd)]
+    #[derive(Copy, Clone, Debug, Eq, PartialEq, Ord, PartialOrd)]
+    #[cfg_attr(feature = "defmt", derive(defmt::Format))]
     pub enum Nsel {
         #[doc = "GPAMP_OUT pin connected to negative channel."]
-        SEL0 = 0x0,
+        Sel0 = 0x0,
         #[doc = "GPAMP_IN- pin connected to negative channel."]
-        SEL1 = 0x01,
+        Sel1 = 0x01,
         #[doc = "GPAMP_OUT signal connected to negative channel."]
-        SEL2 = 0x02,
+        Sel2 = 0x02,
         #[doc = "No channel selected."]
-        SEL3 = 0x03,
+        Sel3 = 0x03,
     }
     impl Nsel {
         #[inline(always)]
@@ -2150,9 +2802,9 @@ pub mod vals {
     }
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq, Ord, PartialOrd)]
-    pub struct ResetcmdKey(pub u8);
+    pub struct ResetcmdKey(u8);
     impl ResetcmdKey {
-        pub const KEY: Self = Self(0xe4);
+        pub const Key: Self = Self(0xe4);
     }
     impl ResetcmdKey {
         pub const fn from_bits(val: u8) -> ResetcmdKey {
@@ -2160,6 +2812,23 @@ pub mod vals {
         }
         pub const fn to_bits(self) -> u8 {
             self.0
+        }
+    }
+    impl core::fmt::Debug for ResetcmdKey {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            match self.0 {
+                0xe4 => f.write_str("Key"),
+                other => core::write!(f, "0x{:02X}", other),
+            }
+        }
+    }
+    #[cfg(feature = "defmt")]
+    impl defmt::Format for ResetcmdKey {
+        fn format(&self, f: defmt::Formatter) {
+            match self.0 {
+                0xe4 => defmt::write!(f, "Key"),
+                other => defmt::write!(f, "0x{:02X}", other),
+            }
         }
     }
     impl From<u8> for ResetcmdKey {
@@ -2175,18 +2844,19 @@ pub mod vals {
         }
     }
     #[repr(u8)]
-    #[derive(Copy, Clone, Eq, PartialEq, Ord, PartialOrd)]
+    #[derive(Copy, Clone, Debug, Eq, PartialEq, Ord, PartialOrd)]
+    #[cfg_attr(feature = "defmt", derive(defmt::Format))]
     pub enum ResetlevelLevel {
         #[doc = "Issue a SYSRST (CPU plus peripherals only)."]
-        CPU = 0x0,
+        Cpu = 0x0,
         #[doc = "Issue a BOOTRST (CPU, peripherals, and boot configuration routine)."]
-        BOOT = 0x01,
+        Boot = 0x01,
         #[doc = "Issue a SYSRST and enter the boot strap loader (BSL)."]
-        BOOTLOADERENTRY = 0x02,
+        Bootloaderentry = 0x02,
         #[doc = "Issue a power-on reset (POR)."]
-        POR = 0x03,
+        Por = 0x03,
         #[doc = "Issue a SYSRST and exit the boot strap loader (BSL)."]
-        BOOTLOADEREXIT = 0x04,
+        Bootloaderexit = 0x04,
         _RESERVED_5 = 0x05,
         _RESERVED_6 = 0x06,
         _RESERVED_7 = 0x07,
@@ -2214,16 +2884,17 @@ pub mod vals {
         }
     }
     #[repr(u8)]
-    #[derive(Copy, Clone, Eq, PartialEq, Ord, PartialOrd)]
+    #[derive(Copy, Clone, Debug, Eq, PartialEq, Ord, PartialOrd)]
+    #[cfg_attr(feature = "defmt", derive(defmt::Format))]
     pub enum Rri {
         #[doc = "PMOS input pairs."]
-        MODE0 = 0x0,
+        Mode0 = 0x0,
         #[doc = "NMOS input pairs."]
-        MODE1 = 0x01,
+        Mode1 = 0x01,
         #[doc = "Rail-to-rail mode."]
-        MODE2 = 0x02,
+        Mode2 = 0x02,
         #[doc = "Sample channel 0."]
-        MODE3 = 0x03,
+        Mode3 = 0x03,
     }
     impl Rri {
         #[inline(always)]
@@ -2249,9 +2920,9 @@ pub mod vals {
     }
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq, Ord, PartialOrd)]
-    pub struct ShdniorelKey(pub u8);
+    pub struct ShdniorelKey(u8);
     impl ShdniorelKey {
-        pub const KEY: Self = Self(0x91);
+        pub const Key: Self = Self(0x91);
     }
     impl ShdniorelKey {
         pub const fn from_bits(val: u8) -> ShdniorelKey {
@@ -2259,6 +2930,23 @@ pub mod vals {
         }
         pub const fn to_bits(self) -> u8 {
             self.0
+        }
+    }
+    impl core::fmt::Debug for ShdniorelKey {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            match self.0 {
+                0x91 => f.write_str("Key"),
+                other => core::write!(f, "0x{:02X}", other),
+            }
+        }
+    }
+    #[cfg(feature = "defmt")]
+    impl defmt::Format for ShdniorelKey {
+        fn format(&self, f: defmt::Formatter) {
+            match self.0 {
+                0x91 => defmt::write!(f, "Key"),
+                other => defmt::write!(f, "0x{:02X}", other),
+            }
         }
     }
     impl From<u8> for ShdniorelKey {
@@ -2275,9 +2963,9 @@ pub mod vals {
     }
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq, Ord, PartialOrd)]
-    pub struct SwdcfgKey(pub u8);
+    pub struct SwdcfgKey(u8);
     impl SwdcfgKey {
-        pub const KEY: Self = Self(0x62);
+        pub const Key: Self = Self(0x62);
     }
     impl SwdcfgKey {
         pub const fn from_bits(val: u8) -> SwdcfgKey {
@@ -2285,6 +2973,23 @@ pub mod vals {
         }
         pub const fn to_bits(self) -> u8 {
             self.0
+        }
+    }
+    impl core::fmt::Debug for SwdcfgKey {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            match self.0 {
+                0x62 => f.write_str("Key"),
+                other => core::write!(f, "0x{:02X}", other),
+            }
+        }
+    }
+    #[cfg(feature = "defmt")]
+    impl defmt::Format for SwdcfgKey {
+        fn format(&self, f: defmt::Formatter) {
+            match self.0 {
+                0x62 => defmt::write!(f, "Key"),
+                other => defmt::write!(f, "0x{:02X}", other),
+            }
         }
     }
     impl From<u8> for SwdcfgKey {
@@ -2300,14 +3005,15 @@ pub mod vals {
         }
     }
     #[repr(u8)]
-    #[derive(Copy, Clone, Eq, PartialEq, Ord, PartialOrd)]
+    #[derive(Copy, Clone, Debug, Eq, PartialEq, Ord, PartialOrd)]
+    #[cfg_attr(feature = "defmt", derive(defmt::Format))]
     pub enum SysosccfgFreq {
         #[doc = "Base frequency (32MHz)."]
-        SYSOSCBASE = 0x0,
+        Sysoscbase = 0x0,
         #[doc = "Low frequency (4MHz)."]
-        SYSOSC4M = 0x01,
+        Sysosc4m = 0x01,
         #[doc = "User-trimmed frequency (16 or 24 MHz)."]
-        SYSOSCUSER = 0x02,
+        Sysoscuser = 0x02,
         _RESERVED_3 = 0x03,
     }
     impl SysosccfgFreq {
@@ -2334,9 +3040,9 @@ pub mod vals {
     }
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq, Ord, PartialOrd)]
-    pub struct SysoscfclctlKey(pub u8);
+    pub struct SysoscfclctlKey(u8);
     impl SysoscfclctlKey {
-        pub const KEY: Self = Self(0x2a);
+        pub const Key: Self = Self(0x2a);
     }
     impl SysoscfclctlKey {
         pub const fn from_bits(val: u8) -> SysoscfclctlKey {
@@ -2344,6 +3050,23 @@ pub mod vals {
         }
         pub const fn to_bits(self) -> u8 {
             self.0
+        }
+    }
+    impl core::fmt::Debug for SysoscfclctlKey {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            match self.0 {
+                0x2a => f.write_str("Key"),
+                other => core::write!(f, "0x{:02X}", other),
+            }
+        }
+    }
+    #[cfg(feature = "defmt")]
+    impl defmt::Format for SysoscfclctlKey {
+        fn format(&self, f: defmt::Formatter) {
+            match self.0 {
+                0x2a => defmt::write!(f, "Key"),
+                other => defmt::write!(f, "0x{:02X}", other),
+            }
         }
     }
     impl From<u8> for SysoscfclctlKey {
@@ -2359,14 +3082,15 @@ pub mod vals {
         }
     }
     #[repr(u8)]
-    #[derive(Copy, Clone, Eq, PartialEq, Ord, PartialOrd)]
+    #[derive(Copy, Clone, Debug, Eq, PartialEq, Ord, PartialOrd)]
+    #[cfg_attr(feature = "defmt", derive(defmt::Format))]
     pub enum Sysoscfreq {
         #[doc = "SYSOSC is at base frequency (32MHz)."]
-        SYSOSC32M = 0x0,
+        Sysosc32m = 0x0,
         #[doc = "SYSOSC is at low frequency (4MHz)."]
-        SYSOSC4M = 0x01,
+        Sysosc4m = 0x01,
         #[doc = "SYSOSC is at the user-trimmed frequency (16 or 24MHz)."]
-        SYSOSCUSER = 0x02,
+        Sysoscuser = 0x02,
         _RESERVED_3 = 0x03,
     }
     impl Sysoscfreq {
@@ -2392,13 +3116,14 @@ pub mod vals {
         }
     }
     #[repr(u8)]
-    #[derive(Copy, Clone, Eq, PartialEq, Ord, PartialOrd)]
+    #[derive(Copy, Clone, Debug, Eq, PartialEq, Ord, PartialOrd)]
+    #[cfg_attr(feature = "defmt", derive(defmt::Format))]
     pub enum SysosctrimuserFreq {
         _RESERVED_0 = 0x0,
         #[doc = "16MHz user frequency."]
-        SYSOSC16M = 0x01,
+        Sysosc16m = 0x01,
         #[doc = "24MHz user frequency."]
-        SYSOSC24M = 0x02,
+        Sysosc24m = 0x02,
         _RESERVED_3 = 0x03,
     }
     impl SysosctrimuserFreq {
@@ -2425,9 +3150,9 @@ pub mod vals {
     }
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq, Ord, PartialOrd)]
-    pub struct SysstatusclrKey(pub u8);
+    pub struct SysstatusclrKey(u8);
     impl SysstatusclrKey {
-        pub const KEY: Self = Self(0xce);
+        pub const Key: Self = Self(0xce);
     }
     impl SysstatusclrKey {
         pub const fn from_bits(val: u8) -> SysstatusclrKey {
@@ -2435,6 +3160,23 @@ pub mod vals {
         }
         pub const fn to_bits(self) -> u8 {
             self.0
+        }
+    }
+    impl core::fmt::Debug for SysstatusclrKey {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            match self.0 {
+                0xce => f.write_str("Key"),
+                other => core::write!(f, "0x{:02X}", other),
+            }
+        }
+    }
+    #[cfg(feature = "defmt")]
+    impl defmt::Format for SysstatusclrKey {
+        fn format(&self, f: defmt::Formatter) {
+            match self.0 {
+                0xce => defmt::write!(f, "Key"),
+                other => defmt::write!(f, "0x{:02X}", other),
+            }
         }
     }
     impl From<u8> for SysstatusclrKey {

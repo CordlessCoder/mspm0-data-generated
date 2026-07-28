@@ -23,7 +23,7 @@ impl Beeper {
     #[doc = "BEEPER Configuration"]
     #[inline(always)]
     pub const fn beepcfg(self) -> crate::common::Reg<regs::Beepcfg, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x1190usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x1190usize) as _) }
     }
 }
 pub mod regs {
@@ -33,6 +33,7 @@ pub mod regs {
     pub struct Beepcfg(pub u32);
     impl Beepcfg {
         #[doc = "Beeper output enable"]
+        #[must_use]
         #[inline(always)]
         pub const fn en(&self) -> super::vals::En {
             let val = (self.0 >> 0usize) & 0x01;
@@ -40,10 +41,11 @@ pub mod regs {
         }
         #[doc = "Beeper output enable"]
         #[inline(always)]
-        pub fn set_en(&mut self, val: super::vals::En) {
+        pub const fn set_en(&mut self, val: super::vals::En) {
             self.0 = (self.0 & !(0x01 << 0usize)) | (((val.to_bits() as u32) & 0x01) << 0usize);
         }
         #[doc = "Beeper Output Frequency Configuration"]
+        #[must_use]
         #[inline(always)]
         pub const fn freq(&self) -> super::vals::Freq {
             let val = (self.0 >> 4usize) & 0x03;
@@ -51,7 +53,7 @@ pub mod regs {
         }
         #[doc = "Beeper Output Frequency Configuration"]
         #[inline(always)]
-        pub fn set_freq(&mut self, val: super::vals::Freq) {
+        pub const fn set_freq(&mut self, val: super::vals::Freq) {
             self.0 = (self.0 & !(0x03 << 4usize)) | (((val.to_bits() as u32) & 0x03) << 4usize);
         }
     }
@@ -61,15 +63,35 @@ pub mod regs {
             Beepcfg(0)
         }
     }
+    impl core::fmt::Debug for Beepcfg {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Beepcfg")
+                .field("en", &self.en())
+                .field("freq", &self.freq())
+                .finish()
+        }
+    }
+    #[cfg(feature = "defmt")]
+    impl defmt::Format for Beepcfg {
+        fn format(&self, f: defmt::Formatter) {
+            defmt::write!(
+                f,
+                "Beepcfg {{ en: {:?}, freq: {:?} }}",
+                self.en(),
+                self.freq()
+            )
+        }
+    }
 }
 pub mod vals {
     #[repr(u8)]
-    #[derive(Copy, Clone, Eq, PartialEq, Ord, PartialOrd)]
+    #[derive(Copy, Clone, Debug, Eq, PartialEq, Ord, PartialOrd)]
+    #[cfg_attr(feature = "defmt", derive(defmt::Format))]
     pub enum En {
         #[doc = "Beeper Output Disabled"]
-        DISABLE = 0x0,
+        Disable = 0x0,
         #[doc = "Beeper Output Enabled"]
-        ENABLE = 0x01,
+        Enable = 0x01,
     }
     impl En {
         #[inline(always)]
@@ -94,16 +116,17 @@ pub mod vals {
         }
     }
     #[repr(u8)]
-    #[derive(Copy, Clone, Eq, PartialEq, Ord, PartialOrd)]
+    #[derive(Copy, Clone, Debug, Eq, PartialEq, Ord, PartialOrd)]
+    #[cfg_attr(feature = "defmt", derive(defmt::Format))]
     pub enum Freq {
         #[doc = "Beeper runs at 8KHz"]
-        _8KHZ = 0x0,
+        _8khz = 0x0,
         #[doc = "Beeper runs at 4KHz"]
-        _4KHZ = 0x01,
+        _4khz = 0x01,
         #[doc = "Beeper runs at 2KHz"]
-        _2KHZ = 0x02,
+        _2khz = 0x02,
         #[doc = "Beeper runs at 1KHz"]
-        _1KHZ = 0x03,
+        _1khz = 0x03,
     }
     impl Freq {
         #[inline(always)]

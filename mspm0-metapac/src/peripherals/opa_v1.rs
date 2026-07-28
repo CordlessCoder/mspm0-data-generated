@@ -22,17 +22,17 @@ impl Gprcm {
     #[doc = "Power enable."]
     #[inline(always)]
     pub const fn pwren(self) -> crate::common::Reg<regs::Pwren, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x0usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x0usize) as _) }
     }
     #[doc = "Reset Control."]
     #[inline(always)]
     pub const fn rstctl(self) -> crate::common::Reg<regs::Rstctl, crate::common::W> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x04usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x04usize) as _) }
     }
     #[doc = "Status Register."]
     #[inline(always)]
     pub const fn stat(self) -> crate::common::Reg<regs::GprcmStat, crate::common::R> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x14usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x14usize) as _) }
     }
 }
 #[doc = "PERIPHERALREGION."]
@@ -53,37 +53,37 @@ impl Opa {
     }
     #[inline(always)]
     pub const fn gprcm(self) -> Gprcm {
-        unsafe { Gprcm::from_ptr(self.ptr.add(0x0800usize) as _) }
+        unsafe { Gprcm::from_ptr(self.ptr.wrapping_add(0x0800usize) as _) }
     }
     #[doc = "Clock Override."]
     #[inline(always)]
     pub const fn clkovr(self) -> crate::common::Reg<regs::Clkovr, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x1010usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x1010usize) as _) }
     }
     #[doc = "Power Control."]
     #[inline(always)]
     pub const fn pwrctl(self) -> crate::common::Reg<regs::Pwrctl, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x101cusize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x101cusize) as _) }
     }
     #[doc = "Control Register."]
     #[inline(always)]
     pub const fn ctl(self) -> crate::common::Reg<regs::Ctl, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x1100usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x1100usize) as _) }
     }
     #[doc = "Configuration Base Register."]
     #[inline(always)]
     pub const fn cfgbase(self) -> crate::common::Reg<regs::Cfgbase, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x1104usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x1104usize) as _) }
     }
     #[doc = "Configuration Register."]
     #[inline(always)]
     pub const fn cfg(self) -> crate::common::Reg<regs::Cfg, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x1108usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x1108usize) as _) }
     }
     #[doc = "Status Register."]
     #[inline(always)]
     pub const fn stat(self) -> crate::common::Reg<regs::Stat, crate::common::R> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x1118usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x1118usize) as _) }
     }
 }
 pub mod regs {
@@ -93,6 +93,7 @@ pub mod regs {
     pub struct Cfg(pub u32);
     impl Cfg {
         #[doc = "Chopping enable."]
+        #[must_use]
         #[inline(always)]
         pub const fn chop(&self) -> super::vals::Chop {
             let val = (self.0 >> 0usize) & 0x03;
@@ -100,10 +101,11 @@ pub mod regs {
         }
         #[doc = "Chopping enable."]
         #[inline(always)]
-        pub fn set_chop(&mut self, val: super::vals::Chop) {
+        pub const fn set_chop(&mut self, val: super::vals::Chop) {
             self.0 = (self.0 & !(0x03 << 0usize)) | (((val.to_bits() as u32) & 0x03) << 0usize);
         }
         #[doc = "Enable output pin."]
+        #[must_use]
         #[inline(always)]
         pub const fn outpin(&self) -> bool {
             let val = (self.0 >> 2usize) & 0x01;
@@ -111,10 +113,11 @@ pub mod regs {
         }
         #[doc = "Enable output pin."]
         #[inline(always)]
-        pub fn set_outpin(&mut self, val: bool) {
+        pub const fn set_outpin(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 2usize)) | (((val as u32) & 0x01) << 2usize);
         }
         #[doc = "Positive OA input selection. Please refer to the device specific datasheet for exact channels available."]
+        #[must_use]
         #[inline(always)]
         pub const fn psel(&self) -> super::vals::Psel {
             let val = (self.0 >> 3usize) & 0x0f;
@@ -122,10 +125,11 @@ pub mod regs {
         }
         #[doc = "Positive OA input selection. Please refer to the device specific datasheet for exact channels available."]
         #[inline(always)]
-        pub fn set_psel(&mut self, val: super::vals::Psel) {
+        pub const fn set_psel(&mut self, val: super::vals::Psel) {
             self.0 = (self.0 & !(0x0f << 3usize)) | (((val.to_bits() as u32) & 0x0f) << 3usize);
         }
         #[doc = "Negative OA input selection. Please refer to the device specific datasheet for exact channels available."]
+        #[must_use]
         #[inline(always)]
         pub const fn nsel(&self) -> super::vals::Nsel {
             let val = (self.0 >> 7usize) & 0x07;
@@ -133,10 +137,11 @@ pub mod regs {
         }
         #[doc = "Negative OA input selection. Please refer to the device specific datasheet for exact channels available."]
         #[inline(always)]
-        pub fn set_nsel(&mut self, val: super::vals::Nsel) {
+        pub const fn set_nsel(&mut self, val: super::vals::Nsel) {
             self.0 = (self.0 & !(0x07 << 7usize)) | (((val.to_bits() as u32) & 0x07) << 7usize);
         }
         #[doc = "MSEL Mux selection. Please refer to the device specific datasheet for exact channels available."]
+        #[must_use]
         #[inline(always)]
         pub const fn msel(&self) -> super::vals::Msel {
             let val = (self.0 >> 10usize) & 0x07;
@@ -144,10 +149,11 @@ pub mod regs {
         }
         #[doc = "MSEL Mux selection. Please refer to the device specific datasheet for exact channels available."]
         #[inline(always)]
-        pub fn set_msel(&mut self, val: super::vals::Msel) {
+        pub const fn set_msel(&mut self, val: super::vals::Msel) {
             self.0 = (self.0 & !(0x07 << 10usize)) | (((val.to_bits() as u32) & 0x07) << 10usize);
         }
         #[doc = "Gain setting. Refer to TRM for enumeration information."]
+        #[must_use]
         #[inline(always)]
         pub const fn gain(&self) -> u8 {
             let val = (self.0 >> 13usize) & 0x07;
@@ -155,7 +161,7 @@ pub mod regs {
         }
         #[doc = "Gain setting. Refer to TRM for enumeration information."]
         #[inline(always)]
-        pub fn set_gain(&mut self, val: u8) {
+        pub const fn set_gain(&mut self, val: u8) {
             self.0 = (self.0 & !(0x07 << 13usize)) | (((val as u32) & 0x07) << 13usize);
         }
     }
@@ -165,12 +171,31 @@ pub mod regs {
             Cfg(0)
         }
     }
+    impl core::fmt::Debug for Cfg {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Cfg")
+                .field("chop", &self.chop())
+                .field("outpin", &self.outpin())
+                .field("psel", &self.psel())
+                .field("nsel", &self.nsel())
+                .field("msel", &self.msel())
+                .field("gain", &self.gain())
+                .finish()
+        }
+    }
+    #[cfg(feature = "defmt")]
+    impl defmt::Format for Cfg {
+        fn format(&self, f: defmt::Formatter) {
+            defmt :: write ! (f , "Cfg {{ chop: {:?}, outpin: {=bool:?}, psel: {:?}, nsel: {:?}, msel: {:?}, gain: {=u8:?} }}" , self . chop () , self . outpin () , self . psel () , self . nsel () , self . msel () , self . gain ())
+        }
+    }
     #[doc = "Configuration Base Register."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Cfgbase(pub u32);
     impl Cfgbase {
         #[doc = "Select gain bandwidth which affects current as well the gain bandwidth. The lower gain bandwidth has lower current. See device specific datasheet for values. Can only be modified when STAT.RDY=0."]
+        #[must_use]
         #[inline(always)]
         pub const fn gbw(&self) -> super::vals::Gbw {
             let val = (self.0 >> 0usize) & 0x01;
@@ -178,10 +203,11 @@ pub mod regs {
         }
         #[doc = "Select gain bandwidth which affects current as well the gain bandwidth. The lower gain bandwidth has lower current. See device specific datasheet for values. Can only be modified when STAT.RDY=0."]
         #[inline(always)]
-        pub fn set_gbw(&mut self, val: super::vals::Gbw) {
+        pub const fn set_gbw(&mut self, val: super::vals::Gbw) {
             self.0 = (self.0 & !(0x01 << 0usize)) | (((val.to_bits() as u32) & 0x01) << 0usize);
         }
         #[doc = "Rail-to-rail input enable. Can only be modified when STAT.RDY=0."]
+        #[must_use]
         #[inline(always)]
         pub const fn rri(&self) -> bool {
             let val = (self.0 >> 2usize) & 0x01;
@@ -189,7 +215,7 @@ pub mod regs {
         }
         #[doc = "Rail-to-rail input enable. Can only be modified when STAT.RDY=0."]
         #[inline(always)]
-        pub fn set_rri(&mut self, val: bool) {
+        pub const fn set_rri(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 2usize)) | (((val as u32) & 0x01) << 2usize);
         }
     }
@@ -199,6 +225,25 @@ pub mod regs {
             Cfgbase(0)
         }
     }
+    impl core::fmt::Debug for Cfgbase {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Cfgbase")
+                .field("gbw", &self.gbw())
+                .field("rri", &self.rri())
+                .finish()
+        }
+    }
+    #[cfg(feature = "defmt")]
+    impl defmt::Format for Cfgbase {
+        fn format(&self, f: defmt::Formatter) {
+            defmt::write!(
+                f,
+                "Cfgbase {{ gbw: {:?}, rri: {=bool:?} }}",
+                self.gbw(),
+                self.rri()
+            )
+        }
+    }
     #[doc = "Clock Override."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
@@ -206,6 +251,7 @@ pub mod regs {
     impl Clkovr {
         #[doc = "Unlocks the functionality of \\[RUN_STOP\\]
 to override the automatic peripheral clock request."]
+        #[must_use]
         #[inline(always)]
         pub const fn override_(&self) -> bool {
             let val = (self.0 >> 0usize) & 0x01;
@@ -214,11 +260,12 @@ to override the automatic peripheral clock request."]
         #[doc = "Unlocks the functionality of \\[RUN_STOP\\]
 to override the automatic peripheral clock request."]
         #[inline(always)]
-        pub fn set_override_(&mut self, val: bool) {
+        pub const fn set_override_(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 0usize)) | (((val as u32) & 0x01) << 0usize);
         }
         #[doc = "If \\[OVERRIDE\\]
 is enabled, this register is used to manually control the peripheral's clock request to the system."]
+        #[must_use]
         #[inline(always)]
         pub const fn run_stop(&self) -> super::vals::RunStop {
             let val = (self.0 >> 1usize) & 0x01;
@@ -227,7 +274,7 @@ is enabled, this register is used to manually control the peripheral's clock req
         #[doc = "If \\[OVERRIDE\\]
 is enabled, this register is used to manually control the peripheral's clock request to the system."]
         #[inline(always)]
-        pub fn set_run_stop(&mut self, val: super::vals::RunStop) {
+        pub const fn set_run_stop(&mut self, val: super::vals::RunStop) {
             self.0 = (self.0 & !(0x01 << 1usize)) | (((val.to_bits() as u32) & 0x01) << 1usize);
         }
     }
@@ -237,12 +284,32 @@ is enabled, this register is used to manually control the peripheral's clock req
             Clkovr(0)
         }
     }
+    impl core::fmt::Debug for Clkovr {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Clkovr")
+                .field("override_", &self.override_())
+                .field("run_stop", &self.run_stop())
+                .finish()
+        }
+    }
+    #[cfg(feature = "defmt")]
+    impl defmt::Format for Clkovr {
+        fn format(&self, f: defmt::Formatter) {
+            defmt::write!(
+                f,
+                "Clkovr {{ override_: {=bool:?}, run_stop: {:?} }}",
+                self.override_(),
+                self.run_stop()
+            )
+        }
+    }
     #[doc = "Control Register."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Ctl(pub u32);
     impl Ctl {
         #[doc = "OAxn Enable."]
+        #[must_use]
         #[inline(always)]
         pub const fn enable(&self) -> bool {
             let val = (self.0 >> 0usize) & 0x01;
@@ -250,7 +317,7 @@ is enabled, this register is used to manually control the peripheral's clock req
         }
         #[doc = "OAxn Enable."]
         #[inline(always)]
-        pub fn set_enable(&mut self, val: bool) {
+        pub const fn set_enable(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 0usize)) | (((val as u32) & 0x01) << 0usize);
         }
     }
@@ -260,12 +327,26 @@ is enabled, this register is used to manually control the peripheral's clock req
             Ctl(0)
         }
     }
+    impl core::fmt::Debug for Ctl {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Ctl")
+                .field("enable", &self.enable())
+                .finish()
+        }
+    }
+    #[cfg(feature = "defmt")]
+    impl defmt::Format for Ctl {
+        fn format(&self, f: defmt::Formatter) {
+            defmt::write!(f, "Ctl {{ enable: {=bool:?} }}", self.enable())
+        }
+    }
     #[doc = "Status Register."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct GprcmStat(pub u32);
     impl GprcmStat {
         #[doc = "This bit indicates, if the peripheral was reset, since this bit was cleared by RESETSTKYCLR in the RSTCTL register."]
+        #[must_use]
         #[inline(always)]
         pub const fn resetstky(&self) -> bool {
             let val = (self.0 >> 16usize) & 0x01;
@@ -273,7 +354,7 @@ is enabled, this register is used to manually control the peripheral's clock req
         }
         #[doc = "This bit indicates, if the peripheral was reset, since this bit was cleared by RESETSTKYCLR in the RSTCTL register."]
         #[inline(always)]
-        pub fn set_resetstky(&mut self, val: bool) {
+        pub const fn set_resetstky(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 16usize)) | (((val as u32) & 0x01) << 16usize);
         }
     }
@@ -283,12 +364,26 @@ is enabled, this register is used to manually control the peripheral's clock req
             GprcmStat(0)
         }
     }
+    impl core::fmt::Debug for GprcmStat {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("GprcmStat")
+                .field("resetstky", &self.resetstky())
+                .finish()
+        }
+    }
+    #[cfg(feature = "defmt")]
+    impl defmt::Format for GprcmStat {
+        fn format(&self, f: defmt::Formatter) {
+            defmt::write!(f, "GprcmStat {{ resetstky: {=bool:?} }}", self.resetstky())
+        }
+    }
     #[doc = "Power Control."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Pwrctl(pub u32);
     impl Pwrctl {
         #[doc = "When set the peripheral will remove its local IP request for enable so that it can be disabled if no other entities in the system are requesting it to be enabled."]
+        #[must_use]
         #[inline(always)]
         pub const fn auto_off(&self) -> bool {
             let val = (self.0 >> 0usize) & 0x01;
@@ -296,7 +391,7 @@ is enabled, this register is used to manually control the peripheral's clock req
         }
         #[doc = "When set the peripheral will remove its local IP request for enable so that it can be disabled if no other entities in the system are requesting it to be enabled."]
         #[inline(always)]
-        pub fn set_auto_off(&mut self, val: bool) {
+        pub const fn set_auto_off(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 0usize)) | (((val as u32) & 0x01) << 0usize);
         }
     }
@@ -306,12 +401,26 @@ is enabled, this register is used to manually control the peripheral's clock req
             Pwrctl(0)
         }
     }
+    impl core::fmt::Debug for Pwrctl {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Pwrctl")
+                .field("auto_off", &self.auto_off())
+                .finish()
+        }
+    }
+    #[cfg(feature = "defmt")]
+    impl defmt::Format for Pwrctl {
+        fn format(&self, f: defmt::Formatter) {
+            defmt::write!(f, "Pwrctl {{ auto_off: {=bool:?} }}", self.auto_off())
+        }
+    }
     #[doc = "Power enable."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Pwren(pub u32);
     impl Pwren {
         #[doc = "Enable the power."]
+        #[must_use]
         #[inline(always)]
         pub const fn enable(&self) -> bool {
             let val = (self.0 >> 0usize) & 0x01;
@@ -319,10 +428,11 @@ is enabled, this register is used to manually control the peripheral's clock req
         }
         #[doc = "Enable the power."]
         #[inline(always)]
-        pub fn set_enable(&mut self, val: bool) {
+        pub const fn set_enable(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 0usize)) | (((val as u32) & 0x01) << 0usize);
         }
         #[doc = "KEY to allow Power State Change."]
+        #[must_use]
         #[inline(always)]
         pub const fn key(&self) -> super::vals::PwrenKey {
             let val = (self.0 >> 24usize) & 0xff;
@@ -330,7 +440,7 @@ is enabled, this register is used to manually control the peripheral's clock req
         }
         #[doc = "KEY to allow Power State Change."]
         #[inline(always)]
-        pub fn set_key(&mut self, val: super::vals::PwrenKey) {
+        pub const fn set_key(&mut self, val: super::vals::PwrenKey) {
             self.0 = (self.0 & !(0xff << 24usize)) | (((val.to_bits() as u32) & 0xff) << 24usize);
         }
     }
@@ -340,12 +450,32 @@ is enabled, this register is used to manually control the peripheral's clock req
             Pwren(0)
         }
     }
+    impl core::fmt::Debug for Pwren {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Pwren")
+                .field("enable", &self.enable())
+                .field("key", &self.key())
+                .finish()
+        }
+    }
+    #[cfg(feature = "defmt")]
+    impl defmt::Format for Pwren {
+        fn format(&self, f: defmt::Formatter) {
+            defmt::write!(
+                f,
+                "Pwren {{ enable: {=bool:?}, key: {:?} }}",
+                self.enable(),
+                self.key()
+            )
+        }
+    }
     #[doc = "Reset Control."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Rstctl(pub u32);
     impl Rstctl {
         #[doc = "Assert reset to the peripheral."]
+        #[must_use]
         #[inline(always)]
         pub const fn resetassert(&self) -> bool {
             let val = (self.0 >> 0usize) & 0x01;
@@ -353,10 +483,11 @@ is enabled, this register is used to manually control the peripheral's clock req
         }
         #[doc = "Assert reset to the peripheral."]
         #[inline(always)]
-        pub fn set_resetassert(&mut self, val: bool) {
+        pub const fn set_resetassert(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 0usize)) | (((val as u32) & 0x01) << 0usize);
         }
         #[doc = "Clear the RESETSTKY bit in the STAT register."]
+        #[must_use]
         #[inline(always)]
         pub const fn resetstkyclr(&self) -> bool {
             let val = (self.0 >> 1usize) & 0x01;
@@ -364,10 +495,11 @@ is enabled, this register is used to manually control the peripheral's clock req
         }
         #[doc = "Clear the RESETSTKY bit in the STAT register."]
         #[inline(always)]
-        pub fn set_resetstkyclr(&mut self, val: bool) {
+        pub const fn set_resetstkyclr(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 1usize)) | (((val as u32) & 0x01) << 1usize);
         }
         #[doc = "Unlock key."]
+        #[must_use]
         #[inline(always)]
         pub const fn key(&self) -> super::vals::ResetKey {
             let val = (self.0 >> 24usize) & 0xff;
@@ -375,7 +507,7 @@ is enabled, this register is used to manually control the peripheral's clock req
         }
         #[doc = "Unlock key."]
         #[inline(always)]
-        pub fn set_key(&mut self, val: super::vals::ResetKey) {
+        pub const fn set_key(&mut self, val: super::vals::ResetKey) {
             self.0 = (self.0 & !(0xff << 24usize)) | (((val.to_bits() as u32) & 0xff) << 24usize);
         }
     }
@@ -385,12 +517,34 @@ is enabled, this register is used to manually control the peripheral's clock req
             Rstctl(0)
         }
     }
+    impl core::fmt::Debug for Rstctl {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Rstctl")
+                .field("resetassert", &self.resetassert())
+                .field("resetstkyclr", &self.resetstkyclr())
+                .field("key", &self.key())
+                .finish()
+        }
+    }
+    #[cfg(feature = "defmt")]
+    impl defmt::Format for Rstctl {
+        fn format(&self, f: defmt::Formatter) {
+            defmt::write!(
+                f,
+                "Rstctl {{ resetassert: {=bool:?}, resetstkyclr: {=bool:?}, key: {:?} }}",
+                self.resetassert(),
+                self.resetstkyclr(),
+                self.key()
+            )
+        }
+    }
     #[doc = "Status Register."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Stat(pub u32);
     impl Stat {
         #[doc = "OA ready status."]
+        #[must_use]
         #[inline(always)]
         pub const fn rdy(&self) -> bool {
             let val = (self.0 >> 0usize) & 0x01;
@@ -398,7 +552,7 @@ is enabled, this register is used to manually control the peripheral's clock req
         }
         #[doc = "OA ready status."]
         #[inline(always)]
-        pub fn set_rdy(&mut self, val: bool) {
+        pub const fn set_rdy(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 0usize)) | (((val as u32) & 0x01) << 0usize);
         }
     }
@@ -408,17 +562,29 @@ is enabled, this register is used to manually control the peripheral's clock req
             Stat(0)
         }
     }
+    impl core::fmt::Debug for Stat {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Stat").field("rdy", &self.rdy()).finish()
+        }
+    }
+    #[cfg(feature = "defmt")]
+    impl defmt::Format for Stat {
+        fn format(&self, f: defmt::Formatter) {
+            defmt::write!(f, "Stat {{ rdy: {=bool:?} }}", self.rdy())
+        }
+    }
 }
 pub mod vals {
     #[repr(u8)]
-    #[derive(Copy, Clone, Eq, PartialEq, Ord, PartialOrd)]
+    #[derive(Copy, Clone, Debug, Eq, PartialEq, Ord, PartialOrd)]
+    #[cfg_attr(feature = "defmt", derive(defmt::Format))]
     pub enum Chop {
         #[doc = "Chopping disable."]
-        OFF = 0x0,
+        Off = 0x0,
         #[doc = "Standard chopping enable."]
-        ON = 0x01,
+        On = 0x01,
         #[doc = "Chop with post average on. Requires output to be connected to ADC in average mode."]
-        AVGON = 0x02,
+        Avgon = 0x02,
         _RESERVED_3 = 0x03,
     }
     impl Chop {
@@ -444,12 +610,13 @@ pub mod vals {
         }
     }
     #[repr(u8)]
-    #[derive(Copy, Clone, Eq, PartialEq, Ord, PartialOrd)]
+    #[derive(Copy, Clone, Debug, Eq, PartialEq, Ord, PartialOrd)]
+    #[cfg_attr(feature = "defmt", derive(defmt::Format))]
     pub enum Gbw {
         #[doc = "Low gain bandwidth. See device specific datasheet for gain bandwidth."]
-        LOWGAIN = 0x0,
+        Lowgain = 0x0,
         #[doc = "High gain bandwidth. See device specific datasheet for gain bandwidth."]
-        HIGHGAIN = 0x01,
+        Highgain = 0x01,
     }
     impl Gbw {
         #[inline(always)]
@@ -474,18 +641,19 @@ pub mod vals {
         }
     }
     #[repr(u8)]
-    #[derive(Copy, Clone, Eq, PartialEq, Ord, PartialOrd)]
+    #[derive(Copy, Clone, Debug, Eq, PartialEq, Ord, PartialOrd)]
+    #[cfg_attr(feature = "defmt", derive(defmt::Format))]
     pub enum Msel {
         #[doc = "no connect."]
-        NC = 0x0,
+        Nc = 0x0,
         #[doc = "external pin OAn-1."]
-        EXTNPIN1 = 0x01,
+        Extnpin1 = 0x01,
         #[doc = "VSS."]
-        VSS = 0x02,
+        Vss = 0x02,
         #[doc = "DAC12 Output."]
-        DAC12OUT = 0x03,
+        Dac12out = 0x03,
         #[doc = "OA\\[n-1\\]Rtop."]
-        OANM1RTOP = 0x04,
+        Oanm1rtop = 0x04,
         _RESERVED_5 = 0x05,
         _RESERVED_6 = 0x06,
         _RESERVED_7 = 0x07,
@@ -513,22 +681,23 @@ pub mod vals {
         }
     }
     #[repr(u8)]
-    #[derive(Copy, Clone, Eq, PartialEq, Ord, PartialOrd)]
+    #[derive(Copy, Clone, Debug, Eq, PartialEq, Ord, PartialOrd)]
+    #[cfg_attr(feature = "defmt", derive(defmt::Format))]
     pub enum Nsel {
         #[doc = "no connect."]
-        NC = 0x0,
+        Nc = 0x0,
         #[doc = "external pin OAn-0."]
-        EXTPIN0 = 0x01,
+        Extpin0 = 0x01,
         #[doc = "external pin OAn-1."]
-        EXTPIN1 = 0x02,
+        Extpin1 = 0x02,
         #[doc = "OA\\[n+1\\]Rbot."]
-        OANP1RBOT = 0x03,
+        Oanp1rbot = 0x03,
         #[doc = "OA\\[n\\]Rtap."]
-        OANRTAP = 0x04,
+        Oanrtap = 0x04,
         #[doc = "OA\\[n\\]Rtop."]
-        OANRTOP = 0x05,
+        Oanrtop = 0x05,
         #[doc = "Spare input."]
-        SPARE = 0x06,
+        Spare = 0x06,
         _RESERVED_7 = 0x07,
     }
     impl Nsel {
@@ -554,26 +723,27 @@ pub mod vals {
         }
     }
     #[repr(u8)]
-    #[derive(Copy, Clone, Eq, PartialEq, Ord, PartialOrd)]
+    #[derive(Copy, Clone, Debug, Eq, PartialEq, Ord, PartialOrd)]
+    #[cfg_attr(feature = "defmt", derive(defmt::Format))]
     pub enum Psel {
         #[doc = "No connect."]
-        NC = 0x0,
+        Nc = 0x0,
         #[doc = "external pin OA+0."]
-        EXTPIN0 = 0x01,
+        Extpin0 = 0x01,
         #[doc = "external pin OAn+1."]
-        EXTPIN1 = 0x02,
+        Extpin1 = 0x02,
         #[doc = "DAC12OUT."]
-        DAC12OUT = 0x03,
+        Dac12out = 0x03,
         #[doc = "DAC8OUT."]
-        DAC8OUT = 0x04,
+        Dac8out = 0x04,
         #[doc = "VREF Channel."]
-        VREF = 0x05,
+        Vref = 0x05,
         #[doc = "OA\\[n-1\\]Rtop."]
-        OANM1RTOP = 0x06,
+        Oanm1rtop = 0x06,
         #[doc = "GPAMP_OUT_INT Input."]
-        GPAMP_OUT_INT = 0x07,
+        GpampOutInt = 0x07,
         #[doc = "Internal Ground Connection."]
-        VSS = 0x08,
+        Vss = 0x08,
         _RESERVED_9 = 0x09,
         _RESERVED_a = 0x0a,
         _RESERVED_b = 0x0b,
@@ -606,9 +776,9 @@ pub mod vals {
     }
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq, Ord, PartialOrd)]
-    pub struct PwrenKey(pub u8);
+    pub struct PwrenKey(u8);
     impl PwrenKey {
-        pub const KEY: Self = Self(0x26);
+        pub const Key: Self = Self(0x26);
     }
     impl PwrenKey {
         pub const fn from_bits(val: u8) -> PwrenKey {
@@ -616,6 +786,23 @@ pub mod vals {
         }
         pub const fn to_bits(self) -> u8 {
             self.0
+        }
+    }
+    impl core::fmt::Debug for PwrenKey {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            match self.0 {
+                0x26 => f.write_str("Key"),
+                other => core::write!(f, "0x{:02X}", other),
+            }
+        }
+    }
+    #[cfg(feature = "defmt")]
+    impl defmt::Format for PwrenKey {
+        fn format(&self, f: defmt::Formatter) {
+            match self.0 {
+                0x26 => defmt::write!(f, "Key"),
+                other => defmt::write!(f, "0x{:02X}", other),
+            }
         }
     }
     impl From<u8> for PwrenKey {
@@ -632,9 +819,9 @@ pub mod vals {
     }
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq, Ord, PartialOrd)]
-    pub struct ResetKey(pub u8);
+    pub struct ResetKey(u8);
     impl ResetKey {
-        pub const KEY: Self = Self(0xb1);
+        pub const Key: Self = Self(0xb1);
     }
     impl ResetKey {
         pub const fn from_bits(val: u8) -> ResetKey {
@@ -642,6 +829,23 @@ pub mod vals {
         }
         pub const fn to_bits(self) -> u8 {
             self.0
+        }
+    }
+    impl core::fmt::Debug for ResetKey {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            match self.0 {
+                0xb1 => f.write_str("Key"),
+                other => core::write!(f, "0x{:02X}", other),
+            }
+        }
+    }
+    #[cfg(feature = "defmt")]
+    impl defmt::Format for ResetKey {
+        fn format(&self, f: defmt::Formatter) {
+            match self.0 {
+                0xb1 => defmt::write!(f, "Key"),
+                other => defmt::write!(f, "0x{:02X}", other),
+            }
         }
     }
     impl From<u8> for ResetKey {
@@ -657,12 +861,13 @@ pub mod vals {
         }
     }
     #[repr(u8)]
-    #[derive(Copy, Clone, Eq, PartialEq, Ord, PartialOrd)]
+    #[derive(Copy, Clone, Debug, Eq, PartialEq, Ord, PartialOrd)]
+    #[cfg_attr(feature = "defmt", derive(defmt::Format))]
     pub enum RunStop {
         #[doc = "Run/ungate functional clock."]
-        RUN = 0x0,
+        Run = 0x0,
         #[doc = "Stop/gate functional clock."]
-        STOP = 0x01,
+        Stop = 0x01,
     }
     impl RunStop {
         #[inline(always)]
