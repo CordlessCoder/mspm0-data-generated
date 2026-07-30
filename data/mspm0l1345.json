@@ -7,13 +7,17 @@
   "memory": [
     {
       "name": "FLASH",
+      "kind": "Flash",
       "length": 32,
-      "address": 0
+      "address": 0,
+      "retained_through": "Shutdown"
     },
     {
       "name": "RAM",
+      "kind": "Ram",
       "length": 4,
-      "address": 536870912
+      "address": 536870912,
+      "retained_through": "Standby"
     }
   ],
   "packages": [
@@ -281,7 +285,13 @@
           "signal": "9",
           "pf": 0
         }
-      ]
+      ],
+      "interrupt": {
+        "name": "ADC0",
+        "num": 4
+      },
+      "block_async": false,
+      "usable_through": "Sleep"
     },
     "COMP0": {
       "name": "COMP0",
@@ -329,7 +339,14 @@
           "signal": "OUT",
           "pf": 6
         }
-      ]
+      ],
+      "interrupt": {
+        "name": "GROUP1",
+        "num": 1,
+        "group_iidx": 2
+      },
+      "block_async": true,
+      "usable_through": "Standby"
     },
     "CPUSS": {
       "name": "CPUSS",
@@ -337,14 +354,20 @@
       "version": "v1",
       "address": 1077936128,
       "power_domain": "Pd1",
-      "pins": []
+      "pins": [],
+      "block_async": false,
+      "retained_through": "Standby",
+      "usable_through": "Run"
     },
     "CRC": {
       "name": "CRC",
       "type": "Crc",
       "address": 1078198272,
       "power_domain": "Pd1",
-      "pins": []
+      "pins": [],
+      "block_async": false,
+      "retained_through": "Standby",
+      "usable_through": "Sleep"
     },
     "DEBUGSS": {
       "name": "DEBUGSS",
@@ -362,7 +385,13 @@
           "signal": "SWDIO",
           "pf": 2
         }
-      ]
+      ],
+      "interrupt": {
+        "name": "GROUP0",
+        "num": 0,
+        "group_iidx": 2
+      },
+      "block_async": false
     },
     "DMA": {
       "name": "DMA",
@@ -370,14 +399,22 @@
       "version": "v1",
       "address": 1078108160,
       "power_domain": "Pd1",
-      "pins": []
+      "pins": [],
+      "interrupt": {
+        "name": "DMA",
+        "num": 31
+      },
+      "block_async": false,
+      "retained_through": "Standby",
+      "usable_through": "Sleep"
     },
     "EVENT": {
       "name": "EVENT",
       "type": "Event",
       "address": 1074565120,
       "power_domain": "Pd0",
-      "pins": []
+      "pins": [],
+      "block_async": false
     },
     "FLASHCTL": {
       "name": "FLASHCTL",
@@ -385,7 +422,13 @@
       "version": "v1",
       "address": 1074581504,
       "power_domain": "Pd0",
-      "pins": []
+      "pins": [],
+      "interrupt": {
+        "name": "GROUP0",
+        "num": 0,
+        "group_iidx": 3
+      },
+      "block_async": false
     },
     "GPAMP": {
       "name": "GPAMP",
@@ -407,7 +450,9 @@
           "signal": "OUT",
           "pf": 0
         }
-      ]
+      ],
+      "block_async": false,
+      "usable_through": "Sleep"
     },
     "GPIOA": {
       "name": "GPIOA",
@@ -556,7 +601,14 @@
           "signal": "PA9",
           "pf": 1
         }
-      ]
+      ],
+      "interrupt": {
+        "name": "GROUP1",
+        "num": 1,
+        "group_iidx": 0
+      },
+      "block_async": false,
+      "usable_through": "Standby"
     },
     "I2C0": {
       "name": "I2C0",
@@ -586,7 +638,13 @@
           "pf": 4
         }
       ],
-      "sys_fentries": 8
+      "sys_fentries": 8,
+      "interrupt": {
+        "name": "I2C0",
+        "num": 24
+      },
+      "block_async": true,
+      "usable_through": "Standby"
     },
     "I2C1": {
       "name": "I2C1",
@@ -636,7 +694,13 @@
           "pf": 6
         }
       ],
-      "sys_fentries": 8
+      "sys_fentries": 8,
+      "interrupt": {
+        "name": "I2C1",
+        "num": 25
+      },
+      "block_async": true,
+      "usable_through": "Standby"
     },
     "IOMUX": {
       "name": "IOMUX",
@@ -644,7 +708,8 @@
       "version": "v1",
       "address": 1078099968,
       "power_domain": "Pd0",
-      "pins": []
+      "pins": [],
+      "block_async": false
     },
     "OPA0": {
       "name": "OPA0",
@@ -668,7 +733,8 @@
           "signal": "OUT",
           "pf": 0
         }
-      ]
+      ],
+      "block_async": false
     },
     "OPA1": {
       "name": "OPA1",
@@ -692,7 +758,8 @@
           "signal": "OUT",
           "pf": 0
         }
-      ]
+      ],
+      "block_async": false
     },
     "SPI0": {
       "name": "SPI0",
@@ -806,7 +873,14 @@
           "pf": 4
         }
       ],
-      "sys_fentries": 4
+      "sys_fentries": 4,
+      "interrupt": {
+        "name": "SPI0",
+        "num": 9
+      },
+      "block_async": true,
+      "retained_through": "Standby",
+      "usable_through": "Sleep"
     },
     "SYSCTL": {
       "name": "SYSCTL",
@@ -870,7 +944,13 @@
           "signal": "ROSC",
           "pf": 0
         }
-      ]
+      ],
+      "interrupt": {
+        "name": "GROUP0",
+        "num": 0,
+        "group_iidx": 6
+      },
+      "block_async": true
     },
     "TIMG0": {
       "name": "TIMG0",
@@ -914,7 +994,14 @@
           "signal": "CCP1",
           "pf": 3
         }
-      ]
+      ],
+      "interrupt": {
+        "name": "TIMG0",
+        "num": 16
+      },
+      "block_async": false,
+      "usable_through": "Standby",
+      "clocked_in_standby1": true
     },
     "TIMG1": {
       "name": "TIMG1",
@@ -958,7 +1045,14 @@
           "signal": "CCP1",
           "pf": 4
         }
-      ]
+      ],
+      "interrupt": {
+        "name": "TIMG1",
+        "num": 2
+      },
+      "block_async": false,
+      "usable_through": "Standby",
+      "clocked_in_standby1": true
     },
     "TIMG2": {
       "name": "TIMG2",
@@ -997,7 +1091,14 @@
           "signal": "CCP1",
           "pf": 5
         }
-      ]
+      ],
+      "interrupt": {
+        "name": "TIMG2",
+        "num": 18
+      },
+      "block_async": false,
+      "usable_through": "Standby",
+      "clocked_in_standby1": false
     },
     "TIMG4": {
       "name": "TIMG4",
@@ -1041,7 +1142,14 @@
           "signal": "CCP1",
           "pf": 5
         }
-      ]
+      ],
+      "interrupt": {
+        "name": "TIMG4",
+        "num": 20
+      },
+      "block_async": false,
+      "usable_through": "Standby",
+      "clocked_in_standby1": false
     },
     "UART0": {
       "name": "UART0",
@@ -1126,7 +1234,13 @@
           "pf": 4
         }
       ],
-      "sys_fentries": 4
+      "sys_fentries": 4,
+      "interrupt": {
+        "name": "UART0",
+        "num": 15
+      },
+      "block_async": true,
+      "usable_through": "Standby"
     },
     "UART1": {
       "name": "UART1",
@@ -1206,7 +1320,13 @@
           "pf": 6
         }
       ],
-      "sys_fentries": 4
+      "sys_fentries": 4,
+      "interrupt": {
+        "name": "UART1",
+        "num": 13
+      },
+      "block_async": true,
+      "usable_through": "Standby"
     },
     "VREF": {
       "name": "VREF",
@@ -1224,14 +1344,16 @@
           "signal": "VREF-",
           "pf": 0
         }
-      ]
+      ],
+      "block_async": false
     },
     "WUC": {
       "name": "WUC",
       "type": "Wuc",
       "address": 1078083584,
       "power_domain": "Pd0",
-      "pins": []
+      "pins": [],
+      "block_async": false
     },
     "WWDT0": {
       "name": "WWDT0",
@@ -1239,7 +1361,14 @@
       "version": "v1",
       "address": 1074266112,
       "power_domain": "Pd0",
-      "pins": []
+      "pins": [],
+      "interrupt": {
+        "name": "GROUP0",
+        "num": 0,
+        "group_iidx": 0
+      },
+      "block_async": false,
+      "usable_through": "Stop"
     }
   },
   "interrupts": {
@@ -1354,5 +1483,9 @@
     }
   },
   "adc_memctl": 4,
-  "adc_vrsel": 5
+  "adc_vrsel": 5,
+  "nvic_priority_bits": 2,
+  "max_mclk_hz": 32000000,
+  "max_ulpclk_hz": 32000000,
+  "backup_domain": false
 }

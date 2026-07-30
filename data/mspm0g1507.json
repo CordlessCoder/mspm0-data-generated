@@ -7,167 +7,20 @@
   "memory": [
     {
       "name": "FLASH",
+      "kind": "Flash",
       "length": 64,
-      "address": 0
+      "address": 0,
+      "retained_through": "Shutdown"
     },
     {
       "name": "RAM",
+      "kind": "Ram",
       "length": 32,
-      "address": 538968064
+      "address": 538968064,
+      "retained_through": "Standby"
     }
   ],
   "packages": [
-    {
-      "name": "VQFN-24",
-      "chip": "mspm0g1507rge",
-      "package": "RGE",
-      "pins": [
-        {
-          "position": "1",
-          "signals": [
-            "PA1"
-          ]
-        },
-        {
-          "position": "10",
-          "signals": [
-            "PA11"
-          ]
-        },
-        {
-          "position": "11",
-          "signals": [
-            "PA15"
-          ]
-        },
-        {
-          "position": "12",
-          "signals": [
-            "PA16"
-          ]
-        },
-        {
-          "position": "13",
-          "signals": [
-            "PA17"
-          ]
-        },
-        {
-          "position": "14",
-          "signals": [
-            "PA18"
-          ]
-        },
-        {
-          "position": "15",
-          "signals": [
-            "PA19"
-          ]
-        },
-        {
-          "position": "16",
-          "signals": [
-            "PA20"
-          ]
-        },
-        {
-          "position": "17",
-          "signals": [
-            "PA21"
-          ]
-        },
-        {
-          "position": "18",
-          "signals": [
-            "PA22"
-          ]
-        },
-        {
-          "position": "19",
-          "signals": [
-            "PA23"
-          ]
-        },
-        {
-          "position": "2",
-          "signals": [
-            "NRST"
-          ]
-        },
-        {
-          "position": "20",
-          "signals": [
-            "PA24"
-          ]
-        },
-        {
-          "position": "21",
-          "signals": [
-            "PA25"
-          ]
-        },
-        {
-          "position": "22",
-          "signals": [
-            "PA26"
-          ]
-        },
-        {
-          "position": "23",
-          "signals": [
-            "VCORE"
-          ]
-        },
-        {
-          "position": "24",
-          "signals": [
-            "PA0"
-          ]
-        },
-        {
-          "position": "3",
-          "signals": [
-            "VDD"
-          ]
-        },
-        {
-          "position": "4",
-          "signals": [
-            "VSS"
-          ]
-        },
-        {
-          "position": "5",
-          "signals": [
-            "PA2"
-          ]
-        },
-        {
-          "position": "6",
-          "signals": [
-            "PA3"
-          ]
-        },
-        {
-          "position": "7",
-          "signals": [
-            "PA4"
-          ]
-        },
-        {
-          "position": "8",
-          "signals": [
-            "PA9"
-          ]
-        },
-        {
-          "position": "9",
-          "signals": [
-            "PA10"
-          ]
-        }
-      ]
-    },
     {
       "name": "VQFN-32",
       "chip": "mspm0g1507rhb",
@@ -363,301 +216,6 @@
           "position": "9",
           "signals": [
             "PA5"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "VQFN-48",
-      "chip": "mspm0g1507rgz",
-      "package": "RGZ",
-      "pins": [
-        {
-          "position": "1",
-          "signals": [
-            "PA0"
-          ]
-        },
-        {
-          "position": "10",
-          "signals": [
-            "PA4"
-          ]
-        },
-        {
-          "position": "11",
-          "signals": [
-            "PA5"
-          ]
-        },
-        {
-          "position": "12",
-          "signals": [
-            "PA6"
-          ]
-        },
-        {
-          "position": "13",
-          "signals": [
-            "PA7"
-          ]
-        },
-        {
-          "position": "14",
-          "signals": [
-            "PB2"
-          ]
-        },
-        {
-          "position": "15",
-          "signals": [
-            "PB3"
-          ]
-        },
-        {
-          "position": "16",
-          "signals": [
-            "PA8"
-          ]
-        },
-        {
-          "position": "17",
-          "signals": [
-            "PA9"
-          ]
-        },
-        {
-          "position": "18",
-          "signals": [
-            "PA10"
-          ]
-        },
-        {
-          "position": "19",
-          "signals": [
-            "PA11"
-          ]
-        },
-        {
-          "position": "2",
-          "signals": [
-            "PA1"
-          ]
-        },
-        {
-          "position": "20",
-          "signals": [
-            "PB6"
-          ]
-        },
-        {
-          "position": "21",
-          "signals": [
-            "PB7"
-          ]
-        },
-        {
-          "position": "22",
-          "signals": [
-            "PB8"
-          ]
-        },
-        {
-          "position": "23",
-          "signals": [
-            "PB9"
-          ]
-        },
-        {
-          "position": "24",
-          "signals": [
-            "PB14"
-          ]
-        },
-        {
-          "position": "25",
-          "signals": [
-            "PB15"
-          ]
-        },
-        {
-          "position": "26",
-          "signals": [
-            "PB16"
-          ]
-        },
-        {
-          "position": "27",
-          "signals": [
-            "PA12"
-          ]
-        },
-        {
-          "position": "28",
-          "signals": [
-            "PA13"
-          ]
-        },
-        {
-          "position": "29",
-          "signals": [
-            "PA14"
-          ]
-        },
-        {
-          "position": "3",
-          "signals": [
-            "PA28"
-          ]
-        },
-        {
-          "position": "30",
-          "signals": [
-            "PA15"
-          ]
-        },
-        {
-          "position": "31",
-          "signals": [
-            "PA16"
-          ]
-        },
-        {
-          "position": "32",
-          "signals": [
-            "PA17"
-          ]
-        },
-        {
-          "position": "33",
-          "signals": [
-            "PA18"
-          ]
-        },
-        {
-          "position": "34",
-          "signals": [
-            "PA19"
-          ]
-        },
-        {
-          "position": "35",
-          "signals": [
-            "PA20"
-          ]
-        },
-        {
-          "position": "36",
-          "signals": [
-            "PB17"
-          ]
-        },
-        {
-          "position": "37",
-          "signals": [
-            "PB18"
-          ]
-        },
-        {
-          "position": "38",
-          "signals": [
-            "PB19"
-          ]
-        },
-        {
-          "position": "39",
-          "signals": [
-            "PA21"
-          ]
-        },
-        {
-          "position": "4",
-          "signals": [
-            "NRST"
-          ]
-        },
-        {
-          "position": "40",
-          "signals": [
-            "PA22"
-          ]
-        },
-        {
-          "position": "41",
-          "signals": [
-            "PB20"
-          ]
-        },
-        {
-          "position": "42",
-          "signals": [
-            "PB24"
-          ]
-        },
-        {
-          "position": "43",
-          "signals": [
-            "PA23"
-          ]
-        },
-        {
-          "position": "44",
-          "signals": [
-            "PA24"
-          ]
-        },
-        {
-          "position": "45",
-          "signals": [
-            "PA25"
-          ]
-        },
-        {
-          "position": "46",
-          "signals": [
-            "PA26"
-          ]
-        },
-        {
-          "position": "47",
-          "signals": [
-            "PA27"
-          ]
-        },
-        {
-          "position": "48",
-          "signals": [
-            "VCORE"
-          ]
-        },
-        {
-          "position": "5",
-          "signals": [
-            "PA31"
-          ]
-        },
-        {
-          "position": "6",
-          "signals": [
-            "VDD"
-          ]
-        },
-        {
-          "position": "7",
-          "signals": [
-            "VSS"
-          ]
-        },
-        {
-          "position": "8",
-          "signals": [
-            "PA2"
-          ]
-        },
-        {
-          "position": "9",
-          "signals": [
-            "PA3"
           ]
         }
       ]
@@ -1349,6 +907,301 @@
       ]
     },
     {
+      "name": "VQFN-48",
+      "chip": "mspm0g1507rgz",
+      "package": "RGZ",
+      "pins": [
+        {
+          "position": "1",
+          "signals": [
+            "PA0"
+          ]
+        },
+        {
+          "position": "10",
+          "signals": [
+            "PA4"
+          ]
+        },
+        {
+          "position": "11",
+          "signals": [
+            "PA5"
+          ]
+        },
+        {
+          "position": "12",
+          "signals": [
+            "PA6"
+          ]
+        },
+        {
+          "position": "13",
+          "signals": [
+            "PA7"
+          ]
+        },
+        {
+          "position": "14",
+          "signals": [
+            "PB2"
+          ]
+        },
+        {
+          "position": "15",
+          "signals": [
+            "PB3"
+          ]
+        },
+        {
+          "position": "16",
+          "signals": [
+            "PA8"
+          ]
+        },
+        {
+          "position": "17",
+          "signals": [
+            "PA9"
+          ]
+        },
+        {
+          "position": "18",
+          "signals": [
+            "PA10"
+          ]
+        },
+        {
+          "position": "19",
+          "signals": [
+            "PA11"
+          ]
+        },
+        {
+          "position": "2",
+          "signals": [
+            "PA1"
+          ]
+        },
+        {
+          "position": "20",
+          "signals": [
+            "PB6"
+          ]
+        },
+        {
+          "position": "21",
+          "signals": [
+            "PB7"
+          ]
+        },
+        {
+          "position": "22",
+          "signals": [
+            "PB8"
+          ]
+        },
+        {
+          "position": "23",
+          "signals": [
+            "PB9"
+          ]
+        },
+        {
+          "position": "24",
+          "signals": [
+            "PB14"
+          ]
+        },
+        {
+          "position": "25",
+          "signals": [
+            "PB15"
+          ]
+        },
+        {
+          "position": "26",
+          "signals": [
+            "PB16"
+          ]
+        },
+        {
+          "position": "27",
+          "signals": [
+            "PA12"
+          ]
+        },
+        {
+          "position": "28",
+          "signals": [
+            "PA13"
+          ]
+        },
+        {
+          "position": "29",
+          "signals": [
+            "PA14"
+          ]
+        },
+        {
+          "position": "3",
+          "signals": [
+            "PA28"
+          ]
+        },
+        {
+          "position": "30",
+          "signals": [
+            "PA15"
+          ]
+        },
+        {
+          "position": "31",
+          "signals": [
+            "PA16"
+          ]
+        },
+        {
+          "position": "32",
+          "signals": [
+            "PA17"
+          ]
+        },
+        {
+          "position": "33",
+          "signals": [
+            "PA18"
+          ]
+        },
+        {
+          "position": "34",
+          "signals": [
+            "PA19"
+          ]
+        },
+        {
+          "position": "35",
+          "signals": [
+            "PA20"
+          ]
+        },
+        {
+          "position": "36",
+          "signals": [
+            "PB17"
+          ]
+        },
+        {
+          "position": "37",
+          "signals": [
+            "PB18"
+          ]
+        },
+        {
+          "position": "38",
+          "signals": [
+            "PB19"
+          ]
+        },
+        {
+          "position": "39",
+          "signals": [
+            "PA21"
+          ]
+        },
+        {
+          "position": "4",
+          "signals": [
+            "NRST"
+          ]
+        },
+        {
+          "position": "40",
+          "signals": [
+            "PA22"
+          ]
+        },
+        {
+          "position": "41",
+          "signals": [
+            "PB20"
+          ]
+        },
+        {
+          "position": "42",
+          "signals": [
+            "PB24"
+          ]
+        },
+        {
+          "position": "43",
+          "signals": [
+            "PA23"
+          ]
+        },
+        {
+          "position": "44",
+          "signals": [
+            "PA24"
+          ]
+        },
+        {
+          "position": "45",
+          "signals": [
+            "PA25"
+          ]
+        },
+        {
+          "position": "46",
+          "signals": [
+            "PA26"
+          ]
+        },
+        {
+          "position": "47",
+          "signals": [
+            "PA27"
+          ]
+        },
+        {
+          "position": "48",
+          "signals": [
+            "VCORE"
+          ]
+        },
+        {
+          "position": "5",
+          "signals": [
+            "PA31"
+          ]
+        },
+        {
+          "position": "6",
+          "signals": [
+            "VDD"
+          ]
+        },
+        {
+          "position": "7",
+          "signals": [
+            "VSS"
+          ]
+        },
+        {
+          "position": "8",
+          "signals": [
+            "PA2"
+          ]
+        },
+        {
+          "position": "9",
+          "signals": [
+            "PA3"
+          ]
+        }
+      ]
+    },
+    {
       "name": "WCSP-28",
       "chip": "mspm0g1507ycj",
       "package": "YCJ",
@@ -1522,6 +1375,157 @@
           ]
         }
       ]
+    },
+    {
+      "name": "VQFN-24",
+      "chip": "mspm0g1507rge",
+      "package": "RGE",
+      "pins": [
+        {
+          "position": "1",
+          "signals": [
+            "PA1"
+          ]
+        },
+        {
+          "position": "10",
+          "signals": [
+            "PA11"
+          ]
+        },
+        {
+          "position": "11",
+          "signals": [
+            "PA15"
+          ]
+        },
+        {
+          "position": "12",
+          "signals": [
+            "PA16"
+          ]
+        },
+        {
+          "position": "13",
+          "signals": [
+            "PA17"
+          ]
+        },
+        {
+          "position": "14",
+          "signals": [
+            "PA18"
+          ]
+        },
+        {
+          "position": "15",
+          "signals": [
+            "PA19"
+          ]
+        },
+        {
+          "position": "16",
+          "signals": [
+            "PA20"
+          ]
+        },
+        {
+          "position": "17",
+          "signals": [
+            "PA21"
+          ]
+        },
+        {
+          "position": "18",
+          "signals": [
+            "PA22"
+          ]
+        },
+        {
+          "position": "19",
+          "signals": [
+            "PA23"
+          ]
+        },
+        {
+          "position": "2",
+          "signals": [
+            "NRST"
+          ]
+        },
+        {
+          "position": "20",
+          "signals": [
+            "PA24"
+          ]
+        },
+        {
+          "position": "21",
+          "signals": [
+            "PA25"
+          ]
+        },
+        {
+          "position": "22",
+          "signals": [
+            "PA26"
+          ]
+        },
+        {
+          "position": "23",
+          "signals": [
+            "VCORE"
+          ]
+        },
+        {
+          "position": "24",
+          "signals": [
+            "PA0"
+          ]
+        },
+        {
+          "position": "3",
+          "signals": [
+            "VDD"
+          ]
+        },
+        {
+          "position": "4",
+          "signals": [
+            "VSS"
+          ]
+        },
+        {
+          "position": "5",
+          "signals": [
+            "PA2"
+          ]
+        },
+        {
+          "position": "6",
+          "signals": [
+            "PA3"
+          ]
+        },
+        {
+          "position": "7",
+          "signals": [
+            "PA4"
+          ]
+        },
+        {
+          "position": "8",
+          "signals": [
+            "PA9"
+          ]
+        },
+        {
+          "position": "9",
+          "signals": [
+            "PA10"
+          ]
+        }
+      ]
     }
   ],
   "iomux": {
@@ -1586,6 +1590,16 @@
     "PB8": 25,
     "PB9": 26
   },
+  "wakeup_pins": [
+    "PA0",
+    "PA1",
+    "PA10",
+    "PA11",
+    "PA17",
+    "PA18",
+    "PA28",
+    "PA31"
+  ],
   "peripherals": {
     "ADC0": {
       "name": "ADC0",
@@ -1644,7 +1658,13 @@
           "signal": "8",
           "pf": 0
         }
-      ]
+      ],
+      "interrupt": {
+        "name": "ADC0",
+        "num": 4
+      },
+      "block_async": false,
+      "usable_through": "Sleep"
     },
     "ADC1": {
       "name": "ADC1",
@@ -1698,14 +1718,27 @@
           "signal": "8",
           "pf": 0
         }
-      ]
+      ],
+      "interrupt": {
+        "name": "ADC1",
+        "num": 5
+      },
+      "block_async": false,
+      "usable_through": "Sleep"
     },
     "AES": {
       "name": "AES",
       "type": "Aes",
       "address": 1078206464,
       "power_domain": "Pd1",
-      "pins": []
+      "pins": [],
+      "interrupt": {
+        "name": "AES",
+        "num": 28
+      },
+      "block_async": false,
+      "retained_through": "Sleep",
+      "usable_through": "Sleep"
     },
     "COMP0": {
       "name": "COMP0",
@@ -1763,7 +1796,14 @@
           "signal": "OUT",
           "pf": 6
         }
-      ]
+      ],
+      "interrupt": {
+        "name": "GROUP1",
+        "num": 1,
+        "group_iidx": 2
+      },
+      "block_async": true,
+      "usable_through": "Standby"
     },
     "COMP1": {
       "name": "COMP1",
@@ -1821,7 +1861,14 @@
           "signal": "OUT",
           "pf": 6
         }
-      ]
+      ],
+      "interrupt": {
+        "name": "GROUP1",
+        "num": 1,
+        "group_iidx": 3
+      },
+      "block_async": true,
+      "usable_through": "Standby"
     },
     "COMP2": {
       "name": "COMP2",
@@ -1864,7 +1911,14 @@
           "signal": "OUT",
           "pf": 2
         }
-      ]
+      ],
+      "interrupt": {
+        "name": "GROUP1",
+        "num": 1,
+        "group_iidx": 4
+      },
+      "block_async": true,
+      "usable_through": "Standby"
     },
     "CPUSS": {
       "name": "CPUSS",
@@ -1872,14 +1926,20 @@
       "version": "v1",
       "address": 1077936128,
       "power_domain": "Pd1",
-      "pins": []
+      "pins": [],
+      "block_async": false,
+      "retained_through": "Standby",
+      "usable_through": "Run"
     },
     "CRC": {
       "name": "CRC",
       "type": "Crc",
       "address": 1078198272,
       "power_domain": "Pd1",
-      "pins": []
+      "pins": [],
+      "block_async": false,
+      "retained_through": "Standby",
+      "usable_through": "Sleep"
     },
     "DAC0": {
       "name": "DAC0",
@@ -1892,7 +1952,13 @@
           "signal": "OUT",
           "pf": 0
         }
-      ]
+      ],
+      "interrupt": {
+        "name": "DAC0",
+        "num": 7
+      },
+      "block_async": false,
+      "usable_through": "Sleep"
     },
     "DEBUGSS": {
       "name": "DEBUGSS",
@@ -1910,7 +1976,13 @@
           "signal": "SWDIO",
           "pf": 2
         }
-      ]
+      ],
+      "interrupt": {
+        "name": "GROUP0",
+        "num": 0,
+        "group_iidx": 2
+      },
+      "block_async": false
     },
     "DMA": {
       "name": "DMA",
@@ -1918,14 +1990,22 @@
       "version": "v1",
       "address": 1078108160,
       "power_domain": "Pd1",
-      "pins": []
+      "pins": [],
+      "interrupt": {
+        "name": "DMA",
+        "num": 31
+      },
+      "block_async": false,
+      "retained_through": "Standby",
+      "usable_through": "Sleep"
     },
     "EVENT": {
       "name": "EVENT",
       "type": "Event",
       "address": 1074565120,
       "power_domain": "Pd0",
-      "pins": []
+      "pins": [],
+      "block_async": false
     },
     "FLASHCTL": {
       "name": "FLASHCTL",
@@ -1933,7 +2013,13 @@
       "version": "v1",
       "address": 1074581504,
       "power_domain": "Pd0",
-      "pins": []
+      "pins": [],
+      "interrupt": {
+        "name": "GROUP0",
+        "num": 0,
+        "group_iidx": 3
+      },
+      "block_async": false
     },
     "GPAMP": {
       "name": "GPAMP",
@@ -1955,7 +2041,9 @@
           "signal": "OUT",
           "pf": 0
         }
-      ]
+      ],
+      "block_async": false,
+      "usable_through": "Sleep"
     },
     "GPIOA": {
       "name": "GPIOA",
@@ -2124,7 +2212,14 @@
           "signal": "PA9",
           "pf": 1
         }
-      ]
+      ],
+      "interrupt": {
+        "name": "GROUP1",
+        "num": 1,
+        "group_iidx": 0
+      },
+      "block_async": false,
+      "usable_through": "Standby"
     },
     "GPIOB": {
       "name": "GPIOB",
@@ -2273,7 +2368,14 @@
           "signal": "PB9",
           "pf": 1
         }
-      ]
+      ],
+      "interrupt": {
+        "name": "GROUP1",
+        "num": 1,
+        "group_iidx": 1
+      },
+      "block_async": false,
+      "usable_through": "Standby"
     },
     "I2C0": {
       "name": "I2C0",
@@ -2313,7 +2415,13 @@
           "pf": 4
         }
       ],
-      "sys_fentries": 8
+      "sys_fentries": 8,
+      "interrupt": {
+        "name": "I2C0",
+        "num": 24
+      },
+      "block_async": true,
+      "usable_through": "Standby"
     },
     "I2C1": {
       "name": "I2C1",
@@ -2383,7 +2491,13 @@
           "pf": 9
         }
       ],
-      "sys_fentries": 8
+      "sys_fentries": 8,
+      "interrupt": {
+        "name": "I2C1",
+        "num": 25
+      },
+      "block_async": true,
+      "usable_through": "Standby"
     },
     "IOMUX": {
       "name": "IOMUX",
@@ -2391,7 +2505,8 @@
       "version": "v1",
       "address": 1078099968,
       "power_domain": "Pd0",
-      "pins": []
+      "pins": [],
+      "block_async": false
     },
     "MATHACL": {
       "name": "MATHACL",
@@ -2399,7 +2514,10 @@
       "version": "v1",
       "address": 1078001664,
       "power_domain": "Pd1",
-      "pins": []
+      "pins": [],
+      "block_async": false,
+      "retained_through": "Sleep",
+      "usable_through": "Sleep"
     },
     "OPA0": {
       "name": "OPA0",
@@ -2438,7 +2556,8 @@
           "signal": "OUT",
           "pf": 0
         }
-      ]
+      ],
+      "block_async": false
     },
     "OPA1": {
       "name": "OPA1",
@@ -2477,11 +2596,13 @@
           "signal": "OUT",
           "pf": 0
         }
-      ]
+      ],
+      "block_async": false
     },
     "RTC": {
       "name": "RTC",
       "type": "Rtc",
+      "version": "legacy",
       "address": 1074348032,
       "power_domain": "Pd0",
       "pins": [
@@ -2495,7 +2616,13 @@
           "signal": "RTC_OUT",
           "pf": 6
         }
-      ]
+      ],
+      "interrupt": {
+        "name": "RTC",
+        "num": 30
+      },
+      "block_async": true,
+      "usable_through": "Standby"
     },
     "SPI0": {
       "name": "SPI0",
@@ -2629,7 +2756,14 @@
           "pf": 3
         }
       ],
-      "sys_fentries": 4
+      "sys_fentries": 4,
+      "interrupt": {
+        "name": "SPI0",
+        "num": 9
+      },
+      "block_async": true,
+      "retained_through": "Standby",
+      "usable_through": "Sleep"
     },
     "SPI1": {
       "name": "SPI1",
@@ -2763,7 +2897,14 @@
           "pf": 3
         }
       ],
-      "sys_fentries": 4
+      "sys_fentries": 4,
+      "interrupt": {
+        "name": "SPI1",
+        "num": 10
+      },
+      "block_async": true,
+      "retained_through": "Standby",
+      "usable_through": "Sleep"
     },
     "SYSCTL": {
       "name": "SYSCTL",
@@ -2867,7 +3008,13 @@
           "signal": "ROSC",
           "pf": 0
         }
-      ]
+      ],
+      "interrupt": {
+        "name": "GROUP0",
+        "num": 0,
+        "group_iidx": 6
+      },
+      "block_async": true
     },
     "TIMA0": {
       "name": "TIMA0",
@@ -3186,7 +3333,15 @@
           "signal": "FAULT2",
           "pf": 5
         }
-      ]
+      ],
+      "interrupt": {
+        "name": "TIMA0",
+        "num": 18
+      },
+      "block_async": false,
+      "retained_through": "Sleep",
+      "usable_through": "Sleep",
+      "clocked_in_standby1": false
     },
     "TIMA1": {
       "name": "TIMA1",
@@ -3395,7 +3550,15 @@
           "signal": "FAULT2",
           "pf": 5
         }
-      ]
+      ],
+      "interrupt": {
+        "name": "TIMA1",
+        "num": 19
+      },
+      "block_async": false,
+      "retained_through": "Sleep",
+      "usable_through": "Sleep",
+      "clocked_in_standby1": false
     },
     "TIMG0": {
       "name": "TIMG0",
@@ -3444,7 +3607,14 @@
           "signal": "CCP1",
           "pf": 5
         }
-      ]
+      ],
+      "interrupt": {
+        "name": "TIMG0",
+        "num": 16
+      },
+      "block_async": false,
+      "usable_through": "Standby",
+      "clocked_in_standby1": true
     },
     "TIMG12": {
       "name": "TIMG12",
@@ -3493,7 +3663,15 @@
           "signal": "CCP1",
           "pf": 5
         }
-      ]
+      ],
+      "interrupt": {
+        "name": "TIMG12",
+        "num": 21
+      },
+      "block_async": false,
+      "retained_through": "Sleep",
+      "usable_through": "Sleep",
+      "clocked_in_standby1": false
     },
     "TIMG6": {
       "name": "TIMG6",
@@ -3572,7 +3750,15 @@
           "signal": "CCP1",
           "pf": 8
         }
-      ]
+      ],
+      "interrupt": {
+        "name": "TIMG6",
+        "num": 17
+      },
+      "block_async": false,
+      "retained_through": "Sleep",
+      "usable_through": "Sleep",
+      "clocked_in_standby1": false
     },
     "TIMG7": {
       "name": "TIMG7",
@@ -3656,7 +3842,15 @@
           "signal": "CCP1",
           "pf": 7
         }
-      ]
+      ],
+      "interrupt": {
+        "name": "TIMG7",
+        "num": 20
+      },
+      "block_async": false,
+      "retained_through": "Sleep",
+      "usable_through": "Sleep",
+      "clocked_in_standby1": false
     },
     "TIMG8": {
       "name": "TIMG8",
@@ -3805,7 +3999,14 @@
           "signal": "IDX",
           "pf": 6
         }
-      ]
+      ],
+      "interrupt": {
+        "name": "TIMG8",
+        "num": 2
+      },
+      "block_async": false,
+      "usable_through": "Standby",
+      "clocked_in_standby1": true
     },
     "TRNG": {
       "name": "TRNG",
@@ -3813,7 +4014,15 @@
       "version": "v1",
       "address": 1078214656,
       "power_domain": "Pd1",
-      "pins": []
+      "pins": [],
+      "interrupt": {
+        "name": "GROUP1",
+        "num": 1,
+        "group_iidx": 5
+      },
+      "block_async": false,
+      "retained_through": "Sleep",
+      "usable_through": "Sleep"
     },
     "UART0": {
       "name": "UART0",
@@ -3898,7 +4107,13 @@
           "pf": 2
         }
       ],
-      "sys_fentries": 4
+      "sys_fentries": 4,
+      "interrupt": {
+        "name": "UART0",
+        "num": 15
+      },
+      "block_async": true,
+      "usable_through": "Standby"
     },
     "UART1": {
       "name": "UART1",
@@ -3978,7 +4193,13 @@
           "pf": 2
         }
       ],
-      "sys_fentries": 4
+      "sys_fentries": 4,
+      "interrupt": {
+        "name": "UART1",
+        "num": 13
+      },
+      "block_async": true,
+      "usable_through": "Standby"
     },
     "UART2": {
       "name": "UART2",
@@ -4068,7 +4289,13 @@
           "pf": 2
         }
       ],
-      "sys_fentries": 4
+      "sys_fentries": 4,
+      "interrupt": {
+        "name": "UART2",
+        "num": 14
+      },
+      "block_async": true,
+      "usable_through": "Standby"
     },
     "UART3": {
       "name": "UART3",
@@ -4158,7 +4385,14 @@
           "pf": 4
         }
       ],
-      "sys_fentries": 4
+      "sys_fentries": 4,
+      "interrupt": {
+        "name": "UART3",
+        "num": 3
+      },
+      "block_async": true,
+      "retained_through": "Standby",
+      "usable_through": "Sleep"
     },
     "VREF": {
       "name": "VREF",
@@ -4176,14 +4410,17 @@
           "signal": "VREF-",
           "pf": 0
         }
-      ]
+      ],
+      "block_async": false,
+      "usable_through": "Standby"
     },
     "WUC": {
       "name": "WUC",
       "type": "Wuc",
       "address": 1078083584,
       "power_domain": "Pd0",
-      "pins": []
+      "pins": [],
+      "block_async": false
     },
     "WWDT0": {
       "name": "WWDT0",
@@ -4191,7 +4428,14 @@
       "version": "v1",
       "address": 1074266112,
       "power_domain": "Pd0",
-      "pins": []
+      "pins": [],
+      "interrupt": {
+        "name": "GROUP0",
+        "num": 0,
+        "group_iidx": 0
+      },
+      "block_async": false,
+      "usable_through": "Stop"
     },
     "WWDT1": {
       "name": "WWDT1",
@@ -4199,7 +4443,14 @@
       "version": "v1",
       "address": 1074274304,
       "power_domain": "Pd0",
-      "pins": []
+      "pins": [],
+      "interrupt": {
+        "name": "GROUP0",
+        "num": 0,
+        "group_iidx": 1
+      },
+      "block_async": false,
+      "usable_through": "Stop"
     }
   },
   "interrupts": {
@@ -4381,5 +4632,9 @@
     }
   },
   "adc_memctl": 12,
-  "adc_vrsel": 5
+  "adc_vrsel": 5,
+  "nvic_priority_bits": 2,
+  "max_mclk_hz": 80000000,
+  "max_ulpclk_hz": 40000000,
+  "backup_domain": false
 }
