@@ -1311,17 +1311,17 @@ pub mod regs {
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Hfclkclkcfg(pub u32);
     impl Hfclkclkcfg {
-        #[doc = "HFXTTIME specifies the HFXT startup time in 64us resolution. If the HFCLK startup monitor is enabled (HFCLKFLTCHK), HFXT will be checked after this time expires."]
+        #[doc = "HFXT startup time in 64us resolution, from 0 (minimum startup time, approximately zero) to 255 (maximum, approximately 16.32ms). If the HFCLK startup monitor is enabled (HFCLKFLTCHK), HFXT is checked after this time expires."]
         #[must_use]
         #[inline(always)]
-        pub const fn hfxttime(&self) -> super::vals::Hfxttime {
+        pub const fn hfxttime(&self) -> u8 {
             let val = (self.0 >> 0usize) & 0xff;
-            super::vals::Hfxttime::from_bits(val as u8)
+            val as u8
         }
-        #[doc = "HFXTTIME specifies the HFXT startup time in 64us resolution. If the HFCLK startup monitor is enabled (HFCLKFLTCHK), HFXT will be checked after this time expires."]
+        #[doc = "HFXT startup time in 64us resolution, from 0 (minimum startup time, approximately zero) to 255 (maximum, approximately 16.32ms). If the HFCLK startup monitor is enabled (HFCLKFLTCHK), HFXT is checked after this time expires."]
         #[inline(always)]
-        pub const fn set_hfxttime(&mut self, val: super::vals::Hfxttime) {
-            self.0 = (self.0 & !(0xff << 0usize)) | (((val.to_bits() as u32) & 0xff) << 0usize);
+        pub const fn set_hfxttime(&mut self, val: u8) {
+            self.0 = (self.0 & !(0xff << 0usize)) | (((val as u32) & 0xff) << 0usize);
         }
         #[doc = "HFXT Range Select."]
         #[must_use]
@@ -1368,7 +1368,7 @@ pub mod regs {
         fn format(&self, f: defmt::Formatter) {
             defmt::write!(
                 f,
-                "Hfclkclkcfg {{ hfxttime: {:?}, hfxtrsel: {:?}, hfclkfltchk: {=bool:?} }}",
+                "Hfclkclkcfg {{ hfxttime: {=u8:?}, hfxtrsel: {:?}, hfclkfltchk: {=bool:?} }}",
                 self.hfxttime(),
                 self.hfxtrsel(),
                 self.hfclkfltchk()
@@ -1380,17 +1380,17 @@ pub mod regs {
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Hsclkcfg(pub u32);
     impl Hsclkcfg {
-        #[doc = "HSCLKSEL selects the HSCLK source (SYSPLL or HFCLK)."]
+        #[doc = "Selects the HSCLK source. This device has no SYSPLL, so HFCLKCLK is the only source it can select, and software must write it - the reset value leaves HSCLK unsourced."]
         #[must_use]
         #[inline(always)]
-        pub const fn hsclksel(&self) -> bool {
+        pub const fn hsclksel(&self) -> super::vals::Hsclksel {
             let val = (self.0 >> 0usize) & 0x01;
-            val != 0
+            super::vals::Hsclksel::from_bits(val as u8)
         }
-        #[doc = "HSCLKSEL selects the HSCLK source (SYSPLL or HFCLK)."]
+        #[doc = "Selects the HSCLK source. This device has no SYSPLL, so HFCLKCLK is the only source it can select, and software must write it - the reset value leaves HSCLK unsourced."]
         #[inline(always)]
-        pub const fn set_hsclksel(&mut self, val: bool) {
-            self.0 = (self.0 & !(0x01 << 0usize)) | (((val as u32) & 0x01) << 0usize);
+        pub const fn set_hsclksel(&mut self, val: super::vals::Hsclksel) {
+            self.0 = (self.0 & !(0x01 << 0usize)) | (((val.to_bits() as u32) & 0x01) << 0usize);
         }
     }
     impl Default for Hsclkcfg {
@@ -1409,7 +1409,7 @@ pub mod regs {
     #[cfg(feature = "defmt")]
     impl defmt::Format for Hsclkcfg {
         fn format(&self, f: defmt::Formatter) {
-            defmt::write!(f, "Hsclkcfg {{ hsclksel: {=bool:?} }}", self.hsclksel())
+            defmt::write!(f, "Hsclkcfg {{ hsclksel: {:?} }}", self.hsclksel())
         }
     }
     #[doc = "High-speed clock (HSCLK) source enable/disable."]
@@ -3706,54 +3706,6 @@ pub mod vals {
             Hfxtrsel::to_bits(val)
         }
     }
-    #[repr(transparent)]
-    #[derive(Copy, Clone, Eq, PartialEq, Ord, PartialOrd)]
-    pub struct Hfxttime(u8);
-    impl Hfxttime {
-        #[doc = "Minimum startup time (approximatly zero)."]
-        pub const Minstarttime: Self = Self(0x0);
-        #[doc = "Maximum startup time (approximatly 16.32ms)."]
-        pub const Maxstarttime: Self = Self(0xff);
-    }
-    impl Hfxttime {
-        pub const fn from_bits(val: u8) -> Hfxttime {
-            Self(val & 0xff)
-        }
-        pub const fn to_bits(self) -> u8 {
-            self.0
-        }
-    }
-    impl core::fmt::Debug for Hfxttime {
-        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-            match self.0 {
-                0x0 => f.write_str("Minstarttime"),
-                0xff => f.write_str("Maxstarttime"),
-                other => core::write!(f, "0x{:02X}", other),
-            }
-        }
-    }
-    #[cfg(feature = "defmt")]
-    impl defmt::Format for Hfxttime {
-        fn format(&self, f: defmt::Formatter) {
-            match self.0 {
-                0x0 => defmt::write!(f, "Minstarttime"),
-                0xff => defmt::write!(f, "Maxstarttime"),
-                other => defmt::write!(f, "0x{:02X}", other),
-            }
-        }
-    }
-    impl From<u8> for Hfxttime {
-        #[inline(always)]
-        fn from(val: u8) -> Hfxttime {
-            Hfxttime::from_bits(val)
-        }
-    }
-    impl From<Hfxttime> for u8 {
-        #[inline(always)]
-        fn from(val: Hfxttime) -> u8 {
-            Hfxttime::to_bits(val)
-        }
-    }
     #[repr(u8)]
     #[derive(Copy, Clone, Debug, Eq, PartialEq, Ord, PartialOrd)]
     #[cfg_attr(feature = "defmt", derive(defmt::Format))]
@@ -3783,6 +3735,37 @@ pub mod vals {
         #[inline(always)]
         fn from(val: Hsclkmux) -> u8 {
             Hsclkmux::to_bits(val)
+        }
+    }
+    #[repr(u8)]
+    #[derive(Copy, Clone, Debug, Eq, PartialEq, Ord, PartialOrd)]
+    #[cfg_attr(feature = "defmt", derive(defmt::Format))]
+    pub enum Hsclksel {
+        #[doc = "The SYSPLL position of the mux, and the reset value. This device has no SYSPLL, so HSCLK has no source while this is selected."]
+        Syspll = 0x0,
+        #[doc = "HSCLK is sourced from the HFCLK."]
+        Hfclkclk = 0x01,
+    }
+    impl Hsclksel {
+        #[inline(always)]
+        pub const fn from_bits(val: u8) -> Hsclksel {
+            unsafe { core::mem::transmute(val & 0x01) }
+        }
+        #[inline(always)]
+        pub const fn to_bits(self) -> u8 {
+            unsafe { core::mem::transmute(self) }
+        }
+    }
+    impl From<u8> for Hsclksel {
+        #[inline(always)]
+        fn from(val: u8) -> Hsclksel {
+            Hsclksel::from_bits(val)
+        }
+    }
+    impl From<Hsclksel> for u8 {
+        #[inline(always)]
+        fn from(val: Hsclksel) -> u8 {
+            Hsclksel::to_bits(val)
         }
     }
     #[repr(u8)]

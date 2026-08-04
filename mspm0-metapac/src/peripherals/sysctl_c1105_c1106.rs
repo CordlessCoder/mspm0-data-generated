@@ -405,13 +405,13 @@ pub mod regs {
         #[doc = "Current HSCLK source, matching HSCLKCFG.HSCLKSEL."]
         #[must_use]
         #[inline(always)]
-        pub const fn curhsclksel(&self) -> super::vals::Hsclksel {
+        pub const fn curhsclksel(&self) -> super::vals::Curhsclksel {
             let val = (self.0 >> 16usize) & 0x01;
-            super::vals::Hsclksel::from_bits(val as u8)
+            super::vals::Curhsclksel::from_bits(val as u8)
         }
         #[doc = "Current HSCLK source, matching HSCLKCFG.HSCLKSEL."]
         #[inline(always)]
-        pub const fn set_curhsclksel(&mut self, val: super::vals::Hsclksel) {
+        pub const fn set_curhsclksel(&mut self, val: super::vals::Curhsclksel) {
             self.0 = (self.0 & !(0x01 << 16usize)) | (((val.to_bits() as u32) & 0x01) << 16usize);
         }
         #[doc = "MCLK Clock Source 0: NOT LFCLK, 1:LFCLK."]
@@ -783,17 +783,17 @@ pub mod regs {
         pub const fn set_mfpclksrc(&mut self, val: super::vals::Mfpclksrc) {
             self.0 = (self.0 & !(0x01 << 9usize)) | (((val.to_bits() as u32) & 0x01) << 9usize);
         }
-        #[doc = "HFCLK Divider 1..16."]
+        #[doc = "Divider applied to HFCLK when HFCLK is used as the MFPCLK source."]
         #[must_use]
         #[inline(always)]
-        pub const fn hfclk4mfpclkdiv(&self) -> u8 {
+        pub const fn hfclk4mfpclkdiv(&self) -> super::vals::Hfclk4mfpclkdiv {
             let val = (self.0 >> 12usize) & 0x0f;
-            val as u8
+            super::vals::Hfclk4mfpclkdiv::from_bits(val as u8)
         }
-        #[doc = "HFCLK Divider 1..16."]
+        #[doc = "Divider applied to HFCLK when HFCLK is used as the MFPCLK source."]
         #[inline(always)]
-        pub const fn set_hfclk4mfpclkdiv(&mut self, val: u8) {
-            self.0 = (self.0 & !(0x0f << 12usize)) | (((val as u32) & 0x0f) << 12usize);
+        pub const fn set_hfclk4mfpclkdiv(&mut self, val: super::vals::Hfclk4mfpclkdiv) {
+            self.0 = (self.0 & !(0x0f << 12usize)) | (((val.to_bits() as u32) & 0x0f) << 12usize);
         }
         #[must_use]
         #[inline(always)]
@@ -884,7 +884,7 @@ pub mod regs {
     #[cfg(feature = "defmt")]
     impl defmt::Format for Genclkcfg {
         fn format(&self, f: defmt::Formatter) {
-            defmt :: write ! (f , "Genclkcfg {{ exclksrc: {:?}, exclkdivval: {:?}, exclkdiven: {=bool:?}, mfpclksrc: {:?}, hfclk4mfpclkdiv: {=u8:?}, fccselclk: {:?}, fcctrigsrc: {:?}, fcclvltrig: {:?}, anacpumpcfg: {:?}, fcctrigcnt: {=u8:?}, fcclfclksrc: {=bool:?} }}" , self . exclksrc () , self . exclkdivval () , self . exclkdiven () , self . mfpclksrc () , self . hfclk4mfpclkdiv () , self . fccselclk () , self . fcctrigsrc () , self . fcclvltrig () , self . anacpumpcfg () , self . fcctrigcnt () , self . fcclfclksrc ())
+            defmt :: write ! (f , "Genclkcfg {{ exclksrc: {:?}, exclkdivval: {:?}, exclkdiven: {=bool:?}, mfpclksrc: {:?}, hfclk4mfpclkdiv: {:?}, fccselclk: {:?}, fcctrigsrc: {:?}, fcclvltrig: {:?}, anacpumpcfg: {:?}, fcctrigcnt: {=u8:?}, fcclfclksrc: {=bool:?} }}" , self . exclksrc () , self . exclkdivval () , self . exclkdiven () , self . mfpclksrc () , self . hfclk4mfpclkdiv () , self . fccselclk () , self . fcctrigsrc () , self . fcclvltrig () , self . anacpumpcfg () , self . fcctrigcnt () , self . fcclfclksrc ())
         }
     }
     #[doc = "General Clock Enables."]
@@ -947,14 +947,14 @@ pub mod regs {
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Hfclkclkcfg(pub u32);
     impl Hfclkclkcfg {
-        #[doc = "HFXT startup time in 64us resolution."]
+        #[doc = "HFXT startup time in 64us resolution, from 0 (minimum startup time, approximately zero) to 255 (maximum, approximately 16.32ms). If the HFCLK startup monitor is enabled (HFCLKFLTCHK), HFXT is checked after this time expires."]
         #[must_use]
         #[inline(always)]
         pub const fn hfxttime(&self) -> u8 {
             let val = (self.0 >> 0usize) & 0xff;
             val as u8
         }
-        #[doc = "HFXT startup time in 64us resolution."]
+        #[doc = "HFXT startup time in 64us resolution, from 0 (minimum startup time, approximately zero) to 255 (maximum, approximately 16.32ms). If the HFCLK startup monitor is enabled (HFCLKFLTCHK), HFXT is checked after this time expires."]
         #[inline(always)]
         pub const fn set_hfxttime(&mut self, val: u8) {
             self.0 = (self.0 & !(0xff << 0usize)) | (((val as u32) & 0xff) << 0usize);
@@ -1016,14 +1016,14 @@ pub mod regs {
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Hsclkcfg(pub u32);
     impl Hsclkcfg {
-        #[doc = "Selects the HSCLK source."]
+        #[doc = "Selects the HSCLK source. This device has no SYSPLL, so HFCLKCLK is the only source it can select, and software must write it - the reset value leaves HSCLK unsourced."]
         #[must_use]
         #[inline(always)]
         pub const fn hsclksel(&self) -> super::vals::Hsclksel {
             let val = (self.0 >> 0usize) & 0x01;
             super::vals::Hsclksel::from_bits(val as u8)
         }
-        #[doc = "Selects the HSCLK source."]
+        #[doc = "Selects the HSCLK source. This device has no SYSPLL, so HFCLKCLK is the only source it can select, and software must write it - the reset value leaves HSCLK unsourced."]
         #[inline(always)]
         pub const fn set_hsclksel(&mut self, val: super::vals::Hsclksel) {
             self.0 = (self.0 & !(0x01 << 0usize)) | (((val.to_bits() as u32) & 0x01) << 0usize);
@@ -2053,15 +2053,17 @@ pub mod regs {
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Sysstatus(pub u32);
     impl Sysstatus {
+        #[doc = "Indicates the active brown-out reset supply monitor configuration."]
         #[must_use]
         #[inline(always)]
-        pub const fn borcurthreshold(&self) -> u8 {
+        pub const fn borcurthreshold(&self) -> super::vals::Borcurthreshold {
             let val = (self.0 >> 2usize) & 0x03;
-            val as u8
+            super::vals::Borcurthreshold::from_bits(val as u8)
         }
+        #[doc = "Indicates the active brown-out reset supply monitor configuration."]
         #[inline(always)]
-        pub const fn set_borcurthreshold(&mut self, val: u8) {
-            self.0 = (self.0 & !(0x03 << 2usize)) | (((val as u32) & 0x03) << 2usize);
+        pub const fn set_borcurthreshold(&mut self, val: super::vals::Borcurthreshold) {
+            self.0 = (self.0 & !(0x03 << 2usize)) | (((val.to_bits() as u32) & 0x03) << 2usize);
         }
         #[must_use]
         #[inline(always)]
@@ -2157,7 +2159,7 @@ pub mod regs {
     #[cfg(feature = "defmt")]
     impl defmt::Format for Sysstatus {
         fn format(&self, f: defmt::Formatter) {
-            defmt :: write ! (f , "Sysstatus {{ borcurthreshold: {=u8:?}, borlvl: {=bool:?}, anacpumpgood: {=bool:?}, pmuirefgood: {=bool:?}, extrstpindis: {=bool:?}, swdcfgdis: {=bool:?}, shdniolock: {=bool:?}, rebootattempts: {=u8:?} }}" , self . borcurthreshold () , self . borlvl () , self . anacpumpgood () , self . pmuirefgood () , self . extrstpindis () , self . swdcfgdis () , self . shdniolock () , self . rebootattempts ())
+            defmt :: write ! (f , "Sysstatus {{ borcurthreshold: {:?}, borlvl: {=bool:?}, anacpumpgood: {=bool:?}, pmuirefgood: {=bool:?}, extrstpindis: {=bool:?}, swdcfgdis: {=bool:?}, shdniolock: {=bool:?}, rebootattempts: {=u8:?} }}" , self . borcurthreshold () , self . borlvl () , self . anacpumpgood () , self . pmuirefgood () , self . extrstpindis () , self . swdcfgdis () , self . shdniolock () , self . rebootattempts ())
         }
     }
     #[doc = "Clear sticky bits of SYSSTATUS."]
@@ -2378,6 +2380,72 @@ pub mod vals {
         #[inline(always)]
         fn from(val: BorclrcmdKey) -> u8 {
             BorclrcmdKey::to_bits(val)
+        }
+    }
+    #[repr(u8)]
+    #[derive(Copy, Clone, Debug, Eq, PartialEq, Ord, PartialOrd)]
+    #[cfg_attr(feature = "defmt", derive(defmt::Format))]
+    pub enum Borcurthreshold {
+        #[doc = "Default minimum threshold. A BOR0- violation triggers a BOR."]
+        Bormin = 0x0,
+        #[doc = "A BOR1- violation generates a BORLVL interrupt."]
+        Borlevel1 = 0x01,
+        #[doc = "A BOR2- violation generates a BORLVL interrupt."]
+        Borlevel2 = 0x02,
+        #[doc = "A BOR3- violation generates a BORLVL interrupt."]
+        Borlevel3 = 0x03,
+    }
+    impl Borcurthreshold {
+        #[inline(always)]
+        pub const fn from_bits(val: u8) -> Borcurthreshold {
+            unsafe { core::mem::transmute(val & 0x03) }
+        }
+        #[inline(always)]
+        pub const fn to_bits(self) -> u8 {
+            unsafe { core::mem::transmute(self) }
+        }
+    }
+    impl From<u8> for Borcurthreshold {
+        #[inline(always)]
+        fn from(val: u8) -> Borcurthreshold {
+            Borcurthreshold::from_bits(val)
+        }
+    }
+    impl From<Borcurthreshold> for u8 {
+        #[inline(always)]
+        fn from(val: Borcurthreshold) -> u8 {
+            Borcurthreshold::to_bits(val)
+        }
+    }
+    #[repr(u8)]
+    #[derive(Copy, Clone, Debug, Eq, PartialEq, Ord, PartialOrd)]
+    #[cfg_attr(feature = "defmt", derive(defmt::Format))]
+    pub enum Curhsclksel {
+        #[doc = "HSCLK is currently sourced from the SYSPLL."]
+        Syspll = 0x0,
+        #[doc = "HSCLK is currently sourced from the HFCLK."]
+        Hfclk = 0x01,
+    }
+    impl Curhsclksel {
+        #[inline(always)]
+        pub const fn from_bits(val: u8) -> Curhsclksel {
+            unsafe { core::mem::transmute(val & 0x01) }
+        }
+        #[inline(always)]
+        pub const fn to_bits(self) -> u8 {
+            unsafe { core::mem::transmute(self) }
+        }
+    }
+    impl From<u8> for Curhsclksel {
+        #[inline(always)]
+        fn from(val: u8) -> Curhsclksel {
+            Curhsclksel::from_bits(val)
+        }
+    }
+    impl From<Curhsclksel> for u8 {
+        #[inline(always)]
+        fn from(val: Curhsclksel) -> u8 {
+            Curhsclksel::to_bits(val)
         }
     }
     #[repr(u8)]
@@ -2763,6 +2831,65 @@ pub mod vals {
     #[repr(u8)]
     #[derive(Copy, Clone, Debug, Eq, PartialEq, Ord, PartialOrd)]
     #[cfg_attr(feature = "defmt", derive(defmt::Format))]
+    pub enum Hfclk4mfpclkdiv {
+        #[doc = "HFCLK is not divided before being used for MFPCLK."]
+        Div1 = 0x0,
+        #[doc = "HFCLK is divided by 2 before being used for MFPCLK."]
+        Div2 = 0x01,
+        #[doc = "HFCLK is divided by 3 before being used for MFPCLK."]
+        Div3 = 0x02,
+        #[doc = "HFCLK is divided by 4 before being used for MFPCLK."]
+        Div4 = 0x03,
+        #[doc = "HFCLK is divided by 5 before being used for MFPCLK."]
+        Div5 = 0x04,
+        #[doc = "HFCLK is divided by 6 before being used for MFPCLK."]
+        Div6 = 0x05,
+        #[doc = "HFCLK is divided by 7 before being used for MFPCLK."]
+        Div7 = 0x06,
+        #[doc = "HFCLK is divided by 8 before being used for MFPCLK."]
+        Div8 = 0x07,
+        #[doc = "HFCLK is divided by 9 before being used for MFPCLK."]
+        Div9 = 0x08,
+        #[doc = "HFCLK is divided by 10 before being used for MFPCLK."]
+        Div10 = 0x09,
+        #[doc = "HFCLK is divided by 11 before being used for MFPCLK."]
+        Div11 = 0x0a,
+        #[doc = "HFCLK is divided by 12 before being used for MFPCLK."]
+        Div12 = 0x0b,
+        #[doc = "HFCLK is divided by 13 before being used for MFPCLK."]
+        Div13 = 0x0c,
+        #[doc = "HFCLK is divided by 14 before being used for MFPCLK."]
+        Div14 = 0x0d,
+        #[doc = "HFCLK is divided by 15 before being used for MFPCLK."]
+        Div15 = 0x0e,
+        #[doc = "HFCLK is divided by 16 before being used for MFPCLK."]
+        Div16 = 0x0f,
+    }
+    impl Hfclk4mfpclkdiv {
+        #[inline(always)]
+        pub const fn from_bits(val: u8) -> Hfclk4mfpclkdiv {
+            unsafe { core::mem::transmute(val & 0x0f) }
+        }
+        #[inline(always)]
+        pub const fn to_bits(self) -> u8 {
+            unsafe { core::mem::transmute(self) }
+        }
+    }
+    impl From<u8> for Hfclk4mfpclkdiv {
+        #[inline(always)]
+        fn from(val: u8) -> Hfclk4mfpclkdiv {
+            Hfclk4mfpclkdiv::from_bits(val)
+        }
+    }
+    impl From<Hfclk4mfpclkdiv> for u8 {
+        #[inline(always)]
+        fn from(val: Hfclk4mfpclkdiv) -> u8 {
+            Hfclk4mfpclkdiv::to_bits(val)
+        }
+    }
+    #[repr(u8)]
+    #[derive(Copy, Clone, Debug, Eq, PartialEq, Ord, PartialOrd)]
+    #[cfg_attr(feature = "defmt", derive(defmt::Format))]
     pub enum Hfxtrsel {
         #[doc = "4MHz to 8MHz."]
         Range4to8 = 0x0,
@@ -2828,10 +2955,10 @@ pub mod vals {
     #[derive(Copy, Clone, Debug, Eq, PartialEq, Ord, PartialOrd)]
     #[cfg_attr(feature = "defmt", derive(defmt::Format))]
     pub enum Hsclksel {
-        #[doc = "HSCLK is sourced from the SYSPLL."]
+        #[doc = "The SYSPLL position of the mux, and the reset value. This device has no SYSPLL, so HSCLK has no source while this is selected."]
         Syspll = 0x0,
-        #[doc = "HSCLK is sourced from HFCLK."]
-        Hfclk = 0x01,
+        #[doc = "HSCLK is sourced from the HFCLK."]
+        Hfclkclk = 0x01,
     }
     impl Hsclksel {
         #[inline(always)]
