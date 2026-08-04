@@ -2609,12 +2609,12 @@ pub mod vals {
         Bootnonpmuparity = 0x08,
         #[doc = "Fatal clock failure."]
         Bootclkfail = 0x09,
-        #[doc = "Software triggered BOOTRST."]
-        Bootsw = 0x0a,
+        _RESERVED_a = 0x0a,
         _RESERVED_b = 0x0b,
         #[doc = "NRST triggered BOOTRST (&lt;1s hold)."]
         Bootexnrst = 0x0c,
-        _RESERVED_d = 0x0d,
+        #[doc = "Software triggered BOOTRST."]
+        Bootsw = 0x0d,
         #[doc = "WWDT0 violation."]
         Bootwwdt0 = 0x0e,
         _RESERVED_f = 0x0f,

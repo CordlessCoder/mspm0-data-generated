@@ -442,13 +442,13 @@ pub mod regs {
         #[must_use]
         #[inline(always)]
         pub const fn setuseexlf(&self) -> bool {
-            let val = (self.0 >> 2usize) & 0x01;
+            let val = (self.0 >> 0usize) & 0x01;
             val != 0
         }
         #[doc = "Use external LF CLK IN."]
         #[inline(always)]
         pub const fn set_setuseexlf(&mut self, val: bool) {
-            self.0 = (self.0 & !(0x01 << 2usize)) | (((val as u32) & 0x01) << 2usize);
+            self.0 = (self.0 & !(0x01 << 0usize)) | (((val as u32) & 0x01) << 0usize);
         }
         #[must_use]
         #[inline(always)]
@@ -495,13 +495,13 @@ pub mod regs {
         #[must_use]
         #[inline(always)]
         pub const fn disable(&self) -> bool {
-            let val = (self.0 >> 2usize) & 0x01;
+            let val = (self.0 >> 0usize) & 0x01;
             val != 0
         }
         #[doc = "Disable External Reset."]
         #[inline(always)]
         pub const fn set_disable(&mut self, val: bool) {
-            self.0 = (self.0 & !(0x01 << 2usize)) | (((val as u32) & 0x01) << 2usize);
+            self.0 = (self.0 & !(0x01 << 0usize)) | (((val as u32) & 0x01) << 0usize);
         }
         #[must_use]
         #[inline(always)]
@@ -1728,13 +1728,13 @@ pub mod regs {
         #[must_use]
         #[inline(always)]
         pub const fn allecc(&self) -> bool {
-            let val = (self.0 >> 2usize) & 0x01;
+            let val = (self.0 >> 0usize) & 0x01;
             val != 0
         }
         #[doc = "Clear ALL ECC related SYSSTATUS indicators."]
         #[inline(always)]
         pub const fn set_allecc(&mut self, val: bool) {
-            self.0 = (self.0 & !(0x01 << 2usize)) | (((val as u32) & 0x01) << 2usize);
+            self.0 = (self.0 & !(0x01 << 0usize)) | (((val as u32) & 0x01) << 0usize);
         }
         #[must_use]
         #[inline(always)]

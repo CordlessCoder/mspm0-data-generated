@@ -396,6 +396,301 @@
       ]
     },
     {
+      "name": "VQFN-48",
+      "chip": "mspm0g3506rgz",
+      "package": "RGZ",
+      "pins": [
+        {
+          "position": "1",
+          "signals": [
+            "PA0"
+          ]
+        },
+        {
+          "position": "10",
+          "signals": [
+            "PA4"
+          ]
+        },
+        {
+          "position": "11",
+          "signals": [
+            "PA5"
+          ]
+        },
+        {
+          "position": "12",
+          "signals": [
+            "PA6"
+          ]
+        },
+        {
+          "position": "13",
+          "signals": [
+            "PA7"
+          ]
+        },
+        {
+          "position": "14",
+          "signals": [
+            "PB2"
+          ]
+        },
+        {
+          "position": "15",
+          "signals": [
+            "PB3"
+          ]
+        },
+        {
+          "position": "16",
+          "signals": [
+            "PA8"
+          ]
+        },
+        {
+          "position": "17",
+          "signals": [
+            "PA9"
+          ]
+        },
+        {
+          "position": "18",
+          "signals": [
+            "PA10"
+          ]
+        },
+        {
+          "position": "19",
+          "signals": [
+            "PA11"
+          ]
+        },
+        {
+          "position": "2",
+          "signals": [
+            "PA1"
+          ]
+        },
+        {
+          "position": "20",
+          "signals": [
+            "PB6"
+          ]
+        },
+        {
+          "position": "21",
+          "signals": [
+            "PB7"
+          ]
+        },
+        {
+          "position": "22",
+          "signals": [
+            "PB8"
+          ]
+        },
+        {
+          "position": "23",
+          "signals": [
+            "PB9"
+          ]
+        },
+        {
+          "position": "24",
+          "signals": [
+            "PB14"
+          ]
+        },
+        {
+          "position": "25",
+          "signals": [
+            "PB15"
+          ]
+        },
+        {
+          "position": "26",
+          "signals": [
+            "PB16"
+          ]
+        },
+        {
+          "position": "27",
+          "signals": [
+            "PA12"
+          ]
+        },
+        {
+          "position": "28",
+          "signals": [
+            "PA13"
+          ]
+        },
+        {
+          "position": "29",
+          "signals": [
+            "PA14"
+          ]
+        },
+        {
+          "position": "3",
+          "signals": [
+            "PA28"
+          ]
+        },
+        {
+          "position": "30",
+          "signals": [
+            "PA15"
+          ]
+        },
+        {
+          "position": "31",
+          "signals": [
+            "PA16"
+          ]
+        },
+        {
+          "position": "32",
+          "signals": [
+            "PA17"
+          ]
+        },
+        {
+          "position": "33",
+          "signals": [
+            "PA18"
+          ]
+        },
+        {
+          "position": "34",
+          "signals": [
+            "PA19"
+          ]
+        },
+        {
+          "position": "35",
+          "signals": [
+            "PA20"
+          ]
+        },
+        {
+          "position": "36",
+          "signals": [
+            "PB17"
+          ]
+        },
+        {
+          "position": "37",
+          "signals": [
+            "PB18"
+          ]
+        },
+        {
+          "position": "38",
+          "signals": [
+            "PB19"
+          ]
+        },
+        {
+          "position": "39",
+          "signals": [
+            "PA21"
+          ]
+        },
+        {
+          "position": "4",
+          "signals": [
+            "NRST"
+          ]
+        },
+        {
+          "position": "40",
+          "signals": [
+            "PA22"
+          ]
+        },
+        {
+          "position": "41",
+          "signals": [
+            "PB20"
+          ]
+        },
+        {
+          "position": "42",
+          "signals": [
+            "PB24"
+          ]
+        },
+        {
+          "position": "43",
+          "signals": [
+            "PA23"
+          ]
+        },
+        {
+          "position": "44",
+          "signals": [
+            "PA24"
+          ]
+        },
+        {
+          "position": "45",
+          "signals": [
+            "PA25"
+          ]
+        },
+        {
+          "position": "46",
+          "signals": [
+            "PA26"
+          ]
+        },
+        {
+          "position": "47",
+          "signals": [
+            "PA27"
+          ]
+        },
+        {
+          "position": "48",
+          "signals": [
+            "VCORE"
+          ]
+        },
+        {
+          "position": "5",
+          "signals": [
+            "PA31"
+          ]
+        },
+        {
+          "position": "6",
+          "signals": [
+            "VDD"
+          ]
+        },
+        {
+          "position": "7",
+          "signals": [
+            "VSS"
+          ]
+        },
+        {
+          "position": "8",
+          "signals": [
+            "PA2"
+          ]
+        },
+        {
+          "position": "9",
+          "signals": [
+            "PA3"
+          ]
+        }
+      ]
+    },
+    {
       "name": "LQFP-48",
       "chip": "mspm0g3506pt",
       "package": "PT",
@@ -1080,301 +1375,6 @@
           ]
         }
       ]
-    },
-    {
-      "name": "VQFN-48",
-      "chip": "mspm0g3506rgz",
-      "package": "RGZ",
-      "pins": [
-        {
-          "position": "1",
-          "signals": [
-            "PA0"
-          ]
-        },
-        {
-          "position": "10",
-          "signals": [
-            "PA4"
-          ]
-        },
-        {
-          "position": "11",
-          "signals": [
-            "PA5"
-          ]
-        },
-        {
-          "position": "12",
-          "signals": [
-            "PA6"
-          ]
-        },
-        {
-          "position": "13",
-          "signals": [
-            "PA7"
-          ]
-        },
-        {
-          "position": "14",
-          "signals": [
-            "PB2"
-          ]
-        },
-        {
-          "position": "15",
-          "signals": [
-            "PB3"
-          ]
-        },
-        {
-          "position": "16",
-          "signals": [
-            "PA8"
-          ]
-        },
-        {
-          "position": "17",
-          "signals": [
-            "PA9"
-          ]
-        },
-        {
-          "position": "18",
-          "signals": [
-            "PA10"
-          ]
-        },
-        {
-          "position": "19",
-          "signals": [
-            "PA11"
-          ]
-        },
-        {
-          "position": "2",
-          "signals": [
-            "PA1"
-          ]
-        },
-        {
-          "position": "20",
-          "signals": [
-            "PB6"
-          ]
-        },
-        {
-          "position": "21",
-          "signals": [
-            "PB7"
-          ]
-        },
-        {
-          "position": "22",
-          "signals": [
-            "PB8"
-          ]
-        },
-        {
-          "position": "23",
-          "signals": [
-            "PB9"
-          ]
-        },
-        {
-          "position": "24",
-          "signals": [
-            "PB14"
-          ]
-        },
-        {
-          "position": "25",
-          "signals": [
-            "PB15"
-          ]
-        },
-        {
-          "position": "26",
-          "signals": [
-            "PB16"
-          ]
-        },
-        {
-          "position": "27",
-          "signals": [
-            "PA12"
-          ]
-        },
-        {
-          "position": "28",
-          "signals": [
-            "PA13"
-          ]
-        },
-        {
-          "position": "29",
-          "signals": [
-            "PA14"
-          ]
-        },
-        {
-          "position": "3",
-          "signals": [
-            "PA28"
-          ]
-        },
-        {
-          "position": "30",
-          "signals": [
-            "PA15"
-          ]
-        },
-        {
-          "position": "31",
-          "signals": [
-            "PA16"
-          ]
-        },
-        {
-          "position": "32",
-          "signals": [
-            "PA17"
-          ]
-        },
-        {
-          "position": "33",
-          "signals": [
-            "PA18"
-          ]
-        },
-        {
-          "position": "34",
-          "signals": [
-            "PA19"
-          ]
-        },
-        {
-          "position": "35",
-          "signals": [
-            "PA20"
-          ]
-        },
-        {
-          "position": "36",
-          "signals": [
-            "PB17"
-          ]
-        },
-        {
-          "position": "37",
-          "signals": [
-            "PB18"
-          ]
-        },
-        {
-          "position": "38",
-          "signals": [
-            "PB19"
-          ]
-        },
-        {
-          "position": "39",
-          "signals": [
-            "PA21"
-          ]
-        },
-        {
-          "position": "4",
-          "signals": [
-            "NRST"
-          ]
-        },
-        {
-          "position": "40",
-          "signals": [
-            "PA22"
-          ]
-        },
-        {
-          "position": "41",
-          "signals": [
-            "PB20"
-          ]
-        },
-        {
-          "position": "42",
-          "signals": [
-            "PB24"
-          ]
-        },
-        {
-          "position": "43",
-          "signals": [
-            "PA23"
-          ]
-        },
-        {
-          "position": "44",
-          "signals": [
-            "PA24"
-          ]
-        },
-        {
-          "position": "45",
-          "signals": [
-            "PA25"
-          ]
-        },
-        {
-          "position": "46",
-          "signals": [
-            "PA26"
-          ]
-        },
-        {
-          "position": "47",
-          "signals": [
-            "PA27"
-          ]
-        },
-        {
-          "position": "48",
-          "signals": [
-            "VCORE"
-          ]
-        },
-        {
-          "position": "5",
-          "signals": [
-            "PA31"
-          ]
-        },
-        {
-          "position": "6",
-          "signals": [
-            "VDD"
-          ]
-        },
-        {
-          "position": "7",
-          "signals": [
-            "VSS"
-          ]
-        },
-        {
-          "position": "8",
-          "signals": [
-            "PA2"
-          ]
-        },
-        {
-          "position": "9",
-          "signals": [
-            "PA3"
-          ]
-        }
-      ]
     }
   ],
   "iomux": {
@@ -1439,16 +1439,6 @@
     "PB8": 25,
     "PB9": 26
   },
-  "wakeup_pins": [
-    "PA0",
-    "PA1",
-    "PA10",
-    "PA11",
-    "PA17",
-    "PA18",
-    "PA28",
-    "PA31"
-  ],
   "peripherals": {
     "ADC0": {
       "name": "ADC0",
@@ -1513,7 +1503,15 @@
         "num": 4
       },
       "block_async": false,
-      "usable_through": "Sleep"
+      "usable_through": "Sleep",
+      "clock_range_hz": {
+        "min_hz": 4000000,
+        "max_hz": 48000000
+      },
+      "adc": {
+        "memctl": 12,
+        "vrsel": 5
+      }
     },
     "ADC1": {
       "name": "ADC1",
@@ -1573,7 +1571,15 @@
         "num": 5
       },
       "block_async": false,
-      "usable_through": "Sleep"
+      "usable_through": "Sleep",
+      "clock_range_hz": {
+        "min_hz": 4000000,
+        "max_hz": 48000000
+      },
+      "adc": {
+        "memctl": 12,
+        "vrsel": 5
+      }
     },
     "AES": {
       "name": "AES",
@@ -1887,6 +1893,15 @@
       "name": "EVENT",
       "type": "Event",
       "address": 1074565120,
+      "power_domain": "Pd0",
+      "pins": [],
+      "block_async": false
+    },
+    "FACTORYREGION": {
+      "name": "FACTORYREGION",
+      "type": "FactoryRegion",
+      "version": "v1",
+      "address": 1103364096,
       "power_domain": "Pd0",
       "pins": [],
       "block_async": false
@@ -3225,7 +3240,20 @@
       "block_async": false,
       "retained_through": "Sleep",
       "usable_through": "Sleep",
-      "clocked_in_standby1": false
+      "clocked_in_standby1": false,
+      "timer": {
+        "bits": 16,
+        "prescaler": true,
+        "repeat_counter": true,
+        "ccp_channels": 4,
+        "external_pwm_channels": 8,
+        "phase_load": true,
+        "shadow_load": true,
+        "shadow_ccs": true,
+        "deadband": true,
+        "fault_handler": true,
+        "qei_hall": false
+      }
     },
     "TIMA1": {
       "name": "TIMA1",
@@ -3442,7 +3470,20 @@
       "block_async": false,
       "retained_through": "Sleep",
       "usable_through": "Sleep",
-      "clocked_in_standby1": false
+      "clocked_in_standby1": false,
+      "timer": {
+        "bits": 16,
+        "prescaler": true,
+        "repeat_counter": true,
+        "ccp_channels": 2,
+        "external_pwm_channels": 4,
+        "phase_load": true,
+        "shadow_load": true,
+        "shadow_ccs": true,
+        "deadband": true,
+        "fault_handler": true,
+        "qei_hall": false
+      }
     },
     "TIMG0": {
       "name": "TIMG0",
@@ -3498,7 +3539,20 @@
       },
       "block_async": false,
       "usable_through": "Standby",
-      "clocked_in_standby1": true
+      "clocked_in_standby1": true,
+      "timer": {
+        "bits": 16,
+        "prescaler": true,
+        "repeat_counter": false,
+        "ccp_channels": 2,
+        "external_pwm_channels": 2,
+        "phase_load": false,
+        "shadow_load": false,
+        "shadow_ccs": false,
+        "deadband": false,
+        "fault_handler": false,
+        "qei_hall": false
+      }
     },
     "TIMG12": {
       "name": "TIMG12",
@@ -3555,7 +3609,20 @@
       "block_async": false,
       "retained_through": "Sleep",
       "usable_through": "Sleep",
-      "clocked_in_standby1": false
+      "clocked_in_standby1": false,
+      "timer": {
+        "bits": 32,
+        "prescaler": false,
+        "repeat_counter": false,
+        "ccp_channels": 2,
+        "external_pwm_channels": 2,
+        "phase_load": false,
+        "shadow_load": false,
+        "shadow_ccs": true,
+        "deadband": false,
+        "fault_handler": false,
+        "qei_hall": false
+      }
     },
     "TIMG6": {
       "name": "TIMG6",
@@ -3642,7 +3709,20 @@
       "block_async": false,
       "retained_through": "Sleep",
       "usable_through": "Sleep",
-      "clocked_in_standby1": false
+      "clocked_in_standby1": false,
+      "timer": {
+        "bits": 16,
+        "prescaler": true,
+        "repeat_counter": false,
+        "ccp_channels": 2,
+        "external_pwm_channels": 2,
+        "phase_load": false,
+        "shadow_load": true,
+        "shadow_ccs": true,
+        "deadband": false,
+        "fault_handler": false,
+        "qei_hall": false
+      }
     },
     "TIMG7": {
       "name": "TIMG7",
@@ -3734,7 +3814,20 @@
       "block_async": false,
       "retained_through": "Sleep",
       "usable_through": "Sleep",
-      "clocked_in_standby1": false
+      "clocked_in_standby1": false,
+      "timer": {
+        "bits": 16,
+        "prescaler": true,
+        "repeat_counter": false,
+        "ccp_channels": 2,
+        "external_pwm_channels": 2,
+        "phase_load": false,
+        "shadow_load": true,
+        "shadow_ccs": true,
+        "deadband": false,
+        "fault_handler": false,
+        "qei_hall": false
+      }
     },
     "TIMG8": {
       "name": "TIMG8",
@@ -3890,7 +3983,20 @@
       },
       "block_async": false,
       "usable_through": "Standby",
-      "clocked_in_standby1": true
+      "clocked_in_standby1": true,
+      "timer": {
+        "bits": 16,
+        "prescaler": true,
+        "repeat_counter": false,
+        "ccp_channels": 2,
+        "external_pwm_channels": 2,
+        "phase_load": false,
+        "shadow_load": false,
+        "shadow_ccs": false,
+        "deadband": false,
+        "fault_handler": false,
+        "qei_hall": true
+      }
     },
     "TRNG": {
       "name": "TRNG",
@@ -3906,7 +4012,11 @@
       },
       "block_async": false,
       "retained_through": "Sleep",
-      "usable_through": "Sleep"
+      "usable_through": "Sleep",
+      "clock_range_hz": {
+        "min_hz": 9500000,
+        "max_hz": 25000000
+      }
     },
     "UART0": {
       "name": "UART0",
@@ -4520,10 +4630,122 @@
       "full": false
     }
   },
-  "adc_memctl": 12,
-  "adc_vrsel": 5,
   "nvic_priority_bits": 2,
   "max_mclk_hz": 80000000,
   "max_ulpclk_hz": 40000000,
-  "backup_domain": false
+  "sysosc_base_hz": 32000000,
+  "flash_wait_hz": [
+    24000000,
+    48000000,
+    80000000
+  ],
+  "backup_domain": false,
+  "clock_tree": {
+    "hfxt": true,
+    "hfclk_in": true,
+    "hfclk_hz": {
+      "min_hz": 4000000,
+      "max_hz": 48000000
+    },
+    "lfxt": true,
+    "lfclk_in": true,
+    "syspll": true,
+    "ulpclk_div": true,
+    "stop1": true
+  },
+  "errata": [
+    "ADC_ERR_01",
+    "ADC_ERR_02",
+    "ADC_ERR_05",
+    "ADC_ERR_06",
+    "BSL_ERR_01",
+    "CLK_ERR_01",
+    "COMP_ERR_02",
+    "COMP_ERR_03",
+    "CPU_ERR_01",
+    "CPU_ERR_02",
+    "CPU_ERR_03",
+    "CPU_ERR_04",
+    "CRCP_ERR_01",
+    "CRC_ERR_01",
+    "DAC_ERR_01",
+    "DMA_ERR_01",
+    "FLASH_ERR_02",
+    "FLASH_ERR_04",
+    "FLASH_ERR_05",
+    "FLASH_ERR_06",
+    "FLASH_ERR_08",
+    "GPIO_ERR_01",
+    "GPIO_ERR_04",
+    "GPIO_ERR_06",
+    "I2C_ERR_01",
+    "I2C_ERR_02",
+    "I2C_ERR_03",
+    "I2C_ERR_04",
+    "I2C_ERR_05",
+    "I2C_ERR_06",
+    "I2C_ERR_07",
+    "I2C_ERR_08",
+    "I2C_ERR_09",
+    "I2C_ERR_10",
+    "I2C_ERR_13",
+    "I2C_ERR_15",
+    "MATHACL_ERR_01",
+    "MATHACL_ERR_02",
+    "PMCU_ERR_08",
+    "PMCU_ERR_10",
+    "PWREN_ERR_01",
+    "RST_ERR_01",
+    "RTC_ERR_01",
+    "SPI_ERR_01",
+    "SPI_ERR_02",
+    "SPI_ERR_03",
+    "SPI_ERR_04",
+    "SPI_ERR_05",
+    "SPI_ERR_06",
+    "SPI_ERR_07",
+    "SPI_ERR_10",
+    "SRAM_ERR_02",
+    "SYSCTL_ERR_02",
+    "SYSCTL_ERR_03",
+    "SYSCTL_ERR_04",
+    "SYSCTL_ERR_05",
+    "SYSCTL_ERR_06",
+    "SYSOSC_ERR_01",
+    "SYSOSC_ERR_02",
+    "SYSOSC_ERR_04",
+    "SYSOSC_ERR_05",
+    "SYSOSC_ERR_06",
+    "SYSPLL_ERR_01",
+    "TIMER_ERR_01",
+    "TIMER_ERR_04",
+    "TIMER_ERR_06",
+    "TIMER_ERR_07",
+    "UART_ERR_01",
+    "UART_ERR_02",
+    "UART_ERR_04",
+    "UART_ERR_05",
+    "UART_ERR_06",
+    "UART_ERR_07",
+    "UART_ERR_08",
+    "UART_ERR_09",
+    "UART_ERR_10",
+    "UART_ERR_11",
+    "VREF_ERR_01",
+    "VREF_ERR_02",
+    "VREF_ERR_04",
+    "WWDT_ERR_01",
+    "WWDT_ERR_02"
+  ],
+  "wake_ns": {
+    "sleep0": 1300,
+    "sleep1": 1500,
+    "sleep2": 2100,
+    "stop0": 12100,
+    "stop1": 13500,
+    "stop2": 12900,
+    "standby0": 15200,
+    "standby1": 15200,
+    "shutdown": 252000
+  }
 }

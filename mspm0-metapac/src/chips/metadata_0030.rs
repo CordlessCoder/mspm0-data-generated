@@ -16,16 +16,6 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
                 pf: Some(0u8),
             },
             PeripheralPin {
-                pin: "PA14",
-                signal: "12",
-                pf: Some(0u8),
-            },
-            PeripheralPin {
-                pin: "PA25",
-                signal: "2",
-                pf: Some(0u8),
-            },
-            PeripheralPin {
                 pin: "PA24",
                 signal: "3",
                 pf: Some(0u8),
@@ -33,11 +23,6 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
             PeripheralPin {
                 pin: "PA22",
                 signal: "7",
-                pf: Some(0u8),
-            },
-            PeripheralPin {
-                pin: "PA21",
-                signal: "8",
                 pf: Some(0u8),
             },
         ],
@@ -52,22 +37,21 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         retained_through: None,
         usable_through: Some(PowerMode::Sleep),
         clocked_in_standby1: None,
+        timer: None,
+        clock_range_hz: Some(ClockRange {
+            min_hz: 4000000,
+            max_hz: 48000000,
+        }),
+        adc: Some(Adc {
+            memctl: 12,
+            vrsel: 5,
+        }),
     },
     Peripheral {
         name: "ADC1",
         kind: "adc",
         version: Some("v1"),
         pins: &[
-            PeripheralPin {
-                pin: "PA15",
-                signal: "0",
-                pf: Some(0u8),
-            },
-            PeripheralPin {
-                pin: "PA16",
-                signal: "1",
-                pf: Some(0u8),
-            },
             PeripheralPin {
                 pin: "PA17",
                 signal: "2",
@@ -76,11 +60,6 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
             PeripheralPin {
                 pin: "PA18",
                 signal: "3",
-                pf: Some(0u8),
-            },
-            PeripheralPin {
-                pin: "PA21",
-                signal: "7",
                 pf: Some(0u8),
             },
             PeripheralPin {
@@ -100,6 +79,15 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         retained_through: None,
         usable_through: Some(PowerMode::Sleep),
         clocked_in_standby1: None,
+        timer: None,
+        clock_range_hz: Some(ClockRange {
+            min_hz: 4000000,
+            max_hz: 48000000,
+        }),
+        adc: Some(Adc {
+            memctl: 12,
+            vrsel: 5,
+        }),
     },
     Peripheral {
         name: "AES",
@@ -117,6 +105,9 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         retained_through: Some(PowerMode::Sleep),
         usable_through: Some(PowerMode::Sleep),
         clocked_in_standby1: None,
+        timer: None,
+        clock_range_hz: None,
+        adc: None,
     },
     Peripheral {
         name: "CANFD0",
@@ -127,6 +118,11 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
                 pin: "PA27",
                 signal: "CANRX",
                 pf: Some(6u8),
+            },
+            PeripheralPin {
+                pin: "PA12",
+                signal: "CANTX",
+                pf: Some(5u8),
             },
             PeripheralPin {
                 pin: "PA26",
@@ -145,6 +141,9 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         retained_through: Some(PowerMode::Sleep),
         usable_through: None,
         clocked_in_standby1: None,
+        timer: None,
+        clock_range_hz: None,
+        adc: None,
     },
     Peripheral {
         name: "CPUSS",
@@ -158,6 +157,9 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         retained_through: Some(PowerMode::Standby),
         usable_through: Some(PowerMode::Run),
         clocked_in_standby1: None,
+        timer: None,
+        clock_range_hz: None,
+        adc: None,
     },
     Peripheral {
         name: "CRC",
@@ -171,6 +173,9 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         retained_through: Some(PowerMode::Standby),
         usable_through: Some(PowerMode::Sleep),
         clocked_in_standby1: None,
+        timer: None,
+        clock_range_hz: None,
+        adc: None,
     },
     Peripheral {
         name: "DEBUGSS",
@@ -199,6 +204,9 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         retained_through: None,
         usable_through: None,
         clocked_in_standby1: None,
+        timer: None,
+        clock_range_hz: None,
+        adc: None,
     },
     Peripheral {
         name: "DMA",
@@ -216,6 +224,9 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         retained_through: Some(PowerMode::Standby),
         usable_through: Some(PowerMode::Sleep),
         clocked_in_standby1: None,
+        timer: None,
+        clock_range_hz: None,
+        adc: None,
     },
     Peripheral {
         name: "EVENT",
@@ -229,6 +240,25 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         retained_through: None,
         usable_through: None,
         clocked_in_standby1: None,
+        timer: None,
+        clock_range_hz: None,
+        adc: None,
+    },
+    Peripheral {
+        name: "FACTORYREGION",
+        kind: "factoryregion",
+        version: Some("v1"),
+        pins: &[],
+        power_domain: PowerDomain::Pd0,
+        sys_fentries: None,
+        interrupt: None,
+        block_async: Some(false),
+        retained_through: None,
+        usable_through: None,
+        clocked_in_standby1: None,
+        timer: None,
+        clock_range_hz: None,
+        adc: None,
     },
     Peripheral {
         name: "FLASHCTL",
@@ -246,6 +276,9 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         retained_through: None,
         usable_through: None,
         clocked_in_standby1: None,
+        timer: None,
+        clock_range_hz: None,
+        adc: None,
     },
     Peripheral {
         name: "GPAMP",
@@ -275,22 +308,15 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         retained_through: None,
         usable_through: Some(PowerMode::Sleep),
         clocked_in_standby1: None,
+        timer: None,
+        clock_range_hz: None,
+        adc: None,
     },
     Peripheral {
         name: "GPIOA",
         kind: "gpio",
         version: Some("v1"),
         pins: &[
-            PeripheralPin {
-                pin: "PA0",
-                signal: "PA0",
-                pf: Some(1u8),
-            },
-            PeripheralPin {
-                pin: "PA1",
-                signal: "PA1",
-                pf: Some(1u8),
-            },
             PeripheralPin {
                 pin: "PA10",
                 signal: "PA10",
@@ -302,18 +328,8 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
                 pf: Some(1u8),
             },
             PeripheralPin {
-                pin: "PA14",
-                signal: "PA14",
-                pf: Some(1u8),
-            },
-            PeripheralPin {
-                pin: "PA15",
-                signal: "PA15",
-                pf: Some(1u8),
-            },
-            PeripheralPin {
-                pin: "PA16",
-                signal: "PA16",
+                pin: "PA12",
+                signal: "PA12",
                 pf: Some(1u8),
             },
             PeripheralPin {
@@ -342,11 +358,6 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
                 pf: Some(1u8),
             },
             PeripheralPin {
-                pin: "PA21",
-                signal: "PA21",
-                pf: Some(1u8),
-            },
-            PeripheralPin {
                 pin: "PA22",
                 signal: "PA22",
                 pf: Some(1u8),
@@ -362,11 +373,6 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
                 pf: Some(1u8),
             },
             PeripheralPin {
-                pin: "PA25",
-                signal: "PA25",
-                pf: Some(1u8),
-            },
-            PeripheralPin {
                 pin: "PA26",
                 signal: "PA26",
                 pf: Some(1u8),
@@ -374,16 +380,6 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
             PeripheralPin {
                 pin: "PA27",
                 signal: "PA27",
-                pf: Some(1u8),
-            },
-            PeripheralPin {
-                pin: "PA3",
-                signal: "PA3",
-                pf: Some(1u8),
-            },
-            PeripheralPin {
-                pin: "PA4",
-                signal: "PA4",
                 pf: Some(1u8),
             },
             PeripheralPin {
@@ -413,6 +409,9 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         retained_through: None,
         usable_through: Some(PowerMode::Standby),
         clocked_in_standby1: None,
+        timer: None,
+        clock_range_hz: None,
+        adc: None,
     },
     Peripheral {
         name: "GPIOB",
@@ -430,6 +429,9 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         retained_through: None,
         usable_through: Some(PowerMode::Standby),
         clocked_in_standby1: None,
+        timer: None,
+        clock_range_hz: None,
+        adc: None,
     },
     Peripheral {
         name: "I2C0",
@@ -437,19 +439,9 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         version: Some("v1"),
         pins: &[
             PeripheralPin {
-                pin: "PA1",
-                signal: "SCL",
-                pf: Some(3u8),
-            },
-            PeripheralPin {
                 pin: "PA11",
                 signal: "SCL",
                 pf: Some(4u8),
-            },
-            PeripheralPin {
-                pin: "PA0",
-                signal: "SDA",
-                pf: Some(3u8),
             },
             PeripheralPin {
                 pin: "PA10",
@@ -468,17 +460,15 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         retained_through: None,
         usable_through: Some(PowerMode::Standby),
         clocked_in_standby1: None,
+        timer: None,
+        clock_range_hz: None,
+        adc: None,
     },
     Peripheral {
         name: "I2C1",
         kind: "i2c",
         version: Some("v1"),
         pins: &[
-            PeripheralPin {
-                pin: "PA15",
-                signal: "SCL",
-                pf: Some(4u8),
-            },
             PeripheralPin {
                 pin: "PA17",
                 signal: "SCL",
@@ -490,16 +480,6 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
                 pf: Some(8u8),
             },
             PeripheralPin {
-                pin: "PA4",
-                signal: "SCL",
-                pf: Some(9u8),
-            },
-            PeripheralPin {
-                pin: "PA16",
-                signal: "SDA",
-                pf: Some(4u8),
-            },
-            PeripheralPin {
                 pin: "PA18",
                 signal: "SDA",
                 pf: Some(4u8),
@@ -508,11 +488,6 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
                 pin: "PA10",
                 signal: "SDA",
                 pf: Some(8u8),
-            },
-            PeripheralPin {
-                pin: "PA3",
-                signal: "SDA",
-                pf: Some(9u8),
             },
         ],
         power_domain: PowerDomain::Pd0,
@@ -526,6 +501,9 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         retained_through: None,
         usable_through: Some(PowerMode::Standby),
         clocked_in_standby1: None,
+        timer: None,
+        clock_range_hz: None,
+        adc: None,
     },
     Peripheral {
         name: "IOMUX",
@@ -539,6 +517,9 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         retained_through: None,
         usable_through: None,
         clocked_in_standby1: None,
+        timer: None,
+        clock_range_hz: None,
+        adc: None,
     },
     Peripheral {
         name: "RTC",
@@ -567,6 +548,9 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         retained_through: None,
         usable_through: Some(PowerMode::Standby),
         clocked_in_standby1: None,
+        timer: None,
+        clock_range_hz: None,
+        adc: None,
     },
     Peripheral {
         name: "SPI0",
@@ -579,11 +563,6 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
                 pf: Some(3u8),
             },
             PeripheralPin {
-                pin: "PA3",
-                signal: "CS1_POCI1",
-                pf: Some(3u8),
-            },
-            PeripheralPin {
                 pin: "PA24",
                 signal: "CS2_POCI2",
                 pf: Some(3u8),
@@ -591,11 +570,6 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
             PeripheralPin {
                 pin: "PA23",
                 signal: "CS3_CD_POCI3",
-                pf: Some(3u8),
-            },
-            PeripheralPin {
-                pin: "PA14",
-                signal: "PICO",
                 pf: Some(3u8),
             },
             PeripheralPin {
@@ -614,12 +588,12 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
                 pf: Some(3u8),
             },
             PeripheralPin {
-                pin: "PA4",
-                signal: "POCI",
+                pin: "PA11",
+                signal: "SCLK",
                 pf: Some(3u8),
             },
             PeripheralPin {
-                pin: "PA11",
+                pin: "PA12",
                 signal: "SCLK",
                 pf: Some(3u8),
             },
@@ -640,6 +614,9 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         retained_through: Some(PowerMode::Standby),
         usable_through: Some(PowerMode::Sleep),
         clocked_in_standby1: None,
+        timer: None,
+        clock_range_hz: None,
+        adc: None,
     },
     Peripheral {
         name: "SPI1",
@@ -662,23 +639,8 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
                 pf: Some(3u8),
             },
             PeripheralPin {
-                pin: "PA15",
-                signal: "CS2_POCI2",
-                pf: Some(3u8),
-            },
-            PeripheralPin {
-                pin: "PA25",
-                signal: "CS3_CD_POCI3",
-                pf: Some(3u8),
-            },
-            PeripheralPin {
                 pin: "PA18",
                 signal: "PICO",
-                pf: Some(3u8),
-            },
-            PeripheralPin {
-                pin: "PA16",
-                signal: "POCI",
                 pf: Some(3u8),
             },
             PeripheralPin {
@@ -698,17 +660,15 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         retained_through: Some(PowerMode::Standby),
         usable_through: Some(PowerMode::Sleep),
         clocked_in_standby1: None,
+        timer: None,
+        clock_range_hz: None,
+        adc: None,
     },
     Peripheral {
         name: "SYSCTL",
         kind: "sysctl",
         version: Some("g350x_g310x_g150x_g110x"),
         pins: &[
-            PeripheralPin {
-                pin: "PA14",
-                signal: "CLK_OUT",
-                pf: Some(6u8),
-            },
             PeripheralPin {
                 pin: "PA22",
                 signal: "CLK_OUT",
@@ -725,7 +685,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
                 pf: Some(9u8),
             },
             PeripheralPin {
-                pin: "PA0",
+                pin: "PA12",
                 signal: "FCC_IN",
                 pf: Some(7u8),
             },
@@ -733,11 +693,6 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
                 pin: "PA5",
                 signal: "FCC_IN",
                 pf: Some(7u8),
-            },
-            PeripheralPin {
-                pin: "PA16",
-                signal: "FCC_IN",
-                pf: Some(8u8),
             },
             PeripheralPin {
                 pin: "PA6",
@@ -752,21 +707,6 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
             PeripheralPin {
                 pin: "PA6",
                 signal: "HFXOUT",
-                pf: Some(0u8),
-            },
-            PeripheralPin {
-                pin: "PA4",
-                signal: "LFCLKIN",
-                pf: Some(6u8),
-            },
-            PeripheralPin {
-                pin: "PA3",
-                signal: "LFXIN",
-                pf: Some(0u8),
-            },
-            PeripheralPin {
-                pin: "PA4",
-                signal: "LFXOUT",
                 pf: Some(0u8),
             },
             PeripheralPin {
@@ -791,6 +731,9 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         retained_through: None,
         usable_through: None,
         clocked_in_standby1: None,
+        timer: None,
+        clock_range_hz: None,
+        adc: None,
     },
     Peripheral {
         name: "TIMA0",
@@ -798,16 +741,6 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         version: Some("v1"),
         pins: &[
             PeripheralPin {
-                pin: "PA0",
-                signal: "CCP0",
-                pf: Some(4u8),
-            },
-            PeripheralPin {
-                pin: "PA21",
-                signal: "CCP0",
-                pf: Some(5u8),
-            },
-            PeripheralPin {
                 pin: "PA22",
                 signal: "CCP0_CMPL",
                 pf: Some(7u8),
@@ -818,11 +751,6 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
                 pf: Some(7u8),
             },
             PeripheralPin {
-                pin: "PA1",
-                signal: "CCP1",
-                pf: Some(4u8),
-            },
-            PeripheralPin {
                 pin: "PA22",
                 signal: "CCP1",
                 pf: Some(5u8),
@@ -830,26 +758,6 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
             PeripheralPin {
                 pin: "PA9",
                 signal: "CCP1",
-                pf: Some(5u8),
-            },
-            PeripheralPin {
-                pin: "PA3",
-                signal: "CCP1",
-                pf: Some(8u8),
-            },
-            PeripheralPin {
-                pin: "PA25",
-                signal: "CCP1_CMPL",
-                pf: Some(6u8),
-            },
-            PeripheralPin {
-                pin: "PA4",
-                signal: "CCP1_CMPL",
-                pf: Some(8u8),
-            },
-            PeripheralPin {
-                pin: "PA3",
-                signal: "CCP2",
                 pf: Some(5u8),
             },
             PeripheralPin {
@@ -858,17 +766,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
                 pf: Some(7u8),
             },
             PeripheralPin {
-                pin: "PA15",
-                signal: "CCP2",
-                pf: Some(8u8),
-            },
-            PeripheralPin {
                 pin: "PA11",
-                signal: "CCP2_CMPL",
-                pf: Some(7u8),
-            },
-            PeripheralPin {
-                pin: "PA16",
                 signal: "CCP2_CMPL",
                 pf: Some(7u8),
             },
@@ -888,14 +786,9 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
                 pf: Some(5u8),
             },
             PeripheralPin {
-                pin: "PA25",
+                pin: "PA12",
                 signal: "CCP3",
-                pf: Some(5u8),
-            },
-            PeripheralPin {
-                pin: "PA4",
-                signal: "CCP3",
-                pf: Some(5u8),
+                pf: Some(6u8),
             },
             PeripheralPin {
                 pin: "PA24",
@@ -923,16 +816,6 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
                 pf: Some(4u8),
             },
             PeripheralPin {
-                pin: "PA0",
-                signal: "FAULT1",
-                pf: Some(5u8),
-            },
-            PeripheralPin {
-                pin: "PA1",
-                signal: "FAULT2",
-                pf: Some(5u8),
-            },
-            PeripheralPin {
                 pin: "PA27",
                 signal: "FAULT2",
                 pf: Some(5u8),
@@ -949,6 +832,21 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         retained_through: Some(PowerMode::Sleep),
         usable_through: Some(PowerMode::Sleep),
         clocked_in_standby1: Some(false),
+        timer: Some(Timer {
+            bits: 16,
+            prescaler: true,
+            repeat_counter: true,
+            ccp_channels: 4,
+            external_pwm_channels: 8,
+            phase_load: true,
+            shadow_load: true,
+            shadow_ccs: true,
+            deadband: true,
+            fault_handler: true,
+            qei_hall: false,
+        }),
+        clock_range_hz: None,
+        adc: None,
     },
     Peripheral {
         name: "TIMA1",
@@ -961,27 +859,12 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
                 pf: Some(5u8),
             },
             PeripheralPin {
-                pin: "PA15",
-                signal: "CCP0",
-                pf: Some(5u8),
-            },
-            PeripheralPin {
                 pin: "PA17",
                 signal: "CCP0",
                 pf: Some(7u8),
             },
             PeripheralPin {
-                pin: "PA15",
-                signal: "CCP0_CMPL",
-                pf: Some(7u8),
-            },
-            PeripheralPin {
                 pin: "PA11",
-                signal: "CCP1",
-                pf: Some(5u8),
-            },
-            PeripheralPin {
-                pin: "PA16",
                 signal: "CCP1",
                 pf: Some(5u8),
             },
@@ -994,11 +877,6 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
                 pin: "PA24",
                 signal: "CCP1",
                 pf: Some(8u8),
-            },
-            PeripheralPin {
-                pin: "PA16",
-                signal: "CCP1_CMPL",
-                pf: Some(6u8),
             },
             PeripheralPin {
                 pin: "PA9",
@@ -1021,16 +899,6 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
                 pf: Some(4u8),
             },
             PeripheralPin {
-                pin: "PA0",
-                signal: "FAULT1",
-                pf: Some(5u8),
-            },
-            PeripheralPin {
-                pin: "PA1",
-                signal: "FAULT2",
-                pf: Some(5u8),
-            },
-            PeripheralPin {
                 pin: "PA27",
                 signal: "FAULT2",
                 pf: Some(5u8),
@@ -1047,12 +915,32 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         retained_through: Some(PowerMode::Sleep),
         usable_through: Some(PowerMode::Sleep),
         clocked_in_standby1: Some(false),
+        timer: Some(Timer {
+            bits: 16,
+            prescaler: true,
+            repeat_counter: true,
+            ccp_channels: 2,
+            external_pwm_channels: 4,
+            phase_load: true,
+            shadow_load: true,
+            shadow_ccs: true,
+            deadband: true,
+            fault_handler: true,
+            qei_hall: false,
+        }),
+        clock_range_hz: None,
+        adc: None,
     },
     Peripheral {
         name: "TIMG0",
         kind: "tim",
         version: Some("v1"),
         pins: &[
+            PeripheralPin {
+                pin: "PA12",
+                signal: "CCP0",
+                pf: Some(4u8),
+            },
             PeripheralPin {
                 pin: "PA23",
                 signal: "CCP0",
@@ -1085,28 +973,31 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         retained_through: None,
         usable_through: Some(PowerMode::Standby),
         clocked_in_standby1: Some(true),
+        timer: Some(Timer {
+            bits: 16,
+            prescaler: true,
+            repeat_counter: false,
+            ccp_channels: 2,
+            external_pwm_channels: 2,
+            phase_load: false,
+            shadow_load: false,
+            shadow_ccs: false,
+            deadband: false,
+            fault_handler: false,
+            qei_hall: false,
+        }),
+        clock_range_hz: None,
+        adc: None,
     },
     Peripheral {
         name: "TIMG12",
         kind: "tim",
         version: Some("v1"),
-        pins: &[
-            PeripheralPin {
-                pin: "PA14",
-                signal: "CCP0",
-                pf: Some(5u8),
-            },
-            PeripheralPin {
-                pin: "PA10",
-                signal: "CCP0",
-                pf: Some(6u8),
-            },
-            PeripheralPin {
-                pin: "PA25",
-                signal: "CCP1",
-                pf: Some(4u8),
-            },
-        ],
+        pins: &[PeripheralPin {
+            pin: "PA10",
+            signal: "CCP0",
+            pf: Some(6u8),
+        }],
         power_domain: PowerDomain::Pd1,
         sys_fentries: None,
         interrupt: Some(PeripheralInterrupt {
@@ -1118,17 +1009,27 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         retained_through: Some(PowerMode::Sleep),
         usable_through: Some(PowerMode::Sleep),
         clocked_in_standby1: Some(false),
+        timer: Some(Timer {
+            bits: 32,
+            prescaler: false,
+            repeat_counter: false,
+            ccp_channels: 2,
+            external_pwm_channels: 2,
+            phase_load: false,
+            shadow_load: false,
+            shadow_ccs: true,
+            deadband: false,
+            fault_handler: false,
+            qei_hall: false,
+        }),
+        clock_range_hz: None,
+        adc: None,
     },
     Peripheral {
         name: "TIMG6",
         kind: "tim",
         version: Some("v1"),
         pins: &[
-            PeripheralPin {
-                pin: "PA21",
-                signal: "CCP0",
-                pf: Some(6u8),
-            },
             PeripheralPin {
                 pin: "PA5",
                 signal: "CCP0",
@@ -1156,6 +1057,21 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         retained_through: Some(PowerMode::Sleep),
         usable_through: Some(PowerMode::Sleep),
         clocked_in_standby1: Some(false),
+        timer: Some(Timer {
+            bits: 16,
+            prescaler: true,
+            repeat_counter: false,
+            ccp_channels: 2,
+            external_pwm_channels: 2,
+            phase_load: false,
+            shadow_load: true,
+            shadow_ccs: true,
+            deadband: false,
+            fault_handler: false,
+            qei_hall: false,
+        }),
+        clock_range_hz: None,
+        adc: None,
     },
     Peripheral {
         name: "TIMG7",
@@ -1174,11 +1090,6 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
             },
             PeripheralPin {
                 pin: "PA26",
-                signal: "CCP0",
-                pf: Some(7u8),
-            },
-            PeripheralPin {
-                pin: "PA3",
                 signal: "CCP0",
                 pf: Some(7u8),
             },
@@ -1202,11 +1113,6 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
                 signal: "CCP1",
                 pf: Some(7u8),
             },
-            PeripheralPin {
-                pin: "PA4",
-                signal: "CCP1",
-                pf: Some(7u8),
-            },
         ],
         power_domain: PowerDomain::Pd1,
         sys_fentries: None,
@@ -1219,6 +1125,21 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         retained_through: Some(PowerMode::Sleep),
         usable_through: Some(PowerMode::Sleep),
         clocked_in_standby1: Some(false),
+        timer: Some(Timer {
+            bits: 16,
+            prescaler: true,
+            repeat_counter: false,
+            ccp_channels: 2,
+            external_pwm_channels: 2,
+            phase_load: false,
+            shadow_load: true,
+            shadow_ccs: true,
+            deadband: false,
+            fault_handler: false,
+            qei_hall: false,
+        }),
+        clock_range_hz: None,
+        adc: None,
     },
     Peripheral {
         name: "TIMG8",
@@ -1226,29 +1147,14 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         version: Some("v1"),
         pins: &[
             PeripheralPin {
-                pin: "PA3",
-                signal: "CCP0",
-                pf: Some(2u8),
-            },
-            PeripheralPin {
                 pin: "PA5",
                 signal: "CCP0",
                 pf: Some(2u8),
             },
             PeripheralPin {
-                pin: "PA21",
-                signal: "CCP0",
-                pf: Some(3u8),
-            },
-            PeripheralPin {
                 pin: "PA26",
                 signal: "CCP0",
                 pf: Some(4u8),
-            },
-            PeripheralPin {
-                pin: "PA1",
-                signal: "CCP0",
-                pf: Some(7u8),
             },
             PeripheralPin {
                 pin: "PA23",
@@ -1257,11 +1163,6 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
             },
             PeripheralPin {
                 pin: "PA2",
-                signal: "CCP1",
-                pf: Some(2u8),
-            },
-            PeripheralPin {
-                pin: "PA4",
                 signal: "CCP1",
                 pf: Some(2u8),
             },
@@ -1280,21 +1181,6 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
                 signal: "CCP1",
                 pf: Some(4u8),
             },
-            PeripheralPin {
-                pin: "PA0",
-                signal: "CCP1",
-                pf: Some(6u8),
-            },
-            PeripheralPin {
-                pin: "PA1",
-                signal: "IDX",
-                pf: Some(6u8),
-            },
-            PeripheralPin {
-                pin: "PA15",
-                signal: "IDX",
-                pf: Some(6u8),
-            },
         ],
         power_domain: PowerDomain::Pd0,
         sys_fentries: None,
@@ -1307,6 +1193,21 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         retained_through: None,
         usable_through: Some(PowerMode::Standby),
         clocked_in_standby1: Some(true),
+        timer: Some(Timer {
+            bits: 16,
+            prescaler: true,
+            repeat_counter: false,
+            ccp_channels: 2,
+            external_pwm_channels: 2,
+            phase_load: false,
+            shadow_load: false,
+            shadow_ccs: false,
+            deadband: false,
+            fault_handler: false,
+            qei_hall: true,
+        }),
+        clock_range_hz: None,
+        adc: None,
     },
     Peripheral {
         name: "TRNG",
@@ -1324,6 +1225,12 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         retained_through: Some(PowerMode::Sleep),
         usable_through: Some(PowerMode::Sleep),
         clocked_in_standby1: None,
+        timer: None,
+        clock_range_hz: Some(ClockRange {
+            min_hz: 9500000,
+            max_hz: 25000000,
+        }),
+        adc: None,
     },
     Peripheral {
         name: "UART0",
@@ -1331,33 +1238,13 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         version: Some("v1"),
         pins: &[
             PeripheralPin {
-                pin: "PA14",
-                signal: "CTS",
-                pf: Some(2u8),
-            },
-            PeripheralPin {
                 pin: "PA9",
                 signal: "CTS",
                 pf: Some(4u8),
             },
             PeripheralPin {
-                pin: "PA15",
-                signal: "RTS",
-                pf: Some(2u8),
-            },
-            PeripheralPin {
-                pin: "PA1",
-                signal: "RX",
-                pf: Some(2u8),
-            },
-            PeripheralPin {
                 pin: "PA11",
                 signal: "RX",
-                pf: Some(2u8),
-            },
-            PeripheralPin {
-                pin: "PA0",
-                signal: "TX",
                 pf: Some(2u8),
             },
             PeripheralPin {
@@ -1377,17 +1264,15 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         retained_through: None,
         usable_through: Some(PowerMode::Standby),
         clocked_in_standby1: None,
+        timer: None,
+        clock_range_hz: None,
+        adc: None,
     },
     Peripheral {
         name: "UART1",
         kind: "uart",
         version: Some("v1"),
         pins: &[
-            PeripheralPin {
-                pin: "PA21",
-                signal: "CTS",
-                pf: Some(4u8),
-            },
             PeripheralPin {
                 pin: "PA22",
                 signal: "RTS",
@@ -1420,22 +1305,15 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         retained_through: None,
         usable_through: Some(PowerMode::Standby),
         clocked_in_standby1: None,
+        timer: None,
+        clock_range_hz: None,
+        adc: None,
     },
     Peripheral {
         name: "UART2",
         kind: "uart",
         version: Some("v1"),
         pins: &[
-            PeripheralPin {
-                pin: "PA3",
-                signal: "CTS",
-                pf: Some(4u8),
-            },
-            PeripheralPin {
-                pin: "PA4",
-                signal: "RTS",
-                pf: Some(4u8),
-            },
             PeripheralPin {
                 pin: "PA22",
                 signal: "RX",
@@ -1444,11 +1322,6 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
             PeripheralPin {
                 pin: "PA24",
                 signal: "RX",
-                pf: Some(2u8),
-            },
-            PeripheralPin {
-                pin: "PA21",
-                signal: "TX",
                 pf: Some(2u8),
             },
             PeripheralPin {
@@ -1468,12 +1341,20 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         retained_through: None,
         usable_through: Some(PowerMode::Standby),
         clocked_in_standby1: None,
+        timer: None,
+        clock_range_hz: None,
+        adc: None,
     },
     Peripheral {
         name: "UART3",
         kind: "uart",
         version: Some("v1"),
         pins: &[
+            PeripheralPin {
+                pin: "PA12",
+                signal: "CTS",
+                pf: Some(2u8),
+            },
             PeripheralPin {
                 pin: "PA23",
                 signal: "CTS",
@@ -1485,19 +1366,9 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
                 pf: Some(6u8),
             },
             PeripheralPin {
-                pin: "PA25",
-                signal: "RX",
-                pf: Some(2u8),
-            },
-            PeripheralPin {
                 pin: "PA26",
                 signal: "TX",
                 pf: Some(2u8),
-            },
-            PeripheralPin {
-                pin: "PA14",
-                signal: "TX",
-                pf: Some(4u8),
             },
         ],
         power_domain: PowerDomain::Pd1,
@@ -1511,23 +1382,19 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         retained_through: Some(PowerMode::Standby),
         usable_through: Some(PowerMode::Sleep),
         clocked_in_standby1: None,
+        timer: None,
+        clock_range_hz: None,
+        adc: None,
     },
     Peripheral {
         name: "VREF",
         kind: "vref",
         version: None,
-        pins: &[
-            PeripheralPin {
-                pin: "PA23",
-                signal: "VREF+",
-                pf: Some(0u8),
-            },
-            PeripheralPin {
-                pin: "PA21",
-                signal: "VREF-",
-                pf: Some(0u8),
-            },
-        ],
+        pins: &[PeripheralPin {
+            pin: "PA23",
+            signal: "VREF+",
+            pf: Some(0u8),
+        }],
         power_domain: PowerDomain::Pd0,
         sys_fentries: None,
         interrupt: None,
@@ -1535,6 +1402,9 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         retained_through: None,
         usable_through: Some(PowerMode::Standby),
         clocked_in_standby1: None,
+        timer: None,
+        clock_range_hz: None,
+        adc: None,
     },
     Peripheral {
         name: "WUC",
@@ -1548,6 +1418,9 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         retained_through: None,
         usable_through: None,
         clocked_in_standby1: None,
+        timer: None,
+        clock_range_hz: None,
+        adc: None,
     },
     Peripheral {
         name: "WWDT0",
@@ -1565,6 +1438,9 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         retained_through: None,
         usable_through: Some(PowerMode::Stop),
         clocked_in_standby1: None,
+        timer: None,
+        clock_range_hz: None,
+        adc: None,
     },
     Peripheral {
         name: "WWDT1",
@@ -1582,6 +1458,9 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         retained_through: None,
         usable_through: Some(PowerMode::Stop),
         clocked_in_standby1: None,
+        timer: None,
+        clock_range_hz: None,
+        adc: None,
     },
 ];
 pub(crate) static INTERRUPTS: &[Interrupt] = &[
@@ -1758,121 +1637,81 @@ pub(crate) static PINS: &[Pin] = &[
     Pin {
         pin: "PA26",
         pincm: 59u8,
-        wakeup: Some(false),
-    },
-    Pin {
-        pin: "PA3",
-        pincm: 8u8,
-        wakeup: Some(false),
-    },
-    Pin {
-        pin: "PA4",
-        pincm: 9u8,
-        wakeup: Some(false),
-    },
-    Pin {
-        pin: "PA5",
-        pincm: 10u8,
-        wakeup: Some(false),
-    },
-    Pin {
-        pin: "PA6",
-        pincm: 11u8,
-        wakeup: Some(false),
+        wakeup: None,
     },
     Pin {
         pin: "PA9",
         pincm: 20u8,
-        wakeup: Some(false),
+        wakeup: None,
     },
     Pin {
         pin: "PA10",
         pincm: 21u8,
-        wakeup: Some(true),
+        wakeup: None,
     },
     Pin {
         pin: "PA11",
         pincm: 22u8,
-        wakeup: Some(true),
+        wakeup: None,
     },
     Pin {
-        pin: "PA14",
-        pincm: 36u8,
-        wakeup: Some(false),
-    },
-    Pin {
-        pin: "PA15",
-        pincm: 37u8,
-        wakeup: Some(false),
-    },
-    Pin {
-        pin: "PA16",
-        pincm: 38u8,
-        wakeup: Some(false),
-    },
-    Pin {
-        pin: "PA27",
-        pincm: 60u8,
-        wakeup: Some(false),
+        pin: "PA12",
+        pincm: 34u8,
+        wakeup: None,
     },
     Pin {
         pin: "PA17",
         pincm: 39u8,
-        wakeup: Some(true),
+        wakeup: None,
     },
     Pin {
         pin: "PA18",
         pincm: 40u8,
-        wakeup: Some(true),
+        wakeup: None,
     },
     Pin {
         pin: "PA19",
         pincm: 41u8,
-        wakeup: Some(false),
+        wakeup: None,
     },
     Pin {
         pin: "PA20",
         pincm: 42u8,
-        wakeup: Some(false),
-    },
-    Pin {
-        pin: "PA21",
-        pincm: 46u8,
-        wakeup: Some(false),
+        wakeup: None,
     },
     Pin {
         pin: "PA22",
         pincm: 47u8,
-        wakeup: Some(false),
+        wakeup: None,
     },
     Pin {
         pin: "PA23",
         pincm: 53u8,
-        wakeup: Some(false),
+        wakeup: None,
+    },
+    Pin {
+        pin: "PA27",
+        pincm: 60u8,
+        wakeup: None,
     },
     Pin {
         pin: "PA24",
         pincm: 54u8,
-        wakeup: Some(false),
-    },
-    Pin {
-        pin: "PA25",
-        pincm: 55u8,
-        wakeup: Some(false),
-    },
-    Pin {
-        pin: "PA0",
-        pincm: 1u8,
-        wakeup: Some(true),
-    },
-    Pin {
-        pin: "PA1",
-        pincm: 2u8,
-        wakeup: Some(true),
+        wakeup: None,
     },
     Pin {
         pin: "PA2",
         pincm: 7u8,
-        wakeup: Some(false),
+        wakeup: None,
+    },
+    Pin {
+        pin: "PA5",
+        pincm: 10u8,
+        wakeup: None,
+    },
+    Pin {
+        pin: "PA6",
+        pincm: 11u8,
+        wakeup: None,
     },
 ];

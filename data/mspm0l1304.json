@@ -22,6 +22,207 @@
   ],
   "packages": [
     {
+      "name": "VQFN-32",
+      "chip": "mspm0l1304rhb",
+      "package": "RHB",
+      "pins": [
+        {
+          "position": "1",
+          "signals": [
+            "PA0"
+          ]
+        },
+        {
+          "position": "10",
+          "signals": [
+            "PA6"
+          ]
+        },
+        {
+          "position": "11",
+          "signals": [
+            "PA7"
+          ]
+        },
+        {
+          "position": "12",
+          "signals": [
+            "PA8"
+          ]
+        },
+        {
+          "position": "13",
+          "signals": [
+            "PA9"
+          ]
+        },
+        {
+          "position": "14",
+          "signals": [
+            "PA10"
+          ]
+        },
+        {
+          "position": "15",
+          "signals": [
+            "PA11"
+          ]
+        },
+        {
+          "position": "16",
+          "signals": [
+            "PA12"
+          ]
+        },
+        {
+          "position": "17",
+          "signals": [
+            "PA13"
+          ]
+        },
+        {
+          "position": "18",
+          "signals": [
+            "PA14"
+          ]
+        },
+        {
+          "position": "19",
+          "signals": [
+            "PA15"
+          ]
+        },
+        {
+          "position": "2",
+          "signals": [
+            "PA1"
+          ]
+        },
+        {
+          "position": "20",
+          "signals": [
+            "PA16"
+          ]
+        },
+        {
+          "position": "21",
+          "signals": [
+            "PA17",
+            "OPA1.IN0-"
+          ]
+        },
+        {
+          "position": "22",
+          "signals": [
+            "PA18"
+          ]
+        },
+        {
+          "position": "23",
+          "signals": [
+            "PA19"
+          ]
+        },
+        {
+          "position": "24",
+          "signals": [
+            "PA20"
+          ]
+        },
+        {
+          "position": "25",
+          "signals": [
+            "PA21"
+          ]
+        },
+        {
+          "position": "26",
+          "signals": [
+            "PA22"
+          ]
+        },
+        {
+          "position": "27",
+          "signals": [
+            "PA23"
+          ]
+        },
+        {
+          "position": "28",
+          "signals": [
+            "PA24",
+            "OPA0.IN0-"
+          ]
+        },
+        {
+          "position": "29",
+          "signals": [
+            "PA25"
+          ]
+        },
+        {
+          "position": "3",
+          "signals": [
+            "NRST"
+          ]
+        },
+        {
+          "position": "30",
+          "signals": [
+            "PA26"
+          ]
+        },
+        {
+          "position": "31",
+          "signals": [
+            "PA27"
+          ]
+        },
+        {
+          "position": "32",
+          "signals": [
+            "VCORE"
+          ]
+        },
+        {
+          "position": "4",
+          "signals": [
+            "VDD"
+          ]
+        },
+        {
+          "position": "5",
+          "signals": [
+            "VSS"
+          ]
+        },
+        {
+          "position": "6",
+          "signals": [
+            "PA2"
+          ]
+        },
+        {
+          "position": "7",
+          "signals": [
+            "PA3"
+          ]
+        },
+        {
+          "position": "8",
+          "signals": [
+            "PA4"
+          ]
+        },
+        {
+          "position": "9",
+          "signals": [
+            "PA5"
+          ]
+        }
+      ]
+    },
+    {
       "name": "VSSOP-20",
       "chip": "mspm0l1304dgs20",
       "package": "DGS20",
@@ -329,112 +530,6 @@
       ]
     },
     {
-      "name": "SOT-16",
-      "chip": "mspm0l1304dyy",
-      "package": "DYY",
-      "pins": [
-        {
-          "position": "1",
-          "signals": [
-            "PA26"
-          ]
-        },
-        {
-          "position": "10",
-          "signals": [
-            "PA18"
-          ]
-        },
-        {
-          "position": "11",
-          "signals": [
-            "PA19"
-          ]
-        },
-        {
-          "position": "12",
-          "signals": [
-            "PA20"
-          ]
-        },
-        {
-          "position": "13",
-          "signals": [
-            "PA22"
-          ]
-        },
-        {
-          "position": "14",
-          "signals": [
-            "PA23"
-          ]
-        },
-        {
-          "position": "15",
-          "signals": [
-            "PA24",
-            "OPA0.IN0-"
-          ]
-        },
-        {
-          "position": "16",
-          "signals": [
-            "PA25"
-          ]
-        },
-        {
-          "position": "2",
-          "signals": [
-            "VCORE"
-          ]
-        },
-        {
-          "position": "3",
-          "signals": [
-            "PA0"
-          ]
-        },
-        {
-          "position": "4",
-          "signals": [
-            "PA1",
-            "NRST"
-          ]
-        },
-        {
-          "position": "5",
-          "signals": [
-            "VDD"
-          ]
-        },
-        {
-          "position": "6",
-          "signals": [
-            "VSS"
-          ]
-        },
-        {
-          "position": "7",
-          "signals": [
-            "PA2"
-          ]
-        },
-        {
-          "position": "8",
-          "signals": [
-            "PA6"
-          ]
-        },
-        {
-          "position": "9",
-          "signals": [
-            "PA17",
-            "OPA1.IN0-"
-          ]
-        }
-      ]
-    },
-    {
       "name": "VQFN-24",
       "chip": "mspm0l1304rge",
       "package": "RGE",
@@ -588,207 +683,6 @@
       ]
     },
     {
-      "name": "VQFN-32",
-      "chip": "mspm0l1304rhb",
-      "package": "RHB",
-      "pins": [
-        {
-          "position": "1",
-          "signals": [
-            "PA0"
-          ]
-        },
-        {
-          "position": "10",
-          "signals": [
-            "PA6"
-          ]
-        },
-        {
-          "position": "11",
-          "signals": [
-            "PA7"
-          ]
-        },
-        {
-          "position": "12",
-          "signals": [
-            "PA8"
-          ]
-        },
-        {
-          "position": "13",
-          "signals": [
-            "PA9"
-          ]
-        },
-        {
-          "position": "14",
-          "signals": [
-            "PA10"
-          ]
-        },
-        {
-          "position": "15",
-          "signals": [
-            "PA11"
-          ]
-        },
-        {
-          "position": "16",
-          "signals": [
-            "PA12"
-          ]
-        },
-        {
-          "position": "17",
-          "signals": [
-            "PA13"
-          ]
-        },
-        {
-          "position": "18",
-          "signals": [
-            "PA14"
-          ]
-        },
-        {
-          "position": "19",
-          "signals": [
-            "PA15"
-          ]
-        },
-        {
-          "position": "2",
-          "signals": [
-            "PA1"
-          ]
-        },
-        {
-          "position": "20",
-          "signals": [
-            "PA16"
-          ]
-        },
-        {
-          "position": "21",
-          "signals": [
-            "PA17",
-            "OPA1.IN0-"
-          ]
-        },
-        {
-          "position": "22",
-          "signals": [
-            "PA18"
-          ]
-        },
-        {
-          "position": "23",
-          "signals": [
-            "PA19"
-          ]
-        },
-        {
-          "position": "24",
-          "signals": [
-            "PA20"
-          ]
-        },
-        {
-          "position": "25",
-          "signals": [
-            "PA21"
-          ]
-        },
-        {
-          "position": "26",
-          "signals": [
-            "PA22"
-          ]
-        },
-        {
-          "position": "27",
-          "signals": [
-            "PA23"
-          ]
-        },
-        {
-          "position": "28",
-          "signals": [
-            "PA24",
-            "OPA0.IN0-"
-          ]
-        },
-        {
-          "position": "29",
-          "signals": [
-            "PA25"
-          ]
-        },
-        {
-          "position": "3",
-          "signals": [
-            "NRST"
-          ]
-        },
-        {
-          "position": "30",
-          "signals": [
-            "PA26"
-          ]
-        },
-        {
-          "position": "31",
-          "signals": [
-            "PA27"
-          ]
-        },
-        {
-          "position": "32",
-          "signals": [
-            "VCORE"
-          ]
-        },
-        {
-          "position": "4",
-          "signals": [
-            "VDD"
-          ]
-        },
-        {
-          "position": "5",
-          "signals": [
-            "VSS"
-          ]
-        },
-        {
-          "position": "6",
-          "signals": [
-            "PA2"
-          ]
-        },
-        {
-          "position": "7",
-          "signals": [
-            "PA3"
-          ]
-        },
-        {
-          "position": "8",
-          "signals": [
-            "PA4"
-          ]
-        },
-        {
-          "position": "9",
-          "signals": [
-            "PA5"
-          ]
-        }
-      ]
-    },
-    {
       "name": "WQFN-16",
       "chip": "mspm0l1304rtr",
       "package": "RTR",
@@ -893,6 +787,112 @@
           ]
         }
       ]
+    },
+    {
+      "name": "SOT-16",
+      "chip": "mspm0l1304dyy",
+      "package": "DYY",
+      "pins": [
+        {
+          "position": "1",
+          "signals": [
+            "PA26"
+          ]
+        },
+        {
+          "position": "10",
+          "signals": [
+            "PA18"
+          ]
+        },
+        {
+          "position": "11",
+          "signals": [
+            "PA19"
+          ]
+        },
+        {
+          "position": "12",
+          "signals": [
+            "PA20"
+          ]
+        },
+        {
+          "position": "13",
+          "signals": [
+            "PA22"
+          ]
+        },
+        {
+          "position": "14",
+          "signals": [
+            "PA23"
+          ]
+        },
+        {
+          "position": "15",
+          "signals": [
+            "PA24",
+            "OPA0.IN0-"
+          ]
+        },
+        {
+          "position": "16",
+          "signals": [
+            "PA25"
+          ]
+        },
+        {
+          "position": "2",
+          "signals": [
+            "VCORE"
+          ]
+        },
+        {
+          "position": "3",
+          "signals": [
+            "PA0"
+          ]
+        },
+        {
+          "position": "4",
+          "signals": [
+            "PA1",
+            "NRST"
+          ]
+        },
+        {
+          "position": "5",
+          "signals": [
+            "VDD"
+          ]
+        },
+        {
+          "position": "6",
+          "signals": [
+            "VSS"
+          ]
+        },
+        {
+          "position": "7",
+          "signals": [
+            "PA2"
+          ]
+        },
+        {
+          "position": "8",
+          "signals": [
+            "PA6"
+          ]
+        },
+        {
+          "position": "9",
+          "signals": [
+            "PA17",
+            "OPA1.IN0-"
+          ]
+        }
+      ]
     }
   ],
   "iomux": {
@@ -925,12 +925,6 @@
     "PA8": 9,
     "PA9": 10
   },
-  "wakeup_pins": [
-    "PA0",
-    "PA1",
-    "PA17",
-    "PA18"
-  ],
   "peripherals": {
     "ADC0": {
       "name": "ADC0",
@@ -995,7 +989,15 @@
         "num": 4
       },
       "block_async": false,
-      "usable_through": "Sleep"
+      "usable_through": "Sleep",
+      "clock_range_hz": {
+        "min_hz": 4000000,
+        "max_hz": 32000000
+      },
+      "adc": {
+        "memctl": 4,
+        "vrsel": 5
+      }
     },
     "COMP0": {
       "name": "COMP0",
@@ -1003,11 +1005,6 @@
       "address": 1073774592,
       "power_domain": "Pd0",
       "pins": [
-        {
-          "pin": "PA23",
-          "signal": "EXT_REF",
-          "pf": 0
-        },
         {
           "pin": "PA26",
           "signal": "IN0+",
@@ -1125,6 +1122,15 @@
       "pins": [],
       "block_async": false
     },
+    "FACTORYREGION": {
+      "name": "FACTORYREGION",
+      "type": "FactoryRegion",
+      "version": "v1",
+      "address": 1103364096,
+      "power_domain": "Pd0",
+      "pins": [],
+      "block_async": false
+    },
     "FLASHCTL": {
       "name": "FLASHCTL",
       "type": "FlashCtl",
@@ -1147,6 +1153,11 @@
         {
           "pin": "PA26",
           "signal": "IN+",
+          "pf": 0
+        },
+        {
+          "pin": "PA18",
+          "signal": "IN-",
           "pf": 0
         },
         {
@@ -1423,18 +1434,8 @@
       "power_domain": "Pd0",
       "pins": [
         {
-          "pin": "OPAMP0.IN0-",
-          "signal": "AIN_N0",
-          "pf": 0
-        },
-        {
           "pin": "PA25",
           "signal": "IN0+",
-          "pf": 0
-        },
-        {
-          "pin": "OPAMP0.IN0-",
-          "signal": "IN0-",
           "pf": 0
         },
         {
@@ -1458,18 +1459,8 @@
       "power_domain": "Pd0",
       "pins": [
         {
-          "pin": "OPAMP1.IN0-",
-          "signal": "AIN_N0",
-          "pf": 0
-        },
-        {
           "pin": "PA18",
           "signal": "IN0+",
-          "pf": 0
-        },
-        {
-          "pin": "OPAMP1.IN0-",
-          "signal": "IN0-",
           "pf": 0
         },
         {
@@ -1725,7 +1716,20 @@
       },
       "block_async": false,
       "usable_through": "Standby",
-      "clocked_in_standby1": true
+      "clocked_in_standby1": true,
+      "timer": {
+        "bits": 16,
+        "prescaler": true,
+        "repeat_counter": false,
+        "ccp_channels": 2,
+        "external_pwm_channels": 2,
+        "phase_load": false,
+        "shadow_load": false,
+        "shadow_ccs": false,
+        "deadband": false,
+        "fault_handler": false,
+        "qei_hall": false
+      }
     },
     "TIMG1": {
       "name": "TIMG1",
@@ -1776,7 +1780,20 @@
       },
       "block_async": false,
       "usable_through": "Standby",
-      "clocked_in_standby1": true
+      "clocked_in_standby1": true,
+      "timer": {
+        "bits": 16,
+        "prescaler": true,
+        "repeat_counter": false,
+        "ccp_channels": 2,
+        "external_pwm_channels": 2,
+        "phase_load": false,
+        "shadow_load": false,
+        "shadow_ccs": false,
+        "deadband": false,
+        "fault_handler": false,
+        "qei_hall": false
+      }
     },
     "TIMG2": {
       "name": "TIMG2",
@@ -1822,7 +1839,20 @@
       },
       "block_async": false,
       "usable_through": "Standby",
-      "clocked_in_standby1": false
+      "clocked_in_standby1": false,
+      "timer": {
+        "bits": 16,
+        "prescaler": true,
+        "repeat_counter": false,
+        "ccp_channels": 2,
+        "external_pwm_channels": 2,
+        "phase_load": false,
+        "shadow_load": false,
+        "shadow_ccs": false,
+        "deadband": false,
+        "fault_handler": false,
+        "qei_hall": false
+      }
     },
     "TIMG4": {
       "name": "TIMG4",
@@ -1873,7 +1903,20 @@
       },
       "block_async": false,
       "usable_through": "Standby",
-      "clocked_in_standby1": false
+      "clocked_in_standby1": false,
+      "timer": {
+        "bits": 16,
+        "prescaler": true,
+        "repeat_counter": false,
+        "ccp_channels": 2,
+        "external_pwm_channels": 2,
+        "phase_load": false,
+        "shadow_load": true,
+        "shadow_ccs": true,
+        "deadband": false,
+        "fault_handler": false,
+        "qei_hall": false
+      }
     },
     "UART0": {
       "name": "UART0",
@@ -2059,12 +2102,12 @@
       "power_domain": "Pd0",
       "pins": [
         {
-          "pin": "PA21",
+          "pin": "PA23",
           "signal": "VREF+",
           "pf": 0
         },
         {
-          "pin": "PA23",
+          "pin": "PA21",
           "signal": "VREF-",
           "pf": 0
         }
@@ -2206,10 +2249,112 @@
       "full": false
     }
   },
-  "adc_memctl": 4,
-  "adc_vrsel": 5,
   "nvic_priority_bits": 2,
   "max_mclk_hz": 32000000,
   "max_ulpclk_hz": 32000000,
-  "backup_domain": false
+  "sysosc_base_hz": 32000000,
+  "flash_wait_hz": [
+    24000000,
+    32000000
+  ],
+  "backup_domain": false,
+  "clock_tree": {
+    "hfxt": false,
+    "hfclk_in": false,
+    "lfxt": false,
+    "lfclk_in": false,
+    "syspll": false,
+    "ulpclk_div": false,
+    "stop1": true
+  },
+  "errata": [
+    "ADC_ERR_01",
+    "ADC_ERR_02",
+    "ADC_ERR_03",
+    "ADC_ERR_04",
+    "ADC_ERR_05",
+    "ADC_ERR_06",
+    "ADC_ERR_11",
+    "COMP_ERR_01",
+    "COMP_ERR_02",
+    "COMP_ERR_03",
+    "COMP_ERR_05",
+    "CPU_ERR_01",
+    "CPU_ERR_02",
+    "CPU_ERR_03",
+    "CPU_ERR_04",
+    "CRCP_ERR_01",
+    "CRC_ERR_01",
+    "FCC_ERR_01",
+    "FLASH_ERR_02",
+    "FLASH_ERR_03",
+    "FLASH_ERR_04",
+    "FLASH_ERR_05",
+    "FLASH_ERR_06",
+    "FLASH_ERR_08",
+    "GPIO_ERR_01",
+    "GPIO_ERR_02",
+    "GPIO_ERR_03",
+    "GPIO_ERR_04",
+    "GPIO_ERR_06",
+    "I2C_ERR_01",
+    "I2C_ERR_02",
+    "I2C_ERR_03",
+    "I2C_ERR_04",
+    "I2C_ERR_05",
+    "I2C_ERR_06",
+    "I2C_ERR_07",
+    "I2C_ERR_08",
+    "I2C_ERR_09",
+    "I2C_ERR_10",
+    "I2C_ERR_13",
+    "I2C_ERR_15",
+    "PMCU_ERR_01",
+    "PMCU_ERR_02",
+    "PMCU_ERR_03",
+    "PMCU_ERR_10",
+    "PMCU_ERR_13",
+    "PWREN_ERR_01",
+    "RST_ERR_01",
+    "SPI_ERR_01",
+    "SPI_ERR_03",
+    "SPI_ERR_04",
+    "SPI_ERR_05",
+    "SPI_ERR_06",
+    "SPI_ERR_07",
+    "SPI_ERR_08",
+    "SPI_ERR_09",
+    "SPI_ERR_10",
+    "SYSCTL_ERR_03",
+    "SYSCTL_ERR_05",
+    "SYSCTL_ERR_06",
+    "SYSCTL_ERR_11",
+    "SYSOSC_ERR_01",
+    "SYSOSC_ERR_02",
+    "SYSOSC_ERR_04",
+    "SYSOSC_ERR_05",
+    "SYSOSC_ERR_06",
+    "TIMER_ERR_01",
+    "TIMER_ERR_04",
+    "TIMER_ERR_06",
+    "TIMER_ERR_07",
+    "UART_ERR_01",
+    "UART_ERR_02",
+    "UART_ERR_04",
+    "UART_ERR_05",
+    "UART_ERR_06",
+    "UART_ERR_07",
+    "UART_ERR_08",
+    "UART_ERR_09",
+    "UART_ERR_10",
+    "UART_ERR_11",
+    "VREF_ERR_01"
+  ],
+  "wake_ns": {
+    "stop1": 14000,
+    "stop2": 13000,
+    "standby0": 15000,
+    "standby1": 15000,
+    "shutdown": 230000
+  }
 }

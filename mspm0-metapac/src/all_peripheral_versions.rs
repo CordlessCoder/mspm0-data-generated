@@ -3,6 +3,7 @@ pub static ALL_PERIPHERAL_VERSIONS: &[(&str, &[&str])] = &[
     ("canfd", &["v1"]),
     ("cpuss", &["v1"]),
     ("dma", &["v1"]),
+    ("factoryregion", &["v1"]),
     ("flashctl", &["v1"]),
     ("gpio", &["v1"]),
     ("i2c", &["v1"]),
@@ -12,6 +13,7 @@ pub static ALL_PERIPHERAL_VERSIONS: &[(&str, &[&str])] = &[
     (
         "sysctl",
         &[
+            "c1105_c1106",
             "c110x",
             "g350x_g310x_g150x_g110x",
             "g351x_g151x",

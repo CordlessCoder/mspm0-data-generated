@@ -2091,7 +2091,15 @@
         "num": 4
       },
       "block_async": null,
-      "usable_through": "Sleep"
+      "usable_through": "Sleep",
+      "clock_range_hz": {
+        "min_hz": 4000000,
+        "max_hz": 32000000
+      },
+      "adc": {
+        "memctl": 12,
+        "vrsel": 3
+      }
     },
     "COMP0": {
       "name": "COMP0",
@@ -2250,6 +2258,15 @@
       "name": "EVENT",
       "type": "Event",
       "address": 1074565120,
+      "power_domain": "Pd0",
+      "pins": [],
+      "block_async": null
+    },
+    "FACTORYREGION": {
+      "name": "FACTORYREGION",
+      "type": "FactoryRegion",
+      "version": "v1",
+      "address": 1103364096,
       "power_domain": "Pd0",
       "pins": [],
       "block_async": null
@@ -3220,7 +3237,7 @@
     "SYSCTL": {
       "name": "SYSCTL",
       "type": "Sysctl",
-      "version": "c110x",
+      "version": "c1105_c1106",
       "address": 1074458624,
       "power_domain": "Pd0",
       "pins": [
@@ -3885,7 +3902,20 @@
       },
       "block_async": null,
       "usable_through": "Stop",
-      "clocked_in_standby1": false
+      "clocked_in_standby1": false,
+      "timer": {
+        "bits": 16,
+        "prescaler": true,
+        "repeat_counter": true,
+        "ccp_channels": 4,
+        "external_pwm_channels": 8,
+        "phase_load": true,
+        "shadow_load": true,
+        "shadow_ccs": true,
+        "deadband": true,
+        "fault_handler": true,
+        "qei_hall": false
+      }
     },
     "TIMG1": {
       "name": "TIMG1",
@@ -3986,7 +4016,20 @@
       },
       "block_async": null,
       "usable_through": "Stop",
-      "clocked_in_standby1": false
+      "clocked_in_standby1": false,
+      "timer": {
+        "bits": 16,
+        "prescaler": true,
+        "repeat_counter": false,
+        "ccp_channels": 2,
+        "external_pwm_channels": 2,
+        "phase_load": false,
+        "shadow_load": false,
+        "shadow_ccs": false,
+        "deadband": false,
+        "fault_handler": false,
+        "qei_hall": false
+      }
     },
     "TIMG14": {
       "name": "TIMG14",
@@ -4107,7 +4150,20 @@
       },
       "block_async": null,
       "usable_through": "Standby",
-      "clocked_in_standby1": true
+      "clocked_in_standby1": true,
+      "timer": {
+        "bits": 16,
+        "prescaler": true,
+        "repeat_counter": false,
+        "ccp_channels": 4,
+        "external_pwm_channels": 4,
+        "phase_load": false,
+        "shadow_load": false,
+        "shadow_ccs": false,
+        "deadband": false,
+        "fault_handler": false,
+        "qei_hall": false
+      }
     },
     "TIMG2": {
       "name": "TIMG2",
@@ -4238,7 +4294,20 @@
       },
       "block_async": null,
       "usable_through": "Stop",
-      "clocked_in_standby1": false
+      "clocked_in_standby1": false,
+      "timer": {
+        "bits": 16,
+        "prescaler": true,
+        "repeat_counter": false,
+        "ccp_channels": 2,
+        "external_pwm_channels": 2,
+        "phase_load": false,
+        "shadow_load": false,
+        "shadow_ccs": false,
+        "deadband": false,
+        "fault_handler": false,
+        "qei_hall": false
+      }
     },
     "TIMG8": {
       "name": "TIMG8",
@@ -4419,7 +4488,20 @@
       },
       "block_async": null,
       "usable_through": "Standby",
-      "clocked_in_standby1": true
+      "clocked_in_standby1": true,
+      "timer": {
+        "bits": 16,
+        "prescaler": true,
+        "repeat_counter": false,
+        "ccp_channels": 2,
+        "external_pwm_channels": 2,
+        "phase_load": false,
+        "shadow_load": false,
+        "shadow_ccs": false,
+        "deadband": false,
+        "fault_handler": false,
+        "qei_hall": true
+      }
     },
     "UART0": {
       "name": "UART0",
@@ -5160,10 +5242,68 @@
       "full": false
     }
   },
-  "adc_memctl": 12,
-  "adc_vrsel": 3,
   "nvic_priority_bits": 2,
   "max_mclk_hz": 32000000,
   "max_ulpclk_hz": 32000000,
-  "backup_domain": false
+  "sysosc_base_hz": 32000000,
+  "flash_wait_hz": [
+    24000000,
+    32000000
+  ],
+  "backup_domain": false,
+  "clock_tree": {
+    "hfxt": true,
+    "hfclk_in": true,
+    "hfclk_hz": {
+      "min_hz": 4000000,
+      "max_hz": 32000000
+    },
+    "lfxt": true,
+    "lfclk_in": true,
+    "syspll": false,
+    "ulpclk_div": false,
+    "stop1": false
+  },
+  "errata": [
+    "CPU_ERR_02",
+    "CPU_ERR_03",
+    "FLASH_ERR_02",
+    "FLASH_ERR_04",
+    "FLASH_ERR_05",
+    "FLASH_ERR_08",
+    "I2C_ERR_04",
+    "I2C_ERR_05",
+    "I2C_ERR_06",
+    "I2C_ERR_07",
+    "I2C_ERR_08",
+    "I2C_ERR_09",
+    "I2C_ERR_10",
+    "PMCU_ERR_13",
+    "RST_ERR_01",
+    "RTC_ERR_01",
+    "SPI_ERR_04",
+    "SPI_ERR_05",
+    "SPI_ERR_06",
+    "SPI_ERR_07",
+    "SYSCTL_ERR_01",
+    "SYSCTL_ERR_02",
+    "SYSCTL_ERR_03",
+    "SYSOSC_ERR_02",
+    "TIMER_ERR_04",
+    "TIMER_ERR_06",
+    "UART_ERR_01",
+    "UART_ERR_02",
+    "UART_ERR_04",
+    "UART_ERR_05",
+    "UART_ERR_06",
+    "UART_ERR_07",
+    "UART_ERR_08"
+  ],
+  "wake_ns": {
+    "stop0": 14000,
+    "stop2": 13000,
+    "standby0": 15000,
+    "standby1": 15000,
+    "shutdown": 265000
+  }
 }
