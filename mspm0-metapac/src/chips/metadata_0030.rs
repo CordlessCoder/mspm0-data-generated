@@ -28,11 +28,11 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         ],
         power_domain: PowerDomain::Pd0,
         sys_fentries: None,
-        interrupt: Some(PeripheralInterrupt {
+        interrupts: &[PeripheralInterrupt {
             name: "ADC0",
             number: 4,
             group_iidx: None,
-        }),
+        }],
         block_async: Some(false),
         retained_through: None,
         usable_through: Some(PowerMode::Sleep),
@@ -70,11 +70,11 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         ],
         power_domain: PowerDomain::Pd0,
         sys_fentries: None,
-        interrupt: Some(PeripheralInterrupt {
+        interrupts: &[PeripheralInterrupt {
             name: "ADC1",
             number: 5,
             group_iidx: None,
-        }),
+        }],
         block_async: Some(false),
         retained_through: None,
         usable_through: Some(PowerMode::Sleep),
@@ -96,11 +96,11 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         pins: &[],
         power_domain: PowerDomain::Pd1,
         sys_fentries: None,
-        interrupt: Some(PeripheralInterrupt {
+        interrupts: &[PeripheralInterrupt {
             name: "AES",
             number: 28,
             group_iidx: None,
-        }),
+        }],
         block_async: Some(false),
         retained_through: Some(PowerMode::Sleep),
         usable_through: Some(PowerMode::Sleep),
@@ -132,11 +132,11 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         ],
         power_domain: PowerDomain::Pd1,
         sys_fentries: None,
-        interrupt: Some(PeripheralInterrupt {
+        interrupts: &[PeripheralInterrupt {
             name: "CANFD0",
             number: 6,
             group_iidx: None,
-        }),
+        }],
         block_async: Some(false),
         retained_through: Some(PowerMode::Sleep),
         usable_through: None,
@@ -152,7 +152,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         pins: &[],
         power_domain: PowerDomain::Pd1,
         sys_fentries: None,
-        interrupt: None,
+        interrupts: &[],
         block_async: Some(false),
         retained_through: Some(PowerMode::Standby),
         usable_through: Some(PowerMode::Run),
@@ -168,7 +168,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         pins: &[],
         power_domain: PowerDomain::Pd1,
         sys_fentries: None,
-        interrupt: None,
+        interrupts: &[],
         block_async: Some(false),
         retained_through: Some(PowerMode::Standby),
         usable_through: Some(PowerMode::Sleep),
@@ -195,11 +195,11 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         ],
         power_domain: PowerDomain::Pd0,
         sys_fentries: None,
-        interrupt: Some(PeripheralInterrupt {
+        interrupts: &[PeripheralInterrupt {
             name: "GROUP0",
             number: 0,
             group_iidx: Some(2),
-        }),
+        }],
         block_async: Some(false),
         retained_through: None,
         usable_through: None,
@@ -215,11 +215,11 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         pins: &[],
         power_domain: PowerDomain::Pd1,
         sys_fentries: None,
-        interrupt: Some(PeripheralInterrupt {
+        interrupts: &[PeripheralInterrupt {
             name: "DMA",
             number: 31,
             group_iidx: None,
-        }),
+        }],
         block_async: Some(false),
         retained_through: Some(PowerMode::Standby),
         usable_through: Some(PowerMode::Sleep),
@@ -235,7 +235,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         pins: &[],
         power_domain: PowerDomain::Pd0,
         sys_fentries: None,
-        interrupt: None,
+        interrupts: &[],
         block_async: Some(false),
         retained_through: None,
         usable_through: None,
@@ -251,7 +251,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         pins: &[],
         power_domain: PowerDomain::Pd0,
         sys_fentries: None,
-        interrupt: None,
+        interrupts: &[],
         block_async: Some(false),
         retained_through: None,
         usable_through: None,
@@ -267,11 +267,11 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         pins: &[],
         power_domain: PowerDomain::Pd0,
         sys_fentries: None,
-        interrupt: Some(PeripheralInterrupt {
+        interrupts: &[PeripheralInterrupt {
             name: "GROUP0",
             number: 0,
             group_iidx: Some(3),
-        }),
+        }],
         block_async: Some(false),
         retained_through: None,
         usable_through: None,
@@ -303,7 +303,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         ],
         power_domain: PowerDomain::Pd0,
         sys_fentries: None,
-        interrupt: None,
+        interrupts: &[],
         block_async: Some(false),
         retained_through: None,
         usable_through: Some(PowerMode::Sleep),
@@ -400,11 +400,11 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         ],
         power_domain: PowerDomain::Pd0,
         sys_fentries: None,
-        interrupt: Some(PeripheralInterrupt {
+        interrupts: &[PeripheralInterrupt {
             name: "GROUP1",
             number: 1,
             group_iidx: Some(0),
-        }),
+        }],
         block_async: Some(false),
         retained_through: None,
         usable_through: Some(PowerMode::Standby),
@@ -420,11 +420,11 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         pins: &[],
         power_domain: PowerDomain::Pd0,
         sys_fentries: None,
-        interrupt: Some(PeripheralInterrupt {
+        interrupts: &[PeripheralInterrupt {
             name: "GROUP1",
             number: 1,
             group_iidx: Some(1),
-        }),
+        }],
         block_async: Some(false),
         retained_through: None,
         usable_through: Some(PowerMode::Standby),
@@ -451,11 +451,11 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         ],
         power_domain: PowerDomain::Pd0,
         sys_fentries: Some(8usize),
-        interrupt: Some(PeripheralInterrupt {
+        interrupts: &[PeripheralInterrupt {
             name: "I2C0",
             number: 24,
             group_iidx: None,
-        }),
+        }],
         block_async: Some(true),
         retained_through: None,
         usable_through: Some(PowerMode::Standby),
@@ -492,11 +492,11 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         ],
         power_domain: PowerDomain::Pd0,
         sys_fentries: Some(8usize),
-        interrupt: Some(PeripheralInterrupt {
+        interrupts: &[PeripheralInterrupt {
             name: "I2C1",
             number: 25,
             group_iidx: None,
-        }),
+        }],
         block_async: Some(true),
         retained_through: None,
         usable_through: Some(PowerMode::Standby),
@@ -512,7 +512,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         pins: &[],
         power_domain: PowerDomain::Pd0,
         sys_fentries: None,
-        interrupt: None,
+        interrupts: &[],
         block_async: Some(false),
         retained_through: None,
         usable_through: None,
@@ -539,11 +539,11 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         ],
         power_domain: PowerDomain::Pd0,
         sys_fentries: None,
-        interrupt: Some(PeripheralInterrupt {
+        interrupts: &[PeripheralInterrupt {
             name: "RTC",
             number: 30,
             group_iidx: None,
-        }),
+        }],
         block_async: Some(true),
         retained_through: None,
         usable_through: Some(PowerMode::Standby),
@@ -605,11 +605,11 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         ],
         power_domain: PowerDomain::Pd1,
         sys_fentries: Some(4usize),
-        interrupt: Some(PeripheralInterrupt {
+        interrupts: &[PeripheralInterrupt {
             name: "SPI0",
             number: 9,
             group_iidx: None,
-        }),
+        }],
         block_async: Some(true),
         retained_through: Some(PowerMode::Standby),
         usable_through: Some(PowerMode::Sleep),
@@ -651,11 +651,11 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         ],
         power_domain: PowerDomain::Pd1,
         sys_fentries: Some(4usize),
-        interrupt: Some(PeripheralInterrupt {
+        interrupts: &[PeripheralInterrupt {
             name: "SPI1",
             number: 10,
             group_iidx: None,
-        }),
+        }],
         block_async: Some(true),
         retained_through: Some(PowerMode::Standby),
         usable_through: Some(PowerMode::Sleep),
@@ -722,11 +722,11 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         ],
         power_domain: PowerDomain::Pd0,
         sys_fentries: None,
-        interrupt: Some(PeripheralInterrupt {
+        interrupts: &[PeripheralInterrupt {
             name: "GROUP0",
             number: 0,
             group_iidx: Some(6),
-        }),
+        }],
         block_async: Some(true),
         retained_through: None,
         usable_through: None,
@@ -823,11 +823,11 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         ],
         power_domain: PowerDomain::Pd1,
         sys_fentries: None,
-        interrupt: Some(PeripheralInterrupt {
+        interrupts: &[PeripheralInterrupt {
             name: "TIMA0",
             number: 18,
             group_iidx: None,
-        }),
+        }],
         block_async: Some(false),
         retained_through: Some(PowerMode::Sleep),
         usable_through: Some(PowerMode::Sleep),
@@ -906,11 +906,11 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         ],
         power_domain: PowerDomain::Pd1,
         sys_fentries: None,
-        interrupt: Some(PeripheralInterrupt {
+        interrupts: &[PeripheralInterrupt {
             name: "TIMA1",
             number: 19,
             group_iidx: None,
-        }),
+        }],
         block_async: Some(false),
         retained_through: Some(PowerMode::Sleep),
         usable_through: Some(PowerMode::Sleep),
@@ -964,11 +964,11 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         ],
         power_domain: PowerDomain::Pd0,
         sys_fentries: None,
-        interrupt: Some(PeripheralInterrupt {
+        interrupts: &[PeripheralInterrupt {
             name: "TIMG0",
             number: 16,
             group_iidx: None,
-        }),
+        }],
         block_async: Some(false),
         retained_through: None,
         usable_through: Some(PowerMode::Standby),
@@ -1000,11 +1000,11 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         }],
         power_domain: PowerDomain::Pd1,
         sys_fentries: None,
-        interrupt: Some(PeripheralInterrupt {
+        interrupts: &[PeripheralInterrupt {
             name: "TIMG12",
             number: 21,
             group_iidx: None,
-        }),
+        }],
         block_async: Some(false),
         retained_through: Some(PowerMode::Sleep),
         usable_through: Some(PowerMode::Sleep),
@@ -1048,11 +1048,11 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         ],
         power_domain: PowerDomain::Pd1,
         sys_fentries: None,
-        interrupt: Some(PeripheralInterrupt {
+        interrupts: &[PeripheralInterrupt {
             name: "TIMG6",
             number: 17,
             group_iidx: None,
-        }),
+        }],
         block_async: Some(false),
         retained_through: Some(PowerMode::Sleep),
         usable_through: Some(PowerMode::Sleep),
@@ -1116,11 +1116,11 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         ],
         power_domain: PowerDomain::Pd1,
         sys_fentries: None,
-        interrupt: Some(PeripheralInterrupt {
+        interrupts: &[PeripheralInterrupt {
             name: "TIMG7",
             number: 20,
             group_iidx: None,
-        }),
+        }],
         block_async: Some(false),
         retained_through: Some(PowerMode::Sleep),
         usable_through: Some(PowerMode::Sleep),
@@ -1184,11 +1184,11 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         ],
         power_domain: PowerDomain::Pd0,
         sys_fentries: None,
-        interrupt: Some(PeripheralInterrupt {
+        interrupts: &[PeripheralInterrupt {
             name: "TIMG8",
             number: 2,
             group_iidx: None,
-        }),
+        }],
         block_async: Some(false),
         retained_through: None,
         usable_through: Some(PowerMode::Standby),
@@ -1216,11 +1216,11 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         pins: &[],
         power_domain: PowerDomain::Pd1,
         sys_fentries: None,
-        interrupt: Some(PeripheralInterrupt {
+        interrupts: &[PeripheralInterrupt {
             name: "GROUP1",
             number: 1,
             group_iidx: Some(5),
-        }),
+        }],
         block_async: Some(false),
         retained_through: Some(PowerMode::Sleep),
         usable_through: Some(PowerMode::Sleep),
@@ -1255,11 +1255,11 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         ],
         power_domain: PowerDomain::Pd0,
         sys_fentries: Some(4usize),
-        interrupt: Some(PeripheralInterrupt {
+        interrupts: &[PeripheralInterrupt {
             name: "UART0",
             number: 15,
             group_iidx: None,
-        }),
+        }],
         block_async: Some(true),
         retained_through: None,
         usable_through: Some(PowerMode::Standby),
@@ -1296,11 +1296,11 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         ],
         power_domain: PowerDomain::Pd0,
         sys_fentries: Some(4usize),
-        interrupt: Some(PeripheralInterrupt {
+        interrupts: &[PeripheralInterrupt {
             name: "UART1",
             number: 13,
             group_iidx: None,
-        }),
+        }],
         block_async: Some(true),
         retained_through: None,
         usable_through: Some(PowerMode::Standby),
@@ -1332,11 +1332,11 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         ],
         power_domain: PowerDomain::Pd0,
         sys_fentries: Some(4usize),
-        interrupt: Some(PeripheralInterrupt {
+        interrupts: &[PeripheralInterrupt {
             name: "UART2",
             number: 14,
             group_iidx: None,
-        }),
+        }],
         block_async: Some(true),
         retained_through: None,
         usable_through: Some(PowerMode::Standby),
@@ -1373,11 +1373,11 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         ],
         power_domain: PowerDomain::Pd1,
         sys_fentries: Some(4usize),
-        interrupt: Some(PeripheralInterrupt {
+        interrupts: &[PeripheralInterrupt {
             name: "UART3",
             number: 3,
             group_iidx: None,
-        }),
+        }],
         block_async: Some(true),
         retained_through: Some(PowerMode::Standby),
         usable_through: Some(PowerMode::Sleep),
@@ -1397,7 +1397,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         }],
         power_domain: PowerDomain::Pd0,
         sys_fentries: None,
-        interrupt: None,
+        interrupts: &[],
         block_async: Some(false),
         retained_through: None,
         usable_through: Some(PowerMode::Standby),
@@ -1413,7 +1413,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         pins: &[],
         power_domain: PowerDomain::Pd0,
         sys_fentries: None,
-        interrupt: None,
+        interrupts: &[],
         block_async: Some(false),
         retained_through: None,
         usable_through: None,
@@ -1429,11 +1429,11 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         pins: &[],
         power_domain: PowerDomain::Pd0,
         sys_fentries: None,
-        interrupt: Some(PeripheralInterrupt {
+        interrupts: &[PeripheralInterrupt {
             name: "GROUP0",
             number: 0,
             group_iidx: Some(0),
-        }),
+        }],
         block_async: Some(false),
         retained_through: None,
         usable_through: Some(PowerMode::Stop),
@@ -1449,11 +1449,11 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         pins: &[],
         power_domain: PowerDomain::Pd0,
         sys_fentries: None,
-        interrupt: Some(PeripheralInterrupt {
+        interrupts: &[PeripheralInterrupt {
             name: "GROUP0",
             number: 0,
             group_iidx: Some(1),
-        }),
+        }],
         block_async: Some(false),
         retained_through: None,
         usable_through: Some(PowerMode::Stop),

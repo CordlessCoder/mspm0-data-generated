@@ -1498,10 +1498,12 @@
           "pf": 0
         }
       ],
-      "interrupt": {
-        "name": "ADC0",
-        "num": 4
-      },
+      "interrupts": [
+        {
+          "name": "ADC0",
+          "num": 4
+        }
+      ],
       "block_async": false,
       "usable_through": "Sleep",
       "clock_range_hz": {
@@ -1566,10 +1568,12 @@
           "pf": 0
         }
       ],
-      "interrupt": {
-        "name": "ADC1",
-        "num": 5
-      },
+      "interrupts": [
+        {
+          "name": "ADC1",
+          "num": 5
+        }
+      ],
       "block_async": false,
       "usable_through": "Sleep",
       "clock_range_hz": {
@@ -1587,10 +1591,12 @@
       "address": 1078206464,
       "power_domain": "Pd1",
       "pins": [],
-      "interrupt": {
-        "name": "AES",
-        "num": 28
-      },
+      "interrupts": [
+        {
+          "name": "AES",
+          "num": 28
+        }
+      ],
       "block_async": false,
       "retained_through": "Sleep",
       "usable_through": "Sleep"
@@ -1623,10 +1629,12 @@
           "pf": 6
         }
       ],
-      "interrupt": {
-        "name": "CANFD0",
-        "num": 6
-      },
+      "interrupts": [
+        {
+          "name": "CANFD0",
+          "num": 6
+        }
+      ],
       "block_async": false,
       "retained_through": "Sleep"
     },
@@ -1687,11 +1695,13 @@
           "pf": 6
         }
       ],
-      "interrupt": {
-        "name": "GROUP1",
-        "num": 1,
-        "group_iidx": 2
-      },
+      "interrupts": [
+        {
+          "name": "GROUP1",
+          "num": 1,
+          "group_iidx": 2
+        }
+      ],
       "block_async": true,
       "usable_through": "Standby"
     },
@@ -1752,11 +1762,13 @@
           "pf": 6
         }
       ],
-      "interrupt": {
-        "name": "GROUP1",
-        "num": 1,
-        "group_iidx": 3
-      },
+      "interrupts": [
+        {
+          "name": "GROUP1",
+          "num": 1,
+          "group_iidx": 3
+        }
+      ],
       "block_async": true,
       "usable_through": "Standby"
     },
@@ -1802,11 +1814,13 @@
           "pf": 2
         }
       ],
-      "interrupt": {
-        "name": "GROUP1",
-        "num": 1,
-        "group_iidx": 4
-      },
+      "interrupts": [
+        {
+          "name": "GROUP1",
+          "num": 1,
+          "group_iidx": 4
+        }
+      ],
       "block_async": true,
       "usable_through": "Standby"
     },
@@ -1843,10 +1857,12 @@
           "pf": 0
         }
       ],
-      "interrupt": {
-        "name": "DAC0",
-        "num": 7
-      },
+      "interrupts": [
+        {
+          "name": "DAC0",
+          "num": 7
+        }
+      ],
       "block_async": false,
       "usable_through": "Sleep"
     },
@@ -1867,11 +1883,13 @@
           "pf": 2
         }
       ],
-      "interrupt": {
-        "name": "GROUP0",
-        "num": 0,
-        "group_iidx": 2
-      },
+      "interrupts": [
+        {
+          "name": "GROUP0",
+          "num": 0,
+          "group_iidx": 2
+        }
+      ],
       "block_async": false
     },
     "DMA": {
@@ -1881,10 +1899,12 @@
       "address": 1078108160,
       "power_domain": "Pd1",
       "pins": [],
-      "interrupt": {
-        "name": "DMA",
-        "num": 31
-      },
+      "interrupts": [
+        {
+          "name": "DMA",
+          "num": 31
+        }
+      ],
       "block_async": false,
       "retained_through": "Standby",
       "usable_through": "Sleep"
@@ -1913,11 +1933,13 @@
       "address": 1074581504,
       "power_domain": "Pd0",
       "pins": [],
-      "interrupt": {
-        "name": "GROUP0",
-        "num": 0,
-        "group_iidx": 3
-      },
+      "interrupts": [
+        {
+          "name": "GROUP0",
+          "num": 0,
+          "group_iidx": 3
+        }
+      ],
       "block_async": false
     },
     "GPAMP": {
@@ -2112,11 +2134,13 @@
           "pf": 1
         }
       ],
-      "interrupt": {
-        "name": "GROUP1",
-        "num": 1,
-        "group_iidx": 0
-      },
+      "interrupts": [
+        {
+          "name": "GROUP1",
+          "num": 1,
+          "group_iidx": 0
+        }
+      ],
       "block_async": false,
       "usable_through": "Standby"
     },
@@ -2268,11 +2292,13 @@
           "pf": 1
         }
       ],
-      "interrupt": {
-        "name": "GROUP1",
-        "num": 1,
-        "group_iidx": 1
-      },
+      "interrupts": [
+        {
+          "name": "GROUP1",
+          "num": 1,
+          "group_iidx": 1
+        }
+      ],
       "block_async": false,
       "usable_through": "Standby"
     },
@@ -2315,10 +2341,12 @@
         }
       ],
       "sys_fentries": 8,
-      "interrupt": {
-        "name": "I2C0",
-        "num": 24
-      },
+      "interrupts": [
+        {
+          "name": "I2C0",
+          "num": 24
+        }
+      ],
       "block_async": true,
       "usable_through": "Standby"
     },
@@ -2391,10 +2419,12 @@
         }
       ],
       "sys_fentries": 8,
-      "interrupt": {
-        "name": "I2C1",
-        "num": 25
-      },
+      "interrupts": [
+        {
+          "name": "I2C1",
+          "num": 25
+        }
+      ],
       "block_async": true,
       "usable_through": "Standby"
     },
@@ -2516,10 +2546,12 @@
           "pf": 6
         }
       ],
-      "interrupt": {
-        "name": "RTC",
-        "num": 30
-      },
+      "interrupts": [
+        {
+          "name": "RTC",
+          "num": 30
+        }
+      ],
       "block_async": true,
       "usable_through": "Standby"
     },
@@ -2656,10 +2688,12 @@
         }
       ],
       "sys_fentries": 4,
-      "interrupt": {
-        "name": "SPI0",
-        "num": 9
-      },
+      "interrupts": [
+        {
+          "name": "SPI0",
+          "num": 9
+        }
+      ],
       "block_async": true,
       "retained_through": "Standby",
       "usable_through": "Sleep"
@@ -2797,10 +2831,12 @@
         }
       ],
       "sys_fentries": 4,
-      "interrupt": {
-        "name": "SPI1",
-        "num": 10
-      },
+      "interrupts": [
+        {
+          "name": "SPI1",
+          "num": 10
+        }
+      ],
       "block_async": true,
       "retained_through": "Standby",
       "usable_through": "Sleep"
@@ -2908,11 +2944,13 @@
           "pf": 0
         }
       ],
-      "interrupt": {
-        "name": "GROUP0",
-        "num": 0,
-        "group_iidx": 6
-      },
+      "interrupts": [
+        {
+          "name": "GROUP0",
+          "num": 0,
+          "group_iidx": 6
+        }
+      ],
       "block_async": true
     },
     "TIMA0": {
@@ -3233,10 +3271,12 @@
           "pf": 5
         }
       ],
-      "interrupt": {
-        "name": "TIMA0",
-        "num": 18
-      },
+      "interrupts": [
+        {
+          "name": "TIMA0",
+          "num": 18
+        }
+      ],
       "block_async": false,
       "retained_through": "Sleep",
       "usable_through": "Sleep",
@@ -3463,10 +3503,12 @@
           "pf": 5
         }
       ],
-      "interrupt": {
-        "name": "TIMA1",
-        "num": 19
-      },
+      "interrupts": [
+        {
+          "name": "TIMA1",
+          "num": 19
+        }
+      ],
       "block_async": false,
       "retained_through": "Sleep",
       "usable_through": "Sleep",
@@ -3533,10 +3575,12 @@
           "pf": 5
         }
       ],
-      "interrupt": {
-        "name": "TIMG0",
-        "num": 16
-      },
+      "interrupts": [
+        {
+          "name": "TIMG0",
+          "num": 16
+        }
+      ],
       "block_async": false,
       "usable_through": "Standby",
       "clocked_in_standby1": true,
@@ -3602,10 +3646,12 @@
           "pf": 5
         }
       ],
-      "interrupt": {
-        "name": "TIMG12",
-        "num": 21
-      },
+      "interrupts": [
+        {
+          "name": "TIMG12",
+          "num": 21
+        }
+      ],
       "block_async": false,
       "retained_through": "Sleep",
       "usable_through": "Sleep",
@@ -3702,10 +3748,12 @@
           "pf": 8
         }
       ],
-      "interrupt": {
-        "name": "TIMG6",
-        "num": 17
-      },
+      "interrupts": [
+        {
+          "name": "TIMG6",
+          "num": 17
+        }
+      ],
       "block_async": false,
       "retained_through": "Sleep",
       "usable_through": "Sleep",
@@ -3807,10 +3855,12 @@
           "pf": 7
         }
       ],
-      "interrupt": {
-        "name": "TIMG7",
-        "num": 20
-      },
+      "interrupts": [
+        {
+          "name": "TIMG7",
+          "num": 20
+        }
+      ],
       "block_async": false,
       "retained_through": "Sleep",
       "usable_through": "Sleep",
@@ -3977,10 +4027,12 @@
           "pf": 6
         }
       ],
-      "interrupt": {
-        "name": "TIMG8",
-        "num": 2
-      },
+      "interrupts": [
+        {
+          "name": "TIMG8",
+          "num": 2
+        }
+      ],
       "block_async": false,
       "usable_through": "Standby",
       "clocked_in_standby1": true,
@@ -4005,11 +4057,13 @@
       "address": 1078214656,
       "power_domain": "Pd1",
       "pins": [],
-      "interrupt": {
-        "name": "GROUP1",
-        "num": 1,
-        "group_iidx": 5
-      },
+      "interrupts": [
+        {
+          "name": "GROUP1",
+          "num": 1,
+          "group_iidx": 5
+        }
+      ],
       "block_async": false,
       "retained_through": "Sleep",
       "usable_through": "Sleep",
@@ -4102,10 +4156,12 @@
         }
       ],
       "sys_fentries": 4,
-      "interrupt": {
-        "name": "UART0",
-        "num": 15
-      },
+      "interrupts": [
+        {
+          "name": "UART0",
+          "num": 15
+        }
+      ],
       "block_async": true,
       "usable_through": "Standby"
     },
@@ -4188,10 +4244,12 @@
         }
       ],
       "sys_fentries": 4,
-      "interrupt": {
-        "name": "UART1",
-        "num": 13
-      },
+      "interrupts": [
+        {
+          "name": "UART1",
+          "num": 13
+        }
+      ],
       "block_async": true,
       "usable_through": "Standby"
     },
@@ -4284,10 +4342,12 @@
         }
       ],
       "sys_fentries": 4,
-      "interrupt": {
-        "name": "UART2",
-        "num": 14
-      },
+      "interrupts": [
+        {
+          "name": "UART2",
+          "num": 14
+        }
+      ],
       "block_async": true,
       "usable_through": "Standby"
     },
@@ -4380,10 +4440,12 @@
         }
       ],
       "sys_fentries": 4,
-      "interrupt": {
-        "name": "UART3",
-        "num": 3
-      },
+      "interrupts": [
+        {
+          "name": "UART3",
+          "num": 3
+        }
+      ],
       "block_async": true,
       "retained_through": "Standby",
       "usable_through": "Sleep"
@@ -4423,11 +4485,13 @@
       "address": 1074266112,
       "power_domain": "Pd0",
       "pins": [],
-      "interrupt": {
-        "name": "GROUP0",
-        "num": 0,
-        "group_iidx": 0
-      },
+      "interrupts": [
+        {
+          "name": "GROUP0",
+          "num": 0,
+          "group_iidx": 0
+        }
+      ],
       "block_async": false,
       "usable_through": "Stop"
     },
@@ -4438,11 +4502,13 @@
       "address": 1074274304,
       "power_domain": "Pd0",
       "pins": [],
-      "interrupt": {
-        "name": "GROUP0",
-        "num": 0,
-        "group_iidx": 1
-      },
+      "interrupts": [
+        {
+          "name": "GROUP0",
+          "num": 0,
+          "group_iidx": 1
+        }
+      ],
       "block_async": false,
       "usable_through": "Stop"
     }
