@@ -161,6 +161,16 @@ pub mod sysctl;
 pub mod tim;
 #[path = "../../peripherals/tim_btimer.rs"]
 pub mod timb;
+#[path = "../../peripherals/unicomm_v1.rs"]
+pub mod unicomm;
+#[path = "../../peripherals/unicommi2cc_v1.rs"]
+pub mod unicommi2cc;
+#[path = "../../peripherals/unicommi2ct_v1.rs"]
+pub mod unicommi2ct;
+#[path = "../../peripherals/unicommspi_v1.rs"]
+pub mod unicommspi;
+#[path = "../../peripherals/unicommuart_v1.rs"]
+pub mod unicommuart;
 #[path = "../../peripherals/vref_v1.rs"]
 pub mod vref;
 #[path = "../../peripherals/wwdt_v1.rs"]
@@ -205,14 +215,28 @@ pub const TIMB0: timb::Tim = unsafe { timb::Tim::from_ptr(1074495488 as *mut _) 
 pub const TIMG0: tim::Tim = unsafe { tim::Tim::from_ptr(1074282496 as *mut _) };
 pub const TIMG6: tim::Tim = unsafe { tim::Tim::from_ptr(1082556416 as *mut _) };
 pub const TIMG7: tim::Tim = unsafe { tim::Tim::from_ptr(1082564608 as *mut _) };
-#[doc = "Address: 1084751872"]
-pub const UC0: () = ();
-#[doc = "Address: 1084760064"]
-pub const UC1: () = ();
-#[doc = "Address: 1085800448"]
-pub const UC2: () = ();
-#[doc = "Address: 1085808640"]
-pub const UC3: () = ();
+pub const UC0: unicomm::Unicomm = unsafe { unicomm::Unicomm::from_ptr(1084751872 as *mut _) };
+pub const UC0_I2CC: unicommi2cc::Unicommi2cc =
+    unsafe { unicommi2cc::Unicommi2cc::from_ptr(1084358656 as *mut _) };
+pub const UC0_I2CT: unicommi2ct::Unicommi2ct =
+    unsafe { unicommi2ct::Unicommi2ct::from_ptr(1084489728 as *mut _) };
+pub const UC0_UART: unicommuart::Unicommuart =
+    unsafe { unicommuart::Unicommuart::from_ptr(1084227584 as *mut _) };
+pub const UC1: unicomm::Unicomm = unsafe { unicomm::Unicomm::from_ptr(1084760064 as *mut _) };
+pub const UC1_I2CC: unicommi2cc::Unicommi2cc =
+    unsafe { unicommi2cc::Unicommi2cc::from_ptr(1084366848 as *mut _) };
+pub const UC1_I2CT: unicommi2ct::Unicommi2ct =
+    unsafe { unicommi2ct::Unicommi2ct::from_ptr(1084497920 as *mut _) };
+pub const UC1_UART: unicommuart::Unicommuart =
+    unsafe { unicommuart::Unicommuart::from_ptr(1084235776 as *mut _) };
+pub const UC2: unicomm::Unicomm = unsafe { unicomm::Unicomm::from_ptr(1085800448 as *mut _) };
+pub const UC2_SPI: unicommspi::Unicommspi =
+    unsafe { unicommspi::Unicommspi::from_ptr(1085669376 as *mut _) };
+pub const UC3: unicomm::Unicomm = unsafe { unicomm::Unicomm::from_ptr(1085808640 as *mut _) };
+pub const UC3_SPI: unicommspi::Unicommspi =
+    unsafe { unicommspi::Unicommspi::from_ptr(1085677568 as *mut _) };
+pub const UC3_UART: unicommuart::Unicommuart =
+    unsafe { unicommuart::Unicommuart::from_ptr(1085284352 as *mut _) };
 #[doc = "Address: 1078456320"]
 pub const USBFS0: () = ();
 pub const VREF: vref::Vref = unsafe { vref::Vref::from_ptr(1073938432 as *mut _) };

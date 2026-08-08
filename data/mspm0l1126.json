@@ -4682,6 +4682,7 @@
     "UC11": {
       "name": "UC11",
       "type": "Unicomm",
+      "version": "v1",
       "address": 1085808640,
       "power_domain": "Pd0",
       "pins": [
@@ -4753,11 +4754,28 @@
         }
       ],
       "block_async": null,
+      "usable_through": "Sleep",
+      "unicomm": {
+        "uart": true,
+        "i2c_controller": false,
+        "i2c_target": false,
+        "spi": false
+      }
+    },
+    "UC11_UART": {
+      "name": "UC11_UART",
+      "type": "UnicommUart",
+      "version": "v1",
+      "address": 1085284352,
+      "power_domain": "Pd0",
+      "pins": [],
+      "block_async": null,
       "usable_through": "Sleep"
     },
     "UC4": {
       "name": "UC4",
       "type": "Unicomm",
+      "version": "v1",
       "address": 1084751872,
       "power_domain": "Pd0",
       "pins": [
@@ -5179,11 +5197,38 @@
         }
       ],
       "block_async": null,
+      "usable_through": "Standby",
+      "unicomm": {
+        "uart": true,
+        "i2c_controller": false,
+        "i2c_target": false,
+        "spi": true
+      }
+    },
+    "UC4_SPI": {
+      "name": "UC4_SPI",
+      "type": "UnicommSpi",
+      "version": "v1",
+      "address": 1084620800,
+      "power_domain": "Pd0",
+      "pins": [],
+      "block_async": null,
+      "usable_through": "Standby"
+    },
+    "UC4_UART": {
+      "name": "UC4_UART",
+      "type": "UnicommUart",
+      "version": "v1",
+      "address": 1084227584,
+      "power_domain": "Pd0",
+      "pins": [],
+      "block_async": null,
       "usable_through": "Standby"
     },
     "UC6": {
       "name": "UC6",
       "type": "Unicomm",
+      "version": "v1",
       "address": 1084760064,
       "power_domain": "Pd0",
       "pins": [
@@ -5275,11 +5320,28 @@
         }
       ],
       "block_async": null,
+      "usable_through": "Standby",
+      "unicomm": {
+        "uart": false,
+        "i2c_controller": true,
+        "i2c_target": false,
+        "spi": false
+      }
+    },
+    "UC6_I2CC": {
+      "name": "UC6_I2CC",
+      "type": "UnicommI2cc",
+      "version": "v1",
+      "address": 1084366848,
+      "power_domain": "Pd0",
+      "pins": [],
+      "block_async": null,
       "usable_through": "Standby"
     },
     "UC7": {
       "name": "UC7",
       "type": "Unicomm",
+      "version": "v1",
       "address": 1084768256,
       "power_domain": "Pd0",
       "pins": [
@@ -5391,11 +5453,28 @@
         }
       ],
       "block_async": null,
+      "usable_through": "Standby",
+      "unicomm": {
+        "uart": false,
+        "i2c_controller": false,
+        "i2c_target": true,
+        "spi": false
+      }
+    },
+    "UC7_I2CT": {
+      "name": "UC7_I2CT",
+      "type": "UnicommI2ct",
+      "version": "v1",
+      "address": 1084506112,
+      "power_domain": "Pd0",
+      "pins": [],
+      "block_async": null,
       "usable_through": "Standby"
     },
     "UC8": {
       "name": "UC8",
       "type": "Unicomm",
+      "version": "v1",
       "address": 1085800448,
       "power_domain": "Pd0",
       "pins": [
@@ -5711,6 +5790,32 @@
           "num": 9
         }
       ],
+      "block_async": null,
+      "usable_through": "Sleep",
+      "unicomm": {
+        "uart": true,
+        "i2c_controller": false,
+        "i2c_target": false,
+        "spi": true
+      }
+    },
+    "UC8_SPI": {
+      "name": "UC8_SPI",
+      "type": "UnicommSpi",
+      "version": "v1",
+      "address": 1085669376,
+      "power_domain": "Pd0",
+      "pins": [],
+      "block_async": null,
+      "usable_through": "Sleep"
+    },
+    "UC8_UART": {
+      "name": "UC8_UART",
+      "type": "UnicommUart",
+      "version": "v1",
+      "address": 1085276160,
+      "power_domain": "Pd0",
+      "pins": [],
       "block_async": null,
       "usable_through": "Sleep"
     },

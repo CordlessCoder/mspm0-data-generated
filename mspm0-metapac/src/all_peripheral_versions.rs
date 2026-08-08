@@ -25,6 +25,11 @@ pub static ALL_PERIPHERAL_VERSIONS: &[(&str, &[&str])] = &[
     ("tim", &["btimer", "v1"]),
     ("trng", &["v1"]),
     ("uart", &["v1"]),
+    ("unicomm", &["v1"]),
+    ("unicommi2cc", &["v1"]),
+    ("unicommi2ct", &["v1"]),
+    ("unicommspi", &["v1"]),
+    ("unicommuart", &["v1"]),
     ("vref", &["v1"]),
     ("wwdt", &["v1"]),
 ];

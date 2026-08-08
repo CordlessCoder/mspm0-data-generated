@@ -56,6 +56,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
             memctl: 4,
             vrsel: 5,
         }),
+        unicomm: None,
     },
     Peripheral {
         name: "CPUSS",
@@ -72,6 +73,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         timer: None,
         clock_range_hz: None,
         adc: None,
+        unicomm: None,
     },
     Peripheral {
         name: "CRC",
@@ -88,6 +90,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         timer: None,
         clock_range_hz: None,
         adc: None,
+        unicomm: None,
     },
     Peripheral {
         name: "DEBUGSS",
@@ -119,6 +122,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         timer: None,
         clock_range_hz: None,
         adc: None,
+        unicomm: None,
     },
     Peripheral {
         name: "DMA",
@@ -139,6 +143,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         timer: None,
         clock_range_hz: None,
         adc: None,
+        unicomm: None,
     },
     Peripheral {
         name: "EVENT",
@@ -155,6 +160,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         timer: None,
         clock_range_hz: None,
         adc: None,
+        unicomm: None,
     },
     Peripheral {
         name: "FACTORYREGION",
@@ -171,6 +177,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         timer: None,
         clock_range_hz: None,
         adc: None,
+        unicomm: None,
     },
     Peripheral {
         name: "FLASHCTL",
@@ -191,6 +198,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         timer: None,
         clock_range_hz: None,
         adc: None,
+        unicomm: None,
     },
     Peripheral {
         name: "GPAMP",
@@ -223,6 +231,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         timer: None,
         clock_range_hz: None,
         adc: None,
+        unicomm: None,
     },
     Peripheral {
         name: "GPIOA",
@@ -309,6 +318,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         timer: None,
         clock_range_hz: None,
         adc: None,
+        unicomm: None,
     },
     Peripheral {
         name: "I2C0",
@@ -340,6 +350,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         timer: None,
         clock_range_hz: None,
         adc: None,
+        unicomm: None,
     },
     Peripheral {
         name: "IOMUX",
@@ -356,6 +367,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         timer: None,
         clock_range_hz: None,
         adc: None,
+        unicomm: None,
     },
     Peripheral {
         name: "SPI0",
@@ -432,6 +444,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         timer: None,
         clock_range_hz: None,
         adc: None,
+        unicomm: None,
     },
     Peripheral {
         name: "SYSCTL",
@@ -473,6 +486,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         timer: None,
         clock_range_hz: None,
         adc: None,
+        unicomm: None,
     },
     Peripheral {
         name: "TIMG0",
@@ -522,6 +536,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         }),
         clock_range_hz: None,
         adc: None,
+        unicomm: None,
     },
     Peripheral {
         name: "TIMG1",
@@ -576,6 +591,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         }),
         clock_range_hz: None,
         adc: None,
+        unicomm: None,
     },
     Peripheral {
         name: "TIMG2",
@@ -613,6 +629,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         }),
         clock_range_hz: None,
         adc: None,
+        unicomm: None,
     },
     Peripheral {
         name: "TIMG4",
@@ -667,6 +684,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         }),
         clock_range_hz: None,
         adc: None,
+        unicomm: None,
     },
     Peripheral {
         name: "UART0",
@@ -733,6 +751,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         timer: None,
         clock_range_hz: None,
         adc: None,
+        unicomm: None,
     },
     Peripheral {
         name: "UART1",
@@ -774,6 +793,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         timer: None,
         clock_range_hz: None,
         adc: None,
+        unicomm: None,
     },
     Peripheral {
         name: "VREF",
@@ -794,6 +814,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         timer: None,
         clock_range_hz: None,
         adc: None,
+        unicomm: None,
     },
     Peripheral {
         name: "WUC",
@@ -810,6 +831,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         timer: None,
         clock_range_hz: None,
         adc: None,
+        unicomm: None,
     },
     Peripheral {
         name: "WWDT0",
@@ -830,6 +852,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         timer: None,
         clock_range_hz: None,
         adc: None,
+        unicomm: None,
     },
 ];
 pub(crate) static INTERRUPTS: &[Interrupt] = &[
