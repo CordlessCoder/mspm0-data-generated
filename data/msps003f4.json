@@ -841,6 +841,7 @@
       "clocked_in_standby1": true,
       "timer": {
         "bits": 16,
+        "counters": 1,
         "prescaler": true,
         "repeat_counter": true,
         "ccp_channels": 4,
@@ -927,6 +928,7 @@
       "clocked_in_standby1": true,
       "timer": {
         "bits": 16,
+        "counters": 1,
         "prescaler": true,
         "repeat_counter": false,
         "ccp_channels": 4,
@@ -993,6 +995,7 @@
       "clocked_in_standby1": true,
       "timer": {
         "bits": 16,
+        "counters": 1,
         "prescaler": true,
         "repeat_counter": false,
         "ccp_channels": 2,

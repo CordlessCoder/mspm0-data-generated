@@ -209,10 +209,10 @@ impl Tim {
     pub const fn evt_mode(self) -> crate::common::Reg<regs::EvtMode, crate::common::R> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x10e0usize) as _) }
     }
-    #[doc = "One independent counter. Every device with a TIMB implements two, which is what TI's own `BTIMER_Regs` declares; the register array itself runs to eight."]
+    #[doc = "One independent counter. The array is the eight the TRM documents and the interrupt registers have bits for; how many a device implements is `Timer::counters`, which is 4 on the G-series instances and 2 on the L-series ones."]
     #[inline(always)]
     pub const fn ctrregs(self, n: usize) -> Ctrregs {
-        assert!(n < 2usize);
+        assert!(n < 8usize);
         unsafe { Ctrregs::from_ptr(self.ptr.wrapping_add(0x1100usize + n * 256usize) as _) }
     }
 }

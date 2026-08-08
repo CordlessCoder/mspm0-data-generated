@@ -1058,6 +1058,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         clocked_in_standby1: Some(false),
         timer: Some(Timer {
             bits: 16,
+            counters: 1,
             prescaler: true,
             repeat_counter: true,
             ccp_channels: 4,
@@ -1176,6 +1177,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         clocked_in_standby1: Some(false),
         timer: Some(Timer {
             bits: 16,
+            counters: 1,
             prescaler: true,
             repeat_counter: true,
             ccp_channels: 2,
@@ -1239,6 +1241,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         clocked_in_standby1: Some(true),
         timer: Some(Timer {
             bits: 16,
+            counters: 1,
             prescaler: true,
             repeat_counter: false,
             ccp_channels: 2,
@@ -1287,6 +1290,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         clocked_in_standby1: Some(false),
         timer: Some(Timer {
             bits: 32,
+            counters: 1,
             prescaler: false,
             repeat_counter: false,
             ccp_channels: 2,
@@ -1340,6 +1344,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         clocked_in_standby1: Some(false),
         timer: Some(Timer {
             bits: 16,
+            counters: 1,
             prescaler: true,
             repeat_counter: false,
             ccp_channels: 2,
@@ -1423,6 +1428,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         clocked_in_standby1: Some(false),
         timer: Some(Timer {
             bits: 16,
+            counters: 1,
             prescaler: true,
             repeat_counter: false,
             ccp_channels: 2,
@@ -1536,6 +1542,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         clocked_in_standby1: Some(true),
         timer: Some(Timer {
             bits: 16,
+            counters: 1,
             prescaler: true,
             repeat_counter: false,
             ccp_channels: 2,
