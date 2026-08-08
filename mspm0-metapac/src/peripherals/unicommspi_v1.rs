@@ -46,7 +46,7 @@ impl CpuInt {
     }
     #[doc = "Interrupt clear."]
     #[inline(always)]
-    pub const fn iclr(self) -> crate::common::Reg<regs::Iclr, crate::common::W> {
+    pub const fn iclr(self) -> crate::common::Reg<regs::CpuInt, crate::common::W> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x28usize) as _) }
     }
 }
@@ -781,26 +781,26 @@ pub mod regs {
         #[doc = "Command/Data Mode Value When CTL1.CDENABLE is 1, CS3 line is used as C/D signal to distinguish between Command (C/D low) and Data (C/D high) information. When a value is written into the CTL1.CDMODE bits, the C/D (CS3) line will go low for the given numbers of byte which are sent by the SPI, starting with the next value to be transmitted after which, C/D line will go high automatically 0: Manual mode with C/D signal as High 1-14: C/D is low while this number of bytes are being sent after which, this field sets to 0 and C/D goes high. Reading this field at any time returns the remaining number of command bytes. 15: Manual mode with C/D signal as Low."]
         #[must_use]
         #[inline(always)]
-        pub const fn cdmode(&self) -> super::vals::Ctl1Cdmode {
+        pub const fn cdmode(&self) -> super::vals::Cdmode {
             let val = (self.0 >> 12usize) & 0x0f;
-            super::vals::Ctl1Cdmode::from_bits(val as u8)
+            super::vals::Cdmode::from_bits(val as u8)
         }
         #[doc = "Command/Data Mode Value When CTL1.CDENABLE is 1, CS3 line is used as C/D signal to distinguish between Command (C/D low) and Data (C/D high) information. When a value is written into the CTL1.CDMODE bits, the C/D (CS3) line will go low for the given numbers of byte which are sent by the SPI, starting with the next value to be transmitted after which, C/D line will go high automatically 0: Manual mode with C/D signal as High 1-14: C/D is low while this number of bytes are being sent after which, this field sets to 0 and C/D goes high. Reading this field at any time returns the remaining number of command bytes. 15: Manual mode with C/D signal as Low."]
         #[inline(always)]
-        pub const fn set_cdmode(&mut self, val: super::vals::Ctl1Cdmode) {
+        pub const fn set_cdmode(&mut self, val: super::vals::Cdmode) {
             self.0 = (self.0 & !(0x0f << 12usize)) | (((val.to_bits() as u32) & 0x0f) << 12usize);
         }
         #[doc = "Counter to repeat last transfer 0: repeat last transfer is disabled. x: repeat the last transfer with the given number. The transfer will be started with writing a data into the TX Buffer. Sending the data will be repeated with the given value, so the data will be transferred X+1 times in total. The behavior is identical as if the data would be written into the TX Buffer that many times as defined by the value here. It can be used to clean a transfer or to pull a certain amount of data by a peripheral."]
         #[must_use]
         #[inline(always)]
-        pub const fn repeattx(&self) -> super::vals::Repeattx {
+        pub const fn repeattx(&self) -> u8 {
             let val = (self.0 >> 16usize) & 0xff;
-            super::vals::Repeattx::from_bits(val as u8)
+            val as u8
         }
         #[doc = "Counter to repeat last transfer 0: repeat last transfer is disabled. x: repeat the last transfer with the given number. The transfer will be started with writing a data into the TX Buffer. Sending the data will be repeated with the given value, so the data will be transferred X+1 times in total. The behavior is identical as if the data would be written into the TX Buffer that many times as defined by the value here. It can be used to clean a transfer or to pull a certain amount of data by a peripheral."]
         #[inline(always)]
-        pub const fn set_repeattx(&mut self, val: super::vals::Repeattx) {
-            self.0 = (self.0 & !(0xff << 16usize)) | (((val.to_bits() as u32) & 0xff) << 16usize);
+        pub const fn set_repeattx(&mut self, val: u8) {
+            self.0 = (self.0 & !(0xff << 16usize)) | (((val as u32) & 0xff) << 16usize);
         }
         #[doc = "Receive Timeout (only for Peripheral mode) Defines the number of Clock Cycles before after which the Receive Timeout flag RTOUT is set. The time is calculated using the control register for the clock selection and divider in the Controller mode configuration. A value of 0 disables this function."]
         #[must_use]
@@ -843,7 +843,7 @@ pub mod regs {
     #[cfg(feature = "defmt")]
     impl defmt::Format for Ctl1 {
         fn format(&self, f: defmt::Formatter) {
-            defmt :: write ! (f , "Ctl1 {{ enable: {=bool:?}, lbm: {=bool:?}, cp: {=bool:?}, pod: {=bool:?}, msb: {=bool:?}, pren: {=bool:?}, pes: {=bool:?}, pten: {=bool:?}, suspend: {=bool:?}, cdenable: {=bool:?}, cdmode: {:?}, repeattx: {:?}, rxtimeout: {=u8:?} }}" , self . enable () , self . lbm () , self . cp () , self . pod () , self . msb () , self . pren () , self . pes () , self . pten () , self . suspend () , self . cdenable () , self . cdmode () , self . repeattx () , self . rxtimeout ())
+            defmt :: write ! (f , "Ctl1 {{ enable: {=bool:?}, lbm: {=bool:?}, cp: {=bool:?}, pod: {=bool:?}, msb: {=bool:?}, pren: {=bool:?}, pes: {=bool:?}, pten: {=bool:?}, suspend: {=bool:?}, cdenable: {=bool:?}, cdmode: {:?}, repeattx: {=u8:?}, rxtimeout: {=u8:?} }}" , self . enable () , self . lbm () , self . cp () , self . pod () , self . msb () , self . pren () , self . pes () , self . pten () , self . suspend () , self . cdenable () , self . cdmode () , self . repeattx () , self . rxtimeout ())
         }
     }
     #[doc = "Interrupt mask."]
@@ -934,186 +934,6 @@ pub mod regs {
     impl defmt::Format for DmaTrigTx {
         fn format(&self, f: defmt::Formatter) {
             defmt::write!(f, "DmaTrigTx {{ tx: {=bool:?} }}", self.tx())
-        }
-    }
-    #[doc = "Interrupt clear."]
-    #[repr(transparent)]
-    #[derive(Copy, Clone, Eq, PartialEq)]
-    pub struct Iclr(pub u32);
-    impl Iclr {
-        #[doc = "Clear Parity error event."]
-        #[must_use]
-        #[inline(always)]
-        pub const fn per(&self) -> bool {
-            let val = (self.0 >> 0usize) & 0x01;
-            val != 0
-        }
-        #[doc = "Clear Parity error event."]
-        #[inline(always)]
-        pub const fn set_per(&mut self, val: bool) {
-            self.0 = (self.0 & !(0x01 << 0usize)) | (((val as u32) & 0x01) << 0usize);
-        }
-        #[doc = "Clear RXFIFO overflow event."]
-        #[must_use]
-        #[inline(always)]
-        pub const fn rxfifo_ovf(&self) -> bool {
-            let val = (self.0 >> 1usize) & 0x01;
-            val != 0
-        }
-        #[doc = "Clear RXFIFO overflow event."]
-        #[inline(always)]
-        pub const fn set_rxfifo_ovf(&mut self, val: bool) {
-            self.0 = (self.0 & !(0x01 << 1usize)) | (((val as u32) & 0x01) << 1usize);
-        }
-        #[doc = "Clear Receive event."]
-        #[must_use]
-        #[inline(always)]
-        pub const fn rx(&self) -> bool {
-            let val = (self.0 >> 2usize) & 0x01;
-            val != 0
-        }
-        #[doc = "Clear Receive event."]
-        #[inline(always)]
-        pub const fn set_rx(&mut self, val: bool) {
-            self.0 = (self.0 & !(0x01 << 2usize)) | (((val as u32) & 0x01) << 2usize);
-        }
-        #[doc = "Clear RX FIFO underflow event."]
-        #[must_use]
-        #[inline(always)]
-        pub const fn rxfull(&self) -> bool {
-            let val = (self.0 >> 3usize) & 0x01;
-            val != 0
-        }
-        #[doc = "Clear RX FIFO underflow event."]
-        #[inline(always)]
-        pub const fn set_rxfull(&mut self, val: bool) {
-            self.0 = (self.0 & !(0x01 << 3usize)) | (((val as u32) & 0x01) << 3usize);
-        }
-        #[doc = "Clear TXFIFO underflow event."]
-        #[must_use]
-        #[inline(always)]
-        pub const fn txfifo_unf(&self) -> bool {
-            let val = (self.0 >> 4usize) & 0x01;
-            val != 0
-        }
-        #[doc = "Clear TXFIFO underflow event."]
-        #[inline(always)]
-        pub const fn set_txfifo_unf(&mut self, val: bool) {
-            self.0 = (self.0 & !(0x01 << 4usize)) | (((val as u32) & 0x01) << 4usize);
-        }
-        #[doc = "Clear Transmit event."]
-        #[must_use]
-        #[inline(always)]
-        pub const fn tx(&self) -> bool {
-            let val = (self.0 >> 5usize) & 0x01;
-            val != 0
-        }
-        #[doc = "Clear Transmit event."]
-        #[inline(always)]
-        pub const fn set_tx(&mut self, val: bool) {
-            self.0 = (self.0 & !(0x01 << 5usize)) | (((val as u32) & 0x01) << 5usize);
-        }
-        #[doc = "Clear Transmit FIFO Empty event."]
-        #[must_use]
-        #[inline(always)]
-        pub const fn txempty(&self) -> bool {
-            let val = (self.0 >> 6usize) & 0x01;
-            val != 0
-        }
-        #[doc = "Clear Transmit FIFO Empty event."]
-        #[inline(always)]
-        pub const fn set_txempty(&mut self, val: bool) {
-            self.0 = (self.0 & !(0x01 << 6usize)) | (((val as u32) & 0x01) << 6usize);
-        }
-        #[doc = "Clear SPI IDLE mode event."]
-        #[must_use]
-        #[inline(always)]
-        pub const fn idle(&self) -> bool {
-            let val = (self.0 >> 8usize) & 0x01;
-            val != 0
-        }
-        #[doc = "Clear SPI IDLE mode event."]
-        #[inline(always)]
-        pub const fn set_idle(&mut self, val: bool) {
-            self.0 = (self.0 & !(0x01 << 8usize)) | (((val as u32) & 0x01) << 8usize);
-        }
-        #[doc = "Clear SPI Receive Time-Out Event."]
-        #[must_use]
-        #[inline(always)]
-        pub const fn rtout(&self) -> bool {
-            let val = (self.0 >> 9usize) & 0x01;
-            val != 0
-        }
-        #[doc = "Clear SPI Receive Time-Out Event."]
-        #[inline(always)]
-        pub const fn set_rtout(&mut self, val: bool) {
-            self.0 = (self.0 & !(0x01 << 9usize)) | (((val as u32) & 0x01) << 9usize);
-        }
-        #[doc = "Clear DMA Done on RX Event Channel Interrupt."]
-        #[must_use]
-        #[inline(always)]
-        pub const fn dma_done_rx(&self) -> bool {
-            let val = (self.0 >> 15usize) & 0x01;
-            val != 0
-        }
-        #[doc = "Clear DMA Done on RX Event Channel Interrupt."]
-        #[inline(always)]
-        pub const fn set_dma_done_rx(&mut self, val: bool) {
-            self.0 = (self.0 & !(0x01 << 15usize)) | (((val as u32) & 0x01) << 15usize);
-        }
-        #[doc = "Clear DMA Done on TX Event Channel Interrupt."]
-        #[must_use]
-        #[inline(always)]
-        pub const fn dma_done_tx(&self) -> bool {
-            let val = (self.0 >> 16usize) & 0x01;
-            val != 0
-        }
-        #[doc = "Clear DMA Done on TX Event Channel Interrupt."]
-        #[inline(always)]
-        pub const fn set_dma_done_tx(&mut self, val: bool) {
-            self.0 = (self.0 & !(0x01 << 16usize)) | (((val as u32) & 0x01) << 16usize);
-        }
-        #[doc = "Clear SPI Line Time-Out Event."]
-        #[must_use]
-        #[inline(always)]
-        pub const fn ltout(&self) -> bool {
-            let val = (self.0 >> 20usize) & 0x01;
-            val != 0
-        }
-        #[doc = "Clear SPI Line Time-Out Event."]
-        #[inline(always)]
-        pub const fn set_ltout(&mut self, val: bool) {
-            self.0 = (self.0 & !(0x01 << 20usize)) | (((val as u32) & 0x01) << 20usize);
-        }
-    }
-    impl Default for Iclr {
-        #[inline(always)]
-        fn default() -> Iclr {
-            Iclr(0)
-        }
-    }
-    impl core::fmt::Debug for Iclr {
-        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-            f.debug_struct("Iclr")
-                .field("per", &self.per())
-                .field("rxfifo_ovf", &self.rxfifo_ovf())
-                .field("rx", &self.rx())
-                .field("rxfull", &self.rxfull())
-                .field("txfifo_unf", &self.txfifo_unf())
-                .field("tx", &self.tx())
-                .field("txempty", &self.txempty())
-                .field("idle", &self.idle())
-                .field("rtout", &self.rtout())
-                .field("dma_done_rx", &self.dma_done_rx())
-                .field("dma_done_tx", &self.dma_done_tx())
-                .field("ltout", &self.ltout())
-                .finish()
-        }
-    }
-    #[cfg(feature = "defmt")]
-    impl defmt::Format for Iclr {
-        fn format(&self, f: defmt::Formatter) {
-            defmt :: write ! (f , "Iclr {{ per: {=bool:?}, rxfifo_ovf: {=bool:?}, rx: {=bool:?}, rxfull: {=bool:?}, txfifo_unf: {=bool:?}, tx: {=bool:?}, txempty: {=bool:?}, idle: {=bool:?}, rtout: {=bool:?}, dma_done_rx: {=bool:?}, dma_done_tx: {=bool:?}, ltout: {=bool:?} }}" , self . per () , self . rxfifo_ovf () , self . rx () , self . rxfull () , self . txfifo_unf () , self . tx () , self . txempty () , self . idle () , self . rtout () , self . dma_done_rx () , self . dma_done_tx () , self . ltout ())
         }
     }
     #[doc = "Interrupt FIFO Level Select Register."]
@@ -1445,25 +1265,25 @@ is set to 'STOP'."]
         #[doc = "Busy."]
         #[must_use]
         #[inline(always)]
-        pub const fn busy(&self) -> super::vals::Busy {
+        pub const fn busy(&self) -> bool {
             let val = (self.0 >> 8usize) & 0x01;
-            super::vals::Busy::from_bits(val as u8)
+            val != 0
         }
         #[doc = "Busy."]
         #[inline(always)]
-        pub const fn set_busy(&mut self, val: super::vals::Busy) {
-            self.0 = (self.0 & !(0x01 << 8usize)) | (((val.to_bits() as u32) & 0x01) << 8usize);
+        pub const fn set_busy(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 8usize)) | (((val as u32) & 0x01) << 8usize);
         }
         #[doc = "Current CDMODE status. This reflects the current counter counter value."]
         #[must_use]
         #[inline(always)]
-        pub const fn cdmode(&self) -> super::vals::StatCdmode {
+        pub const fn cdmode(&self) -> super::vals::Cdmode {
             let val = (self.0 >> 12usize) & 0x0f;
-            super::vals::StatCdmode::from_bits(val as u8)
+            super::vals::Cdmode::from_bits(val as u8)
         }
         #[doc = "Current CDMODE status. This reflects the current counter counter value."]
         #[inline(always)]
-        pub const fn set_cdmode(&mut self, val: super::vals::StatCdmode) {
+        pub const fn set_cdmode(&mut self, val: super::vals::Cdmode) {
             self.0 = (self.0 & !(0x0f << 12usize)) | (((val.to_bits() as u32) & 0x0f) << 12usize);
         }
     }
@@ -1490,7 +1310,7 @@ is set to 'STOP'."]
     #[cfg(feature = "defmt")]
     impl defmt::Format for Stat {
         fn format(&self, f: defmt::Formatter) {
-            defmt :: write ! (f , "Stat {{ rxfe: {=bool:?}, rxff: {=bool:?}, rxclr: {=bool:?}, txfe: {=bool:?}, txff: {=bool:?}, txclr: {=bool:?}, busy: {:?}, cdmode: {:?} }}" , self . rxfe () , self . rxff () , self . rxclr () , self . txfe () , self . txff () , self . txclr () , self . busy () , self . cdmode ())
+            defmt :: write ! (f , "Stat {{ rxfe: {=bool:?}, rxff: {=bool:?}, rxclr: {=bool:?}, txfe: {=bool:?}, txff: {=bool:?}, txclr: {=bool:?}, busy: {=bool:?}, cdmode: {:?} }}" , self . rxfe () , self . rxff () , self . rxclr () , self . txfe () , self . txff () , self . txclr () , self . busy () , self . cdmode ())
         }
     }
     #[doc = "TXDATA Register."]
@@ -1535,32 +1355,46 @@ pub mod vals {
     #[repr(u8)]
     #[derive(Copy, Clone, Debug, Eq, PartialEq, Ord, PartialOrd)]
     #[cfg_attr(feature = "defmt", derive(defmt::Format))]
-    pub enum Busy {
-        #[doc = "SPI is in idle mode."]
-        Idle = 0x0,
-        #[doc = "SPI is currently transmitting and/or receiving data."]
-        Active = 0x01,
+    pub enum Cdmode {
+        #[doc = "Manual mode: Data."]
+        Data = 0x0,
+        _RESERVED_1 = 0x01,
+        _RESERVED_2 = 0x02,
+        _RESERVED_3 = 0x03,
+        _RESERVED_4 = 0x04,
+        _RESERVED_5 = 0x05,
+        _RESERVED_6 = 0x06,
+        _RESERVED_7 = 0x07,
+        _RESERVED_8 = 0x08,
+        _RESERVED_9 = 0x09,
+        _RESERVED_a = 0x0a,
+        _RESERVED_b = 0x0b,
+        _RESERVED_c = 0x0c,
+        _RESERVED_d = 0x0d,
+        _RESERVED_e = 0x0e,
+        #[doc = "Manual mode: Command."]
+        Command = 0x0f,
     }
-    impl Busy {
+    impl Cdmode {
         #[inline(always)]
-        pub const fn from_bits(val: u8) -> Busy {
-            unsafe { core::mem::transmute(val & 0x01) }
+        pub const fn from_bits(val: u8) -> Cdmode {
+            unsafe { core::mem::transmute(val & 0x0f) }
         }
         #[inline(always)]
         pub const fn to_bits(self) -> u8 {
             unsafe { core::mem::transmute(self) }
         }
     }
-    impl From<u8> for Busy {
+    impl From<u8> for Cdmode {
         #[inline(always)]
-        fn from(val: u8) -> Busy {
-            Busy::from_bits(val)
+        fn from(val: u8) -> Cdmode {
+            Cdmode::from_bits(val)
         }
     }
-    impl From<Busy> for u8 {
+    impl From<Cdmode> for u8 {
         #[inline(always)]
-        fn from(val: Busy) -> u8 {
-            Busy::to_bits(val)
+        fn from(val: Cdmode) -> u8 {
+            Cdmode::to_bits(val)
         }
     }
     #[repr(u8)]
@@ -1596,51 +1430,6 @@ pub mod vals {
         #[inline(always)]
         fn from(val: Cssel) -> u8 {
             Cssel::to_bits(val)
-        }
-    }
-    #[repr(u8)]
-    #[derive(Copy, Clone, Debug, Eq, PartialEq, Ord, PartialOrd)]
-    #[cfg_attr(feature = "defmt", derive(defmt::Format))]
-    pub enum Ctl1Cdmode {
-        #[doc = "Manual mode: Data."]
-        Data = 0x0,
-        _RESERVED_1 = 0x01,
-        _RESERVED_2 = 0x02,
-        _RESERVED_3 = 0x03,
-        _RESERVED_4 = 0x04,
-        _RESERVED_5 = 0x05,
-        _RESERVED_6 = 0x06,
-        _RESERVED_7 = 0x07,
-        _RESERVED_8 = 0x08,
-        _RESERVED_9 = 0x09,
-        _RESERVED_a = 0x0a,
-        _RESERVED_b = 0x0b,
-        _RESERVED_c = 0x0c,
-        _RESERVED_d = 0x0d,
-        _RESERVED_e = 0x0e,
-        #[doc = "Manual mode: Command."]
-        Command = 0x0f,
-    }
-    impl Ctl1Cdmode {
-        #[inline(always)]
-        pub const fn from_bits(val: u8) -> Ctl1Cdmode {
-            unsafe { core::mem::transmute(val & 0x0f) }
-        }
-        #[inline(always)]
-        pub const fn to_bits(self) -> u8 {
-            unsafe { core::mem::transmute(self) }
-        }
-    }
-    impl From<u8> for Ctl1Cdmode {
-        #[inline(always)]
-        fn from(val: u8) -> Ctl1Cdmode {
-            Ctl1Cdmode::from_bits(val)
-        }
-    }
-    impl From<Ctl1Cdmode> for u8 {
-        #[inline(always)]
-        fn from(val: Ctl1Cdmode) -> u8 {
-            Ctl1Cdmode::to_bits(val)
         }
     }
     #[repr(u8)]
@@ -1790,50 +1579,6 @@ pub mod vals {
         #[inline(always)]
         fn from(val: Ratio) -> u8 {
             Ratio::to_bits(val)
-        }
-    }
-    #[repr(transparent)]
-    #[derive(Copy, Clone, Eq, PartialEq, Ord, PartialOrd)]
-    pub struct Repeattx(u8);
-    impl Repeattx {
-        #[doc = "REPEATTX disable."]
-        pub const Disable: Self = Self(0x0);
-    }
-    impl Repeattx {
-        pub const fn from_bits(val: u8) -> Repeattx {
-            Self(val & 0xff)
-        }
-        pub const fn to_bits(self) -> u8 {
-            self.0
-        }
-    }
-    impl core::fmt::Debug for Repeattx {
-        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-            match self.0 {
-                0x0 => f.write_str("Disable"),
-                other => core::write!(f, "0x{:02X}", other),
-            }
-        }
-    }
-    #[cfg(feature = "defmt")]
-    impl defmt::Format for Repeattx {
-        fn format(&self, f: defmt::Formatter) {
-            match self.0 {
-                0x0 => defmt::write!(f, "Disable"),
-                other => defmt::write!(f, "0x{:02X}", other),
-            }
-        }
-    }
-    impl From<u8> for Repeattx {
-        #[inline(always)]
-        fn from(val: u8) -> Repeattx {
-            Repeattx::from_bits(val)
-        }
-    }
-    impl From<Repeattx> for u8 {
-        #[inline(always)]
-        fn from(val: Repeattx) -> u8 {
-            Repeattx::to_bits(val)
         }
     }
     #[repr(u8)]
@@ -2038,51 +1783,6 @@ pub mod vals {
         #[inline(always)]
         fn from(val: Stat) -> u8 {
             Stat::to_bits(val)
-        }
-    }
-    #[repr(u8)]
-    #[derive(Copy, Clone, Debug, Eq, PartialEq, Ord, PartialOrd)]
-    #[cfg_attr(feature = "defmt", derive(defmt::Format))]
-    pub enum StatCdmode {
-        #[doc = "Manual mode: Data."]
-        Data = 0x0,
-        _RESERVED_1 = 0x01,
-        _RESERVED_2 = 0x02,
-        _RESERVED_3 = 0x03,
-        _RESERVED_4 = 0x04,
-        _RESERVED_5 = 0x05,
-        _RESERVED_6 = 0x06,
-        _RESERVED_7 = 0x07,
-        _RESERVED_8 = 0x08,
-        _RESERVED_9 = 0x09,
-        _RESERVED_a = 0x0a,
-        _RESERVED_b = 0x0b,
-        _RESERVED_c = 0x0c,
-        _RESERVED_d = 0x0d,
-        _RESERVED_e = 0x0e,
-        #[doc = "Manual mode: Command."]
-        Command = 0x0f,
-    }
-    impl StatCdmode {
-        #[inline(always)]
-        pub const fn from_bits(val: u8) -> StatCdmode {
-            unsafe { core::mem::transmute(val & 0x0f) }
-        }
-        #[inline(always)]
-        pub const fn to_bits(self) -> u8 {
-            unsafe { core::mem::transmute(self) }
-        }
-    }
-    impl From<u8> for StatCdmode {
-        #[inline(always)]
-        fn from(val: u8) -> StatCdmode {
-            StatCdmode::from_bits(val)
-        }
-    }
-    impl From<StatCdmode> for u8 {
-        #[inline(always)]
-        fn from(val: StatCdmode) -> u8 {
-            StatCdmode::to_bits(val)
         }
     }
     #[repr(u8)]
