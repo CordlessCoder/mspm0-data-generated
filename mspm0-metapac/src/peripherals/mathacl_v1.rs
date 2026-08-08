@@ -63,22 +63,22 @@ impl Mathacl {
     }
     #[doc = "Operand 2 register."]
     #[inline(always)]
-    pub const fn op2(self) -> crate::common::Reg<regs::Op2, crate::common::RW> {
+    pub const fn op2(self) -> crate::common::Reg<u32, crate::common::RW> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x1118usize) as _) }
     }
     #[doc = "Operand 1 register."]
     #[inline(always)]
-    pub const fn op1(self) -> crate::common::Reg<regs::Op1, crate::common::RW> {
+    pub const fn op1(self) -> crate::common::Reg<u32, crate::common::RW> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x111cusize) as _) }
     }
     #[doc = "Result 1 register."]
     #[inline(always)]
-    pub const fn res1(self) -> crate::common::Reg<regs::Res1, crate::common::RW> {
+    pub const fn res1(self) -> crate::common::Reg<u32, crate::common::RW> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x1120usize) as _) }
     }
     #[doc = "Result 2 register."]
     #[inline(always)]
-    pub const fn res2(self) -> crate::common::Reg<regs::Res2, crate::common::RW> {
+    pub const fn res2(self) -> crate::common::Reg<u32, crate::common::RW> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x1124usize) as _) }
     }
     #[doc = "Status Register."]
@@ -195,76 +195,6 @@ pub mod regs {
             defmt :: write ! (f , "Ctl {{ func: {:?}, optype: {=bool:?}, qval: {:?}, sfactor: {=u8:?}, saten: {=bool:?}, numiter: {=u8:?} }}" , self . func () , self . optype () , self . qval () , self . sfactor () , self . saten () , self . numiter ())
         }
     }
-    #[doc = "Operand 1 register."]
-    #[repr(transparent)]
-    #[derive(Copy, Clone, Eq, PartialEq)]
-    pub struct Op1(pub u32);
-    impl Op1 {
-        #[doc = "Operand 1 Register"]
-        #[must_use]
-        #[inline(always)]
-        pub const fn data(&self) -> u32 {
-            let val = (self.0 >> 0usize) & 0xffff_ffff;
-            val as u32
-        }
-        #[doc = "Operand 1 Register"]
-        #[inline(always)]
-        pub const fn set_data(&mut self, val: u32) {
-            self.0 = (self.0 & !(0xffff_ffff << 0usize)) | (((val as u32) & 0xffff_ffff) << 0usize);
-        }
-    }
-    impl Default for Op1 {
-        #[inline(always)]
-        fn default() -> Op1 {
-            Op1(0)
-        }
-    }
-    impl core::fmt::Debug for Op1 {
-        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-            f.debug_struct("Op1").field("data", &self.data()).finish()
-        }
-    }
-    #[cfg(feature = "defmt")]
-    impl defmt::Format for Op1 {
-        fn format(&self, f: defmt::Formatter) {
-            defmt::write!(f, "Op1 {{ data: {=u32:?} }}", self.data())
-        }
-    }
-    #[doc = "Operand 2 register."]
-    #[repr(transparent)]
-    #[derive(Copy, Clone, Eq, PartialEq)]
-    pub struct Op2(pub u32);
-    impl Op2 {
-        #[doc = "Operand 1 Register"]
-        #[must_use]
-        #[inline(always)]
-        pub const fn data(&self) -> u32 {
-            let val = (self.0 >> 0usize) & 0xffff_ffff;
-            val as u32
-        }
-        #[doc = "Operand 1 Register"]
-        #[inline(always)]
-        pub const fn set_data(&mut self, val: u32) {
-            self.0 = (self.0 & !(0xffff_ffff << 0usize)) | (((val as u32) & 0xffff_ffff) << 0usize);
-        }
-    }
-    impl Default for Op2 {
-        #[inline(always)]
-        fn default() -> Op2 {
-            Op2(0)
-        }
-    }
-    impl core::fmt::Debug for Op2 {
-        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-            f.debug_struct("Op2").field("data", &self.data()).finish()
-        }
-    }
-    #[cfg(feature = "defmt")]
-    impl defmt::Format for Op2 {
-        fn format(&self, f: defmt::Formatter) {
-            defmt::write!(f, "Op2 {{ data: {=u32:?} }}", self.data())
-        }
-    }
     #[doc = "Power enable."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
@@ -320,76 +250,6 @@ pub mod regs {
             )
         }
     }
-    #[doc = "Result 1 register."]
-    #[repr(transparent)]
-    #[derive(Copy, Clone, Eq, PartialEq)]
-    pub struct Res1(pub u32);
-    impl Res1 {
-        #[doc = "Result 1 Register"]
-        #[must_use]
-        #[inline(always)]
-        pub const fn data(&self) -> u32 {
-            let val = (self.0 >> 0usize) & 0xffff_ffff;
-            val as u32
-        }
-        #[doc = "Result 1 Register"]
-        #[inline(always)]
-        pub const fn set_data(&mut self, val: u32) {
-            self.0 = (self.0 & !(0xffff_ffff << 0usize)) | (((val as u32) & 0xffff_ffff) << 0usize);
-        }
-    }
-    impl Default for Res1 {
-        #[inline(always)]
-        fn default() -> Res1 {
-            Res1(0)
-        }
-    }
-    impl core::fmt::Debug for Res1 {
-        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-            f.debug_struct("Res1").field("data", &self.data()).finish()
-        }
-    }
-    #[cfg(feature = "defmt")]
-    impl defmt::Format for Res1 {
-        fn format(&self, f: defmt::Formatter) {
-            defmt::write!(f, "Res1 {{ data: {=u32:?} }}", self.data())
-        }
-    }
-    #[doc = "Result 2 register."]
-    #[repr(transparent)]
-    #[derive(Copy, Clone, Eq, PartialEq)]
-    pub struct Res2(pub u32);
-    impl Res2 {
-        #[doc = "Result 2 Register"]
-        #[must_use]
-        #[inline(always)]
-        pub const fn data(&self) -> u32 {
-            let val = (self.0 >> 0usize) & 0xffff_ffff;
-            val as u32
-        }
-        #[doc = "Result 2 Register"]
-        #[inline(always)]
-        pub const fn set_data(&mut self, val: u32) {
-            self.0 = (self.0 & !(0xffff_ffff << 0usize)) | (((val as u32) & 0xffff_ffff) << 0usize);
-        }
-    }
-    impl Default for Res2 {
-        #[inline(always)]
-        fn default() -> Res2 {
-            Res2(0)
-        }
-    }
-    impl core::fmt::Debug for Res2 {
-        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-            f.debug_struct("Res2").field("data", &self.data()).finish()
-        }
-    }
-    #[cfg(feature = "defmt")]
-    impl defmt::Format for Res2 {
-        fn format(&self, f: defmt::Formatter) {
-            defmt::write!(f, "Res2 {{ data: {=u32:?} }}", self.data())
-        }
-    }
     #[doc = "Reset Control."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
@@ -398,26 +258,26 @@ pub mod regs {
         #[doc = "Assert reset to the peripheral."]
         #[must_use]
         #[inline(always)]
-        pub const fn resetassert(&self) -> super::vals::Resetassert {
+        pub const fn resetassert(&self) -> bool {
             let val = (self.0 >> 0usize) & 0x01;
-            super::vals::Resetassert::from_bits(val as u8)
+            val != 0
         }
         #[doc = "Assert reset to the peripheral."]
         #[inline(always)]
-        pub const fn set_resetassert(&mut self, val: super::vals::Resetassert) {
-            self.0 = (self.0 & !(0x01 << 0usize)) | (((val.to_bits() as u32) & 0x01) << 0usize);
+        pub const fn set_resetassert(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 0usize)) | (((val as u32) & 0x01) << 0usize);
         }
         #[doc = "Clear the RESETSTKY bit in the STAT register."]
         #[must_use]
         #[inline(always)]
-        pub const fn resetstkyclr(&self) -> super::vals::Resetstkyclr {
+        pub const fn resetstkyclr(&self) -> bool {
             let val = (self.0 >> 1usize) & 0x01;
-            super::vals::Resetstkyclr::from_bits(val as u8)
+            val != 0
         }
         #[doc = "Clear the RESETSTKY bit in the STAT register."]
         #[inline(always)]
-        pub const fn set_resetstkyclr(&mut self, val: super::vals::Resetstkyclr) {
-            self.0 = (self.0 & !(0x01 << 1usize)) | (((val.to_bits() as u32) & 0x01) << 1usize);
+        pub const fn set_resetstkyclr(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 1usize)) | (((val as u32) & 0x01) << 1usize);
         }
         #[doc = "Unlock key B1h = KEY to allow write access to this register"]
         #[must_use]
@@ -452,7 +312,7 @@ pub mod regs {
         fn format(&self, f: defmt::Formatter) {
             defmt::write!(
                 f,
-                "Rstctl {{ resetassert: {:?}, resetstkyclr: {:?}, key: {:?} }}",
+                "Rstctl {{ resetassert: {=bool:?}, resetstkyclr: {=bool:?}, key: {:?} }}",
                 self.resetassert(),
                 self.resetstkyclr(),
                 self.key()
@@ -467,14 +327,14 @@ pub mod regs {
         #[doc = "This bit indicates, if the peripheral was reset, since this bit was cleared by RESETSTKYCLR in the RSTCTL register."]
         #[must_use]
         #[inline(always)]
-        pub const fn resetstky(&self) -> super::vals::Resetstky {
+        pub const fn resetstky(&self) -> bool {
             let val = (self.0 >> 16usize) & 0x01;
-            super::vals::Resetstky::from_bits(val as u8)
+            val != 0
         }
         #[doc = "This bit indicates, if the peripheral was reset, since this bit was cleared by RESETSTKYCLR in the RSTCTL register."]
         #[inline(always)]
-        pub const fn set_resetstky(&mut self, val: super::vals::Resetstky) {
-            self.0 = (self.0 & !(0x01 << 16usize)) | (((val.to_bits() as u32) & 0x01) << 16usize);
+        pub const fn set_resetstky(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 16usize)) | (((val as u32) & 0x01) << 16usize);
         }
     }
     impl Default for Stat {
@@ -493,7 +353,7 @@ pub mod regs {
     #[cfg(feature = "defmt")]
     impl defmt::Format for Stat {
         fn format(&self, f: defmt::Formatter) {
-            defmt::write!(f, "Stat {{ resetstky: {:?} }}", self.resetstky())
+            defmt::write!(f, "Stat {{ resetstky: {=bool:?} }}", self.resetstky())
         }
     }
     #[doc = "Status Register."]
@@ -540,14 +400,14 @@ pub mod regs {
         #[doc = "MATHACL busy bit."]
         #[must_use]
         #[inline(always)]
-        pub const fn busy(&self) -> super::vals::Busy {
+        pub const fn busy(&self) -> bool {
             let val = (self.0 >> 8usize) & 0x01;
-            super::vals::Busy::from_bits(val as u8)
+            val != 0
         }
         #[doc = "MATHACL busy bit."]
         #[inline(always)]
-        pub const fn set_busy(&mut self, val: super::vals::Busy) {
-            self.0 = (self.0 & !(0x01 << 8usize)) | (((val.to_bits() as u32) & 0x01) << 8usize);
+        pub const fn set_busy(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 8usize)) | (((val as u32) & 0x01) << 8usize);
         }
     }
     impl Default for Status {
@@ -571,7 +431,7 @@ pub mod regs {
         fn format(&self, f: defmt::Formatter) {
             defmt::write!(
                 f,
-                "Status {{ uf: {=bool:?}, ovf: {=bool:?}, err: {:?}, busy: {:?} }}",
+                "Status {{ uf: {=bool:?}, ovf: {=bool:?}, err: {:?}, busy: {=bool:?} }}",
                 self.uf(),
                 self.ovf(),
                 self.err(),
@@ -650,37 +510,6 @@ pub mod regs {
     }
 }
 pub mod vals {
-    #[repr(u8)]
-    #[derive(Copy, Clone, Debug, Eq, PartialEq, Ord, PartialOrd)]
-    #[cfg_attr(feature = "defmt", derive(defmt::Format))]
-    pub enum Busy {
-        #[doc = "Compute has completed."]
-        Done = 0x0,
-        #[doc = "Compute ongoing."]
-        Notdone = 0x01,
-    }
-    impl Busy {
-        #[inline(always)]
-        pub const fn from_bits(val: u8) -> Busy {
-            unsafe { core::mem::transmute(val & 0x01) }
-        }
-        #[inline(always)]
-        pub const fn to_bits(self) -> u8 {
-            unsafe { core::mem::transmute(self) }
-        }
-    }
-    impl From<u8> for Busy {
-        #[inline(always)]
-        fn from(val: u8) -> Busy {
-            Busy::from_bits(val)
-        }
-    }
-    impl From<Busy> for u8 {
-        #[inline(always)]
-        fn from(val: Busy) -> u8 {
-            Busy::to_bits(val)
-        }
-    }
     #[repr(u8)]
     #[derive(Copy, Clone, Debug, Eq, PartialEq, Ord, PartialOrd)]
     #[cfg_attr(feature = "defmt", derive(defmt::Format))]
@@ -959,99 +788,6 @@ pub mod vals {
         #[inline(always)]
         fn from(val: ResetKey) -> u8 {
             ResetKey::to_bits(val)
-        }
-    }
-    #[repr(u8)]
-    #[derive(Copy, Clone, Debug, Eq, PartialEq, Ord, PartialOrd)]
-    #[cfg_attr(feature = "defmt", derive(defmt::Format))]
-    pub enum Resetassert {
-        #[doc = "Writing 0 has no effect."]
-        Nop = 0x0,
-        #[doc = "Assert reset."]
-        Assert = 0x01,
-    }
-    impl Resetassert {
-        #[inline(always)]
-        pub const fn from_bits(val: u8) -> Resetassert {
-            unsafe { core::mem::transmute(val & 0x01) }
-        }
-        #[inline(always)]
-        pub const fn to_bits(self) -> u8 {
-            unsafe { core::mem::transmute(self) }
-        }
-    }
-    impl From<u8> for Resetassert {
-        #[inline(always)]
-        fn from(val: u8) -> Resetassert {
-            Resetassert::from_bits(val)
-        }
-    }
-    impl From<Resetassert> for u8 {
-        #[inline(always)]
-        fn from(val: Resetassert) -> u8 {
-            Resetassert::to_bits(val)
-        }
-    }
-    #[repr(u8)]
-    #[derive(Copy, Clone, Debug, Eq, PartialEq, Ord, PartialOrd)]
-    #[cfg_attr(feature = "defmt", derive(defmt::Format))]
-    pub enum Resetstky {
-        #[doc = "The peripheral has not been reset since this bit was last cleared by RESETSTKYCLR in the RSTCTL register."]
-        Nores = 0x0,
-        #[doc = "The peripheral was reset since the last bit clear."]
-        Reset = 0x01,
-    }
-    impl Resetstky {
-        #[inline(always)]
-        pub const fn from_bits(val: u8) -> Resetstky {
-            unsafe { core::mem::transmute(val & 0x01) }
-        }
-        #[inline(always)]
-        pub const fn to_bits(self) -> u8 {
-            unsafe { core::mem::transmute(self) }
-        }
-    }
-    impl From<u8> for Resetstky {
-        #[inline(always)]
-        fn from(val: u8) -> Resetstky {
-            Resetstky::from_bits(val)
-        }
-    }
-    impl From<Resetstky> for u8 {
-        #[inline(always)]
-        fn from(val: Resetstky) -> u8 {
-            Resetstky::to_bits(val)
-        }
-    }
-    #[repr(u8)]
-    #[derive(Copy, Clone, Debug, Eq, PartialEq, Ord, PartialOrd)]
-    #[cfg_attr(feature = "defmt", derive(defmt::Format))]
-    pub enum Resetstkyclr {
-        #[doc = "Writing 0 has no effect."]
-        Nop = 0x0,
-        #[doc = "Clear reset sticky bit."]
-        Clr = 0x01,
-    }
-    impl Resetstkyclr {
-        #[inline(always)]
-        pub const fn from_bits(val: u8) -> Resetstkyclr {
-            unsafe { core::mem::transmute(val & 0x01) }
-        }
-        #[inline(always)]
-        pub const fn to_bits(self) -> u8 {
-            unsafe { core::mem::transmute(self) }
-        }
-    }
-    impl From<u8> for Resetstkyclr {
-        #[inline(always)]
-        fn from(val: u8) -> Resetstkyclr {
-            Resetstkyclr::from_bits(val)
-        }
-    }
-    impl From<Resetstkyclr> for u8 {
-        #[inline(always)]
-        fn from(val: Resetstkyclr) -> u8 {
-            Resetstkyclr::to_bits(val)
         }
     }
 }

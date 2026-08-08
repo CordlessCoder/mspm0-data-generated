@@ -26,27 +26,27 @@ impl CpuInt {
     }
     #[doc = "Interrupt mask."]
     #[inline(always)]
-    pub const fn imask(self) -> crate::common::Reg<regs::CpuInt, crate::common::RW> {
+    pub const fn imask(self) -> crate::common::Reg<regs::Dio, crate::common::RW> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x08usize) as _) }
     }
     #[doc = "Raw interrupt status."]
     #[inline(always)]
-    pub const fn ris(self) -> crate::common::Reg<regs::CpuInt, crate::common::R> {
+    pub const fn ris(self) -> crate::common::Reg<regs::Dio, crate::common::R> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x10usize) as _) }
     }
     #[doc = "Masked interrupt status."]
     #[inline(always)]
-    pub const fn mis(self) -> crate::common::Reg<regs::CpuInt, crate::common::R> {
+    pub const fn mis(self) -> crate::common::Reg<regs::Dio, crate::common::R> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x18usize) as _) }
     }
     #[doc = "Interrupt set."]
     #[inline(always)]
-    pub const fn iset(self) -> crate::common::Reg<regs::CpuInt, crate::common::W> {
+    pub const fn iset(self) -> crate::common::Reg<regs::Dio, crate::common::W> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x20usize) as _) }
     }
     #[doc = "Interrupt clear."]
     #[inline(always)]
-    pub const fn iclr(self) -> crate::common::Reg<regs::CpuInt, crate::common::W> {
+    pub const fn iclr(self) -> crate::common::Reg<regs::Dio, crate::common::W> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x28usize) as _) }
     }
 }
@@ -72,27 +72,27 @@ impl GenEvent {
     }
     #[doc = "Interrupt mask."]
     #[inline(always)]
-    pub const fn imask(self) -> crate::common::Reg<regs::GenEvent, crate::common::RW> {
+    pub const fn imask(self) -> crate::common::Reg<regs::Dio, crate::common::RW> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x08usize) as _) }
     }
     #[doc = "Raw interrupt status."]
     #[inline(always)]
-    pub const fn ris(self) -> crate::common::Reg<regs::GenEvent, crate::common::R> {
+    pub const fn ris(self) -> crate::common::Reg<regs::Dio, crate::common::R> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x10usize) as _) }
     }
     #[doc = "Masked interrupt status."]
     #[inline(always)]
-    pub const fn mis(self) -> crate::common::Reg<regs::GenEvent, crate::common::R> {
+    pub const fn mis(self) -> crate::common::Reg<regs::Dio, crate::common::R> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x18usize) as _) }
     }
     #[doc = "Interrupt set."]
     #[inline(always)]
-    pub const fn iset(self) -> crate::common::Reg<regs::GenEvent, crate::common::W> {
+    pub const fn iset(self) -> crate::common::Reg<regs::Dio, crate::common::W> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x20usize) as _) }
     }
     #[doc = "Interrupt clear."]
     #[inline(always)]
-    pub const fn iclr(self) -> crate::common::Reg<regs::GenEvent, crate::common::W> {
+    pub const fn iclr(self) -> crate::common::Reg<regs::Dio, crate::common::W> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x28usize) as _) }
     }
 }
@@ -163,7 +163,7 @@ impl Gpio {
     }
     #[doc = "Data output 3 to 0."]
     #[inline(always)]
-    pub const fn dout_y_x4(self, n: usize) -> crate::common::Reg<regs::DoutX4, crate::common::W> {
+    pub const fn dout_y_x4(self, n: usize) -> crate::common::Reg<regs::DioX4, crate::common::W> {
         assert!(n < 8usize);
         unsafe {
             crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x1200usize + n * 4usize) as _)
@@ -171,42 +171,42 @@ impl Gpio {
     }
     #[doc = "Data output 31 to 0."]
     #[inline(always)]
-    pub const fn dout31_0(self) -> crate::common::Reg<regs::Dout310, crate::common::RW> {
+    pub const fn dout31_0(self) -> crate::common::Reg<regs::Dio, crate::common::RW> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x1280usize) as _) }
     }
     #[doc = "Data output set 31 to 0."]
     #[inline(always)]
-    pub const fn doutset31_0(self) -> crate::common::Reg<regs::Doutset310, crate::common::W> {
+    pub const fn doutset31_0(self) -> crate::common::Reg<regs::Dio, crate::common::W> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x1290usize) as _) }
     }
     #[doc = "Data output clear 31 to 0."]
     #[inline(always)]
-    pub const fn doutclr31_0(self) -> crate::common::Reg<regs::Doutclr310, crate::common::W> {
+    pub const fn doutclr31_0(self) -> crate::common::Reg<regs::Dio, crate::common::W> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x12a0usize) as _) }
     }
     #[doc = "Data output toggle 31 to 0."]
     #[inline(always)]
-    pub const fn douttgl31_0(self) -> crate::common::Reg<regs::Douttgl310, crate::common::W> {
+    pub const fn douttgl31_0(self) -> crate::common::Reg<regs::Dio, crate::common::W> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x12b0usize) as _) }
     }
     #[doc = "Data output enable 31 to 0."]
     #[inline(always)]
-    pub const fn doe31_0(self) -> crate::common::Reg<regs::Doe310, crate::common::RW> {
+    pub const fn doe31_0(self) -> crate::common::Reg<regs::Dio, crate::common::RW> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x12c0usize) as _) }
     }
     #[doc = "Data output enable set 31 to 0."]
     #[inline(always)]
-    pub const fn doeset31_0(self) -> crate::common::Reg<regs::Doeset310, crate::common::W> {
+    pub const fn doeset31_0(self) -> crate::common::Reg<regs::Dio, crate::common::W> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x12d0usize) as _) }
     }
     #[doc = "Data output enable clear 31 to 0."]
     #[inline(always)]
-    pub const fn doeclr31_0(self) -> crate::common::Reg<regs::Doeclr310, crate::common::W> {
+    pub const fn doeclr31_0(self) -> crate::common::Reg<regs::Dio, crate::common::W> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x12e0usize) as _) }
     }
     #[doc = "Data input 3 to 0."]
     #[inline(always)]
-    pub const fn din_y_x4(self, n: usize) -> crate::common::Reg<regs::DinX4, crate::common::R> {
+    pub const fn din_y_x4(self, n: usize) -> crate::common::Reg<regs::DioX4, crate::common::R> {
         assert!(n < 8usize);
         unsafe {
             crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x1300usize + n * 4usize) as _)
@@ -214,17 +214,17 @@ impl Gpio {
     }
     #[doc = "Data input 31 to 0."]
     #[inline(always)]
-    pub const fn din31_0(self) -> crate::common::Reg<regs::Din310, crate::common::R> {
+    pub const fn din31_0(self) -> crate::common::Reg<regs::Dio, crate::common::R> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x1380usize) as _) }
     }
     #[doc = "Polarity 15 to 0."]
     #[inline(always)]
-    pub const fn polarity15_0(self) -> crate::common::Reg<regs::Polarity150, crate::common::RW> {
+    pub const fn polarity15_0(self) -> crate::common::Reg<regs::Polarity, crate::common::RW> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x1390usize) as _) }
     }
     #[doc = "Polarity 31 to 16."]
     #[inline(always)]
-    pub const fn polarity31_16(self) -> crate::common::Reg<regs::Polarity3116, crate::common::RW> {
+    pub const fn polarity31_16(self) -> crate::common::Reg<regs::Polarity, crate::common::RW> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x13a0usize) as _) }
     }
     #[doc = "FAST WAKE GLOBAL EN."]
@@ -350,78 +350,6 @@ is enabled, this register is used to manually control the peripheral's clock req
                 self.override_(),
                 self.run_stop()
             )
-        }
-    }
-    #[doc = "Interrupt clear."]
-    #[repr(transparent)]
-    #[derive(Copy, Clone, Eq, PartialEq)]
-    pub struct CpuInt(pub u32);
-    impl CpuInt {
-        #[doc = "DIO0 event."]
-        #[must_use]
-        #[inline(always)]
-        pub const fn dio(&self, n: usize) -> bool {
-            assert!(n < 32usize);
-            let offs = 0usize + n * 1usize;
-            let val = (self.0 >> offs) & 0x01;
-            val != 0
-        }
-        #[doc = "DIO0 event."]
-        #[inline(always)]
-        pub const fn set_dio(&mut self, n: usize, val: bool) {
-            assert!(n < 32usize);
-            let offs = 0usize + n * 1usize;
-            self.0 = (self.0 & !(0x01 << offs)) | (((val as u32) & 0x01) << offs);
-        }
-    }
-    impl Default for CpuInt {
-        #[inline(always)]
-        fn default() -> CpuInt {
-            CpuInt(0)
-        }
-    }
-    impl core::fmt::Debug for CpuInt {
-        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-            f.debug_struct("CpuInt")
-                .field("dio[0]", &self.dio(0usize))
-                .field("dio[1]", &self.dio(1usize))
-                .field("dio[2]", &self.dio(2usize))
-                .field("dio[3]", &self.dio(3usize))
-                .field("dio[4]", &self.dio(4usize))
-                .field("dio[5]", &self.dio(5usize))
-                .field("dio[6]", &self.dio(6usize))
-                .field("dio[7]", &self.dio(7usize))
-                .field("dio[8]", &self.dio(8usize))
-                .field("dio[9]", &self.dio(9usize))
-                .field("dio[10]", &self.dio(10usize))
-                .field("dio[11]", &self.dio(11usize))
-                .field("dio[12]", &self.dio(12usize))
-                .field("dio[13]", &self.dio(13usize))
-                .field("dio[14]", &self.dio(14usize))
-                .field("dio[15]", &self.dio(15usize))
-                .field("dio[16]", &self.dio(16usize))
-                .field("dio[17]", &self.dio(17usize))
-                .field("dio[18]", &self.dio(18usize))
-                .field("dio[19]", &self.dio(19usize))
-                .field("dio[20]", &self.dio(20usize))
-                .field("dio[21]", &self.dio(21usize))
-                .field("dio[22]", &self.dio(22usize))
-                .field("dio[23]", &self.dio(23usize))
-                .field("dio[24]", &self.dio(24usize))
-                .field("dio[25]", &self.dio(25usize))
-                .field("dio[26]", &self.dio(26usize))
-                .field("dio[27]", &self.dio(27usize))
-                .field("dio[28]", &self.dio(28usize))
-                .field("dio[29]", &self.dio(29usize))
-                .field("dio[30]", &self.dio(30usize))
-                .field("dio[31]", &self.dio(31usize))
-                .finish()
-        }
-    }
-    #[cfg(feature = "defmt")]
-    impl defmt::Format for CpuInt {
-        fn format(&self, f: defmt::Formatter) {
-            defmt :: write ! (f , "CpuInt {{ dio[0]: {=bool:?}, dio[1]: {=bool:?}, dio[2]: {=bool:?}, dio[3]: {=bool:?}, dio[4]: {=bool:?}, dio[5]: {=bool:?}, dio[6]: {=bool:?}, dio[7]: {=bool:?}, dio[8]: {=bool:?}, dio[9]: {=bool:?}, dio[10]: {=bool:?}, dio[11]: {=bool:?}, dio[12]: {=bool:?}, dio[13]: {=bool:?}, dio[14]: {=bool:?}, dio[15]: {=bool:?}, dio[16]: {=bool:?}, dio[17]: {=bool:?}, dio[18]: {=bool:?}, dio[19]: {=bool:?}, dio[20]: {=bool:?}, dio[21]: {=bool:?}, dio[22]: {=bool:?}, dio[23]: {=bool:?}, dio[24]: {=bool:?}, dio[25]: {=bool:?}, dio[26]: {=bool:?}, dio[27]: {=bool:?}, dio[28]: {=bool:?}, dio[29]: {=bool:?}, dio[30]: {=bool:?}, dio[31]: {=bool:?} }}" , self . dio (0usize) , self . dio (1usize) , self . dio (2usize) , self . dio (3usize) , self . dio (4usize) , self . dio (5usize) , self . dio (6usize) , self . dio (7usize) , self . dio (8usize) , self . dio (9usize) , self . dio (10usize) , self . dio (11usize) , self . dio (12usize) , self . dio (13usize) , self . dio (14usize) , self . dio (15usize) , self . dio (16usize) , self . dio (17usize) , self . dio (18usize) , self . dio (19usize) , self . dio (20usize) , self . dio (21usize) , self . dio (22usize) , self . dio (23usize) , self . dio (24usize) , self . dio (25usize) , self . dio (26usize) , self . dio (27usize) , self . dio (28usize) , self . dio (29usize) , self . dio (30usize) , self . dio (31usize))
         }
     }
     #[doc = "Interrupt index."]
@@ -574,12 +502,12 @@ is enabled, this register is used to manually control the peripheral's clock req
             defmt :: write ! (f , "Desc {{ minrev: {=u8:?}, majrev: {=u8:?}, featurever: {=u8:?}, moduleid: {=u16:?} }}" , self . minrev () , self . majrev () , self . featurever () , self . moduleid ())
         }
     }
-    #[doc = "Data input 31 to 0."]
+    #[doc = "A mask over the port's 32 DIO pins, indexed by DIO number. The two generic event blocks implement one half each: GEN_EVENT0 has DIO0 to DIO15 and GEN_EVENT1 has DIO16 to DIO31, each at the bit matching its own DIO number."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
-    pub struct Din310(pub u32);
-    impl Din310 {
-        #[doc = "This bit reads the data input value of DIO0."]
+    pub struct Dio(pub u32);
+    impl Dio {
+        #[doc = "One bit per DIO pin."]
         #[must_use]
         #[inline(always)]
         pub const fn dio(&self, n: usize) -> bool {
@@ -588,7 +516,7 @@ is enabled, this register is used to manually control the peripheral's clock req
             let val = (self.0 >> offs) & 0x01;
             val != 0
         }
-        #[doc = "This bit reads the data input value of DIO0."]
+        #[doc = "One bit per DIO pin."]
         #[inline(always)]
         pub const fn set_dio(&mut self, n: usize, val: bool) {
             assert!(n < 32usize);
@@ -596,15 +524,15 @@ is enabled, this register is used to manually control the peripheral's clock req
             self.0 = (self.0 & !(0x01 << offs)) | (((val as u32) & 0x01) << offs);
         }
     }
-    impl Default for Din310 {
+    impl Default for Dio {
         #[inline(always)]
-        fn default() -> Din310 {
-            Din310(0)
+        fn default() -> Dio {
+            Dio(0)
         }
     }
-    impl core::fmt::Debug for Din310 {
+    impl core::fmt::Debug for Dio {
         fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-            f.debug_struct("Din310")
+            f.debug_struct("Dio")
                 .field("dio[0]", &self.dio(0usize))
                 .field("dio[1]", &self.dio(1usize))
                 .field("dio[2]", &self.dio(2usize))
@@ -641,17 +569,17 @@ is enabled, this register is used to manually control the peripheral's clock req
         }
     }
     #[cfg(feature = "defmt")]
-    impl defmt::Format for Din310 {
+    impl defmt::Format for Dio {
         fn format(&self, f: defmt::Formatter) {
-            defmt :: write ! (f , "Din310 {{ dio[0]: {=bool:?}, dio[1]: {=bool:?}, dio[2]: {=bool:?}, dio[3]: {=bool:?}, dio[4]: {=bool:?}, dio[5]: {=bool:?}, dio[6]: {=bool:?}, dio[7]: {=bool:?}, dio[8]: {=bool:?}, dio[9]: {=bool:?}, dio[10]: {=bool:?}, dio[11]: {=bool:?}, dio[12]: {=bool:?}, dio[13]: {=bool:?}, dio[14]: {=bool:?}, dio[15]: {=bool:?}, dio[16]: {=bool:?}, dio[17]: {=bool:?}, dio[18]: {=bool:?}, dio[19]: {=bool:?}, dio[20]: {=bool:?}, dio[21]: {=bool:?}, dio[22]: {=bool:?}, dio[23]: {=bool:?}, dio[24]: {=bool:?}, dio[25]: {=bool:?}, dio[26]: {=bool:?}, dio[27]: {=bool:?}, dio[28]: {=bool:?}, dio[29]: {=bool:?}, dio[30]: {=bool:?}, dio[31]: {=bool:?} }}" , self . dio (0usize) , self . dio (1usize) , self . dio (2usize) , self . dio (3usize) , self . dio (4usize) , self . dio (5usize) , self . dio (6usize) , self . dio (7usize) , self . dio (8usize) , self . dio (9usize) , self . dio (10usize) , self . dio (11usize) , self . dio (12usize) , self . dio (13usize) , self . dio (14usize) , self . dio (15usize) , self . dio (16usize) , self . dio (17usize) , self . dio (18usize) , self . dio (19usize) , self . dio (20usize) , self . dio (21usize) , self . dio (22usize) , self . dio (23usize) , self . dio (24usize) , self . dio (25usize) , self . dio (26usize) , self . dio (27usize) , self . dio (28usize) , self . dio (29usize) , self . dio (30usize) , self . dio (31usize))
+            defmt :: write ! (f , "Dio {{ dio[0]: {=bool:?}, dio[1]: {=bool:?}, dio[2]: {=bool:?}, dio[3]: {=bool:?}, dio[4]: {=bool:?}, dio[5]: {=bool:?}, dio[6]: {=bool:?}, dio[7]: {=bool:?}, dio[8]: {=bool:?}, dio[9]: {=bool:?}, dio[10]: {=bool:?}, dio[11]: {=bool:?}, dio[12]: {=bool:?}, dio[13]: {=bool:?}, dio[14]: {=bool:?}, dio[15]: {=bool:?}, dio[16]: {=bool:?}, dio[17]: {=bool:?}, dio[18]: {=bool:?}, dio[19]: {=bool:?}, dio[20]: {=bool:?}, dio[21]: {=bool:?}, dio[22]: {=bool:?}, dio[23]: {=bool:?}, dio[24]: {=bool:?}, dio[25]: {=bool:?}, dio[26]: {=bool:?}, dio[27]: {=bool:?}, dio[28]: {=bool:?}, dio[29]: {=bool:?}, dio[30]: {=bool:?}, dio[31]: {=bool:?} }}" , self . dio (0usize) , self . dio (1usize) , self . dio (2usize) , self . dio (3usize) , self . dio (4usize) , self . dio (5usize) , self . dio (6usize) , self . dio (7usize) , self . dio (8usize) , self . dio (9usize) , self . dio (10usize) , self . dio (11usize) , self . dio (12usize) , self . dio (13usize) , self . dio (14usize) , self . dio (15usize) , self . dio (16usize) , self . dio (17usize) , self . dio (18usize) , self . dio (19usize) , self . dio (20usize) , self . dio (21usize) , self . dio (22usize) , self . dio (23usize) , self . dio (24usize) , self . dio (25usize) , self . dio (26usize) , self . dio (27usize) , self . dio (28usize) , self . dio (29usize) , self . dio (30usize) , self . dio (31usize))
         }
     }
-    #[doc = "Data input 11 to 8."]
+    #[doc = "Four DIO pins, one per byte of the word."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
-    pub struct DinX4(pub u32);
-    impl DinX4 {
-        #[doc = "This bit reads the data input value of DIO8."]
+    pub struct DioX4(pub u32);
+    impl DioX4 {
+        #[doc = "The value of one DIO pin."]
         #[must_use]
         #[inline(always)]
         pub const fn dio(&self, n: usize) -> bool {
@@ -660,7 +588,7 @@ is enabled, this register is used to manually control the peripheral's clock req
             let val = (self.0 >> offs) & 0x01;
             val != 0
         }
-        #[doc = "This bit reads the data input value of DIO8."]
+        #[doc = "The value of one DIO pin."]
         #[inline(always)]
         pub const fn set_dio(&mut self, n: usize, val: bool) {
             assert!(n < 4usize);
@@ -668,15 +596,15 @@ is enabled, this register is used to manually control the peripheral's clock req
             self.0 = (self.0 & !(0x01 << offs)) | (((val as u32) & 0x01) << offs);
         }
     }
-    impl Default for DinX4 {
+    impl Default for DioX4 {
         #[inline(always)]
-        fn default() -> DinX4 {
-            DinX4(0)
+        fn default() -> DioX4 {
+            DioX4(0)
         }
     }
-    impl core::fmt::Debug for DinX4 {
+    impl core::fmt::Debug for DioX4 {
         fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-            f.debug_struct("DinX4")
+            f.debug_struct("DioX4")
                 .field("dio[0]", &self.dio(0usize))
                 .field("dio[1]", &self.dio(1usize))
                 .field("dio[2]", &self.dio(2usize))
@@ -685,9 +613,9 @@ is enabled, this register is used to manually control the peripheral's clock req
         }
     }
     #[cfg(feature = "defmt")]
-    impl defmt::Format for DinX4 {
+    impl defmt::Format for DioX4 {
         fn format(&self, f: defmt::Formatter) {
-            defmt :: write ! (f , "DinX4 {{ dio[0]: {=bool:?}, dio[1]: {=bool:?}, dio[2]: {=bool:?}, dio[3]: {=bool:?} }}" , self . dio (0usize) , self . dio (1usize) , self . dio (2usize) , self . dio (3usize))
+            defmt :: write ! (f , "DioX4 {{ dio[0]: {=bool:?}, dio[1]: {=bool:?}, dio[2]: {=bool:?}, dio[3]: {=bool:?} }}" , self . dio (0usize) , self . dio (1usize) , self . dio (2usize) , self . dio (3usize))
         }
     }
     #[doc = "DMA Write MASK."]
@@ -760,554 +688,6 @@ is enabled, this register is used to manually control the peripheral's clock req
     impl defmt::Format for Dmamask {
         fn format(&self, f: defmt::Formatter) {
             defmt :: write ! (f , "Dmamask {{ dout[0]: {=bool:?}, dout[1]: {=bool:?}, dout[2]: {=bool:?}, dout[3]: {=bool:?}, dout[4]: {=bool:?}, dout[5]: {=bool:?}, dout[6]: {=bool:?}, dout[7]: {=bool:?}, dout[8]: {=bool:?}, dout[9]: {=bool:?}, dout[10]: {=bool:?}, dout[11]: {=bool:?}, dout[12]: {=bool:?}, dout[13]: {=bool:?}, dout[14]: {=bool:?}, dout[15]: {=bool:?}, dout[16]: {=bool:?}, dout[17]: {=bool:?}, dout[18]: {=bool:?}, dout[19]: {=bool:?}, dout[20]: {=bool:?}, dout[21]: {=bool:?}, dout[22]: {=bool:?}, dout[23]: {=bool:?}, dout[24]: {=bool:?}, dout[25]: {=bool:?}, dout[26]: {=bool:?}, dout[27]: {=bool:?}, dout[28]: {=bool:?}, dout[29]: {=bool:?}, dout[30]: {=bool:?}, dout[31]: {=bool:?} }}" , self . dout (0usize) , self . dout (1usize) , self . dout (2usize) , self . dout (3usize) , self . dout (4usize) , self . dout (5usize) , self . dout (6usize) , self . dout (7usize) , self . dout (8usize) , self . dout (9usize) , self . dout (10usize) , self . dout (11usize) , self . dout (12usize) , self . dout (13usize) , self . dout (14usize) , self . dout (15usize) , self . dout (16usize) , self . dout (17usize) , self . dout (18usize) , self . dout (19usize) , self . dout (20usize) , self . dout (21usize) , self . dout (22usize) , self . dout (23usize) , self . dout (24usize) , self . dout (25usize) , self . dout (26usize) , self . dout (27usize) , self . dout (28usize) , self . dout (29usize) , self . dout (30usize) , self . dout (31usize))
-        }
-    }
-    #[doc = "Data output enable 31 to 0."]
-    #[repr(transparent)]
-    #[derive(Copy, Clone, Eq, PartialEq)]
-    pub struct Doe310(pub u32);
-    impl Doe310 {
-        #[doc = "Enables data output for DIO0."]
-        #[must_use]
-        #[inline(always)]
-        pub const fn dio(&self, n: usize) -> bool {
-            assert!(n < 32usize);
-            let offs = 0usize + n * 1usize;
-            let val = (self.0 >> offs) & 0x01;
-            val != 0
-        }
-        #[doc = "Enables data output for DIO0."]
-        #[inline(always)]
-        pub const fn set_dio(&mut self, n: usize, val: bool) {
-            assert!(n < 32usize);
-            let offs = 0usize + n * 1usize;
-            self.0 = (self.0 & !(0x01 << offs)) | (((val as u32) & 0x01) << offs);
-        }
-    }
-    impl Default for Doe310 {
-        #[inline(always)]
-        fn default() -> Doe310 {
-            Doe310(0)
-        }
-    }
-    impl core::fmt::Debug for Doe310 {
-        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-            f.debug_struct("Doe310")
-                .field("dio[0]", &self.dio(0usize))
-                .field("dio[1]", &self.dio(1usize))
-                .field("dio[2]", &self.dio(2usize))
-                .field("dio[3]", &self.dio(3usize))
-                .field("dio[4]", &self.dio(4usize))
-                .field("dio[5]", &self.dio(5usize))
-                .field("dio[6]", &self.dio(6usize))
-                .field("dio[7]", &self.dio(7usize))
-                .field("dio[8]", &self.dio(8usize))
-                .field("dio[9]", &self.dio(9usize))
-                .field("dio[10]", &self.dio(10usize))
-                .field("dio[11]", &self.dio(11usize))
-                .field("dio[12]", &self.dio(12usize))
-                .field("dio[13]", &self.dio(13usize))
-                .field("dio[14]", &self.dio(14usize))
-                .field("dio[15]", &self.dio(15usize))
-                .field("dio[16]", &self.dio(16usize))
-                .field("dio[17]", &self.dio(17usize))
-                .field("dio[18]", &self.dio(18usize))
-                .field("dio[19]", &self.dio(19usize))
-                .field("dio[20]", &self.dio(20usize))
-                .field("dio[21]", &self.dio(21usize))
-                .field("dio[22]", &self.dio(22usize))
-                .field("dio[23]", &self.dio(23usize))
-                .field("dio[24]", &self.dio(24usize))
-                .field("dio[25]", &self.dio(25usize))
-                .field("dio[26]", &self.dio(26usize))
-                .field("dio[27]", &self.dio(27usize))
-                .field("dio[28]", &self.dio(28usize))
-                .field("dio[29]", &self.dio(29usize))
-                .field("dio[30]", &self.dio(30usize))
-                .field("dio[31]", &self.dio(31usize))
-                .finish()
-        }
-    }
-    #[cfg(feature = "defmt")]
-    impl defmt::Format for Doe310 {
-        fn format(&self, f: defmt::Formatter) {
-            defmt :: write ! (f , "Doe310 {{ dio[0]: {=bool:?}, dio[1]: {=bool:?}, dio[2]: {=bool:?}, dio[3]: {=bool:?}, dio[4]: {=bool:?}, dio[5]: {=bool:?}, dio[6]: {=bool:?}, dio[7]: {=bool:?}, dio[8]: {=bool:?}, dio[9]: {=bool:?}, dio[10]: {=bool:?}, dio[11]: {=bool:?}, dio[12]: {=bool:?}, dio[13]: {=bool:?}, dio[14]: {=bool:?}, dio[15]: {=bool:?}, dio[16]: {=bool:?}, dio[17]: {=bool:?}, dio[18]: {=bool:?}, dio[19]: {=bool:?}, dio[20]: {=bool:?}, dio[21]: {=bool:?}, dio[22]: {=bool:?}, dio[23]: {=bool:?}, dio[24]: {=bool:?}, dio[25]: {=bool:?}, dio[26]: {=bool:?}, dio[27]: {=bool:?}, dio[28]: {=bool:?}, dio[29]: {=bool:?}, dio[30]: {=bool:?}, dio[31]: {=bool:?} }}" , self . dio (0usize) , self . dio (1usize) , self . dio (2usize) , self . dio (3usize) , self . dio (4usize) , self . dio (5usize) , self . dio (6usize) , self . dio (7usize) , self . dio (8usize) , self . dio (9usize) , self . dio (10usize) , self . dio (11usize) , self . dio (12usize) , self . dio (13usize) , self . dio (14usize) , self . dio (15usize) , self . dio (16usize) , self . dio (17usize) , self . dio (18usize) , self . dio (19usize) , self . dio (20usize) , self . dio (21usize) , self . dio (22usize) , self . dio (23usize) , self . dio (24usize) , self . dio (25usize) , self . dio (26usize) , self . dio (27usize) , self . dio (28usize) , self . dio (29usize) , self . dio (30usize) , self . dio (31usize))
-        }
-    }
-    #[doc = "Data output enable clear 31 to 0."]
-    #[repr(transparent)]
-    #[derive(Copy, Clone, Eq, PartialEq)]
-    pub struct Doeclr310(pub u32);
-    impl Doeclr310 {
-        #[doc = "Writing 1 to this bit clears the DIO0 bit in the DOE31_0 register. Writing 0 has no effect."]
-        #[must_use]
-        #[inline(always)]
-        pub const fn dio(&self, n: usize) -> bool {
-            assert!(n < 32usize);
-            let offs = 0usize + n * 1usize;
-            let val = (self.0 >> offs) & 0x01;
-            val != 0
-        }
-        #[doc = "Writing 1 to this bit clears the DIO0 bit in the DOE31_0 register. Writing 0 has no effect."]
-        #[inline(always)]
-        pub const fn set_dio(&mut self, n: usize, val: bool) {
-            assert!(n < 32usize);
-            let offs = 0usize + n * 1usize;
-            self.0 = (self.0 & !(0x01 << offs)) | (((val as u32) & 0x01) << offs);
-        }
-    }
-    impl Default for Doeclr310 {
-        #[inline(always)]
-        fn default() -> Doeclr310 {
-            Doeclr310(0)
-        }
-    }
-    impl core::fmt::Debug for Doeclr310 {
-        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-            f.debug_struct("Doeclr310")
-                .field("dio[0]", &self.dio(0usize))
-                .field("dio[1]", &self.dio(1usize))
-                .field("dio[2]", &self.dio(2usize))
-                .field("dio[3]", &self.dio(3usize))
-                .field("dio[4]", &self.dio(4usize))
-                .field("dio[5]", &self.dio(5usize))
-                .field("dio[6]", &self.dio(6usize))
-                .field("dio[7]", &self.dio(7usize))
-                .field("dio[8]", &self.dio(8usize))
-                .field("dio[9]", &self.dio(9usize))
-                .field("dio[10]", &self.dio(10usize))
-                .field("dio[11]", &self.dio(11usize))
-                .field("dio[12]", &self.dio(12usize))
-                .field("dio[13]", &self.dio(13usize))
-                .field("dio[14]", &self.dio(14usize))
-                .field("dio[15]", &self.dio(15usize))
-                .field("dio[16]", &self.dio(16usize))
-                .field("dio[17]", &self.dio(17usize))
-                .field("dio[18]", &self.dio(18usize))
-                .field("dio[19]", &self.dio(19usize))
-                .field("dio[20]", &self.dio(20usize))
-                .field("dio[21]", &self.dio(21usize))
-                .field("dio[22]", &self.dio(22usize))
-                .field("dio[23]", &self.dio(23usize))
-                .field("dio[24]", &self.dio(24usize))
-                .field("dio[25]", &self.dio(25usize))
-                .field("dio[26]", &self.dio(26usize))
-                .field("dio[27]", &self.dio(27usize))
-                .field("dio[28]", &self.dio(28usize))
-                .field("dio[29]", &self.dio(29usize))
-                .field("dio[30]", &self.dio(30usize))
-                .field("dio[31]", &self.dio(31usize))
-                .finish()
-        }
-    }
-    #[cfg(feature = "defmt")]
-    impl defmt::Format for Doeclr310 {
-        fn format(&self, f: defmt::Formatter) {
-            defmt :: write ! (f , "Doeclr310 {{ dio[0]: {=bool:?}, dio[1]: {=bool:?}, dio[2]: {=bool:?}, dio[3]: {=bool:?}, dio[4]: {=bool:?}, dio[5]: {=bool:?}, dio[6]: {=bool:?}, dio[7]: {=bool:?}, dio[8]: {=bool:?}, dio[9]: {=bool:?}, dio[10]: {=bool:?}, dio[11]: {=bool:?}, dio[12]: {=bool:?}, dio[13]: {=bool:?}, dio[14]: {=bool:?}, dio[15]: {=bool:?}, dio[16]: {=bool:?}, dio[17]: {=bool:?}, dio[18]: {=bool:?}, dio[19]: {=bool:?}, dio[20]: {=bool:?}, dio[21]: {=bool:?}, dio[22]: {=bool:?}, dio[23]: {=bool:?}, dio[24]: {=bool:?}, dio[25]: {=bool:?}, dio[26]: {=bool:?}, dio[27]: {=bool:?}, dio[28]: {=bool:?}, dio[29]: {=bool:?}, dio[30]: {=bool:?}, dio[31]: {=bool:?} }}" , self . dio (0usize) , self . dio (1usize) , self . dio (2usize) , self . dio (3usize) , self . dio (4usize) , self . dio (5usize) , self . dio (6usize) , self . dio (7usize) , self . dio (8usize) , self . dio (9usize) , self . dio (10usize) , self . dio (11usize) , self . dio (12usize) , self . dio (13usize) , self . dio (14usize) , self . dio (15usize) , self . dio (16usize) , self . dio (17usize) , self . dio (18usize) , self . dio (19usize) , self . dio (20usize) , self . dio (21usize) , self . dio (22usize) , self . dio (23usize) , self . dio (24usize) , self . dio (25usize) , self . dio (26usize) , self . dio (27usize) , self . dio (28usize) , self . dio (29usize) , self . dio (30usize) , self . dio (31usize))
-        }
-    }
-    #[doc = "Data output enable set 31 to 0."]
-    #[repr(transparent)]
-    #[derive(Copy, Clone, Eq, PartialEq)]
-    pub struct Doeset310(pub u32);
-    impl Doeset310 {
-        #[doc = "Writing 1 to this bit sets the DIO0 bit in the DOE31_0 register. Writing 0 has no effect."]
-        #[must_use]
-        #[inline(always)]
-        pub const fn dio(&self, n: usize) -> bool {
-            assert!(n < 32usize);
-            let offs = 0usize + n * 1usize;
-            let val = (self.0 >> offs) & 0x01;
-            val != 0
-        }
-        #[doc = "Writing 1 to this bit sets the DIO0 bit in the DOE31_0 register. Writing 0 has no effect."]
-        #[inline(always)]
-        pub const fn set_dio(&mut self, n: usize, val: bool) {
-            assert!(n < 32usize);
-            let offs = 0usize + n * 1usize;
-            self.0 = (self.0 & !(0x01 << offs)) | (((val as u32) & 0x01) << offs);
-        }
-    }
-    impl Default for Doeset310 {
-        #[inline(always)]
-        fn default() -> Doeset310 {
-            Doeset310(0)
-        }
-    }
-    impl core::fmt::Debug for Doeset310 {
-        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-            f.debug_struct("Doeset310")
-                .field("dio[0]", &self.dio(0usize))
-                .field("dio[1]", &self.dio(1usize))
-                .field("dio[2]", &self.dio(2usize))
-                .field("dio[3]", &self.dio(3usize))
-                .field("dio[4]", &self.dio(4usize))
-                .field("dio[5]", &self.dio(5usize))
-                .field("dio[6]", &self.dio(6usize))
-                .field("dio[7]", &self.dio(7usize))
-                .field("dio[8]", &self.dio(8usize))
-                .field("dio[9]", &self.dio(9usize))
-                .field("dio[10]", &self.dio(10usize))
-                .field("dio[11]", &self.dio(11usize))
-                .field("dio[12]", &self.dio(12usize))
-                .field("dio[13]", &self.dio(13usize))
-                .field("dio[14]", &self.dio(14usize))
-                .field("dio[15]", &self.dio(15usize))
-                .field("dio[16]", &self.dio(16usize))
-                .field("dio[17]", &self.dio(17usize))
-                .field("dio[18]", &self.dio(18usize))
-                .field("dio[19]", &self.dio(19usize))
-                .field("dio[20]", &self.dio(20usize))
-                .field("dio[21]", &self.dio(21usize))
-                .field("dio[22]", &self.dio(22usize))
-                .field("dio[23]", &self.dio(23usize))
-                .field("dio[24]", &self.dio(24usize))
-                .field("dio[25]", &self.dio(25usize))
-                .field("dio[26]", &self.dio(26usize))
-                .field("dio[27]", &self.dio(27usize))
-                .field("dio[28]", &self.dio(28usize))
-                .field("dio[29]", &self.dio(29usize))
-                .field("dio[30]", &self.dio(30usize))
-                .field("dio[31]", &self.dio(31usize))
-                .finish()
-        }
-    }
-    #[cfg(feature = "defmt")]
-    impl defmt::Format for Doeset310 {
-        fn format(&self, f: defmt::Formatter) {
-            defmt :: write ! (f , "Doeset310 {{ dio[0]: {=bool:?}, dio[1]: {=bool:?}, dio[2]: {=bool:?}, dio[3]: {=bool:?}, dio[4]: {=bool:?}, dio[5]: {=bool:?}, dio[6]: {=bool:?}, dio[7]: {=bool:?}, dio[8]: {=bool:?}, dio[9]: {=bool:?}, dio[10]: {=bool:?}, dio[11]: {=bool:?}, dio[12]: {=bool:?}, dio[13]: {=bool:?}, dio[14]: {=bool:?}, dio[15]: {=bool:?}, dio[16]: {=bool:?}, dio[17]: {=bool:?}, dio[18]: {=bool:?}, dio[19]: {=bool:?}, dio[20]: {=bool:?}, dio[21]: {=bool:?}, dio[22]: {=bool:?}, dio[23]: {=bool:?}, dio[24]: {=bool:?}, dio[25]: {=bool:?}, dio[26]: {=bool:?}, dio[27]: {=bool:?}, dio[28]: {=bool:?}, dio[29]: {=bool:?}, dio[30]: {=bool:?}, dio[31]: {=bool:?} }}" , self . dio (0usize) , self . dio (1usize) , self . dio (2usize) , self . dio (3usize) , self . dio (4usize) , self . dio (5usize) , self . dio (6usize) , self . dio (7usize) , self . dio (8usize) , self . dio (9usize) , self . dio (10usize) , self . dio (11usize) , self . dio (12usize) , self . dio (13usize) , self . dio (14usize) , self . dio (15usize) , self . dio (16usize) , self . dio (17usize) , self . dio (18usize) , self . dio (19usize) , self . dio (20usize) , self . dio (21usize) , self . dio (22usize) , self . dio (23usize) , self . dio (24usize) , self . dio (25usize) , self . dio (26usize) , self . dio (27usize) , self . dio (28usize) , self . dio (29usize) , self . dio (30usize) , self . dio (31usize))
-        }
-    }
-    #[doc = "Data output 31 to 0."]
-    #[repr(transparent)]
-    #[derive(Copy, Clone, Eq, PartialEq)]
-    pub struct Dout310(pub u32);
-    impl Dout310 {
-        #[doc = "This bit sets the value of the pin configured as DIO0 when the output is enabled through DOE31_0 register."]
-        #[must_use]
-        #[inline(always)]
-        pub const fn dio(&self, n: usize) -> bool {
-            assert!(n < 32usize);
-            let offs = 0usize + n * 1usize;
-            let val = (self.0 >> offs) & 0x01;
-            val != 0
-        }
-        #[doc = "This bit sets the value of the pin configured as DIO0 when the output is enabled through DOE31_0 register."]
-        #[inline(always)]
-        pub const fn set_dio(&mut self, n: usize, val: bool) {
-            assert!(n < 32usize);
-            let offs = 0usize + n * 1usize;
-            self.0 = (self.0 & !(0x01 << offs)) | (((val as u32) & 0x01) << offs);
-        }
-    }
-    impl Default for Dout310 {
-        #[inline(always)]
-        fn default() -> Dout310 {
-            Dout310(0)
-        }
-    }
-    impl core::fmt::Debug for Dout310 {
-        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-            f.debug_struct("Dout310")
-                .field("dio[0]", &self.dio(0usize))
-                .field("dio[1]", &self.dio(1usize))
-                .field("dio[2]", &self.dio(2usize))
-                .field("dio[3]", &self.dio(3usize))
-                .field("dio[4]", &self.dio(4usize))
-                .field("dio[5]", &self.dio(5usize))
-                .field("dio[6]", &self.dio(6usize))
-                .field("dio[7]", &self.dio(7usize))
-                .field("dio[8]", &self.dio(8usize))
-                .field("dio[9]", &self.dio(9usize))
-                .field("dio[10]", &self.dio(10usize))
-                .field("dio[11]", &self.dio(11usize))
-                .field("dio[12]", &self.dio(12usize))
-                .field("dio[13]", &self.dio(13usize))
-                .field("dio[14]", &self.dio(14usize))
-                .field("dio[15]", &self.dio(15usize))
-                .field("dio[16]", &self.dio(16usize))
-                .field("dio[17]", &self.dio(17usize))
-                .field("dio[18]", &self.dio(18usize))
-                .field("dio[19]", &self.dio(19usize))
-                .field("dio[20]", &self.dio(20usize))
-                .field("dio[21]", &self.dio(21usize))
-                .field("dio[22]", &self.dio(22usize))
-                .field("dio[23]", &self.dio(23usize))
-                .field("dio[24]", &self.dio(24usize))
-                .field("dio[25]", &self.dio(25usize))
-                .field("dio[26]", &self.dio(26usize))
-                .field("dio[27]", &self.dio(27usize))
-                .field("dio[28]", &self.dio(28usize))
-                .field("dio[29]", &self.dio(29usize))
-                .field("dio[30]", &self.dio(30usize))
-                .field("dio[31]", &self.dio(31usize))
-                .finish()
-        }
-    }
-    #[cfg(feature = "defmt")]
-    impl defmt::Format for Dout310 {
-        fn format(&self, f: defmt::Formatter) {
-            defmt :: write ! (f , "Dout310 {{ dio[0]: {=bool:?}, dio[1]: {=bool:?}, dio[2]: {=bool:?}, dio[3]: {=bool:?}, dio[4]: {=bool:?}, dio[5]: {=bool:?}, dio[6]: {=bool:?}, dio[7]: {=bool:?}, dio[8]: {=bool:?}, dio[9]: {=bool:?}, dio[10]: {=bool:?}, dio[11]: {=bool:?}, dio[12]: {=bool:?}, dio[13]: {=bool:?}, dio[14]: {=bool:?}, dio[15]: {=bool:?}, dio[16]: {=bool:?}, dio[17]: {=bool:?}, dio[18]: {=bool:?}, dio[19]: {=bool:?}, dio[20]: {=bool:?}, dio[21]: {=bool:?}, dio[22]: {=bool:?}, dio[23]: {=bool:?}, dio[24]: {=bool:?}, dio[25]: {=bool:?}, dio[26]: {=bool:?}, dio[27]: {=bool:?}, dio[28]: {=bool:?}, dio[29]: {=bool:?}, dio[30]: {=bool:?}, dio[31]: {=bool:?} }}" , self . dio (0usize) , self . dio (1usize) , self . dio (2usize) , self . dio (3usize) , self . dio (4usize) , self . dio (5usize) , self . dio (6usize) , self . dio (7usize) , self . dio (8usize) , self . dio (9usize) , self . dio (10usize) , self . dio (11usize) , self . dio (12usize) , self . dio (13usize) , self . dio (14usize) , self . dio (15usize) , self . dio (16usize) , self . dio (17usize) , self . dio (18usize) , self . dio (19usize) , self . dio (20usize) , self . dio (21usize) , self . dio (22usize) , self . dio (23usize) , self . dio (24usize) , self . dio (25usize) , self . dio (26usize) , self . dio (27usize) , self . dio (28usize) , self . dio (29usize) , self . dio (30usize) , self . dio (31usize))
-        }
-    }
-    #[doc = "Data output 11 to 8."]
-    #[repr(transparent)]
-    #[derive(Copy, Clone, Eq, PartialEq)]
-    pub struct DoutX4(pub u32);
-    impl DoutX4 {
-        #[doc = "This bit sets the value of the pin configured as DIO8 when the output is enabled through DOE31_0 register."]
-        #[must_use]
-        #[inline(always)]
-        pub const fn dio(&self, n: usize) -> bool {
-            assert!(n < 4usize);
-            let offs = 0usize + n * 8usize;
-            let val = (self.0 >> offs) & 0x01;
-            val != 0
-        }
-        #[doc = "This bit sets the value of the pin configured as DIO8 when the output is enabled through DOE31_0 register."]
-        #[inline(always)]
-        pub const fn set_dio(&mut self, n: usize, val: bool) {
-            assert!(n < 4usize);
-            let offs = 0usize + n * 8usize;
-            self.0 = (self.0 & !(0x01 << offs)) | (((val as u32) & 0x01) << offs);
-        }
-    }
-    impl Default for DoutX4 {
-        #[inline(always)]
-        fn default() -> DoutX4 {
-            DoutX4(0)
-        }
-    }
-    impl core::fmt::Debug for DoutX4 {
-        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-            f.debug_struct("DoutX4")
-                .field("dio[0]", &self.dio(0usize))
-                .field("dio[1]", &self.dio(1usize))
-                .field("dio[2]", &self.dio(2usize))
-                .field("dio[3]", &self.dio(3usize))
-                .finish()
-        }
-    }
-    #[cfg(feature = "defmt")]
-    impl defmt::Format for DoutX4 {
-        fn format(&self, f: defmt::Formatter) {
-            defmt :: write ! (f , "DoutX4 {{ dio[0]: {=bool:?}, dio[1]: {=bool:?}, dio[2]: {=bool:?}, dio[3]: {=bool:?} }}" , self . dio (0usize) , self . dio (1usize) , self . dio (2usize) , self . dio (3usize))
-        }
-    }
-    #[doc = "Data output clear 31 to 0."]
-    #[repr(transparent)]
-    #[derive(Copy, Clone, Eq, PartialEq)]
-    pub struct Doutclr310(pub u32);
-    impl Doutclr310 {
-        #[doc = "Writing 1 to this bit clears the DIO0 bit in the DOUT31_0 register. Writing 0 has no effect."]
-        #[must_use]
-        #[inline(always)]
-        pub const fn dio(&self, n: usize) -> bool {
-            assert!(n < 32usize);
-            let offs = 0usize + n * 1usize;
-            let val = (self.0 >> offs) & 0x01;
-            val != 0
-        }
-        #[doc = "Writing 1 to this bit clears the DIO0 bit in the DOUT31_0 register. Writing 0 has no effect."]
-        #[inline(always)]
-        pub const fn set_dio(&mut self, n: usize, val: bool) {
-            assert!(n < 32usize);
-            let offs = 0usize + n * 1usize;
-            self.0 = (self.0 & !(0x01 << offs)) | (((val as u32) & 0x01) << offs);
-        }
-    }
-    impl Default for Doutclr310 {
-        #[inline(always)]
-        fn default() -> Doutclr310 {
-            Doutclr310(0)
-        }
-    }
-    impl core::fmt::Debug for Doutclr310 {
-        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-            f.debug_struct("Doutclr310")
-                .field("dio[0]", &self.dio(0usize))
-                .field("dio[1]", &self.dio(1usize))
-                .field("dio[2]", &self.dio(2usize))
-                .field("dio[3]", &self.dio(3usize))
-                .field("dio[4]", &self.dio(4usize))
-                .field("dio[5]", &self.dio(5usize))
-                .field("dio[6]", &self.dio(6usize))
-                .field("dio[7]", &self.dio(7usize))
-                .field("dio[8]", &self.dio(8usize))
-                .field("dio[9]", &self.dio(9usize))
-                .field("dio[10]", &self.dio(10usize))
-                .field("dio[11]", &self.dio(11usize))
-                .field("dio[12]", &self.dio(12usize))
-                .field("dio[13]", &self.dio(13usize))
-                .field("dio[14]", &self.dio(14usize))
-                .field("dio[15]", &self.dio(15usize))
-                .field("dio[16]", &self.dio(16usize))
-                .field("dio[17]", &self.dio(17usize))
-                .field("dio[18]", &self.dio(18usize))
-                .field("dio[19]", &self.dio(19usize))
-                .field("dio[20]", &self.dio(20usize))
-                .field("dio[21]", &self.dio(21usize))
-                .field("dio[22]", &self.dio(22usize))
-                .field("dio[23]", &self.dio(23usize))
-                .field("dio[24]", &self.dio(24usize))
-                .field("dio[25]", &self.dio(25usize))
-                .field("dio[26]", &self.dio(26usize))
-                .field("dio[27]", &self.dio(27usize))
-                .field("dio[28]", &self.dio(28usize))
-                .field("dio[29]", &self.dio(29usize))
-                .field("dio[30]", &self.dio(30usize))
-                .field("dio[31]", &self.dio(31usize))
-                .finish()
-        }
-    }
-    #[cfg(feature = "defmt")]
-    impl defmt::Format for Doutclr310 {
-        fn format(&self, f: defmt::Formatter) {
-            defmt :: write ! (f , "Doutclr310 {{ dio[0]: {=bool:?}, dio[1]: {=bool:?}, dio[2]: {=bool:?}, dio[3]: {=bool:?}, dio[4]: {=bool:?}, dio[5]: {=bool:?}, dio[6]: {=bool:?}, dio[7]: {=bool:?}, dio[8]: {=bool:?}, dio[9]: {=bool:?}, dio[10]: {=bool:?}, dio[11]: {=bool:?}, dio[12]: {=bool:?}, dio[13]: {=bool:?}, dio[14]: {=bool:?}, dio[15]: {=bool:?}, dio[16]: {=bool:?}, dio[17]: {=bool:?}, dio[18]: {=bool:?}, dio[19]: {=bool:?}, dio[20]: {=bool:?}, dio[21]: {=bool:?}, dio[22]: {=bool:?}, dio[23]: {=bool:?}, dio[24]: {=bool:?}, dio[25]: {=bool:?}, dio[26]: {=bool:?}, dio[27]: {=bool:?}, dio[28]: {=bool:?}, dio[29]: {=bool:?}, dio[30]: {=bool:?}, dio[31]: {=bool:?} }}" , self . dio (0usize) , self . dio (1usize) , self . dio (2usize) , self . dio (3usize) , self . dio (4usize) , self . dio (5usize) , self . dio (6usize) , self . dio (7usize) , self . dio (8usize) , self . dio (9usize) , self . dio (10usize) , self . dio (11usize) , self . dio (12usize) , self . dio (13usize) , self . dio (14usize) , self . dio (15usize) , self . dio (16usize) , self . dio (17usize) , self . dio (18usize) , self . dio (19usize) , self . dio (20usize) , self . dio (21usize) , self . dio (22usize) , self . dio (23usize) , self . dio (24usize) , self . dio (25usize) , self . dio (26usize) , self . dio (27usize) , self . dio (28usize) , self . dio (29usize) , self . dio (30usize) , self . dio (31usize))
-        }
-    }
-    #[doc = "Data output set 31 to 0."]
-    #[repr(transparent)]
-    #[derive(Copy, Clone, Eq, PartialEq)]
-    pub struct Doutset310(pub u32);
-    impl Doutset310 {
-        #[doc = "Writing 1 to this bit sets the DIO0 bit in the DOUT31_0 register. Writing 0 has no effect."]
-        #[must_use]
-        #[inline(always)]
-        pub const fn dio(&self, n: usize) -> bool {
-            assert!(n < 32usize);
-            let offs = 0usize + n * 1usize;
-            let val = (self.0 >> offs) & 0x01;
-            val != 0
-        }
-        #[doc = "Writing 1 to this bit sets the DIO0 bit in the DOUT31_0 register. Writing 0 has no effect."]
-        #[inline(always)]
-        pub const fn set_dio(&mut self, n: usize, val: bool) {
-            assert!(n < 32usize);
-            let offs = 0usize + n * 1usize;
-            self.0 = (self.0 & !(0x01 << offs)) | (((val as u32) & 0x01) << offs);
-        }
-    }
-    impl Default for Doutset310 {
-        #[inline(always)]
-        fn default() -> Doutset310 {
-            Doutset310(0)
-        }
-    }
-    impl core::fmt::Debug for Doutset310 {
-        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-            f.debug_struct("Doutset310")
-                .field("dio[0]", &self.dio(0usize))
-                .field("dio[1]", &self.dio(1usize))
-                .field("dio[2]", &self.dio(2usize))
-                .field("dio[3]", &self.dio(3usize))
-                .field("dio[4]", &self.dio(4usize))
-                .field("dio[5]", &self.dio(5usize))
-                .field("dio[6]", &self.dio(6usize))
-                .field("dio[7]", &self.dio(7usize))
-                .field("dio[8]", &self.dio(8usize))
-                .field("dio[9]", &self.dio(9usize))
-                .field("dio[10]", &self.dio(10usize))
-                .field("dio[11]", &self.dio(11usize))
-                .field("dio[12]", &self.dio(12usize))
-                .field("dio[13]", &self.dio(13usize))
-                .field("dio[14]", &self.dio(14usize))
-                .field("dio[15]", &self.dio(15usize))
-                .field("dio[16]", &self.dio(16usize))
-                .field("dio[17]", &self.dio(17usize))
-                .field("dio[18]", &self.dio(18usize))
-                .field("dio[19]", &self.dio(19usize))
-                .field("dio[20]", &self.dio(20usize))
-                .field("dio[21]", &self.dio(21usize))
-                .field("dio[22]", &self.dio(22usize))
-                .field("dio[23]", &self.dio(23usize))
-                .field("dio[24]", &self.dio(24usize))
-                .field("dio[25]", &self.dio(25usize))
-                .field("dio[26]", &self.dio(26usize))
-                .field("dio[27]", &self.dio(27usize))
-                .field("dio[28]", &self.dio(28usize))
-                .field("dio[29]", &self.dio(29usize))
-                .field("dio[30]", &self.dio(30usize))
-                .field("dio[31]", &self.dio(31usize))
-                .finish()
-        }
-    }
-    #[cfg(feature = "defmt")]
-    impl defmt::Format for Doutset310 {
-        fn format(&self, f: defmt::Formatter) {
-            defmt :: write ! (f , "Doutset310 {{ dio[0]: {=bool:?}, dio[1]: {=bool:?}, dio[2]: {=bool:?}, dio[3]: {=bool:?}, dio[4]: {=bool:?}, dio[5]: {=bool:?}, dio[6]: {=bool:?}, dio[7]: {=bool:?}, dio[8]: {=bool:?}, dio[9]: {=bool:?}, dio[10]: {=bool:?}, dio[11]: {=bool:?}, dio[12]: {=bool:?}, dio[13]: {=bool:?}, dio[14]: {=bool:?}, dio[15]: {=bool:?}, dio[16]: {=bool:?}, dio[17]: {=bool:?}, dio[18]: {=bool:?}, dio[19]: {=bool:?}, dio[20]: {=bool:?}, dio[21]: {=bool:?}, dio[22]: {=bool:?}, dio[23]: {=bool:?}, dio[24]: {=bool:?}, dio[25]: {=bool:?}, dio[26]: {=bool:?}, dio[27]: {=bool:?}, dio[28]: {=bool:?}, dio[29]: {=bool:?}, dio[30]: {=bool:?}, dio[31]: {=bool:?} }}" , self . dio (0usize) , self . dio (1usize) , self . dio (2usize) , self . dio (3usize) , self . dio (4usize) , self . dio (5usize) , self . dio (6usize) , self . dio (7usize) , self . dio (8usize) , self . dio (9usize) , self . dio (10usize) , self . dio (11usize) , self . dio (12usize) , self . dio (13usize) , self . dio (14usize) , self . dio (15usize) , self . dio (16usize) , self . dio (17usize) , self . dio (18usize) , self . dio (19usize) , self . dio (20usize) , self . dio (21usize) , self . dio (22usize) , self . dio (23usize) , self . dio (24usize) , self . dio (25usize) , self . dio (26usize) , self . dio (27usize) , self . dio (28usize) , self . dio (29usize) , self . dio (30usize) , self . dio (31usize))
-        }
-    }
-    #[doc = "Data output toggle 31 to 0."]
-    #[repr(transparent)]
-    #[derive(Copy, Clone, Eq, PartialEq)]
-    pub struct Douttgl310(pub u32);
-    impl Douttgl310 {
-        #[doc = "This bit is used to toggle DIO0 output."]
-        #[must_use]
-        #[inline(always)]
-        pub const fn dio(&self, n: usize) -> bool {
-            assert!(n < 32usize);
-            let offs = 0usize + n * 1usize;
-            let val = (self.0 >> offs) & 0x01;
-            val != 0
-        }
-        #[doc = "This bit is used to toggle DIO0 output."]
-        #[inline(always)]
-        pub const fn set_dio(&mut self, n: usize, val: bool) {
-            assert!(n < 32usize);
-            let offs = 0usize + n * 1usize;
-            self.0 = (self.0 & !(0x01 << offs)) | (((val as u32) & 0x01) << offs);
-        }
-    }
-    impl Default for Douttgl310 {
-        #[inline(always)]
-        fn default() -> Douttgl310 {
-            Douttgl310(0)
-        }
-    }
-    impl core::fmt::Debug for Douttgl310 {
-        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-            f.debug_struct("Douttgl310")
-                .field("dio[0]", &self.dio(0usize))
-                .field("dio[1]", &self.dio(1usize))
-                .field("dio[2]", &self.dio(2usize))
-                .field("dio[3]", &self.dio(3usize))
-                .field("dio[4]", &self.dio(4usize))
-                .field("dio[5]", &self.dio(5usize))
-                .field("dio[6]", &self.dio(6usize))
-                .field("dio[7]", &self.dio(7usize))
-                .field("dio[8]", &self.dio(8usize))
-                .field("dio[9]", &self.dio(9usize))
-                .field("dio[10]", &self.dio(10usize))
-                .field("dio[11]", &self.dio(11usize))
-                .field("dio[12]", &self.dio(12usize))
-                .field("dio[13]", &self.dio(13usize))
-                .field("dio[14]", &self.dio(14usize))
-                .field("dio[15]", &self.dio(15usize))
-                .field("dio[16]", &self.dio(16usize))
-                .field("dio[17]", &self.dio(17usize))
-                .field("dio[18]", &self.dio(18usize))
-                .field("dio[19]", &self.dio(19usize))
-                .field("dio[20]", &self.dio(20usize))
-                .field("dio[21]", &self.dio(21usize))
-                .field("dio[22]", &self.dio(22usize))
-                .field("dio[23]", &self.dio(23usize))
-                .field("dio[24]", &self.dio(24usize))
-                .field("dio[25]", &self.dio(25usize))
-                .field("dio[26]", &self.dio(26usize))
-                .field("dio[27]", &self.dio(27usize))
-                .field("dio[28]", &self.dio(28usize))
-                .field("dio[29]", &self.dio(29usize))
-                .field("dio[30]", &self.dio(30usize))
-                .field("dio[31]", &self.dio(31usize))
-                .finish()
-        }
-    }
-    #[cfg(feature = "defmt")]
-    impl defmt::Format for Douttgl310 {
-        fn format(&self, f: defmt::Formatter) {
-            defmt :: write ! (f , "Douttgl310 {{ dio[0]: {=bool:?}, dio[1]: {=bool:?}, dio[2]: {=bool:?}, dio[3]: {=bool:?}, dio[4]: {=bool:?}, dio[5]: {=bool:?}, dio[6]: {=bool:?}, dio[7]: {=bool:?}, dio[8]: {=bool:?}, dio[9]: {=bool:?}, dio[10]: {=bool:?}, dio[11]: {=bool:?}, dio[12]: {=bool:?}, dio[13]: {=bool:?}, dio[14]: {=bool:?}, dio[15]: {=bool:?}, dio[16]: {=bool:?}, dio[17]: {=bool:?}, dio[18]: {=bool:?}, dio[19]: {=bool:?}, dio[20]: {=bool:?}, dio[21]: {=bool:?}, dio[22]: {=bool:?}, dio[23]: {=bool:?}, dio[24]: {=bool:?}, dio[25]: {=bool:?}, dio[26]: {=bool:?}, dio[27]: {=bool:?}, dio[28]: {=bool:?}, dio[29]: {=bool:?}, dio[30]: {=bool:?}, dio[31]: {=bool:?} }}" , self . dio (0usize) , self . dio (1usize) , self . dio (2usize) , self . dio (3usize) , self . dio (4usize) , self . dio (5usize) , self . dio (6usize) , self . dio (7usize) , self . dio (8usize) , self . dio (9usize) , self . dio (10usize) , self . dio (11usize) , self . dio (12usize) , self . dio (13usize) , self . dio (14usize) , self . dio (15usize) , self . dio (16usize) , self . dio (17usize) , self . dio (18usize) , self . dio (19usize) , self . dio (20usize) , self . dio (21usize) , self . dio (22usize) , self . dio (23usize) , self . dio (24usize) , self . dio (25usize) , self . dio (26usize) , self . dio (27usize) , self . dio (28usize) , self . dio (29usize) , self . dio (30usize) , self . dio (31usize))
         }
     }
     #[doc = "Event Mode."]
@@ -1536,62 +916,6 @@ is enabled, this register is used to manually control the peripheral's clock req
             defmt::write!(f, "Fport {{ chanid: {=u8:?} }}", self.chanid())
         }
     }
-    #[doc = "Interrupt clear."]
-    #[repr(transparent)]
-    #[derive(Copy, Clone, Eq, PartialEq)]
-    pub struct GenEvent(pub u32);
-    impl GenEvent {
-        #[doc = "DIO0 event."]
-        #[must_use]
-        #[inline(always)]
-        pub const fn dio(&self, n: usize) -> bool {
-            assert!(n < 16usize);
-            let offs = 0usize + n * 1usize;
-            let val = (self.0 >> offs) & 0x01;
-            val != 0
-        }
-        #[doc = "DIO0 event."]
-        #[inline(always)]
-        pub const fn set_dio(&mut self, n: usize, val: bool) {
-            assert!(n < 16usize);
-            let offs = 0usize + n * 1usize;
-            self.0 = (self.0 & !(0x01 << offs)) | (((val as u32) & 0x01) << offs);
-        }
-    }
-    impl Default for GenEvent {
-        #[inline(always)]
-        fn default() -> GenEvent {
-            GenEvent(0)
-        }
-    }
-    impl core::fmt::Debug for GenEvent {
-        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-            f.debug_struct("GenEvent")
-                .field("dio[0]", &self.dio(0usize))
-                .field("dio[1]", &self.dio(1usize))
-                .field("dio[2]", &self.dio(2usize))
-                .field("dio[3]", &self.dio(3usize))
-                .field("dio[4]", &self.dio(4usize))
-                .field("dio[5]", &self.dio(5usize))
-                .field("dio[6]", &self.dio(6usize))
-                .field("dio[7]", &self.dio(7usize))
-                .field("dio[8]", &self.dio(8usize))
-                .field("dio[9]", &self.dio(9usize))
-                .field("dio[10]", &self.dio(10usize))
-                .field("dio[11]", &self.dio(11usize))
-                .field("dio[12]", &self.dio(12usize))
-                .field("dio[13]", &self.dio(13usize))
-                .field("dio[14]", &self.dio(14usize))
-                .field("dio[15]", &self.dio(15usize))
-                .finish()
-        }
-    }
-    #[cfg(feature = "defmt")]
-    impl defmt::Format for GenEvent {
-        fn format(&self, f: defmt::Formatter) {
-            defmt :: write ! (f , "GenEvent {{ dio[0]: {=bool:?}, dio[1]: {=bool:?}, dio[2]: {=bool:?}, dio[3]: {=bool:?}, dio[4]: {=bool:?}, dio[5]: {=bool:?}, dio[6]: {=bool:?}, dio[7]: {=bool:?}, dio[8]: {=bool:?}, dio[9]: {=bool:?}, dio[10]: {=bool:?}, dio[11]: {=bool:?}, dio[12]: {=bool:?}, dio[13]: {=bool:?}, dio[14]: {=bool:?}, dio[15]: {=bool:?} }}" , self . dio (0usize) , self . dio (1usize) , self . dio (2usize) , self . dio (3usize) , self . dio (4usize) , self . dio (5usize) , self . dio (6usize) , self . dio (7usize) , self . dio (8usize) , self . dio (9usize) , self . dio (10usize) , self . dio (11usize) , self . dio (12usize) , self . dio (13usize) , self . dio (14usize) , self . dio (15usize))
-        }
-    }
     #[doc = "Interrupt index."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
@@ -1666,12 +990,12 @@ is enabled, this register is used to manually control the peripheral's clock req
             defmt::write!(f, "Pdbgctl {{ free: {=bool:?} }}", self.free())
         }
     }
-    #[doc = "Polarity 15 to 0."]
+    #[doc = "Edge detection polarity for sixteen DIO pins, two bits each."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
-    pub struct Polarity150(pub u32);
-    impl Polarity150 {
-        #[doc = "Enables and configures edge detection polarity for DIO0."]
+    pub struct Polarity(pub u32);
+    impl Polarity {
+        #[doc = "Enables and configures edge detection polarity for one DIO."]
         #[must_use]
         #[inline(always)]
         pub const fn dio(&self, n: usize) -> super::vals::Polarity {
@@ -1680,7 +1004,7 @@ is enabled, this register is used to manually control the peripheral's clock req
             let val = (self.0 >> offs) & 0x03;
             super::vals::Polarity::from_bits(val as u8)
         }
-        #[doc = "Enables and configures edge detection polarity for DIO0."]
+        #[doc = "Enables and configures edge detection polarity for one DIO."]
         #[inline(always)]
         pub const fn set_dio(&mut self, n: usize, val: super::vals::Polarity) {
             assert!(n < 16usize);
@@ -1688,15 +1012,15 @@ is enabled, this register is used to manually control the peripheral's clock req
             self.0 = (self.0 & !(0x03 << offs)) | (((val.to_bits() as u32) & 0x03) << offs);
         }
     }
-    impl Default for Polarity150 {
+    impl Default for Polarity {
         #[inline(always)]
-        fn default() -> Polarity150 {
-            Polarity150(0)
+        fn default() -> Polarity {
+            Polarity(0)
         }
     }
-    impl core::fmt::Debug for Polarity150 {
+    impl core::fmt::Debug for Polarity {
         fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-            f.debug_struct("Polarity150")
+            f.debug_struct("Polarity")
                 .field("dio[0]", &self.dio(0usize))
                 .field("dio[1]", &self.dio(1usize))
                 .field("dio[2]", &self.dio(2usize))
@@ -1717,65 +1041,9 @@ is enabled, this register is used to manually control the peripheral's clock req
         }
     }
     #[cfg(feature = "defmt")]
-    impl defmt::Format for Polarity150 {
+    impl defmt::Format for Polarity {
         fn format(&self, f: defmt::Formatter) {
-            defmt :: write ! (f , "Polarity150 {{ dio[0]: {:?}, dio[1]: {:?}, dio[2]: {:?}, dio[3]: {:?}, dio[4]: {:?}, dio[5]: {:?}, dio[6]: {:?}, dio[7]: {:?}, dio[8]: {:?}, dio[9]: {:?}, dio[10]: {:?}, dio[11]: {:?}, dio[12]: {:?}, dio[13]: {:?}, dio[14]: {:?}, dio[15]: {:?} }}" , self . dio (0usize) , self . dio (1usize) , self . dio (2usize) , self . dio (3usize) , self . dio (4usize) , self . dio (5usize) , self . dio (6usize) , self . dio (7usize) , self . dio (8usize) , self . dio (9usize) , self . dio (10usize) , self . dio (11usize) , self . dio (12usize) , self . dio (13usize) , self . dio (14usize) , self . dio (15usize))
-        }
-    }
-    #[doc = "Polarity 31 to 16."]
-    #[repr(transparent)]
-    #[derive(Copy, Clone, Eq, PartialEq)]
-    pub struct Polarity3116(pub u32);
-    impl Polarity3116 {
-        #[doc = "Enables and configures edge detection polarity for DIO16."]
-        #[must_use]
-        #[inline(always)]
-        pub const fn dio(&self, n: usize) -> super::vals::Polarity {
-            assert!(n < 16usize);
-            let offs = 0usize + n * 2usize;
-            let val = (self.0 >> offs) & 0x03;
-            super::vals::Polarity::from_bits(val as u8)
-        }
-        #[doc = "Enables and configures edge detection polarity for DIO16."]
-        #[inline(always)]
-        pub const fn set_dio(&mut self, n: usize, val: super::vals::Polarity) {
-            assert!(n < 16usize);
-            let offs = 0usize + n * 2usize;
-            self.0 = (self.0 & !(0x03 << offs)) | (((val.to_bits() as u32) & 0x03) << offs);
-        }
-    }
-    impl Default for Polarity3116 {
-        #[inline(always)]
-        fn default() -> Polarity3116 {
-            Polarity3116(0)
-        }
-    }
-    impl core::fmt::Debug for Polarity3116 {
-        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-            f.debug_struct("Polarity3116")
-                .field("dio[0]", &self.dio(0usize))
-                .field("dio[1]", &self.dio(1usize))
-                .field("dio[2]", &self.dio(2usize))
-                .field("dio[3]", &self.dio(3usize))
-                .field("dio[4]", &self.dio(4usize))
-                .field("dio[5]", &self.dio(5usize))
-                .field("dio[6]", &self.dio(6usize))
-                .field("dio[7]", &self.dio(7usize))
-                .field("dio[8]", &self.dio(8usize))
-                .field("dio[9]", &self.dio(9usize))
-                .field("dio[10]", &self.dio(10usize))
-                .field("dio[11]", &self.dio(11usize))
-                .field("dio[12]", &self.dio(12usize))
-                .field("dio[13]", &self.dio(13usize))
-                .field("dio[14]", &self.dio(14usize))
-                .field("dio[15]", &self.dio(15usize))
-                .finish()
-        }
-    }
-    #[cfg(feature = "defmt")]
-    impl defmt::Format for Polarity3116 {
-        fn format(&self, f: defmt::Formatter) {
-            defmt :: write ! (f , "Polarity3116 {{ dio[0]: {:?}, dio[1]: {:?}, dio[2]: {:?}, dio[3]: {:?}, dio[4]: {:?}, dio[5]: {:?}, dio[6]: {:?}, dio[7]: {:?}, dio[8]: {:?}, dio[9]: {:?}, dio[10]: {:?}, dio[11]: {:?}, dio[12]: {:?}, dio[13]: {:?}, dio[14]: {:?}, dio[15]: {:?} }}" , self . dio (0usize) , self . dio (1usize) , self . dio (2usize) , self . dio (3usize) , self . dio (4usize) , self . dio (5usize) , self . dio (6usize) , self . dio (7usize) , self . dio (8usize) , self . dio (9usize) , self . dio (10usize) , self . dio (11usize) , self . dio (12usize) , self . dio (13usize) , self . dio (14usize) , self . dio (15usize))
+            defmt :: write ! (f , "Polarity {{ dio[0]: {:?}, dio[1]: {:?}, dio[2]: {:?}, dio[3]: {:?}, dio[4]: {:?}, dio[5]: {:?}, dio[6]: {:?}, dio[7]: {:?}, dio[8]: {:?}, dio[9]: {:?}, dio[10]: {:?}, dio[11]: {:?}, dio[12]: {:?}, dio[13]: {:?}, dio[14]: {:?}, dio[15]: {:?} }}" , self . dio (0usize) , self . dio (1usize) , self . dio (2usize) , self . dio (3usize) , self . dio (4usize) , self . dio (5usize) , self . dio (6usize) , self . dio (7usize) , self . dio (8usize) , self . dio (9usize) , self . dio (10usize) , self . dio (11usize) , self . dio (12usize) , self . dio (13usize) , self . dio (14usize) , self . dio (15usize))
         }
     }
     #[repr(transparent)]

@@ -66,21 +66,17 @@ impl Controller {
     }
     #[doc = "I2C Controller FIFO Status Register."]
     #[inline(always)]
-    pub const fn cfifosr(self) -> crate::common::Reg<regs::Cfifosr, crate::common::R> {
+    pub const fn cfifosr(self) -> crate::common::Reg<regs::Fifosr, crate::common::R> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x2cusize) as _) }
     }
     #[doc = "I2C Controller PEC control register."]
     #[inline(always)]
-    pub const fn controller_i2cpecctl(
-        self,
-    ) -> crate::common::Reg<regs::ControllerI2cpecctl, crate::common::RW> {
+    pub const fn controller_i2cpecctl(self) -> crate::common::Reg<regs::Pecctl, crate::common::RW> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x30usize) as _) }
     }
     #[doc = "I2C Controller PEC status register."]
     #[inline(always)]
-    pub const fn controller_pecsr(
-        self,
-    ) -> crate::common::Reg<regs::ControllerPecsr, crate::common::R> {
+    pub const fn controller_pecsr(self) -> crate::common::Reg<regs::Pecsr, crate::common::R> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x34usize) as _) }
     }
 }
@@ -361,17 +357,17 @@ impl Target {
     }
     #[doc = "I2C Target FIFO Status Register."]
     #[inline(always)]
-    pub const fn tfifosr(self) -> crate::common::Reg<regs::Tfifosr, crate::common::R> {
+    pub const fn tfifosr(self) -> crate::common::Reg<regs::Fifosr, crate::common::R> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x20usize) as _) }
     }
     #[doc = "I2C Target PEC control register."]
     #[inline(always)]
-    pub const fn target_pecctl(self) -> crate::common::Reg<regs::TargetPecctl, crate::common::RW> {
+    pub const fn target_pecctl(self) -> crate::common::Reg<regs::Pecctl, crate::common::RW> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x24usize) as _) }
     }
     #[doc = "I2C Target PEC status register."]
     #[inline(always)]
-    pub const fn target_pecsr(self) -> crate::common::Reg<regs::TargetPecsr, crate::common::R> {
+    pub const fn target_pecsr(self) -> crate::common::Reg<regs::Pecsr, crate::common::R> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x28usize) as _) }
     }
 }
@@ -705,82 +701,6 @@ pub mod regs {
             )
         }
     }
-    #[doc = "I2C Controller FIFO Status Register."]
-    #[repr(transparent)]
-    #[derive(Copy, Clone, Eq, PartialEq)]
-    pub struct Cfifosr(pub u32);
-    impl Cfifosr {
-        #[doc = "Number of Bytes which could be read from the RX FIFO."]
-        #[must_use]
-        #[inline(always)]
-        pub const fn rxfifocnt(&self) -> u8 {
-            let val = (self.0 >> 0usize) & 0x0f;
-            val as u8
-        }
-        #[doc = "Number of Bytes which could be read from the RX FIFO."]
-        #[inline(always)]
-        pub const fn set_rxfifocnt(&mut self, val: u8) {
-            self.0 = (self.0 & !(0x0f << 0usize)) | (((val as u32) & 0x0f) << 0usize);
-        }
-        #[doc = "RX FIFO Flush When this bit is set a Flush operation for the RX FIFO is active. Clear the RXFLUSH bit in the control register to stop."]
-        #[must_use]
-        #[inline(always)]
-        pub const fn rxflush(&self) -> bool {
-            let val = (self.0 >> 7usize) & 0x01;
-            val != 0
-        }
-        #[doc = "RX FIFO Flush When this bit is set a Flush operation for the RX FIFO is active. Clear the RXFLUSH bit in the control register to stop."]
-        #[inline(always)]
-        pub const fn set_rxflush(&mut self, val: bool) {
-            self.0 = (self.0 & !(0x01 << 7usize)) | (((val as u32) & 0x01) << 7usize);
-        }
-        #[doc = "Number of Bytes which could be put into the TX FIFO."]
-        #[must_use]
-        #[inline(always)]
-        pub const fn txfifocnt(&self) -> u8 {
-            let val = (self.0 >> 8usize) & 0x0f;
-            val as u8
-        }
-        #[doc = "Number of Bytes which could be put into the TX FIFO."]
-        #[inline(always)]
-        pub const fn set_txfifocnt(&mut self, val: u8) {
-            self.0 = (self.0 & !(0x0f << 8usize)) | (((val as u32) & 0x0f) << 8usize);
-        }
-        #[doc = "TX FIFO Flush When this bit is set a Flush operation for the TX FIFO is active. Clear the TXFLUSH bit in the control register to stop."]
-        #[must_use]
-        #[inline(always)]
-        pub const fn txflush(&self) -> bool {
-            let val = (self.0 >> 15usize) & 0x01;
-            val != 0
-        }
-        #[doc = "TX FIFO Flush When this bit is set a Flush operation for the TX FIFO is active. Clear the TXFLUSH bit in the control register to stop."]
-        #[inline(always)]
-        pub const fn set_txflush(&mut self, val: bool) {
-            self.0 = (self.0 & !(0x01 << 15usize)) | (((val as u32) & 0x01) << 15usize);
-        }
-    }
-    impl Default for Cfifosr {
-        #[inline(always)]
-        fn default() -> Cfifosr {
-            Cfifosr(0)
-        }
-    }
-    impl core::fmt::Debug for Cfifosr {
-        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-            f.debug_struct("Cfifosr")
-                .field("rxfifocnt", &self.rxfifocnt())
-                .field("rxflush", &self.rxflush())
-                .field("txfifocnt", &self.txfifocnt())
-                .field("txflush", &self.txflush())
-                .finish()
-        }
-    }
-    #[cfg(feature = "defmt")]
-    impl defmt::Format for Cfifosr {
-        fn format(&self, f: defmt::Formatter) {
-            defmt :: write ! (f , "Cfifosr {{ rxfifocnt: {=u8:?}, rxflush: {=bool:?}, txfifocnt: {=u8:?}, txflush: {=bool:?} }}" , self . rxfifocnt () , self . rxflush () , self . txfifocnt () , self . txflush ())
-        }
-    }
     #[doc = "Peripheral Clock Configuration Register."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
@@ -926,124 +846,6 @@ pub mod regs {
                 self.mfclk_sel(),
                 self.busclk_sel()
             )
-        }
-    }
-    #[doc = "I2C Controller PEC control register."]
-    #[repr(transparent)]
-    #[derive(Copy, Clone, Eq, PartialEq)]
-    pub struct ControllerI2cpecctl(pub u32);
-    impl ControllerI2cpecctl {
-        #[doc = "PEC Count When this field is non zero, the number of I2C bytes are counted (Note that although the PEC is calculated on the I2C address it is not counted at a byte). When the byte count = PECCNT and the state machine is transmitting, the contents of the LSFR is loaded into the shift register instead of the byte received from the Tx FIFO. When the state machine is receiving, after the last bit of this byte is received the LSFR is checked and if it is non-zero, a PEC RX Error interrupt is generated. The I2C packet must be padded to include the PEC byte for both transmit and receive. In transmit mode the FIFO must be loaded with a dummy PEC byte. In receive mode the PEC byte will be passed to the Rx FIFO. In the normal Controller use case, FW would set PECEN=1 and PECCNT=SMB packet length (Not including Target Address byte, but including the PEC byte). FW would then configure DMA to allow the packet to complete unassisted and write MCTR to initiate the transaction. Note that when the byte count = PEC CNT, the byte count is reset to 0 and multiple PEC calculation can automatically occur within a single I2C transaction. Note that any write to the Controller_I2CPECCTL Register will clear the current PEC Byte Count in the Controller State Machine."]
-        #[must_use]
-        #[inline(always)]
-        pub const fn peccnt(&self) -> u16 {
-            let val = (self.0 >> 0usize) & 0x01ff;
-            val as u16
-        }
-        #[doc = "PEC Count When this field is non zero, the number of I2C bytes are counted (Note that although the PEC is calculated on the I2C address it is not counted at a byte). When the byte count = PECCNT and the state machine is transmitting, the contents of the LSFR is loaded into the shift register instead of the byte received from the Tx FIFO. When the state machine is receiving, after the last bit of this byte is received the LSFR is checked and if it is non-zero, a PEC RX Error interrupt is generated. The I2C packet must be padded to include the PEC byte for both transmit and receive. In transmit mode the FIFO must be loaded with a dummy PEC byte. In receive mode the PEC byte will be passed to the Rx FIFO. In the normal Controller use case, FW would set PECEN=1 and PECCNT=SMB packet length (Not including Target Address byte, but including the PEC byte). FW would then configure DMA to allow the packet to complete unassisted and write MCTR to initiate the transaction. Note that when the byte count = PEC CNT, the byte count is reset to 0 and multiple PEC calculation can automatically occur within a single I2C transaction. Note that any write to the Controller_I2CPECCTL Register will clear the current PEC Byte Count in the Controller State Machine."]
-        #[inline(always)]
-        pub const fn set_peccnt(&mut self, val: u16) {
-            self.0 = (self.0 & !(0x01ff << 0usize)) | (((val as u32) & 0x01ff) << 0usize);
-        }
-        #[doc = "PEC Enable This bit enables the SMB Packet Error Checking (PEC). When enabled the PEC is calculated on all bits except the Start, Stop, Ack and Nack. The PEC LSFR and the Byte Counter is set to 0 when the State Machine is in the IDLE state, which occur following a Stop or when a timeout occurs. The Counter is also set to 0 after the PEC byte is sent or received. Note that the NACK is automatically send following a PEC byte that results in a PEC error. The PEC Polynomial is x^8 + x^2 + x^1 + 1."]
-        #[must_use]
-        #[inline(always)]
-        pub const fn pecen(&self) -> bool {
-            let val = (self.0 >> 12usize) & 0x01;
-            val != 0
-        }
-        #[doc = "PEC Enable This bit enables the SMB Packet Error Checking (PEC). When enabled the PEC is calculated on all bits except the Start, Stop, Ack and Nack. The PEC LSFR and the Byte Counter is set to 0 when the State Machine is in the IDLE state, which occur following a Stop or when a timeout occurs. The Counter is also set to 0 after the PEC byte is sent or received. Note that the NACK is automatically send following a PEC byte that results in a PEC error. The PEC Polynomial is x^8 + x^2 + x^1 + 1."]
-        #[inline(always)]
-        pub const fn set_pecen(&mut self, val: bool) {
-            self.0 = (self.0 & !(0x01 << 12usize)) | (((val as u32) & 0x01) << 12usize);
-        }
-    }
-    impl Default for ControllerI2cpecctl {
-        #[inline(always)]
-        fn default() -> ControllerI2cpecctl {
-            ControllerI2cpecctl(0)
-        }
-    }
-    impl core::fmt::Debug for ControllerI2cpecctl {
-        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-            f.debug_struct("ControllerI2cpecctl")
-                .field("peccnt", &self.peccnt())
-                .field("pecen", &self.pecen())
-                .finish()
-        }
-    }
-    #[cfg(feature = "defmt")]
-    impl defmt::Format for ControllerI2cpecctl {
-        fn format(&self, f: defmt::Formatter) {
-            defmt::write!(
-                f,
-                "ControllerI2cpecctl {{ peccnt: {=u16:?}, pecen: {=bool:?} }}",
-                self.peccnt(),
-                self.pecen()
-            )
-        }
-    }
-    #[doc = "I2C Controller PEC status register."]
-    #[repr(transparent)]
-    #[derive(Copy, Clone, Eq, PartialEq)]
-    pub struct ControllerPecsr(pub u32);
-    impl ControllerPecsr {
-        #[doc = "PEC Byte Count. This is the current PEC Byte Count of the Controller State Machine."]
-        #[must_use]
-        #[inline(always)]
-        pub const fn pecbytecnt(&self) -> u16 {
-            let val = (self.0 >> 0usize) & 0x01ff;
-            val as u16
-        }
-        #[doc = "PEC Byte Count. This is the current PEC Byte Count of the Controller State Machine."]
-        #[inline(always)]
-        pub const fn set_pecbytecnt(&mut self, val: u16) {
-            self.0 = (self.0 & !(0x01ff << 0usize)) | (((val as u32) & 0x01ff) << 0usize);
-        }
-        #[doc = "This status bit indicates if the PEC was checked in the transaction that occurred before the last Stop. Latched on Stop."]
-        #[must_use]
-        #[inline(always)]
-        pub const fn pecsts_check(&self) -> bool {
-            let val = (self.0 >> 16usize) & 0x01;
-            val != 0
-        }
-        #[doc = "This status bit indicates if the PEC was checked in the transaction that occurred before the last Stop. Latched on Stop."]
-        #[inline(always)]
-        pub const fn set_pecsts_check(&mut self, val: bool) {
-            self.0 = (self.0 & !(0x01 << 16usize)) | (((val as u32) & 0x01) << 16usize);
-        }
-        #[doc = "This status bit indicates if a PEC check error occurred in the transaction that occurred before the last Stop. Latched on Stop."]
-        #[must_use]
-        #[inline(always)]
-        pub const fn pecsts_error(&self) -> bool {
-            let val = (self.0 >> 17usize) & 0x01;
-            val != 0
-        }
-        #[doc = "This status bit indicates if a PEC check error occurred in the transaction that occurred before the last Stop. Latched on Stop."]
-        #[inline(always)]
-        pub const fn set_pecsts_error(&mut self, val: bool) {
-            self.0 = (self.0 & !(0x01 << 17usize)) | (((val as u32) & 0x01) << 17usize);
-        }
-    }
-    impl Default for ControllerPecsr {
-        #[inline(always)]
-        fn default() -> ControllerPecsr {
-            ControllerPecsr(0)
-        }
-    }
-    impl core::fmt::Debug for ControllerPecsr {
-        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-            f.debug_struct("ControllerPecsr")
-                .field("pecbytecnt", &self.pecbytecnt())
-                .field("pecsts_check", &self.pecsts_check())
-                .field("pecsts_error", &self.pecsts_error())
-                .finish()
-        }
-    }
-    #[cfg(feature = "defmt")]
-    impl defmt::Format for ControllerPecsr {
-        fn format(&self, f: defmt::Formatter) {
-            defmt :: write ! (f , "ControllerPecsr {{ pecbytecnt: {=u16:?}, pecsts_check: {=bool:?}, pecsts_error: {=bool:?} }}" , self . pecbytecnt () , self . pecsts_check () , self . pecsts_error ())
         }
     }
     #[doc = "Interrupt clear."]
@@ -2087,6 +1889,82 @@ pub mod regs {
             )
         }
     }
+    #[doc = "I2C FIFO Status Register."]
+    #[repr(transparent)]
+    #[derive(Copy, Clone, Eq, PartialEq)]
+    pub struct Fifosr(pub u32);
+    impl Fifosr {
+        #[doc = "Number of Bytes which could be read from the RX FIFO."]
+        #[must_use]
+        #[inline(always)]
+        pub const fn rxfifocnt(&self) -> u8 {
+            let val = (self.0 >> 0usize) & 0x0f;
+            val as u8
+        }
+        #[doc = "Number of Bytes which could be read from the RX FIFO."]
+        #[inline(always)]
+        pub const fn set_rxfifocnt(&mut self, val: u8) {
+            self.0 = (self.0 & !(0x0f << 0usize)) | (((val as u32) & 0x0f) << 0usize);
+        }
+        #[doc = "RX FIFO Flush When this bit is set a Flush operation for the RX FIFO is active. Clear the RXFLUSH bit in the control register to stop."]
+        #[must_use]
+        #[inline(always)]
+        pub const fn rxflush(&self) -> bool {
+            let val = (self.0 >> 7usize) & 0x01;
+            val != 0
+        }
+        #[doc = "RX FIFO Flush When this bit is set a Flush operation for the RX FIFO is active. Clear the RXFLUSH bit in the control register to stop."]
+        #[inline(always)]
+        pub const fn set_rxflush(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 7usize)) | (((val as u32) & 0x01) << 7usize);
+        }
+        #[doc = "Number of Bytes which could be put into the TX FIFO."]
+        #[must_use]
+        #[inline(always)]
+        pub const fn txfifocnt(&self) -> u8 {
+            let val = (self.0 >> 8usize) & 0x0f;
+            val as u8
+        }
+        #[doc = "Number of Bytes which could be put into the TX FIFO."]
+        #[inline(always)]
+        pub const fn set_txfifocnt(&mut self, val: u8) {
+            self.0 = (self.0 & !(0x0f << 8usize)) | (((val as u32) & 0x0f) << 8usize);
+        }
+        #[doc = "TX FIFO Flush When this bit is set a Flush operation for the TX FIFO is active. Clear the TXFLUSH bit in the control register to stop."]
+        #[must_use]
+        #[inline(always)]
+        pub const fn txflush(&self) -> bool {
+            let val = (self.0 >> 15usize) & 0x01;
+            val != 0
+        }
+        #[doc = "TX FIFO Flush When this bit is set a Flush operation for the TX FIFO is active. Clear the TXFLUSH bit in the control register to stop."]
+        #[inline(always)]
+        pub const fn set_txflush(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 15usize)) | (((val as u32) & 0x01) << 15usize);
+        }
+    }
+    impl Default for Fifosr {
+        #[inline(always)]
+        fn default() -> Fifosr {
+            Fifosr(0)
+        }
+    }
+    impl core::fmt::Debug for Fifosr {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Fifosr")
+                .field("rxfifocnt", &self.rxfifocnt())
+                .field("rxflush", &self.rxflush())
+                .field("txfifocnt", &self.txfifocnt())
+                .field("txflush", &self.txflush())
+                .finish()
+        }
+    }
+    #[cfg(feature = "defmt")]
+    impl defmt::Format for Fifosr {
+        fn format(&self, f: defmt::Formatter) {
+            defmt :: write ! (f , "Fifosr {{ rxfifocnt: {=u8:?}, rxflush: {=bool:?}, txfifocnt: {=u8:?}, txflush: {=bool:?} }}" , self . rxfifocnt () , self . rxflush () , self . txfifocnt () , self . txflush ())
+        }
+    }
     #[doc = "I2C Glitch Filter Control."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
@@ -2262,6 +2140,124 @@ is set to 'STOP'."]
                 self.free(),
                 self.soft()
             )
+        }
+    }
+    #[doc = "I2C PEC control register."]
+    #[repr(transparent)]
+    #[derive(Copy, Clone, Eq, PartialEq)]
+    pub struct Pecctl(pub u32);
+    impl Pecctl {
+        #[doc = "PEC Count When this field is non zero, the number of I2C bytes are counted (Note that although the PEC is calculated on the I2C address it is not counted at a byte). When the byte count = PECCNT and the state machine is transmitting, the contents of the LSFR is loaded into the shift register instead of the byte received from the Tx FIFO. When the state machine is receiving, after the last bit of this byte is received the LSFR is checked and if it is non-zero, a PEC RX Error interrupt is generated. The I2C packet must be padded to include the PEC byte for both transmit and receive. In transmit mode the FIFO must be loaded with a dummy PEC byte. In receive mode the PEC byte will be passed to the Rx FIFO. In the normal Controller use case, FW would set PECEN=1 and PECCNT=SMB packet length (Not including Target Address byte, but including the PEC byte). FW would then configure DMA to allow the packet to complete unassisted and write MCTR to initiate the transaction. Note that when the byte count = PEC CNT, the byte count is reset to 0 and multiple PEC calculation can automatically occur within a single I2C transaction. Note that any write to the Controller_I2CPECCTL Register will clear the current PEC Byte Count in the Controller State Machine."]
+        #[must_use]
+        #[inline(always)]
+        pub const fn peccnt(&self) -> u16 {
+            let val = (self.0 >> 0usize) & 0x01ff;
+            val as u16
+        }
+        #[doc = "PEC Count When this field is non zero, the number of I2C bytes are counted (Note that although the PEC is calculated on the I2C address it is not counted at a byte). When the byte count = PECCNT and the state machine is transmitting, the contents of the LSFR is loaded into the shift register instead of the byte received from the Tx FIFO. When the state machine is receiving, after the last bit of this byte is received the LSFR is checked and if it is non-zero, a PEC RX Error interrupt is generated. The I2C packet must be padded to include the PEC byte for both transmit and receive. In transmit mode the FIFO must be loaded with a dummy PEC byte. In receive mode the PEC byte will be passed to the Rx FIFO. In the normal Controller use case, FW would set PECEN=1 and PECCNT=SMB packet length (Not including Target Address byte, but including the PEC byte). FW would then configure DMA to allow the packet to complete unassisted and write MCTR to initiate the transaction. Note that when the byte count = PEC CNT, the byte count is reset to 0 and multiple PEC calculation can automatically occur within a single I2C transaction. Note that any write to the Controller_I2CPECCTL Register will clear the current PEC Byte Count in the Controller State Machine."]
+        #[inline(always)]
+        pub const fn set_peccnt(&mut self, val: u16) {
+            self.0 = (self.0 & !(0x01ff << 0usize)) | (((val as u32) & 0x01ff) << 0usize);
+        }
+        #[doc = "PEC Enable This bit enables the SMB Packet Error Checking (PEC). When enabled the PEC is calculated on all bits except the Start, Stop, Ack and Nack. The PEC LSFR and the Byte Counter is set to 0 when the State Machine is in the IDLE state, which occur following a Stop or when a timeout occurs. The Counter is also set to 0 after the PEC byte is sent or received. Note that the NACK is automatically send following a PEC byte that results in a PEC error. The PEC Polynomial is x^8 + x^2 + x^1 + 1."]
+        #[must_use]
+        #[inline(always)]
+        pub const fn pecen(&self) -> bool {
+            let val = (self.0 >> 12usize) & 0x01;
+            val != 0
+        }
+        #[doc = "PEC Enable This bit enables the SMB Packet Error Checking (PEC). When enabled the PEC is calculated on all bits except the Start, Stop, Ack and Nack. The PEC LSFR and the Byte Counter is set to 0 when the State Machine is in the IDLE state, which occur following a Stop or when a timeout occurs. The Counter is also set to 0 after the PEC byte is sent or received. Note that the NACK is automatically send following a PEC byte that results in a PEC error. The PEC Polynomial is x^8 + x^2 + x^1 + 1."]
+        #[inline(always)]
+        pub const fn set_pecen(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 12usize)) | (((val as u32) & 0x01) << 12usize);
+        }
+    }
+    impl Default for Pecctl {
+        #[inline(always)]
+        fn default() -> Pecctl {
+            Pecctl(0)
+        }
+    }
+    impl core::fmt::Debug for Pecctl {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Pecctl")
+                .field("peccnt", &self.peccnt())
+                .field("pecen", &self.pecen())
+                .finish()
+        }
+    }
+    #[cfg(feature = "defmt")]
+    impl defmt::Format for Pecctl {
+        fn format(&self, f: defmt::Formatter) {
+            defmt::write!(
+                f,
+                "Pecctl {{ peccnt: {=u16:?}, pecen: {=bool:?} }}",
+                self.peccnt(),
+                self.pecen()
+            )
+        }
+    }
+    #[doc = "I2C PEC status register."]
+    #[repr(transparent)]
+    #[derive(Copy, Clone, Eq, PartialEq)]
+    pub struct Pecsr(pub u32);
+    impl Pecsr {
+        #[doc = "PEC Byte Count. This is the current PEC Byte Count of the Controller State Machine."]
+        #[must_use]
+        #[inline(always)]
+        pub const fn pecbytecnt(&self) -> u16 {
+            let val = (self.0 >> 0usize) & 0x01ff;
+            val as u16
+        }
+        #[doc = "PEC Byte Count. This is the current PEC Byte Count of the Controller State Machine."]
+        #[inline(always)]
+        pub const fn set_pecbytecnt(&mut self, val: u16) {
+            self.0 = (self.0 & !(0x01ff << 0usize)) | (((val as u32) & 0x01ff) << 0usize);
+        }
+        #[doc = "This status bit indicates if the PEC was checked in the transaction that occurred before the last Stop. Latched on Stop."]
+        #[must_use]
+        #[inline(always)]
+        pub const fn pecsts_check(&self) -> bool {
+            let val = (self.0 >> 16usize) & 0x01;
+            val != 0
+        }
+        #[doc = "This status bit indicates if the PEC was checked in the transaction that occurred before the last Stop. Latched on Stop."]
+        #[inline(always)]
+        pub const fn set_pecsts_check(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 16usize)) | (((val as u32) & 0x01) << 16usize);
+        }
+        #[doc = "This status bit indicates if a PEC check error occurred in the transaction that occurred before the last Stop. Latched on Stop."]
+        #[must_use]
+        #[inline(always)]
+        pub const fn pecsts_error(&self) -> bool {
+            let val = (self.0 >> 17usize) & 0x01;
+            val != 0
+        }
+        #[doc = "This status bit indicates if a PEC check error occurred in the transaction that occurred before the last Stop. Latched on Stop."]
+        #[inline(always)]
+        pub const fn set_pecsts_error(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 17usize)) | (((val as u32) & 0x01) << 17usize);
+        }
+    }
+    impl Default for Pecsr {
+        #[inline(always)]
+        fn default() -> Pecsr {
+            Pecsr(0)
+        }
+    }
+    impl core::fmt::Debug for Pecsr {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Pecsr")
+                .field("pecbytecnt", &self.pecbytecnt())
+                .field("pecsts_check", &self.pecsts_check())
+                .field("pecsts_error", &self.pecsts_error())
+                .finish()
+        }
+    }
+    #[cfg(feature = "defmt")]
+    impl defmt::Format for Pecsr {
+        fn format(&self, f: defmt::Formatter) {
+            defmt :: write ! (f , "Pecsr {{ pecbytecnt: {=u16:?}, pecsts_check: {=bool:?}, pecsts_error: {=bool:?} }}" , self . pecbytecnt () , self . pecsts_check () , self . pecsts_error ())
         }
     }
     #[doc = "Power enable."]
@@ -2514,124 +2510,6 @@ is set to 'STOP'."]
             defmt :: write ! (f , "Tackctl {{ ackoen: {=bool:?}, ackoval: {=bool:?}, ackoen_on_start: {=bool:?}, ackoen_on_pecnext: {=bool:?}, ackoen_on_pecdone: {=bool:?} }}" , self . ackoen () , self . ackoval () , self . ackoen_on_start () , self . ackoen_on_pecnext () , self . ackoen_on_pecdone ())
         }
     }
-    #[doc = "I2C Target PEC control register."]
-    #[repr(transparent)]
-    #[derive(Copy, Clone, Eq, PartialEq)]
-    pub struct TargetPecctl(pub u32);
-    impl TargetPecctl {
-        #[doc = "When this field is non zero, the number of I2C data bytes are counted. When the byte count = PECCNT and the state machine is transmitting, the contents of the LSFR is loaded into the shift register instead of the byte received from the Tx FIFO. When the state machine is receiving, after the last bit of this byte is received the LSFR is checked and if it is non-zero, a PEC RX Error interrupt is generated. The I2C packet must be padded to include the PEC byte for both transmit and receive. In transmit mode the FIFO must be loaded with a dummy PEC byte. In receive mode the PEC byte will be passed to the Rx FIFO. In the normal Target use case, FW would set PECEN=1 and PECCNT=0 and use the ACKOEN until the remaining SMB packet length is known. FW would then set the PECCNT to the remaining packet length (Including PEC bye). FW would then configure DMA to allow the packet to complete unassisted and exit NoAck mode. Note that when the byte count = PEC CNT, the byte count is reset to 0 and multiple PEC calculation can automatically occur within a single I2C transaction."]
-        #[must_use]
-        #[inline(always)]
-        pub const fn peccnt(&self) -> u16 {
-            let val = (self.0 >> 0usize) & 0x01ff;
-            val as u16
-        }
-        #[doc = "When this field is non zero, the number of I2C data bytes are counted. When the byte count = PECCNT and the state machine is transmitting, the contents of the LSFR is loaded into the shift register instead of the byte received from the Tx FIFO. When the state machine is receiving, after the last bit of this byte is received the LSFR is checked and if it is non-zero, a PEC RX Error interrupt is generated. The I2C packet must be padded to include the PEC byte for both transmit and receive. In transmit mode the FIFO must be loaded with a dummy PEC byte. In receive mode the PEC byte will be passed to the Rx FIFO. In the normal Target use case, FW would set PECEN=1 and PECCNT=0 and use the ACKOEN until the remaining SMB packet length is known. FW would then set the PECCNT to the remaining packet length (Including PEC bye). FW would then configure DMA to allow the packet to complete unassisted and exit NoAck mode. Note that when the byte count = PEC CNT, the byte count is reset to 0 and multiple PEC calculation can automatically occur within a single I2C transaction."]
-        #[inline(always)]
-        pub const fn set_peccnt(&mut self, val: u16) {
-            self.0 = (self.0 & !(0x01ff << 0usize)) | (((val as u32) & 0x01ff) << 0usize);
-        }
-        #[doc = "PEC Enable This bit enables the SMB Packet Error Checking (PEC). When enabled the PEC is calculated on all bits except the Start, Stop, Ack and Nack. The PEC LSFR and the Byte Counter is set to 0 when the State Machine is in the IDLE state, which occur following a Stop or when a timeout occurs. The Counter is also set to 0 after the PEC byte is sent or received. Note that the NACK is automatically send following a PEC byte that results in a PEC error. The PEC Polynomial is x^8 + x^2 + x^1 + 1."]
-        #[must_use]
-        #[inline(always)]
-        pub const fn pecen(&self) -> bool {
-            let val = (self.0 >> 12usize) & 0x01;
-            val != 0
-        }
-        #[doc = "PEC Enable This bit enables the SMB Packet Error Checking (PEC). When enabled the PEC is calculated on all bits except the Start, Stop, Ack and Nack. The PEC LSFR and the Byte Counter is set to 0 when the State Machine is in the IDLE state, which occur following a Stop or when a timeout occurs. The Counter is also set to 0 after the PEC byte is sent or received. Note that the NACK is automatically send following a PEC byte that results in a PEC error. The PEC Polynomial is x^8 + x^2 + x^1 + 1."]
-        #[inline(always)]
-        pub const fn set_pecen(&mut self, val: bool) {
-            self.0 = (self.0 & !(0x01 << 12usize)) | (((val as u32) & 0x01) << 12usize);
-        }
-    }
-    impl Default for TargetPecctl {
-        #[inline(always)]
-        fn default() -> TargetPecctl {
-            TargetPecctl(0)
-        }
-    }
-    impl core::fmt::Debug for TargetPecctl {
-        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-            f.debug_struct("TargetPecctl")
-                .field("peccnt", &self.peccnt())
-                .field("pecen", &self.pecen())
-                .finish()
-        }
-    }
-    #[cfg(feature = "defmt")]
-    impl defmt::Format for TargetPecctl {
-        fn format(&self, f: defmt::Formatter) {
-            defmt::write!(
-                f,
-                "TargetPecctl {{ peccnt: {=u16:?}, pecen: {=bool:?} }}",
-                self.peccnt(),
-                self.pecen()
-            )
-        }
-    }
-    #[doc = "I2C Target PEC status register."]
-    #[repr(transparent)]
-    #[derive(Copy, Clone, Eq, PartialEq)]
-    pub struct TargetPecsr(pub u32);
-    impl TargetPecsr {
-        #[doc = "This is the current PEC Byte Count of the Target State Machine."]
-        #[must_use]
-        #[inline(always)]
-        pub const fn pecbytecnt(&self) -> u16 {
-            let val = (self.0 >> 0usize) & 0x01ff;
-            val as u16
-        }
-        #[doc = "This is the current PEC Byte Count of the Target State Machine."]
-        #[inline(always)]
-        pub const fn set_pecbytecnt(&mut self, val: u16) {
-            self.0 = (self.0 & !(0x01ff << 0usize)) | (((val as u32) & 0x01ff) << 0usize);
-        }
-        #[doc = "This status bit indicates if the PEC was checked in the transaction that occurred before the last Stop. Latched on Stop."]
-        #[must_use]
-        #[inline(always)]
-        pub const fn pecsts_check(&self) -> bool {
-            let val = (self.0 >> 16usize) & 0x01;
-            val != 0
-        }
-        #[doc = "This status bit indicates if the PEC was checked in the transaction that occurred before the last Stop. Latched on Stop."]
-        #[inline(always)]
-        pub const fn set_pecsts_check(&mut self, val: bool) {
-            self.0 = (self.0 & !(0x01 << 16usize)) | (((val as u32) & 0x01) << 16usize);
-        }
-        #[doc = "This status bit indicates if a PEC check error occurred in the transaction that occurred before the last Stop. Latched on Stop."]
-        #[must_use]
-        #[inline(always)]
-        pub const fn pecsts_error(&self) -> bool {
-            let val = (self.0 >> 17usize) & 0x01;
-            val != 0
-        }
-        #[doc = "This status bit indicates if a PEC check error occurred in the transaction that occurred before the last Stop. Latched on Stop."]
-        #[inline(always)]
-        pub const fn set_pecsts_error(&mut self, val: bool) {
-            self.0 = (self.0 & !(0x01 << 17usize)) | (((val as u32) & 0x01) << 17usize);
-        }
-    }
-    impl Default for TargetPecsr {
-        #[inline(always)]
-        fn default() -> TargetPecsr {
-            TargetPecsr(0)
-        }
-    }
-    impl core::fmt::Debug for TargetPecsr {
-        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-            f.debug_struct("TargetPecsr")
-                .field("pecbytecnt", &self.pecbytecnt())
-                .field("pecsts_check", &self.pecsts_check())
-                .field("pecsts_error", &self.pecsts_error())
-                .finish()
-        }
-    }
-    #[cfg(feature = "defmt")]
-    impl defmt::Format for TargetPecsr {
-        fn format(&self, f: defmt::Formatter) {
-            defmt :: write ! (f , "TargetPecsr {{ pecbytecnt: {=u16:?}, pecsts_check: {=bool:?}, pecsts_error: {=bool:?} }}" , self . pecbytecnt () , self . pecsts_check () , self . pecsts_error ())
-        }
-    }
     #[doc = "I2C Target Control Register."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
@@ -2880,82 +2758,6 @@ is set to 'STOP'."]
                 self.rxtrig(),
                 self.rxflush()
             )
-        }
-    }
-    #[doc = "I2C Target FIFO Status Register."]
-    #[repr(transparent)]
-    #[derive(Copy, Clone, Eq, PartialEq)]
-    pub struct Tfifosr(pub u32);
-    impl Tfifosr {
-        #[doc = "Number of Bytes which could be read from the RX FIFO."]
-        #[must_use]
-        #[inline(always)]
-        pub const fn rxfifocnt(&self) -> u8 {
-            let val = (self.0 >> 0usize) & 0x0f;
-            val as u8
-        }
-        #[doc = "Number of Bytes which could be read from the RX FIFO."]
-        #[inline(always)]
-        pub const fn set_rxfifocnt(&mut self, val: u8) {
-            self.0 = (self.0 & !(0x0f << 0usize)) | (((val as u32) & 0x0f) << 0usize);
-        }
-        #[doc = "RX FIFO Flush When this bit is set a Flush operation for the RX FIFO is active. Clear the RXFLUSH bit in the control register to stop."]
-        #[must_use]
-        #[inline(always)]
-        pub const fn rxflush(&self) -> bool {
-            let val = (self.0 >> 7usize) & 0x01;
-            val != 0
-        }
-        #[doc = "RX FIFO Flush When this bit is set a Flush operation for the RX FIFO is active. Clear the RXFLUSH bit in the control register to stop."]
-        #[inline(always)]
-        pub const fn set_rxflush(&mut self, val: bool) {
-            self.0 = (self.0 & !(0x01 << 7usize)) | (((val as u32) & 0x01) << 7usize);
-        }
-        #[doc = "Number of Bytes which could be put into the TX FIFO."]
-        #[must_use]
-        #[inline(always)]
-        pub const fn txfifocnt(&self) -> u8 {
-            let val = (self.0 >> 8usize) & 0x0f;
-            val as u8
-        }
-        #[doc = "Number of Bytes which could be put into the TX FIFO."]
-        #[inline(always)]
-        pub const fn set_txfifocnt(&mut self, val: u8) {
-            self.0 = (self.0 & !(0x0f << 8usize)) | (((val as u32) & 0x0f) << 8usize);
-        }
-        #[doc = "TX FIFO Flush When this bit is set a Flush operation for the TX FIFO is active. Clear the TXFLUSH bit in the control register to stop."]
-        #[must_use]
-        #[inline(always)]
-        pub const fn txflush(&self) -> bool {
-            let val = (self.0 >> 15usize) & 0x01;
-            val != 0
-        }
-        #[doc = "TX FIFO Flush When this bit is set a Flush operation for the TX FIFO is active. Clear the TXFLUSH bit in the control register to stop."]
-        #[inline(always)]
-        pub const fn set_txflush(&mut self, val: bool) {
-            self.0 = (self.0 & !(0x01 << 15usize)) | (((val as u32) & 0x01) << 15usize);
-        }
-    }
-    impl Default for Tfifosr {
-        #[inline(always)]
-        fn default() -> Tfifosr {
-            Tfifosr(0)
-        }
-    }
-    impl core::fmt::Debug for Tfifosr {
-        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-            f.debug_struct("Tfifosr")
-                .field("rxfifocnt", &self.rxfifocnt())
-                .field("rxflush", &self.rxflush())
-                .field("txfifocnt", &self.txfifocnt())
-                .field("txflush", &self.txflush())
-                .finish()
-        }
-    }
-    #[cfg(feature = "defmt")]
-    impl defmt::Format for Tfifosr {
-        fn format(&self, f: defmt::Formatter) {
-            defmt :: write ! (f , "Tfifosr {{ rxfifocnt: {=u8:?}, rxflush: {=bool:?}, txfifocnt: {=u8:?}, txflush: {=bool:?} }}" , self . rxfifocnt () , self . rxflush () , self . txfifocnt () , self . txflush ())
         }
     }
     #[doc = "I2C Timeout Count Register."]

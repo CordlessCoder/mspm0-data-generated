@@ -518,29 +518,21 @@ pub mod regs {
         pub const fn set_rxpe(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 6usize)) | (((val as u32) & 0x01) << 6usize);
         }
-        #[doc = "Enable LIN Capture 0 / Match Interrupt."]
+        #[doc = "LIN capture interrupt. Index 0 is the capture-or-match interrupt on the falling RXD edge, index 1 the capture interrupt on the rising edge."]
         #[must_use]
         #[inline(always)]
-        pub const fn linc0(&self) -> bool {
-            let val = (self.0 >> 7usize) & 0x01;
+        pub const fn linc(&self, n: usize) -> bool {
+            assert!(n < 2usize);
+            let offs = 7usize + n * 1usize;
+            let val = (self.0 >> offs) & 0x01;
             val != 0
         }
-        #[doc = "Enable LIN Capture 0 / Match Interrupt."]
+        #[doc = "LIN capture interrupt. Index 0 is the capture-or-match interrupt on the falling RXD edge, index 1 the capture interrupt on the rising edge."]
         #[inline(always)]
-        pub const fn set_linc0(&mut self, val: bool) {
-            self.0 = (self.0 & !(0x01 << 7usize)) | (((val as u32) & 0x01) << 7usize);
-        }
-        #[doc = "Enable LIN Capture 1 Interrupt."]
-        #[must_use]
-        #[inline(always)]
-        pub const fn linc1(&self) -> bool {
-            let val = (self.0 >> 8usize) & 0x01;
-            val != 0
-        }
-        #[doc = "Enable LIN Capture 1 Interrupt."]
-        #[inline(always)]
-        pub const fn set_linc1(&mut self, val: bool) {
-            self.0 = (self.0 & !(0x01 << 8usize)) | (((val as u32) & 0x01) << 8usize);
+        pub const fn set_linc(&mut self, n: usize, val: bool) {
+            assert!(n < 2usize);
+            let offs = 7usize + n * 1usize;
+            self.0 = (self.0 & !(0x01 << offs)) | (((val as u32) & 0x01) << offs);
         }
         #[doc = "Enable LIN Hardware Counter Overflow Interrupt."]
         #[must_use]
@@ -679,8 +671,8 @@ pub mod regs {
                 .field("ovrerr", &self.ovrerr())
                 .field("rxne", &self.rxne())
                 .field("rxpe", &self.rxpe())
-                .field("linc0", &self.linc0())
-                .field("linc1", &self.linc1())
+                .field("linc[0]", &self.linc(0usize))
+                .field("linc[1]", &self.linc(1usize))
                 .field("linovf", &self.linovf())
                 .field("rxint", &self.rxint())
                 .field("txint", &self.txint())
@@ -697,7 +689,7 @@ pub mod regs {
     #[cfg(feature = "defmt")]
     impl defmt::Format for CpuInt {
         fn format(&self, f: defmt::Formatter) {
-            defmt :: write ! (f , "CpuInt {{ rtout: {=bool:?}, frmerr: {=bool:?}, parerr: {=bool:?}, brkerr: {=bool:?}, ovrerr: {=bool:?}, rxne: {=bool:?}, rxpe: {=bool:?}, linc0: {=bool:?}, linc1: {=bool:?}, linovf: {=bool:?}, rxint: {=bool:?}, txint: {=bool:?}, eot: {=bool:?}, addr_match: {=bool:?}, cts: {=bool:?}, dma_done_rx: {=bool:?}, dma_done_tx: {=bool:?}, nerr: {=bool:?}, ltout: {=bool:?} }}" , self . rtout () , self . frmerr () , self . parerr () , self . brkerr () , self . ovrerr () , self . rxne () , self . rxpe () , self . linc0 () , self . linc1 () , self . linovf () , self . rxint () , self . txint () , self . eot () , self . addr_match () , self . cts () , self . dma_done_rx () , self . dma_done_tx () , self . nerr () , self . ltout ())
+            defmt :: write ! (f , "CpuInt {{ rtout: {=bool:?}, frmerr: {=bool:?}, parerr: {=bool:?}, brkerr: {=bool:?}, ovrerr: {=bool:?}, rxne: {=bool:?}, rxpe: {=bool:?}, linc[0]: {=bool:?}, linc[1]: {=bool:?}, linovf: {=bool:?}, rxint: {=bool:?}, txint: {=bool:?}, eot: {=bool:?}, addr_match: {=bool:?}, cts: {=bool:?}, dma_done_rx: {=bool:?}, dma_done_tx: {=bool:?}, nerr: {=bool:?}, ltout: {=bool:?} }}" , self . rtout () , self . frmerr () , self . parerr () , self . brkerr () , self . ovrerr () , self . rxne () , self . rxpe () , self . linc (0usize) , self . linc (1usize) , self . linovf () , self . rxint () , self . txint () , self . eot () , self . addr_match () , self . cts () , self . dma_done_rx () , self . dma_done_tx () , self . nerr () , self . ltout ())
         }
     }
     #[doc = "UART Control Register 0."]

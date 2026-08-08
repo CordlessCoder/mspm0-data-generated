@@ -35,14 +35,14 @@ pub mod regs {
         #[doc = "Beeper output enable"]
         #[must_use]
         #[inline(always)]
-        pub const fn en(&self) -> super::vals::En {
+        pub const fn en(&self) -> bool {
             let val = (self.0 >> 0usize) & 0x01;
-            super::vals::En::from_bits(val as u8)
+            val != 0
         }
         #[doc = "Beeper output enable"]
         #[inline(always)]
-        pub const fn set_en(&mut self, val: super::vals::En) {
-            self.0 = (self.0 & !(0x01 << 0usize)) | (((val.to_bits() as u32) & 0x01) << 0usize);
+        pub const fn set_en(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 0usize)) | (((val as u32) & 0x01) << 0usize);
         }
         #[doc = "Beeper Output Frequency Configuration"]
         #[must_use]
@@ -76,7 +76,7 @@ pub mod regs {
         fn format(&self, f: defmt::Formatter) {
             defmt::write!(
                 f,
-                "Beepcfg {{ en: {:?}, freq: {:?} }}",
+                "Beepcfg {{ en: {=bool:?}, freq: {:?} }}",
                 self.en(),
                 self.freq()
             )
@@ -84,37 +84,6 @@ pub mod regs {
     }
 }
 pub mod vals {
-    #[repr(u8)]
-    #[derive(Copy, Clone, Debug, Eq, PartialEq, Ord, PartialOrd)]
-    #[cfg_attr(feature = "defmt", derive(defmt::Format))]
-    pub enum En {
-        #[doc = "Beeper Output Disabled"]
-        Disable = 0x0,
-        #[doc = "Beeper Output Enabled"]
-        Enable = 0x01,
-    }
-    impl En {
-        #[inline(always)]
-        pub const fn from_bits(val: u8) -> En {
-            unsafe { core::mem::transmute(val & 0x01) }
-        }
-        #[inline(always)]
-        pub const fn to_bits(self) -> u8 {
-            unsafe { core::mem::transmute(self) }
-        }
-    }
-    impl From<u8> for En {
-        #[inline(always)]
-        fn from(val: u8) -> En {
-            En::from_bits(val)
-        }
-    }
-    impl From<En> for u8 {
-        #[inline(always)]
-        fn from(val: En) -> u8 {
-            En::to_bits(val)
-        }
-    }
     #[repr(u8)]
     #[derive(Copy, Clone, Debug, Eq, PartialEq, Ord, PartialOrd)]
     #[cfg_attr(feature = "defmt", derive(defmt::Format))]

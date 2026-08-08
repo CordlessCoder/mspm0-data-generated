@@ -240,30 +240,22 @@ impl Sysctl {
     }
     #[doc = "Flash RX Protection Start Address."]
     #[inline(always)]
-    pub const fn frxprotmainstart(
-        self,
-    ) -> crate::common::Reg<regs::Frxprotmainstart, crate::common::RW> {
+    pub const fn frxprotmainstart(self) -> crate::common::Reg<regs::Fprotaddr, crate::common::RW> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x3018usize) as _) }
     }
     #[doc = "Flash RX Protection End Address."]
     #[inline(always)]
-    pub const fn frxprotmainend(
-        self,
-    ) -> crate::common::Reg<regs::Frxprotmainend, crate::common::RW> {
+    pub const fn frxprotmainend(self) -> crate::common::Reg<regs::Fprotaddr, crate::common::RW> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x301cusize) as _) }
     }
     #[doc = "Flash IP Protection Start Address."]
     #[inline(always)]
-    pub const fn fipprotmainstart(
-        self,
-    ) -> crate::common::Reg<regs::Fipprotmainstart, crate::common::RW> {
+    pub const fn fipprotmainstart(self) -> crate::common::Reg<regs::Fprotaddr, crate::common::RW> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x3020usize) as _) }
     }
     #[doc = "Flash IP Protection End Address."]
     #[inline(always)]
-    pub const fn fipprotmainend(
-        self,
-    ) -> crate::common::Reg<regs::Fipprotmainend, crate::common::RW> {
+    pub const fn fipprotmainend(self) -> crate::common::Reg<regs::Fprotaddr, crate::common::RW> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x3024usize) as _) }
     }
     #[doc = "Flash Bank Swap Policy."]
@@ -808,80 +800,6 @@ pub mod regs {
             )
         }
     }
-    #[doc = "Flash IP Protection End Address."]
-    #[repr(transparent)]
-    #[derive(Copy, Clone, Eq, PartialEq)]
-    pub struct Fipprotmainend(pub u32);
-    impl Fipprotmainend {
-        #[doc = "Flash IP Protection End Address 64B granularity."]
-        #[must_use]
-        #[inline(always)]
-        pub const fn addr(&self) -> u16 {
-            let val = (self.0 >> 6usize) & 0xffff;
-            val as u16
-        }
-        #[doc = "Flash IP Protection End Address 64B granularity."]
-        #[inline(always)]
-        pub const fn set_addr(&mut self, val: u16) {
-            self.0 = (self.0 & !(0xffff << 6usize)) | (((val as u32) & 0xffff) << 6usize);
-        }
-    }
-    impl Default for Fipprotmainend {
-        #[inline(always)]
-        fn default() -> Fipprotmainend {
-            Fipprotmainend(0)
-        }
-    }
-    impl core::fmt::Debug for Fipprotmainend {
-        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-            f.debug_struct("Fipprotmainend")
-                .field("addr", &self.addr())
-                .finish()
-        }
-    }
-    #[cfg(feature = "defmt")]
-    impl defmt::Format for Fipprotmainend {
-        fn format(&self, f: defmt::Formatter) {
-            defmt::write!(f, "Fipprotmainend {{ addr: {=u16:?} }}", self.addr())
-        }
-    }
-    #[doc = "Flash IP Protection Start Address."]
-    #[repr(transparent)]
-    #[derive(Copy, Clone, Eq, PartialEq)]
-    pub struct Fipprotmainstart(pub u32);
-    impl Fipprotmainstart {
-        #[doc = "Flash IP Protection Start Address 64B granularity."]
-        #[must_use]
-        #[inline(always)]
-        pub const fn addr(&self) -> u16 {
-            let val = (self.0 >> 6usize) & 0xffff;
-            val as u16
-        }
-        #[doc = "Flash IP Protection Start Address 64B granularity."]
-        #[inline(always)]
-        pub const fn set_addr(&mut self, val: u16) {
-            self.0 = (self.0 & !(0xffff << 6usize)) | (((val as u32) & 0xffff) << 6usize);
-        }
-    }
-    impl Default for Fipprotmainstart {
-        #[inline(always)]
-        fn default() -> Fipprotmainstart {
-            Fipprotmainstart(0)
-        }
-    }
-    impl core::fmt::Debug for Fipprotmainstart {
-        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-            f.debug_struct("Fipprotmainstart")
-                .field("addr", &self.addr())
-                .finish()
-        }
-    }
-    #[cfg(feature = "defmt")]
-    impl defmt::Format for Fipprotmainstart {
-        fn format(&self, f: defmt::Formatter) {
-            defmt::write!(f, "Fipprotmainstart {{ addr: {=u16:?} }}", self.addr())
-        }
-    }
     #[doc = "Flash MAIN bank address swap."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
@@ -960,78 +878,41 @@ pub mod regs {
             )
         }
     }
-    #[doc = "Flash RX Protection End Address."]
+    #[doc = "A flash protection boundary address."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
-    pub struct Frxprotmainend(pub u32);
-    impl Frxprotmainend {
-        #[doc = "Flash RX Protection End Address 64B granularity."]
+    pub struct Fprotaddr(pub u32);
+    impl Fprotaddr {
+        #[doc = "The boundary address, at 64 byte granularity."]
         #[must_use]
         #[inline(always)]
         pub const fn addr(&self) -> u16 {
             let val = (self.0 >> 6usize) & 0xffff;
             val as u16
         }
-        #[doc = "Flash RX Protection End Address 64B granularity."]
+        #[doc = "The boundary address, at 64 byte granularity."]
         #[inline(always)]
         pub const fn set_addr(&mut self, val: u16) {
             self.0 = (self.0 & !(0xffff << 6usize)) | (((val as u32) & 0xffff) << 6usize);
         }
     }
-    impl Default for Frxprotmainend {
+    impl Default for Fprotaddr {
         #[inline(always)]
-        fn default() -> Frxprotmainend {
-            Frxprotmainend(0)
+        fn default() -> Fprotaddr {
+            Fprotaddr(0)
         }
     }
-    impl core::fmt::Debug for Frxprotmainend {
+    impl core::fmt::Debug for Fprotaddr {
         fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-            f.debug_struct("Frxprotmainend")
+            f.debug_struct("Fprotaddr")
                 .field("addr", &self.addr())
                 .finish()
         }
     }
     #[cfg(feature = "defmt")]
-    impl defmt::Format for Frxprotmainend {
+    impl defmt::Format for Fprotaddr {
         fn format(&self, f: defmt::Formatter) {
-            defmt::write!(f, "Frxprotmainend {{ addr: {=u16:?} }}", self.addr())
-        }
-    }
-    #[doc = "Flash RX Protection Start Address."]
-    #[repr(transparent)]
-    #[derive(Copy, Clone, Eq, PartialEq)]
-    pub struct Frxprotmainstart(pub u32);
-    impl Frxprotmainstart {
-        #[doc = "Flash RX Protection Start Address 64B granularity."]
-        #[must_use]
-        #[inline(always)]
-        pub const fn addr(&self) -> u16 {
-            let val = (self.0 >> 6usize) & 0xffff;
-            val as u16
-        }
-        #[doc = "Flash RX Protection Start Address 64B granularity."]
-        #[inline(always)]
-        pub const fn set_addr(&mut self, val: u16) {
-            self.0 = (self.0 & !(0xffff << 6usize)) | (((val as u32) & 0xffff) << 6usize);
-        }
-    }
-    impl Default for Frxprotmainstart {
-        #[inline(always)]
-        fn default() -> Frxprotmainstart {
-            Frxprotmainstart(0)
-        }
-    }
-    impl core::fmt::Debug for Frxprotmainstart {
-        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-            f.debug_struct("Frxprotmainstart")
-                .field("addr", &self.addr())
-                .finish()
-        }
-    }
-    #[cfg(feature = "defmt")]
-    impl defmt::Format for Frxprotmainstart {
-        fn format(&self, f: defmt::Formatter) {
-            defmt::write!(f, "Frxprotmainstart {{ addr: {=u16:?} }}", self.addr())
+            defmt::write!(f, "Fprotaddr {{ addr: {=u16:?} }}", self.addr())
         }
     }
     #[doc = "Security Firewall Enable Register."]

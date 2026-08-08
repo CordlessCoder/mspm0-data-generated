@@ -109,128 +109,120 @@ impl Ecc {
     }
     #[doc = "MCAN Error Aggregator Revision Register."]
     #[inline(always)]
-    pub const fn err_rev(self) -> crate::common::Reg<regs::ErrRev, crate::common::R> {
+    pub const fn rev(self) -> crate::common::Reg<regs::ErrRev, crate::common::R> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x0usize) as _) }
     }
     #[doc = "MCAN ECC Vector Register."]
     #[inline(always)]
-    pub const fn err_vector(self) -> crate::common::Reg<regs::ErrVector, crate::common::RW> {
+    pub const fn vector(self) -> crate::common::Reg<regs::ErrVector, crate::common::RW> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x08usize) as _) }
     }
     #[doc = "MCAN Error Misc Status."]
     #[inline(always)]
-    pub const fn err_stat(self) -> crate::common::Reg<regs::ErrStat, crate::common::R> {
+    pub const fn stat(self) -> crate::common::Reg<regs::ErrStat, crate::common::R> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x0cusize) as _) }
     }
     #[doc = "MCAN ECC Wrapper Revision Register."]
     #[inline(always)]
-    pub const fn err_wrap_rev(self) -> crate::common::Reg<regs::ErrWrapRev, crate::common::R> {
+    pub const fn wrap_rev(self) -> crate::common::Reg<regs::ErrRev, crate::common::R> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x10usize) as _) }
     }
     #[doc = "MCAN ECC Control."]
     #[inline(always)]
-    pub const fn err_ctrl(self) -> crate::common::Reg<regs::ErrCtrl, crate::common::RW> {
+    pub const fn ctrl(self) -> crate::common::Reg<regs::ErrCtrl, crate::common::RW> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x14usize) as _) }
     }
     #[doc = "MCAN ECC Error Control 1 Register."]
     #[inline(always)]
-    pub const fn err_err_ctrl1(self) -> crate::common::Reg<regs::ErrErrCtrl1, crate::common::RW> {
+    pub const fn err_ctrl1(self) -> crate::common::Reg<u32, crate::common::RW> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x18usize) as _) }
     }
     #[doc = "MCAN ECC Error Control 2 Register."]
     #[inline(always)]
-    pub const fn err_err_ctrl2(self) -> crate::common::Reg<regs::ErrErrCtrl2, crate::common::RW> {
+    pub const fn err_ctrl2(self) -> crate::common::Reg<regs::ErrErrCtrl2, crate::common::RW> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x1cusize) as _) }
     }
     #[doc = "MCAN ECC Error Status 1 Register."]
     #[inline(always)]
-    pub const fn err_err_stat1(self) -> crate::common::Reg<regs::ErrErrStat1, crate::common::RW> {
+    pub const fn err_stat1(self) -> crate::common::Reg<regs::ErrErrStat1, crate::common::RW> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x20usize) as _) }
     }
     #[doc = "MCAN ECC Error Status 2 Register."]
     #[inline(always)]
-    pub const fn err_err_stat2(self) -> crate::common::Reg<regs::ErrErrStat2, crate::common::R> {
+    pub const fn err_stat2(self) -> crate::common::Reg<u32, crate::common::R> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x24usize) as _) }
     }
     #[doc = "MCAN ECC Error Status 3 Register."]
     #[inline(always)]
-    pub const fn err_err_stat3(self) -> crate::common::Reg<regs::ErrErrStat3, crate::common::RW> {
+    pub const fn err_stat3(self) -> crate::common::Reg<regs::ErrErrStat3, crate::common::RW> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x28usize) as _) }
     }
     #[doc = "MCAN Single Error Corrected End of Interrupt Register."]
     #[inline(always)]
-    pub const fn err_sec_eoi(self) -> crate::common::Reg<regs::ErrSecEoi, crate::common::RW> {
+    pub const fn sec_eoi(self) -> crate::common::Reg<regs::ErrEoi, crate::common::RW> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x3cusize) as _) }
     }
     #[doc = "MCAN Single Error Corrected Interrupt Status Register."]
     #[inline(always)]
-    pub const fn err_sec_status(self) -> crate::common::Reg<regs::ErrSecStatus, crate::common::RW> {
+    pub const fn sec_status(self) -> crate::common::Reg<regs::ErrStatus, crate::common::RW> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x40usize) as _) }
     }
     #[doc = "MCAN Single Error Corrected Interrupt Enable Set Register."]
     #[inline(always)]
-    pub const fn err_sec_enable_set(
-        self,
-    ) -> crate::common::Reg<regs::ErrSecEnableSet, crate::common::RW> {
+    pub const fn sec_enable_set(self) -> crate::common::Reg<regs::ErrEnableSet, crate::common::RW> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x80usize) as _) }
     }
     #[doc = "MCAN Single Error Corrected Interrupt Enable Clear Register."]
     #[inline(always)]
-    pub const fn err_sec_enable_clr(
-        self,
-    ) -> crate::common::Reg<regs::ErrSecEnableClr, crate::common::RW> {
+    pub const fn sec_enable_clr(self) -> crate::common::Reg<regs::ErrEnableClr, crate::common::RW> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0xc0usize) as _) }
     }
     #[doc = "MCAN Double Error Detected End of Interrupt Register."]
     #[inline(always)]
-    pub const fn err_ded_eoi(self) -> crate::common::Reg<regs::ErrDedEoi, crate::common::RW> {
+    pub const fn ded_eoi(self) -> crate::common::Reg<regs::ErrEoi, crate::common::RW> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x013cusize) as _) }
     }
     #[doc = "MCAN Double Error Detected Interrupt Status Register."]
     #[inline(always)]
-    pub const fn err_ded_status(self) -> crate::common::Reg<regs::ErrDedStatus, crate::common::RW> {
+    pub const fn ded_status(self) -> crate::common::Reg<regs::ErrStatus, crate::common::RW> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x0140usize) as _) }
     }
     #[doc = "MCAN Double Error Detected Interrupt Enable Set Register."]
     #[inline(always)]
-    pub const fn err_ded_enable_set(
-        self,
-    ) -> crate::common::Reg<regs::ErrDedEnableSet, crate::common::RW> {
+    pub const fn ded_enable_set(self) -> crate::common::Reg<regs::ErrEnableSet, crate::common::RW> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x0180usize) as _) }
     }
     #[doc = "MCAN Double Error Detected Interrupt Enable Clear Register."]
     #[inline(always)]
-    pub const fn err_ded_enable_clr(
-        self,
-    ) -> crate::common::Reg<regs::ErrDedEnableClr, crate::common::RW> {
+    pub const fn ded_enable_clr(self) -> crate::common::Reg<regs::ErrEnableClr, crate::common::RW> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x01c0usize) as _) }
     }
     #[doc = "MCAN Error Aggregator Enable Set Register."]
     #[inline(always)]
-    pub const fn err_aggr_enable_set(
+    pub const fn aggr_enable_set(
         self,
     ) -> crate::common::Reg<regs::ErrAggrEnableSet, crate::common::RW> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x0200usize) as _) }
     }
     #[doc = "MCAN Error Aggregator Enable Clear Register."]
     #[inline(always)]
-    pub const fn err_aggr_enable_clr(
+    pub const fn aggr_enable_clr(
         self,
     ) -> crate::common::Reg<regs::ErrAggrEnableClr, crate::common::RW> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x0204usize) as _) }
     }
     #[doc = "MCAN Error Aggregator Status Set Register."]
     #[inline(always)]
-    pub const fn err_aggr_status_set(
+    pub const fn aggr_status_set(
         self,
-    ) -> crate::common::Reg<regs::ErrAggrStatusSet, crate::common::RW> {
+    ) -> crate::common::Reg<regs::ErrAggrStatus, crate::common::RW> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x0208usize) as _) }
     }
     #[doc = "MCAN Error Aggregator Status Clear Register."]
     #[inline(always)]
-    pub const fn err_aggr_status_clr(
+    pub const fn aggr_status_clr(
         self,
-    ) -> crate::common::Reg<regs::ErrAggrStatusClr, crate::common::RW> {
+    ) -> crate::common::Reg<regs::ErrAggrStatus, crate::common::RW> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x020cusize) as _) }
     }
 }
@@ -256,7 +248,7 @@ impl Mcan {
     }
     #[doc = "MCAN Endian Register."]
     #[inline(always)]
-    pub const fn endn(self) -> crate::common::Reg<regs::Endn, crate::common::R> {
+    pub const fn endn(self) -> crate::common::Reg<u32, crate::common::R> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x04usize) as _) }
     }
     #[doc = "MCAN Data Bit Timing and Prescaler Register."]
@@ -364,15 +356,11 @@ impl Mcan {
     pub const fn hpms(self) -> crate::common::Reg<regs::Hpms, crate::common::R> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x94usize) as _) }
     }
-    #[doc = "MCAN New Data 1."]
+    #[doc = "MCAN New Data. Index 0 covers message buffers 0 to 31 and index 1 buffers 32 to 63."]
     #[inline(always)]
-    pub const fn ndat1(self) -> crate::common::Reg<regs::Ndat, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x98usize) as _) }
-    }
-    #[doc = "MCAN New Data 2."]
-    #[inline(always)]
-    pub const fn ndat2(self) -> crate::common::Reg<regs::Ndat, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x9cusize) as _) }
+    pub const fn ndat(self, n: usize) -> crate::common::Reg<regs::Ndat, crate::common::RW> {
+        assert!(n < 2usize);
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x98usize + n * 4usize) as _) }
     }
     #[doc = "MCAN Rx FIFO 0 Configuration."]
     #[inline(always)]
@@ -574,59 +562,59 @@ impl Subsys {
     }
     #[doc = "MCAN Subsystem Revision Register."]
     #[inline(always)]
-    pub const fn subsys_pid(self) -> crate::common::Reg<regs::SubsysPid, crate::common::R> {
+    pub const fn pid(self) -> crate::common::Reg<regs::SubsysPid, crate::common::R> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x0usize) as _) }
     }
     #[doc = "MCAN Subsystem Control Register."]
     #[inline(always)]
-    pub const fn subsys_ctrl(self) -> crate::common::Reg<regs::SubsysCtrl, crate::common::RW> {
+    pub const fn ctrl(self) -> crate::common::Reg<regs::SubsysCtrl, crate::common::RW> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x04usize) as _) }
     }
     #[doc = "MCAN Subsystem Status Register."]
     #[inline(always)]
-    pub const fn subsys_stat(self) -> crate::common::Reg<regs::SubsysStat, crate::common::R> {
+    pub const fn stat(self) -> crate::common::Reg<regs::SubsysStat, crate::common::R> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x08usize) as _) }
     }
     #[doc = "MCAN Subsystem Interrupt Clear Shadow Register."]
     #[inline(always)]
-    pub const fn subsys_ics(self) -> crate::common::Reg<regs::SubsysIcs, crate::common::RW> {
+    pub const fn ics(self) -> crate::common::Reg<regs::SubsysInt, crate::common::RW> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x0cusize) as _) }
     }
     #[doc = "MCAN Subsystem Interrupt Raw Satus Register."]
     #[inline(always)]
-    pub const fn subsys_irs(self) -> crate::common::Reg<regs::SubsysIrs, crate::common::RW> {
+    pub const fn irs(self) -> crate::common::Reg<regs::SubsysInt, crate::common::RW> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x10usize) as _) }
     }
     #[doc = "MCAN Subsystem Interrupt Enable Clear Shadow Register."]
     #[inline(always)]
-    pub const fn subsys_iecs(self) -> crate::common::Reg<regs::SubsysIecs, crate::common::RW> {
+    pub const fn iecs(self) -> crate::common::Reg<regs::SubsysInt, crate::common::RW> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x14usize) as _) }
     }
     #[doc = "MCAN Subsystem Interrupt Enable Register."]
     #[inline(always)]
-    pub const fn subsys_ie(self) -> crate::common::Reg<regs::SubsysIe, crate::common::RW> {
+    pub const fn ie(self) -> crate::common::Reg<regs::SubsysInt, crate::common::RW> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x18usize) as _) }
     }
     #[doc = "MCAN Subsystem Interrupt Enable Status."]
     #[inline(always)]
-    pub const fn subsys_ies(self) -> crate::common::Reg<regs::SubsysIes, crate::common::R> {
+    pub const fn ies(self) -> crate::common::Reg<regs::SubsysInt, crate::common::R> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x1cusize) as _) }
     }
     #[doc = "MCAN Subsystem End of Interrupt."]
     #[inline(always)]
-    pub const fn subsys_eoi(self) -> crate::common::Reg<regs::SubsysEoi, crate::common::RW> {
+    pub const fn eoi(self) -> crate::common::Reg<regs::SubsysEoi, crate::common::RW> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x20usize) as _) }
     }
     #[doc = "MCAN Subsystem External Timestamp Prescaler 0."]
     #[inline(always)]
-    pub const fn subsys_ext_ts_prescaler(
+    pub const fn ext_ts_prescaler(
         self,
     ) -> crate::common::Reg<regs::SubsysExtTsPrescaler, crate::common::RW> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x24usize) as _) }
     }
     #[doc = "MCAN Subsystem External Timestamp Unserviced Interrupts Counter."]
     #[inline(always)]
-    pub const fn subsys_ext_ts_unserviced_intr_cntr(
+    pub const fn ext_ts_unserviced_intr_cntr(
         self,
     ) -> crate::common::Reg<regs::SubsysExtTsUnservicedIntrCntr, crate::common::R> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x28usize) as _) }
@@ -870,29 +858,21 @@ pub mod regs {
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct CpuInt(pub u32);
     impl CpuInt {
-        #[doc = "Clear MCAN Interrupt Line 0."]
+        #[doc = "The MCAN interrupt line."]
         #[must_use]
         #[inline(always)]
-        pub const fn intl0(&self) -> bool {
-            let val = (self.0 >> 0usize) & 0x01;
+        pub const fn intl(&self, n: usize) -> bool {
+            assert!(n < 2usize);
+            let offs = 0usize + n * 1usize;
+            let val = (self.0 >> offs) & 0x01;
             val != 0
         }
-        #[doc = "Clear MCAN Interrupt Line 0."]
+        #[doc = "The MCAN interrupt line."]
         #[inline(always)]
-        pub const fn set_intl0(&mut self, val: bool) {
-            self.0 = (self.0 & !(0x01 << 0usize)) | (((val as u32) & 0x01) << 0usize);
-        }
-        #[doc = "Clear MCAN Interrupt Line 1."]
-        #[must_use]
-        #[inline(always)]
-        pub const fn intl1(&self) -> bool {
-            let val = (self.0 >> 1usize) & 0x01;
-            val != 0
-        }
-        #[doc = "Clear MCAN Interrupt Line 1."]
-        #[inline(always)]
-        pub const fn set_intl1(&mut self, val: bool) {
-            self.0 = (self.0 & !(0x01 << 1usize)) | (((val as u32) & 0x01) << 1usize);
+        pub const fn set_intl(&mut self, n: usize, val: bool) {
+            assert!(n < 2usize);
+            let offs = 0usize + n * 1usize;
+            self.0 = (self.0 & !(0x01 << offs)) | (((val as u32) & 0x01) << offs);
         }
         #[doc = "Clear Message RAM SEC interrupt."]
         #[must_use]
@@ -952,8 +932,8 @@ pub mod regs {
     impl core::fmt::Debug for CpuInt {
         fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
             f.debug_struct("CpuInt")
-                .field("intl0", &self.intl0())
-                .field("intl1", &self.intl1())
+                .field("intl[0]", &self.intl(0usize))
+                .field("intl[1]", &self.intl(1usize))
                 .field("sec", &self.sec())
                 .field("ded", &self.ded())
                 .field("ext_ts_cntr_ovfl", &self.ext_ts_cntr_ovfl())
@@ -964,7 +944,7 @@ pub mod regs {
     #[cfg(feature = "defmt")]
     impl defmt::Format for CpuInt {
         fn format(&self, f: defmt::Formatter) {
-            defmt :: write ! (f , "CpuInt {{ intl0: {=bool:?}, intl1: {=bool:?}, sec: {=bool:?}, ded: {=bool:?}, ext_ts_cntr_ovfl: {=bool:?}, wakeup: {=bool:?} }}" , self . intl0 () , self . intl1 () , self . sec () , self . ded () , self . ext_ts_cntr_ovfl () , self . wakeup ())
+            defmt :: write ! (f , "CpuInt {{ intl[0]: {=bool:?}, intl[1]: {=bool:?}, sec: {=bool:?}, ded: {=bool:?}, ext_ts_cntr_ovfl: {=bool:?}, wakeup: {=bool:?} }}" , self . intl (0usize) , self . intl (1usize) , self . sec () , self . ded () , self . ext_ts_cntr_ovfl () , self . wakeup ())
         }
     }
     #[doc = "MCAN Core Release Register."]
@@ -1324,28 +1304,6 @@ pub mod regs {
             )
         }
     }
-    #[doc = "MCAN Endian Register."]
-    #[repr(transparent)]
-    #[derive(Copy, Clone, Eq, PartialEq)]
-    pub struct Endn(pub u32);
-    impl Endn {}
-    impl Default for Endn {
-        #[inline(always)]
-        fn default() -> Endn {
-            Endn(0)
-        }
-    }
-    impl core::fmt::Debug for Endn {
-        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-            f.debug_struct("Endn").finish()
-        }
-    }
-    #[cfg(feature = "defmt")]
-    impl defmt::Format for Endn {
-        fn format(&self, f: defmt::Formatter) {
-            defmt::write!(f, "Endn {{ }}",)
-        }
-    }
     #[doc = "MCAN Error Aggregator Enable Clear Register."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
@@ -1446,66 +1404,11 @@ pub mod regs {
             defmt :: write ! (f , "ErrAggrEnableSet {{ enable_parity_set: {=bool:?}, enable_timeout_set: {=bool:?} }}" , self . enable_parity_set () , self . enable_timeout_set ())
         }
     }
-    #[doc = "MCAN Error Aggregator Status Clear Register."]
+    #[doc = "MCAN ECC aggregator status."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
-    pub struct ErrAggrStatusClr(pub u32);
-    impl ErrAggrStatusClr {
-        #[doc = "Aggregator Parity Error Status 2-bit saturating counter of the number of parity errors that have occurred since last cleared. 0 No parity errors have occurred 1 One parity error has occurred 2 Two parity errors have occurred 3 Three parity errors have occurred A write of a non-zero value to this bit field decrements it by the value provided."]
-        #[must_use]
-        #[inline(always)]
-        pub const fn aggr_parity_err(&self) -> u8 {
-            let val = (self.0 >> 0usize) & 0x03;
-            val as u8
-        }
-        #[doc = "Aggregator Parity Error Status 2-bit saturating counter of the number of parity errors that have occurred since last cleared. 0 No parity errors have occurred 1 One parity error has occurred 2 Two parity errors have occurred 3 Three parity errors have occurred A write of a non-zero value to this bit field decrements it by the value provided."]
-        #[inline(always)]
-        pub const fn set_aggr_parity_err(&mut self, val: u8) {
-            self.0 = (self.0 & !(0x03 << 0usize)) | (((val as u32) & 0x03) << 0usize);
-        }
-        #[doc = "Aggregator Serial VBUS Timeout Error Status 2-bit saturating counter of the number of SVBUS timeout errors that have occurred since last cleared. 0 No timeout errors have occurred 1 One timeout error has occurred 2 Two timeout errors have occurred 3 Three timeout errors have occurred A write of a non-zero value to this bit field decrements it by the value provided."]
-        #[must_use]
-        #[inline(always)]
-        pub const fn svbus_timeout(&self) -> u8 {
-            let val = (self.0 >> 2usize) & 0x03;
-            val as u8
-        }
-        #[doc = "Aggregator Serial VBUS Timeout Error Status 2-bit saturating counter of the number of SVBUS timeout errors that have occurred since last cleared. 0 No timeout errors have occurred 1 One timeout error has occurred 2 Two timeout errors have occurred 3 Three timeout errors have occurred A write of a non-zero value to this bit field decrements it by the value provided."]
-        #[inline(always)]
-        pub const fn set_svbus_timeout(&mut self, val: u8) {
-            self.0 = (self.0 & !(0x03 << 2usize)) | (((val as u32) & 0x03) << 2usize);
-        }
-    }
-    impl Default for ErrAggrStatusClr {
-        #[inline(always)]
-        fn default() -> ErrAggrStatusClr {
-            ErrAggrStatusClr(0)
-        }
-    }
-    impl core::fmt::Debug for ErrAggrStatusClr {
-        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-            f.debug_struct("ErrAggrStatusClr")
-                .field("aggr_parity_err", &self.aggr_parity_err())
-                .field("svbus_timeout", &self.svbus_timeout())
-                .finish()
-        }
-    }
-    #[cfg(feature = "defmt")]
-    impl defmt::Format for ErrAggrStatusClr {
-        fn format(&self, f: defmt::Formatter) {
-            defmt::write!(
-                f,
-                "ErrAggrStatusClr {{ aggr_parity_err: {=u8:?}, svbus_timeout: {=u8:?} }}",
-                self.aggr_parity_err(),
-                self.svbus_timeout()
-            )
-        }
-    }
-    #[doc = "MCAN Error Aggregator Status Set Register."]
-    #[repr(transparent)]
-    #[derive(Copy, Clone, Eq, PartialEq)]
-    pub struct ErrAggrStatusSet(pub u32);
-    impl ErrAggrStatusSet {
+    pub struct ErrAggrStatus(pub u32);
+    impl ErrAggrStatus {
         #[doc = "Aggregator Parity Error Status 2-bit saturating counter of the number of parity errors that have occurred since last cleared. 0 No parity errors have occurred 1 One parity error has occurred 2 Two parity errors have occurred 3 Three parity errors have occurred A write of a non-zero value to this bit field increments it by the value provided."]
         #[must_use]
         #[inline(always)]
@@ -1531,26 +1434,26 @@ pub mod regs {
             self.0 = (self.0 & !(0x03 << 2usize)) | (((val as u32) & 0x03) << 2usize);
         }
     }
-    impl Default for ErrAggrStatusSet {
+    impl Default for ErrAggrStatus {
         #[inline(always)]
-        fn default() -> ErrAggrStatusSet {
-            ErrAggrStatusSet(0)
+        fn default() -> ErrAggrStatus {
+            ErrAggrStatus(0)
         }
     }
-    impl core::fmt::Debug for ErrAggrStatusSet {
+    impl core::fmt::Debug for ErrAggrStatus {
         fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-            f.debug_struct("ErrAggrStatusSet")
+            f.debug_struct("ErrAggrStatus")
                 .field("aggr_parity_err", &self.aggr_parity_err())
                 .field("svbus_timeout", &self.svbus_timeout())
                 .finish()
         }
     }
     #[cfg(feature = "defmt")]
-    impl defmt::Format for ErrAggrStatusSet {
+    impl defmt::Format for ErrAggrStatus {
         fn format(&self, f: defmt::Formatter) {
             defmt::write!(
                 f,
-                "ErrAggrStatusSet {{ aggr_parity_err: {=u8:?}, svbus_timeout: {=u8:?} }}",
+                "ErrAggrStatus {{ aggr_parity_err: {=u8:?}, svbus_timeout: {=u8:?} }}",
                 self.aggr_parity_err(),
                 self.svbus_timeout()
             )
@@ -1684,186 +1587,123 @@ pub mod regs {
             defmt :: write ! (f , "ErrCtrl {{ ecc_enable: {=bool:?}, ecc_check: {=bool:?}, enable_rmw: {=bool:?}, force_sec: {=bool:?}, force_ded: {=bool:?}, force_n_row: {=bool:?}, error_once: {=bool:?}, check_svbus_timeout: {=bool:?} }}" , self . ecc_enable () , self . ecc_check () , self . enable_rmw () , self . force_sec () , self . force_ded () , self . force_n_row () , self . error_once () , self . check_svbus_timeout ())
         }
     }
-    #[doc = "MCAN Double Error Detected Interrupt Enable Clear Register."]
+    #[doc = "Disable the message memory error interrupt."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
-    pub struct ErrDedEnableClr(pub u32);
-    impl ErrDedEnableClr {
-        #[doc = "Message RAM DED Interrupt Pending Enable Clear. Writing a 1 to this bit disables the Message RAM DED error interrupts. Writing a 0 has no effect. Reads return the corresponding enable bit's current value."]
+    pub struct ErrEnableClr(pub u32);
+    impl ErrEnableClr {
+        #[doc = "Message RAM SEC Interrupt Pending Enable Clear. Writing a 1 to this bit disables the Message RAM SEC error interrupts. Writing a 0 has no effect. Reads return the corresponding enable bit's current value."]
         #[must_use]
         #[inline(always)]
         pub const fn msgmem_enable_clr(&self) -> bool {
             let val = (self.0 >> 0usize) & 0x01;
             val != 0
         }
-        #[doc = "Message RAM DED Interrupt Pending Enable Clear. Writing a 1 to this bit disables the Message RAM DED error interrupts. Writing a 0 has no effect. Reads return the corresponding enable bit's current value."]
+        #[doc = "Message RAM SEC Interrupt Pending Enable Clear. Writing a 1 to this bit disables the Message RAM SEC error interrupts. Writing a 0 has no effect. Reads return the corresponding enable bit's current value."]
         #[inline(always)]
         pub const fn set_msgmem_enable_clr(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 0usize)) | (((val as u32) & 0x01) << 0usize);
         }
     }
-    impl Default for ErrDedEnableClr {
+    impl Default for ErrEnableClr {
         #[inline(always)]
-        fn default() -> ErrDedEnableClr {
-            ErrDedEnableClr(0)
+        fn default() -> ErrEnableClr {
+            ErrEnableClr(0)
         }
     }
-    impl core::fmt::Debug for ErrDedEnableClr {
+    impl core::fmt::Debug for ErrEnableClr {
         fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-            f.debug_struct("ErrDedEnableClr")
+            f.debug_struct("ErrEnableClr")
                 .field("msgmem_enable_clr", &self.msgmem_enable_clr())
                 .finish()
         }
     }
     #[cfg(feature = "defmt")]
-    impl defmt::Format for ErrDedEnableClr {
+    impl defmt::Format for ErrEnableClr {
         fn format(&self, f: defmt::Formatter) {
             defmt::write!(
                 f,
-                "ErrDedEnableClr {{ msgmem_enable_clr: {=bool:?} }}",
+                "ErrEnableClr {{ msgmem_enable_clr: {=bool:?} }}",
                 self.msgmem_enable_clr()
             )
         }
     }
-    #[doc = "MCAN Double Error Detected Interrupt Enable Set Register."]
+    #[doc = "Enable the message memory error interrupt."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
-    pub struct ErrDedEnableSet(pub u32);
-    impl ErrDedEnableSet {
-        #[doc = "Message RAM DED Interrupt Pending Enable Set. Writing a 1 to this bit enables the Message RAM DED error interrupts. Writing a 0 has no effect. Reads return the corresponding enable bit's current value."]
+    pub struct ErrEnableSet(pub u32);
+    impl ErrEnableSet {
+        #[doc = "Message RAM SEC Interrupt Pending Enable Set. Writing a 1 to this bit enables the Message RAM SEC error interrupts. Writing a 0 has no effect. Reads return the corresponding enable bit's current value."]
         #[must_use]
         #[inline(always)]
         pub const fn msgmem_enable_set(&self) -> bool {
             let val = (self.0 >> 0usize) & 0x01;
             val != 0
         }
-        #[doc = "Message RAM DED Interrupt Pending Enable Set. Writing a 1 to this bit enables the Message RAM DED error interrupts. Writing a 0 has no effect. Reads return the corresponding enable bit's current value."]
+        #[doc = "Message RAM SEC Interrupt Pending Enable Set. Writing a 1 to this bit enables the Message RAM SEC error interrupts. Writing a 0 has no effect. Reads return the corresponding enable bit's current value."]
         #[inline(always)]
         pub const fn set_msgmem_enable_set(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 0usize)) | (((val as u32) & 0x01) << 0usize);
         }
     }
-    impl Default for ErrDedEnableSet {
+    impl Default for ErrEnableSet {
         #[inline(always)]
-        fn default() -> ErrDedEnableSet {
-            ErrDedEnableSet(0)
+        fn default() -> ErrEnableSet {
+            ErrEnableSet(0)
         }
     }
-    impl core::fmt::Debug for ErrDedEnableSet {
+    impl core::fmt::Debug for ErrEnableSet {
         fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-            f.debug_struct("ErrDedEnableSet")
+            f.debug_struct("ErrEnableSet")
                 .field("msgmem_enable_set", &self.msgmem_enable_set())
                 .finish()
         }
     }
     #[cfg(feature = "defmt")]
-    impl defmt::Format for ErrDedEnableSet {
+    impl defmt::Format for ErrEnableSet {
         fn format(&self, f: defmt::Formatter) {
             defmt::write!(
                 f,
-                "ErrDedEnableSet {{ msgmem_enable_set: {=bool:?} }}",
+                "ErrEnableSet {{ msgmem_enable_set: {=bool:?} }}",
                 self.msgmem_enable_set()
             )
         }
     }
-    #[doc = "MCAN Double Error Detected End of Interrupt Register."]
+    #[doc = "End of interrupt for a message memory error."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
-    pub struct ErrDedEoi(pub u32);
-    impl ErrDedEoi {
-        #[doc = "Write to this register indicates that software has acknowledged the pending interrupt and the next interrupt can be sent to the host. Note that a write to the MCANERR_ERR_STAT1.CLR_ECC_DED goes through the SVBUS and has a delayed completion. To avoid an additional interrupt, read the MCANERR_ERR_STAT1 register back prior to writing to this bit field."]
+    pub struct ErrEoi(pub u32);
+    impl ErrEoi {
+        #[doc = "Write to this register indicates that software has acknowledged the pending interrupt and the next interrupt can be sent to the host. Note that a write to the MCANERR_ERR_STAT1.CLR_ECC_SEC goes through the SVBUS and has a delayed completion. To avoid an additional interrupt, read the MCANERR_ERR_STAT1 register back prior to writing to this bit field."]
         #[must_use]
         #[inline(always)]
         pub const fn eoi_wr(&self) -> bool {
             let val = (self.0 >> 0usize) & 0x01;
             val != 0
         }
-        #[doc = "Write to this register indicates that software has acknowledged the pending interrupt and the next interrupt can be sent to the host. Note that a write to the MCANERR_ERR_STAT1.CLR_ECC_DED goes through the SVBUS and has a delayed completion. To avoid an additional interrupt, read the MCANERR_ERR_STAT1 register back prior to writing to this bit field."]
+        #[doc = "Write to this register indicates that software has acknowledged the pending interrupt and the next interrupt can be sent to the host. Note that a write to the MCANERR_ERR_STAT1.CLR_ECC_SEC goes through the SVBUS and has a delayed completion. To avoid an additional interrupt, read the MCANERR_ERR_STAT1 register back prior to writing to this bit field."]
         #[inline(always)]
         pub const fn set_eoi_wr(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 0usize)) | (((val as u32) & 0x01) << 0usize);
         }
     }
-    impl Default for ErrDedEoi {
+    impl Default for ErrEoi {
         #[inline(always)]
-        fn default() -> ErrDedEoi {
-            ErrDedEoi(0)
+        fn default() -> ErrEoi {
+            ErrEoi(0)
         }
     }
-    impl core::fmt::Debug for ErrDedEoi {
+    impl core::fmt::Debug for ErrEoi {
         fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-            f.debug_struct("ErrDedEoi")
+            f.debug_struct("ErrEoi")
                 .field("eoi_wr", &self.eoi_wr())
                 .finish()
         }
     }
     #[cfg(feature = "defmt")]
-    impl defmt::Format for ErrDedEoi {
+    impl defmt::Format for ErrEoi {
         fn format(&self, f: defmt::Formatter) {
-            defmt::write!(f, "ErrDedEoi {{ eoi_wr: {=bool:?} }}", self.eoi_wr())
-        }
-    }
-    #[doc = "MCAN Double Error Detected Interrupt Status Register."]
-    #[repr(transparent)]
-    #[derive(Copy, Clone, Eq, PartialEq)]
-    pub struct ErrDedStatus(pub u32);
-    impl ErrDedStatus {
-        #[doc = "Message RAM DED Interrupt Pending 0 No DED interrupt is pending 1 DED interrupt is pending."]
-        #[must_use]
-        #[inline(always)]
-        pub const fn msgmem_pend(&self) -> bool {
-            let val = (self.0 >> 0usize) & 0x01;
-            val != 0
-        }
-        #[doc = "Message RAM DED Interrupt Pending 0 No DED interrupt is pending 1 DED interrupt is pending."]
-        #[inline(always)]
-        pub const fn set_msgmem_pend(&mut self, val: bool) {
-            self.0 = (self.0 & !(0x01 << 0usize)) | (((val as u32) & 0x01) << 0usize);
-        }
-    }
-    impl Default for ErrDedStatus {
-        #[inline(always)]
-        fn default() -> ErrDedStatus {
-            ErrDedStatus(0)
-        }
-    }
-    impl core::fmt::Debug for ErrDedStatus {
-        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-            f.debug_struct("ErrDedStatus")
-                .field("msgmem_pend", &self.msgmem_pend())
-                .finish()
-        }
-    }
-    #[cfg(feature = "defmt")]
-    impl defmt::Format for ErrDedStatus {
-        fn format(&self, f: defmt::Formatter) {
-            defmt::write!(
-                f,
-                "ErrDedStatus {{ msgmem_pend: {=bool:?} }}",
-                self.msgmem_pend()
-            )
-        }
-    }
-    #[doc = "MCAN ECC Error Control 1 Register."]
-    #[repr(transparent)]
-    #[derive(Copy, Clone, Eq, PartialEq)]
-    pub struct ErrErrCtrl1(pub u32);
-    impl ErrErrCtrl1 {}
-    impl Default for ErrErrCtrl1 {
-        #[inline(always)]
-        fn default() -> ErrErrCtrl1 {
-            ErrErrCtrl1(0)
-        }
-    }
-    impl core::fmt::Debug for ErrErrCtrl1 {
-        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-            f.debug_struct("ErrErrCtrl1").finish()
-        }
-    }
-    #[cfg(feature = "defmt")]
-    impl defmt::Format for ErrErrCtrl1 {
-        fn format(&self, f: defmt::Formatter) {
-            defmt::write!(f, "ErrErrCtrl1 {{ }}",)
+            defmt::write!(f, "ErrEoi {{ eoi_wr: {=bool:?} }}", self.eoi_wr())
         }
     }
     #[doc = "MCAN ECC Error Control 2 Register."]
@@ -2062,28 +1902,6 @@ pub mod regs {
             defmt :: write ! (f , "ErrErrStat1 {{ ecc_sec: {=u8:?}, ecc_ded: {=u8:?}, ecc_other: {=bool:?}, ctrl_reg_error: {=bool:?}, clr_ecc_sec: {=u8:?}, clr_ecc_ded: {=u8:?}, clr_ecc_other: {=bool:?}, clr_ctrl_reg_error: {=bool:?}, ecc_bit1: {=u16:?} }}" , self . ecc_sec () , self . ecc_ded () , self . ecc_other () , self . ctrl_reg_error () , self . clr_ecc_sec () , self . clr_ecc_ded () , self . clr_ecc_other () , self . clr_ctrl_reg_error () , self . ecc_bit1 ())
         }
     }
-    #[doc = "MCAN ECC Error Status 2 Register."]
-    #[repr(transparent)]
-    #[derive(Copy, Clone, Eq, PartialEq)]
-    pub struct ErrErrStat2(pub u32);
-    impl ErrErrStat2 {}
-    impl Default for ErrErrStat2 {
-        #[inline(always)]
-        fn default() -> ErrErrStat2 {
-            ErrErrStat2(0)
-        }
-    }
-    impl core::fmt::Debug for ErrErrStat2 {
-        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-            f.debug_struct("ErrErrStat2").finish()
-        }
-    }
-    #[cfg(feature = "defmt")]
-    impl defmt::Format for ErrErrStat2 {
-        fn format(&self, f: defmt::Formatter) {
-            defmt::write!(f, "ErrErrStat2 {{ }}",)
-        }
-    }
     #[doc = "MCAN ECC Error Status 3 Register."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
@@ -2147,7 +1965,7 @@ pub mod regs {
             defmt :: write ! (f , "ErrErrStat3 {{ wb_pend: {=bool:?}, svbus_timeout: {=bool:?}, clr_svbus_timeout: {=bool:?} }}" , self . wb_pend () , self . svbus_timeout () , self . clr_svbus_timeout ())
         }
     }
-    #[doc = "MCAN Error Aggregator Revision Register."]
+    #[doc = "Revision of the ECC block or of its wrapper."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct ErrRev(pub u32);
@@ -2223,166 +2041,6 @@ pub mod regs {
             defmt :: write ! (f , "ErrRev {{ revmin: {=u8:?}, revmaj: {=u8:?}, module_id: {=u16:?}, scheme: {=u8:?} }}" , self . revmin () , self . revmaj () , self . module_id () , self . scheme ())
         }
     }
-    #[doc = "MCAN Single Error Corrected Interrupt Enable Clear Register."]
-    #[repr(transparent)]
-    #[derive(Copy, Clone, Eq, PartialEq)]
-    pub struct ErrSecEnableClr(pub u32);
-    impl ErrSecEnableClr {
-        #[doc = "Message RAM SEC Interrupt Pending Enable Clear. Writing a 1 to this bit disables the Message RAM SEC error interrupts. Writing a 0 has no effect. Reads return the corresponding enable bit's current value."]
-        #[must_use]
-        #[inline(always)]
-        pub const fn msgmem_enable_clr(&self) -> bool {
-            let val = (self.0 >> 0usize) & 0x01;
-            val != 0
-        }
-        #[doc = "Message RAM SEC Interrupt Pending Enable Clear. Writing a 1 to this bit disables the Message RAM SEC error interrupts. Writing a 0 has no effect. Reads return the corresponding enable bit's current value."]
-        #[inline(always)]
-        pub const fn set_msgmem_enable_clr(&mut self, val: bool) {
-            self.0 = (self.0 & !(0x01 << 0usize)) | (((val as u32) & 0x01) << 0usize);
-        }
-    }
-    impl Default for ErrSecEnableClr {
-        #[inline(always)]
-        fn default() -> ErrSecEnableClr {
-            ErrSecEnableClr(0)
-        }
-    }
-    impl core::fmt::Debug for ErrSecEnableClr {
-        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-            f.debug_struct("ErrSecEnableClr")
-                .field("msgmem_enable_clr", &self.msgmem_enable_clr())
-                .finish()
-        }
-    }
-    #[cfg(feature = "defmt")]
-    impl defmt::Format for ErrSecEnableClr {
-        fn format(&self, f: defmt::Formatter) {
-            defmt::write!(
-                f,
-                "ErrSecEnableClr {{ msgmem_enable_clr: {=bool:?} }}",
-                self.msgmem_enable_clr()
-            )
-        }
-    }
-    #[doc = "MCAN Single Error Corrected Interrupt Enable Set Register."]
-    #[repr(transparent)]
-    #[derive(Copy, Clone, Eq, PartialEq)]
-    pub struct ErrSecEnableSet(pub u32);
-    impl ErrSecEnableSet {
-        #[doc = "Message RAM SEC Interrupt Pending Enable Set. Writing a 1 to this bit enables the Message RAM SEC error interrupts. Writing a 0 has no effect. Reads return the corresponding enable bit's current value."]
-        #[must_use]
-        #[inline(always)]
-        pub const fn msgmem_enable_set(&self) -> bool {
-            let val = (self.0 >> 0usize) & 0x01;
-            val != 0
-        }
-        #[doc = "Message RAM SEC Interrupt Pending Enable Set. Writing a 1 to this bit enables the Message RAM SEC error interrupts. Writing a 0 has no effect. Reads return the corresponding enable bit's current value."]
-        #[inline(always)]
-        pub const fn set_msgmem_enable_set(&mut self, val: bool) {
-            self.0 = (self.0 & !(0x01 << 0usize)) | (((val as u32) & 0x01) << 0usize);
-        }
-    }
-    impl Default for ErrSecEnableSet {
-        #[inline(always)]
-        fn default() -> ErrSecEnableSet {
-            ErrSecEnableSet(0)
-        }
-    }
-    impl core::fmt::Debug for ErrSecEnableSet {
-        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-            f.debug_struct("ErrSecEnableSet")
-                .field("msgmem_enable_set", &self.msgmem_enable_set())
-                .finish()
-        }
-    }
-    #[cfg(feature = "defmt")]
-    impl defmt::Format for ErrSecEnableSet {
-        fn format(&self, f: defmt::Formatter) {
-            defmt::write!(
-                f,
-                "ErrSecEnableSet {{ msgmem_enable_set: {=bool:?} }}",
-                self.msgmem_enable_set()
-            )
-        }
-    }
-    #[doc = "MCAN Single Error Corrected End of Interrupt Register."]
-    #[repr(transparent)]
-    #[derive(Copy, Clone, Eq, PartialEq)]
-    pub struct ErrSecEoi(pub u32);
-    impl ErrSecEoi {
-        #[doc = "Write to this register indicates that software has acknowledged the pending interrupt and the next interrupt can be sent to the host. Note that a write to the MCANERR_ERR_STAT1.CLR_ECC_SEC goes through the SVBUS and has a delayed completion. To avoid an additional interrupt, read the MCANERR_ERR_STAT1 register back prior to writing to this bit field."]
-        #[must_use]
-        #[inline(always)]
-        pub const fn eoi_wr(&self) -> bool {
-            let val = (self.0 >> 0usize) & 0x01;
-            val != 0
-        }
-        #[doc = "Write to this register indicates that software has acknowledged the pending interrupt and the next interrupt can be sent to the host. Note that a write to the MCANERR_ERR_STAT1.CLR_ECC_SEC goes through the SVBUS and has a delayed completion. To avoid an additional interrupt, read the MCANERR_ERR_STAT1 register back prior to writing to this bit field."]
-        #[inline(always)]
-        pub const fn set_eoi_wr(&mut self, val: bool) {
-            self.0 = (self.0 & !(0x01 << 0usize)) | (((val as u32) & 0x01) << 0usize);
-        }
-    }
-    impl Default for ErrSecEoi {
-        #[inline(always)]
-        fn default() -> ErrSecEoi {
-            ErrSecEoi(0)
-        }
-    }
-    impl core::fmt::Debug for ErrSecEoi {
-        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-            f.debug_struct("ErrSecEoi")
-                .field("eoi_wr", &self.eoi_wr())
-                .finish()
-        }
-    }
-    #[cfg(feature = "defmt")]
-    impl defmt::Format for ErrSecEoi {
-        fn format(&self, f: defmt::Formatter) {
-            defmt::write!(f, "ErrSecEoi {{ eoi_wr: {=bool:?} }}", self.eoi_wr())
-        }
-    }
-    #[doc = "MCAN Single Error Corrected Interrupt Status Register."]
-    #[repr(transparent)]
-    #[derive(Copy, Clone, Eq, PartialEq)]
-    pub struct ErrSecStatus(pub u32);
-    impl ErrSecStatus {
-        #[doc = "Message RAM SEC Interrupt Pending 0 No SEC interrupt is pending 1 SEC interrupt is pending."]
-        #[must_use]
-        #[inline(always)]
-        pub const fn msgmem_pend(&self) -> bool {
-            let val = (self.0 >> 0usize) & 0x01;
-            val != 0
-        }
-        #[doc = "Message RAM SEC Interrupt Pending 0 No SEC interrupt is pending 1 SEC interrupt is pending."]
-        #[inline(always)]
-        pub const fn set_msgmem_pend(&mut self, val: bool) {
-            self.0 = (self.0 & !(0x01 << 0usize)) | (((val as u32) & 0x01) << 0usize);
-        }
-    }
-    impl Default for ErrSecStatus {
-        #[inline(always)]
-        fn default() -> ErrSecStatus {
-            ErrSecStatus(0)
-        }
-    }
-    impl core::fmt::Debug for ErrSecStatus {
-        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-            f.debug_struct("ErrSecStatus")
-                .field("msgmem_pend", &self.msgmem_pend())
-                .finish()
-        }
-    }
-    #[cfg(feature = "defmt")]
-    impl defmt::Format for ErrSecStatus {
-        fn format(&self, f: defmt::Formatter) {
-            defmt::write!(
-                f,
-                "ErrSecStatus {{ msgmem_pend: {=bool:?} }}",
-                self.msgmem_pend()
-            )
-        }
-    }
     #[doc = "MCAN Error Misc Status."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
@@ -2418,6 +2076,47 @@ pub mod regs {
     impl defmt::Format for ErrStat {
         fn format(&self, f: defmt::Formatter) {
             defmt::write!(f, "ErrStat {{ num_rams: {=u16:?} }}", self.num_rams())
+        }
+    }
+    #[doc = "Pending status of a message memory error."]
+    #[repr(transparent)]
+    #[derive(Copy, Clone, Eq, PartialEq)]
+    pub struct ErrStatus(pub u32);
+    impl ErrStatus {
+        #[doc = "Message RAM SEC Interrupt Pending 0 No SEC interrupt is pending 1 SEC interrupt is pending."]
+        #[must_use]
+        #[inline(always)]
+        pub const fn msgmem_pend(&self) -> bool {
+            let val = (self.0 >> 0usize) & 0x01;
+            val != 0
+        }
+        #[doc = "Message RAM SEC Interrupt Pending 0 No SEC interrupt is pending 1 SEC interrupt is pending."]
+        #[inline(always)]
+        pub const fn set_msgmem_pend(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 0usize)) | (((val as u32) & 0x01) << 0usize);
+        }
+    }
+    impl Default for ErrStatus {
+        #[inline(always)]
+        fn default() -> ErrStatus {
+            ErrStatus(0)
+        }
+    }
+    impl core::fmt::Debug for ErrStatus {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("ErrStatus")
+                .field("msgmem_pend", &self.msgmem_pend())
+                .finish()
+        }
+    }
+    #[cfg(feature = "defmt")]
+    impl defmt::Format for ErrStatus {
+        fn format(&self, f: defmt::Formatter) {
+            defmt::write!(
+                f,
+                "ErrStatus {{ msgmem_pend: {=bool:?} }}",
+                self.msgmem_pend()
+            )
         }
     }
     #[doc = "MCAN ECC Vector Register."]
@@ -2494,82 +2193,6 @@ pub mod regs {
     impl defmt::Format for ErrVector {
         fn format(&self, f: defmt::Formatter) {
             defmt :: write ! (f , "ErrVector {{ ecc_vector: {=u16:?}, rd_svbus: {=bool:?}, rd_svbus_address: {=u8:?}, rd_svbus_done: {=bool:?} }}" , self . ecc_vector () , self . rd_svbus () , self . rd_svbus_address () , self . rd_svbus_done ())
-        }
-    }
-    #[doc = "MCAN ECC Wrapper Revision Register."]
-    #[repr(transparent)]
-    #[derive(Copy, Clone, Eq, PartialEq)]
-    pub struct ErrWrapRev(pub u32);
-    impl ErrWrapRev {
-        #[doc = "Minor Revision of the Error Aggregator."]
-        #[must_use]
-        #[inline(always)]
-        pub const fn revmin(&self) -> u8 {
-            let val = (self.0 >> 0usize) & 0x3f;
-            val as u8
-        }
-        #[doc = "Minor Revision of the Error Aggregator."]
-        #[inline(always)]
-        pub const fn set_revmin(&mut self, val: u8) {
-            self.0 = (self.0 & !(0x3f << 0usize)) | (((val as u32) & 0x3f) << 0usize);
-        }
-        #[doc = "Major Revision of the Error Aggregator."]
-        #[must_use]
-        #[inline(always)]
-        pub const fn revmaj(&self) -> u8 {
-            let val = (self.0 >> 8usize) & 0x07;
-            val as u8
-        }
-        #[doc = "Major Revision of the Error Aggregator."]
-        #[inline(always)]
-        pub const fn set_revmaj(&mut self, val: u8) {
-            self.0 = (self.0 & !(0x07 << 8usize)) | (((val as u32) & 0x07) << 8usize);
-        }
-        #[doc = "Module Identification Number."]
-        #[must_use]
-        #[inline(always)]
-        pub const fn module_id(&self) -> u16 {
-            let val = (self.0 >> 16usize) & 0x0fff;
-            val as u16
-        }
-        #[doc = "Module Identification Number."]
-        #[inline(always)]
-        pub const fn set_module_id(&mut self, val: u16) {
-            self.0 = (self.0 & !(0x0fff << 16usize)) | (((val as u32) & 0x0fff) << 16usize);
-        }
-        #[doc = "PID Register Scheme."]
-        #[must_use]
-        #[inline(always)]
-        pub const fn scheme(&self) -> u8 {
-            let val = (self.0 >> 30usize) & 0x03;
-            val as u8
-        }
-        #[doc = "PID Register Scheme."]
-        #[inline(always)]
-        pub const fn set_scheme(&mut self, val: u8) {
-            self.0 = (self.0 & !(0x03 << 30usize)) | (((val as u32) & 0x03) << 30usize);
-        }
-    }
-    impl Default for ErrWrapRev {
-        #[inline(always)]
-        fn default() -> ErrWrapRev {
-            ErrWrapRev(0)
-        }
-    }
-    impl core::fmt::Debug for ErrWrapRev {
-        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-            f.debug_struct("ErrWrapRev")
-                .field("revmin", &self.revmin())
-                .field("revmaj", &self.revmaj())
-                .field("module_id", &self.module_id())
-                .field("scheme", &self.scheme())
-                .finish()
-        }
-    }
-    #[cfg(feature = "defmt")]
-    impl defmt::Format for ErrWrapRev {
-        fn format(&self, f: defmt::Formatter) {
-            defmt :: write ! (f , "ErrWrapRev {{ revmin: {=u8:?}, revmaj: {=u8:?}, module_id: {=u16:?}, scheme: {=u8:?} }}" , self . revmin () , self . revmaj () , self . module_id () , self . scheme ())
         }
     }
     #[doc = "Event Mode."]
@@ -3229,29 +2852,21 @@ pub mod regs {
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Ile(pub u32);
     impl Ile {
-        #[doc = "Enable Interrupt Line 0 0 Interrupt Line 0 is disabled 1 Interrupt Line 0 is enabled."]
+        #[doc = "Enable the MCAN interrupt line."]
         #[must_use]
         #[inline(always)]
-        pub const fn eint0(&self) -> bool {
-            let val = (self.0 >> 0usize) & 0x01;
+        pub const fn eint(&self, n: usize) -> bool {
+            assert!(n < 2usize);
+            let offs = 0usize + n * 1usize;
+            let val = (self.0 >> offs) & 0x01;
             val != 0
         }
-        #[doc = "Enable Interrupt Line 0 0 Interrupt Line 0 is disabled 1 Interrupt Line 0 is enabled."]
+        #[doc = "Enable the MCAN interrupt line."]
         #[inline(always)]
-        pub const fn set_eint0(&mut self, val: bool) {
-            self.0 = (self.0 & !(0x01 << 0usize)) | (((val as u32) & 0x01) << 0usize);
-        }
-        #[doc = "Enable Interrupt Line 1 0 Interrupt Line 1 is disabled 1 Interrupt Line 1 is enabled."]
-        #[must_use]
-        #[inline(always)]
-        pub const fn eint1(&self) -> bool {
-            let val = (self.0 >> 1usize) & 0x01;
-            val != 0
-        }
-        #[doc = "Enable Interrupt Line 1 0 Interrupt Line 1 is disabled 1 Interrupt Line 1 is enabled."]
-        #[inline(always)]
-        pub const fn set_eint1(&mut self, val: bool) {
-            self.0 = (self.0 & !(0x01 << 1usize)) | (((val as u32) & 0x01) << 1usize);
+        pub const fn set_eint(&mut self, n: usize, val: bool) {
+            assert!(n < 2usize);
+            let offs = 0usize + n * 1usize;
+            self.0 = (self.0 & !(0x01 << offs)) | (((val as u32) & 0x01) << offs);
         }
     }
     impl Default for Ile {
@@ -3263,8 +2878,8 @@ pub mod regs {
     impl core::fmt::Debug for Ile {
         fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
             f.debug_struct("Ile")
-                .field("eint0", &self.eint0())
-                .field("eint1", &self.eint1())
+                .field("eint[0]", &self.eint(0usize))
+                .field("eint[1]", &self.eint(1usize))
                 .finish()
         }
     }
@@ -3273,9 +2888,9 @@ pub mod regs {
         fn format(&self, f: defmt::Formatter) {
             defmt::write!(
                 f,
-                "Ile {{ eint0: {=bool:?}, eint1: {=bool:?} }}",
-                self.eint0(),
-                self.eint1()
+                "Ile {{ eint[0]: {=bool:?}, eint[1]: {=bool:?} }}",
+                self.eint(0usize),
+                self.eint(1usize)
             )
         }
     }
@@ -5617,52 +5232,11 @@ pub mod regs {
             )
         }
     }
-    #[doc = "MCAN Subsystem Interrupt Clear Shadow Register."]
+    #[doc = "Subsystem interrupt, one bit per source."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
-    pub struct SubsysIcs(pub u32);
-    impl SubsysIcs {
-        #[doc = "External Timestamp Counter Overflow Interrupt Status Clear. Reads always return a 0. 0 Write of '0' has no effect 1 Write of '1' clears the MCANSS_IRS.EXT_TS_CNTR_OVFL bit."]
-        #[must_use]
-        #[inline(always)]
-        pub const fn ext_ts_cntr_ovfl(&self) -> bool {
-            let val = (self.0 >> 0usize) & 0x01;
-            val != 0
-        }
-        #[doc = "External Timestamp Counter Overflow Interrupt Status Clear. Reads always return a 0. 0 Write of '0' has no effect 1 Write of '1' clears the MCANSS_IRS.EXT_TS_CNTR_OVFL bit."]
-        #[inline(always)]
-        pub const fn set_ext_ts_cntr_ovfl(&mut self, val: bool) {
-            self.0 = (self.0 & !(0x01 << 0usize)) | (((val as u32) & 0x01) << 0usize);
-        }
-    }
-    impl Default for SubsysIcs {
-        #[inline(always)]
-        fn default() -> SubsysIcs {
-            SubsysIcs(0)
-        }
-    }
-    impl core::fmt::Debug for SubsysIcs {
-        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-            f.debug_struct("SubsysIcs")
-                .field("ext_ts_cntr_ovfl", &self.ext_ts_cntr_ovfl())
-                .finish()
-        }
-    }
-    #[cfg(feature = "defmt")]
-    impl defmt::Format for SubsysIcs {
-        fn format(&self, f: defmt::Formatter) {
-            defmt::write!(
-                f,
-                "SubsysIcs {{ ext_ts_cntr_ovfl: {=bool:?} }}",
-                self.ext_ts_cntr_ovfl()
-            )
-        }
-    }
-    #[doc = "MCAN Subsystem Interrupt Enable Register."]
-    #[repr(transparent)]
-    #[derive(Copy, Clone, Eq, PartialEq)]
-    pub struct SubsysIe(pub u32);
-    impl SubsysIe {
+    pub struct SubsysInt(pub u32);
+    impl SubsysInt {
         #[doc = "External Timestamp Counter Overflow Interrupt Enable. A write of '0' has no effect. A write of '1' sets the MCANSS_IES.EXT_TS_CNTR_OVFL bit."]
         #[must_use]
         #[inline(always)]
@@ -5676,148 +5250,25 @@ pub mod regs {
             self.0 = (self.0 & !(0x01 << 0usize)) | (((val as u32) & 0x01) << 0usize);
         }
     }
-    impl Default for SubsysIe {
+    impl Default for SubsysInt {
         #[inline(always)]
-        fn default() -> SubsysIe {
-            SubsysIe(0)
+        fn default() -> SubsysInt {
+            SubsysInt(0)
         }
     }
-    impl core::fmt::Debug for SubsysIe {
+    impl core::fmt::Debug for SubsysInt {
         fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-            f.debug_struct("SubsysIe")
+            f.debug_struct("SubsysInt")
                 .field("ext_ts_cntr_ovfl", &self.ext_ts_cntr_ovfl())
                 .finish()
         }
     }
     #[cfg(feature = "defmt")]
-    impl defmt::Format for SubsysIe {
+    impl defmt::Format for SubsysInt {
         fn format(&self, f: defmt::Formatter) {
             defmt::write!(
                 f,
-                "SubsysIe {{ ext_ts_cntr_ovfl: {=bool:?} }}",
-                self.ext_ts_cntr_ovfl()
-            )
-        }
-    }
-    #[doc = "MCAN Subsystem Interrupt Enable Clear Shadow Register."]
-    #[repr(transparent)]
-    #[derive(Copy, Clone, Eq, PartialEq)]
-    pub struct SubsysIecs(pub u32);
-    impl SubsysIecs {
-        #[doc = "External Timestamp Counter Overflow Interrupt Enable Clear. Reads always return a 0. 0 Write of '0' has no effect 1 Write of '1' clears the MCANSS_IES.EXT_TS_CNTR_OVFL bit."]
-        #[must_use]
-        #[inline(always)]
-        pub const fn ext_ts_cntr_ovfl(&self) -> bool {
-            let val = (self.0 >> 0usize) & 0x01;
-            val != 0
-        }
-        #[doc = "External Timestamp Counter Overflow Interrupt Enable Clear. Reads always return a 0. 0 Write of '0' has no effect 1 Write of '1' clears the MCANSS_IES.EXT_TS_CNTR_OVFL bit."]
-        #[inline(always)]
-        pub const fn set_ext_ts_cntr_ovfl(&mut self, val: bool) {
-            self.0 = (self.0 & !(0x01 << 0usize)) | (((val as u32) & 0x01) << 0usize);
-        }
-    }
-    impl Default for SubsysIecs {
-        #[inline(always)]
-        fn default() -> SubsysIecs {
-            SubsysIecs(0)
-        }
-    }
-    impl core::fmt::Debug for SubsysIecs {
-        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-            f.debug_struct("SubsysIecs")
-                .field("ext_ts_cntr_ovfl", &self.ext_ts_cntr_ovfl())
-                .finish()
-        }
-    }
-    #[cfg(feature = "defmt")]
-    impl defmt::Format for SubsysIecs {
-        fn format(&self, f: defmt::Formatter) {
-            defmt::write!(
-                f,
-                "SubsysIecs {{ ext_ts_cntr_ovfl: {=bool:?} }}",
-                self.ext_ts_cntr_ovfl()
-            )
-        }
-    }
-    #[doc = "MCAN Subsystem Interrupt Enable Status."]
-    #[repr(transparent)]
-    #[derive(Copy, Clone, Eq, PartialEq)]
-    pub struct SubsysIes(pub u32);
-    impl SubsysIes {
-        #[doc = "External Timestamp Counter Overflow Interrupt Enable Status. To set, use the CANSS_IE.EXT_TS_CNTR_OVFL bit. To clear, use the MCANSS_IECS.EXT_TS_CNTR_OVFL bit. 0 External timestamp counter overflow interrupt is not enabled 1 External timestamp counter overflow interrupt is enabled."]
-        #[must_use]
-        #[inline(always)]
-        pub const fn ext_ts_cntr_ovfl(&self) -> bool {
-            let val = (self.0 >> 0usize) & 0x01;
-            val != 0
-        }
-        #[doc = "External Timestamp Counter Overflow Interrupt Enable Status. To set, use the CANSS_IE.EXT_TS_CNTR_OVFL bit. To clear, use the MCANSS_IECS.EXT_TS_CNTR_OVFL bit. 0 External timestamp counter overflow interrupt is not enabled 1 External timestamp counter overflow interrupt is enabled."]
-        #[inline(always)]
-        pub const fn set_ext_ts_cntr_ovfl(&mut self, val: bool) {
-            self.0 = (self.0 & !(0x01 << 0usize)) | (((val as u32) & 0x01) << 0usize);
-        }
-    }
-    impl Default for SubsysIes {
-        #[inline(always)]
-        fn default() -> SubsysIes {
-            SubsysIes(0)
-        }
-    }
-    impl core::fmt::Debug for SubsysIes {
-        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-            f.debug_struct("SubsysIes")
-                .field("ext_ts_cntr_ovfl", &self.ext_ts_cntr_ovfl())
-                .finish()
-        }
-    }
-    #[cfg(feature = "defmt")]
-    impl defmt::Format for SubsysIes {
-        fn format(&self, f: defmt::Formatter) {
-            defmt::write!(
-                f,
-                "SubsysIes {{ ext_ts_cntr_ovfl: {=bool:?} }}",
-                self.ext_ts_cntr_ovfl()
-            )
-        }
-    }
-    #[doc = "MCAN Subsystem Interrupt Raw Satus Register."]
-    #[repr(transparent)]
-    #[derive(Copy, Clone, Eq, PartialEq)]
-    pub struct SubsysIrs(pub u32);
-    impl SubsysIrs {
-        #[doc = "External Timestamp Counter Overflow Interrupt Status. This bit is set by HW or by a SW write of '1'. To clear, use the MCANSS_ICS.EXT_TS_CNTR_OVFL bit. 0 External timestamp counter has not overflowed 1 External timestamp counter has overflowed When this bit is set to '1' by HW or SW, the MCANSS_EXT_TS_UNSERVICED_INTR_CNTR.EXT_TS_INTR_CNTR bit field will increment by 1."]
-        #[must_use]
-        #[inline(always)]
-        pub const fn ext_ts_cntr_ovfl(&self) -> bool {
-            let val = (self.0 >> 0usize) & 0x01;
-            val != 0
-        }
-        #[doc = "External Timestamp Counter Overflow Interrupt Status. This bit is set by HW or by a SW write of '1'. To clear, use the MCANSS_ICS.EXT_TS_CNTR_OVFL bit. 0 External timestamp counter has not overflowed 1 External timestamp counter has overflowed When this bit is set to '1' by HW or SW, the MCANSS_EXT_TS_UNSERVICED_INTR_CNTR.EXT_TS_INTR_CNTR bit field will increment by 1."]
-        #[inline(always)]
-        pub const fn set_ext_ts_cntr_ovfl(&mut self, val: bool) {
-            self.0 = (self.0 & !(0x01 << 0usize)) | (((val as u32) & 0x01) << 0usize);
-        }
-    }
-    impl Default for SubsysIrs {
-        #[inline(always)]
-        fn default() -> SubsysIrs {
-            SubsysIrs(0)
-        }
-    }
-    impl core::fmt::Debug for SubsysIrs {
-        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-            f.debug_struct("SubsysIrs")
-                .field("ext_ts_cntr_ovfl", &self.ext_ts_cntr_ovfl())
-                .finish()
-        }
-    }
-    #[cfg(feature = "defmt")]
-    impl defmt::Format for SubsysIrs {
-        fn format(&self, f: defmt::Formatter) {
-            defmt::write!(
-                f,
-                "SubsysIrs {{ ext_ts_cntr_ovfl: {=bool:?} }}",
+                "SubsysInt {{ ext_ts_cntr_ovfl: {=bool:?} }}",
                 self.ext_ts_cntr_ovfl()
             )
         }

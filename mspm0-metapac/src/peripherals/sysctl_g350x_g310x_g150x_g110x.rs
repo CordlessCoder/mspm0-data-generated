@@ -1654,29 +1654,21 @@ pub mod regs {
         pub const fn set_borlvl(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 0usize)) | (((val as u32) & 0x01) << 0usize);
         }
-        #[doc = "Watch Dog 0 Fault."]
+        #[doc = "Watch dog fault, one bit per WWDT instance."]
         #[must_use]
         #[inline(always)]
-        pub const fn wwdt0(&self) -> bool {
-            let val = (self.0 >> 1usize) & 0x01;
+        pub const fn wwdt(&self, n: usize) -> bool {
+            assert!(n < 2usize);
+            let offs = 1usize + n * 1usize;
+            let val = (self.0 >> offs) & 0x01;
             val != 0
         }
-        #[doc = "Watch Dog 0 Fault."]
+        #[doc = "Watch dog fault, one bit per WWDT instance."]
         #[inline(always)]
-        pub const fn set_wwdt0(&mut self, val: bool) {
-            self.0 = (self.0 & !(0x01 << 1usize)) | (((val as u32) & 0x01) << 1usize);
-        }
-        #[doc = "Watch Dog 0 Fault."]
-        #[must_use]
-        #[inline(always)]
-        pub const fn wwdt1(&self) -> bool {
-            let val = (self.0 >> 2usize) & 0x01;
-            val != 0
-        }
-        #[doc = "Watch Dog 0 Fault."]
-        #[inline(always)]
-        pub const fn set_wwdt1(&mut self, val: bool) {
-            self.0 = (self.0 & !(0x01 << 2usize)) | (((val as u32) & 0x01) << 2usize);
+        pub const fn set_wwdt(&mut self, n: usize, val: bool) {
+            assert!(n < 2usize);
+            let offs = 1usize + n * 1usize;
+            self.0 = (self.0 & !(0x01 << offs)) | (((val as u32) & 0x01) << offs);
         }
         #[doc = "LFXT-EXLF Monitor Fail."]
         #[must_use]
@@ -1725,8 +1717,8 @@ pub mod regs {
         fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
             f.debug_struct("Nmi")
                 .field("borlvl", &self.borlvl())
-                .field("wwdt0", &self.wwdt0())
-                .field("wwdt1", &self.wwdt1())
+                .field("wwdt[0]", &self.wwdt(0usize))
+                .field("wwdt[1]", &self.wwdt(1usize))
                 .field("lfclkfail", &self.lfclkfail())
                 .field("flashded", &self.flashded())
                 .field("sramded", &self.sramded())
@@ -1736,7 +1728,7 @@ pub mod regs {
     #[cfg(feature = "defmt")]
     impl defmt::Format for Nmi {
         fn format(&self, f: defmt::Formatter) {
-            defmt :: write ! (f , "Nmi {{ borlvl: {=bool:?}, wwdt0: {=bool:?}, wwdt1: {=bool:?}, lfclkfail: {=bool:?}, flashded: {=bool:?}, sramded: {=bool:?} }}" , self . borlvl () , self . wwdt0 () , self . wwdt1 () , self . lfclkfail () , self . flashded () , self . sramded ())
+            defmt :: write ! (f , "Nmi {{ borlvl: {=bool:?}, wwdt[0]: {=bool:?}, wwdt[1]: {=bool:?}, lfclkfail: {=bool:?}, flashded: {=bool:?}, sramded: {=bool:?} }}" , self . borlvl () , self . wwdt (0usize) , self . wwdt (1usize) , self . lfclkfail () , self . flashded () , self . sramded ())
         }
     }
     #[doc = "NMI interrupt index."]

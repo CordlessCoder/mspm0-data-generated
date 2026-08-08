@@ -124,22 +124,22 @@ impl Wwdt {
     }
     #[doc = "Window Watchdog Timer Control Register 0."]
     #[inline(always)]
-    pub const fn wwdtctl0(self) -> crate::common::Reg<regs::Wwdtctl0, crate::common::RW> {
+    pub const fn ctl0(self) -> crate::common::Reg<regs::Wwdtctl0, crate::common::RW> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x1100usize) as _) }
     }
     #[doc = "Window Watchdog Timer Control Register 0."]
     #[inline(always)]
-    pub const fn wwdtctl1(self) -> crate::common::Reg<regs::Wwdtctl1, crate::common::RW> {
+    pub const fn ctl1(self) -> crate::common::Reg<regs::Wwdtctl1, crate::common::RW> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x1104usize) as _) }
     }
     #[doc = "Window Watchdog Timer Counter Reset Register."]
     #[inline(always)]
-    pub const fn wwdtcntrst(self) -> crate::common::Reg<regs::Wwdtcntrst, crate::common::RW> {
+    pub const fn cntrst(self) -> crate::common::Reg<regs::Wwdtcntrst, crate::common::RW> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x1108usize) as _) }
     }
     #[doc = "Window Watchdog Timer Status Register."]
     #[inline(always)]
-    pub const fn wwdtstat(self) -> crate::common::Reg<regs::Wwdtstat, crate::common::R> {
+    pub const fn stat(self) -> crate::common::Reg<regs::Wwdtstat, crate::common::R> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x110cusize) as _) }
     }
 }
@@ -607,29 +607,21 @@ pub mod regs {
         pub const fn set_per(&mut self, val: super::vals::Per) {
             self.0 = (self.0 & !(0x07 << 4usize)) | (((val.to_bits() as u32) & 0x07) << 4usize);
         }
-        #[doc = "Closed window period in percentage of the timer interval. WWDTCTL1.WINSEL determines the active window setting (WWDTCTL0.WINDOW0 or WWDTCTL0.WINDOW1)."]
+        #[doc = "Closed window period in percentage of the timer interval. CTL1.WINSEL picks which of the two is active."]
         #[must_use]
         #[inline(always)]
-        pub const fn window0(&self) -> super::vals::Window {
-            let val = (self.0 >> 8usize) & 0x07;
+        pub const fn window(&self, n: usize) -> super::vals::Window {
+            assert!(n < 2usize);
+            let offs = 8usize + n * 4usize;
+            let val = (self.0 >> offs) & 0x07;
             super::vals::Window::from_bits(val as u8)
         }
-        #[doc = "Closed window period in percentage of the timer interval. WWDTCTL1.WINSEL determines the active window setting (WWDTCTL0.WINDOW0 or WWDTCTL0.WINDOW1)."]
+        #[doc = "Closed window period in percentage of the timer interval. CTL1.WINSEL picks which of the two is active."]
         #[inline(always)]
-        pub const fn set_window0(&mut self, val: super::vals::Window) {
-            self.0 = (self.0 & !(0x07 << 8usize)) | (((val.to_bits() as u32) & 0x07) << 8usize);
-        }
-        #[doc = "Closed window period in percentage of the timer interval. WWDTCTL1.WINSEL determines the active window setting (WWDTCTL0.WINDOW0 or WWDTCTL0.WINDOW1)."]
-        #[must_use]
-        #[inline(always)]
-        pub const fn window1(&self) -> super::vals::Window {
-            let val = (self.0 >> 12usize) & 0x07;
-            super::vals::Window::from_bits(val as u8)
-        }
-        #[doc = "Closed window period in percentage of the timer interval. WWDTCTL1.WINSEL determines the active window setting (WWDTCTL0.WINDOW0 or WWDTCTL0.WINDOW1)."]
-        #[inline(always)]
-        pub const fn set_window1(&mut self, val: super::vals::Window) {
-            self.0 = (self.0 & !(0x07 << 12usize)) | (((val.to_bits() as u32) & 0x07) << 12usize);
+        pub const fn set_window(&mut self, n: usize, val: super::vals::Window) {
+            assert!(n < 2usize);
+            let offs = 8usize + n * 4usize;
+            self.0 = (self.0 & !(0x07 << offs)) | (((val.to_bits() as u32) & 0x07) << offs);
         }
         #[doc = "Window Watchdog Timer Mode."]
         #[must_use]
@@ -679,8 +671,8 @@ pub mod regs {
             f.debug_struct("Wwdtctl0")
                 .field("clkdiv", &self.clkdiv())
                 .field("per", &self.per())
-                .field("window0", &self.window0())
-                .field("window1", &self.window1())
+                .field("window[0]", &self.window(0usize))
+                .field("window[1]", &self.window(1usize))
                 .field("mode", &self.mode())
                 .field("stism", &self.stism())
                 .field("key", &self.key())
@@ -690,7 +682,7 @@ pub mod regs {
     #[cfg(feature = "defmt")]
     impl defmt::Format for Wwdtctl0 {
         fn format(&self, f: defmt::Formatter) {
-            defmt :: write ! (f , "Wwdtctl0 {{ clkdiv: {=u8:?}, per: {:?}, window0: {:?}, window1: {:?}, mode: {:?}, stism: {:?}, key: {:?} }}" , self . clkdiv () , self . per () , self . window0 () , self . window1 () , self . mode () , self . stism () , self . key ())
+            defmt :: write ! (f , "Wwdtctl0 {{ clkdiv: {=u8:?}, per: {:?}, window[0]: {:?}, window[1]: {:?}, mode: {:?}, stism: {:?}, key: {:?} }}" , self . clkdiv () , self . per () , self . window (0usize) , self . window (1usize) , self . mode () , self . stism () , self . key ())
         }
     }
     #[doc = "Window Watchdog Timer Control Register 0."]

@@ -20,7 +20,7 @@ impl Iomux {
     pub const fn as_ptr(&self) -> *mut () {
         self.ptr as _
     }
-    #[doc = "Pin Control Management Register in SECCFG region."]
+    #[doc = "Pin Control Management Register in SECCFG region. The array is sized for the largest device, so the caller is responsible for checking that an entry exists on the chip in hand before accessing it."]
     #[inline(always)]
     pub const fn pincm(self, n: usize) -> crate::common::Reg<regs::Pincm, crate::common::RW> {
         assert!(n < 251usize);

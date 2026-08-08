@@ -216,14 +216,14 @@ pub mod regs {
         #[doc = "Main region size in sectors Minimum: 0x8 (8) Maximum: 0x200 (512)."]
         #[must_use]
         #[inline(always)]
-        pub const fn mainsize(&self) -> super::vals::BankinfoMainsize {
+        pub const fn mainsize(&self) -> u16 {
             let val = (self.0 >> 0usize) & 0x0fff;
-            super::vals::BankinfoMainsize::from_bits(val as u16)
+            val as u16
         }
         #[doc = "Main region size in sectors Minimum: 0x8 (8) Maximum: 0x200 (512)."]
         #[inline(always)]
-        pub const fn set_mainsize(&mut self, val: super::vals::BankinfoMainsize) {
-            self.0 = (self.0 & !(0x0fff << 0usize)) | (((val.to_bits() as u32) & 0x0fff) << 0usize);
+        pub const fn set_mainsize(&mut self, val: u16) {
+            self.0 = (self.0 & !(0x0fff << 0usize)) | (((val as u32) & 0x0fff) << 0usize);
         }
     }
     impl Default for Bankinfo0 {
@@ -242,7 +242,7 @@ pub mod regs {
     #[cfg(feature = "defmt")]
     impl defmt::Format for Bankinfo0 {
         fn format(&self, f: defmt::Formatter) {
-            defmt::write!(f, "Bankinfo0 {{ mainsize: {:?} }}", self.mainsize())
+            defmt::write!(f, "Bankinfo0 {{ mainsize: {=u16:?} }}", self.mainsize())
         }
     }
     #[doc = "Bank Information Register 1."]
@@ -253,38 +253,38 @@ pub mod regs {
         #[doc = "Non-main region size in sectors Minimum: 0x0 (0) Maximum: 0x10 (16)."]
         #[must_use]
         #[inline(always)]
-        pub const fn nonmainsize(&self) -> super::vals::BankinfoNonmainsize {
+        pub const fn nonmainsize(&self) -> u8 {
             let val = (self.0 >> 0usize) & 0xff;
-            super::vals::BankinfoNonmainsize::from_bits(val as u8)
+            val as u8
         }
         #[doc = "Non-main region size in sectors Minimum: 0x0 (0) Maximum: 0x10 (16)."]
         #[inline(always)]
-        pub const fn set_nonmainsize(&mut self, val: super::vals::BankinfoNonmainsize) {
-            self.0 = (self.0 & !(0xff << 0usize)) | (((val.to_bits() as u32) & 0xff) << 0usize);
+        pub const fn set_nonmainsize(&mut self, val: u8) {
+            self.0 = (self.0 & !(0xff << 0usize)) | (((val as u32) & 0xff) << 0usize);
         }
         #[doc = "Trim region size in sectors Minimum: 0x0 (0) Maximum: 0x10 (16)."]
         #[must_use]
         #[inline(always)]
-        pub const fn trimsize(&self) -> super::vals::BankinfoTrimsize {
+        pub const fn trimsize(&self) -> u8 {
             let val = (self.0 >> 8usize) & 0xff;
-            super::vals::BankinfoTrimsize::from_bits(val as u8)
+            val as u8
         }
         #[doc = "Trim region size in sectors Minimum: 0x0 (0) Maximum: 0x10 (16)."]
         #[inline(always)]
-        pub const fn set_trimsize(&mut self, val: super::vals::BankinfoTrimsize) {
-            self.0 = (self.0 & !(0xff << 8usize)) | (((val.to_bits() as u32) & 0xff) << 8usize);
+        pub const fn set_trimsize(&mut self, val: u8) {
+            self.0 = (self.0 & !(0xff << 8usize)) | (((val as u32) & 0xff) << 8usize);
         }
         #[doc = "Engr region size in sectors Minimum: 0x0 (0) Maximum: 0x10 (16)."]
         #[must_use]
         #[inline(always)]
-        pub const fn engrsize(&self) -> super::vals::BankinfoEngrsize {
+        pub const fn engrsize(&self) -> u8 {
             let val = (self.0 >> 16usize) & 0xff;
-            super::vals::BankinfoEngrsize::from_bits(val as u8)
+            val as u8
         }
         #[doc = "Engr region size in sectors Minimum: 0x0 (0) Maximum: 0x10 (16)."]
         #[inline(always)]
-        pub const fn set_engrsize(&mut self, val: super::vals::BankinfoEngrsize) {
-            self.0 = (self.0 & !(0xff << 16usize)) | (((val.to_bits() as u32) & 0xff) << 16usize);
+        pub const fn set_engrsize(&mut self, val: u8) {
+            self.0 = (self.0 & !(0xff << 16usize)) | (((val as u32) & 0xff) << 16usize);
         }
     }
     impl Default for Bankinfo1 {
@@ -307,7 +307,7 @@ pub mod regs {
         fn format(&self, f: defmt::Formatter) {
             defmt::write!(
                 f,
-                "Bankinfo1 {{ nonmainsize: {:?}, trimsize: {:?}, engrsize: {:?} }}",
+                "Bankinfo1 {{ nonmainsize: {=u8:?}, trimsize: {=u8:?}, engrsize: {=u8:?} }}",
                 self.nonmainsize(),
                 self.trimsize(),
                 self.engrsize()
@@ -699,29 +699,21 @@ pub mod regs {
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Cmddataecc(pub u32);
     impl Cmddataecc {
-        #[doc = "ECC data for bits 63:0 of the data is placed here."]
+        #[doc = "ECC data for one 64 bit half of the data: index 0 covers bits 63:0 and index 1 bits 127:64."]
         #[must_use]
         #[inline(always)]
-        pub const fn val0(&self) -> u8 {
-            let val = (self.0 >> 0usize) & 0xff;
+        pub const fn val(&self, n: usize) -> u8 {
+            assert!(n < 2usize);
+            let offs = 0usize + n * 8usize;
+            let val = (self.0 >> offs) & 0xff;
             val as u8
         }
-        #[doc = "ECC data for bits 63:0 of the data is placed here."]
+        #[doc = "ECC data for one 64 bit half of the data: index 0 covers bits 63:0 and index 1 bits 127:64."]
         #[inline(always)]
-        pub const fn set_val0(&mut self, val: u8) {
-            self.0 = (self.0 & !(0xff << 0usize)) | (((val as u32) & 0xff) << 0usize);
-        }
-        #[doc = "ECC data for bits 127:64 of the data is placed here."]
-        #[must_use]
-        #[inline(always)]
-        pub const fn val1(&self) -> u8 {
-            let val = (self.0 >> 8usize) & 0xff;
-            val as u8
-        }
-        #[doc = "ECC data for bits 127:64 of the data is placed here."]
-        #[inline(always)]
-        pub const fn set_val1(&mut self, val: u8) {
-            self.0 = (self.0 & !(0xff << 8usize)) | (((val as u32) & 0xff) << 8usize);
+        pub const fn set_val(&mut self, n: usize, val: u8) {
+            assert!(n < 2usize);
+            let offs = 0usize + n * 8usize;
+            self.0 = (self.0 & !(0xff << offs)) | (((val as u32) & 0xff) << offs);
         }
     }
     impl Default for Cmddataecc {
@@ -733,8 +725,8 @@ pub mod regs {
     impl core::fmt::Debug for Cmddataecc {
         fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
             f.debug_struct("Cmddataecc")
-                .field("val0", &self.val0())
-                .field("val1", &self.val1())
+                .field("val[0]", &self.val(0usize))
+                .field("val[1]", &self.val(1usize))
                 .finish()
         }
     }
@@ -743,9 +735,9 @@ pub mod regs {
         fn format(&self, f: defmt::Formatter) {
             defmt::write!(
                 f,
-                "Cmddataecc {{ val0: {=u8:?}, val1: {=u8:?} }}",
-                self.val0(),
-                self.val1()
+                "Cmddataecc {{ val[0]: {=u8:?}, val[1]: {=u8:?} }}",
+                self.val(0usize),
+                self.val(1usize)
             )
         }
     }
@@ -1094,14 +1086,14 @@ pub mod regs {
         #[doc = "Number of banks instantiated Minimum: 1 Maximum: 5."]
         #[must_use]
         #[inline(always)]
-        pub const fn numbanks(&self) -> super::vals::Numbanks {
+        pub const fn numbanks(&self) -> u8 {
             let val = (self.0 >> 16usize) & 0x07;
-            super::vals::Numbanks::from_bits(val as u8)
+            val as u8
         }
         #[doc = "Number of banks instantiated Minimum: 1 Maximum: 5."]
         #[inline(always)]
-        pub const fn set_numbanks(&mut self, val: super::vals::Numbanks) {
-            self.0 = (self.0 & !(0x07 << 16usize)) | (((val.to_bits() as u32) & 0x07) << 16usize);
+        pub const fn set_numbanks(&mut self, val: u8) {
+            self.0 = (self.0 & !(0x07 << 16usize)) | (((val as u32) & 0x07) << 16usize);
         }
     }
     impl Default for Gblinfo0 {
@@ -1123,7 +1115,7 @@ pub mod regs {
         fn format(&self, f: defmt::Formatter) {
             defmt::write!(
                 f,
-                "Gblinfo0 {{ sectorsize: {:?}, numbanks: {:?} }}",
+                "Gblinfo0 {{ sectorsize: {:?}, numbanks: {=u8:?} }}",
                 self.sectorsize(),
                 self.numbanks()
             )
@@ -1341,13 +1333,13 @@ pub mod regs {
         #[doc = "Current Bank ID A bank indicator is stored in this register which represents the current bank on which the state machine is operating. There is 1 bit per bank."]
         #[must_use]
         #[inline(always)]
-        pub const fn bankid(&self) -> super::vals::Bankid {
+        pub const fn bankid(&self) -> super::vals::Bank {
             let val = (self.0 >> 21usize) & 0x1f;
-            super::vals::Bankid::from_bits(val as u8)
+            super::vals::Bank::from_bits(val as u8)
         }
         #[doc = "Current Bank ID A bank indicator is stored in this register which represents the current bank on which the state machine is operating. There is 1 bit per bank."]
         #[inline(always)]
-        pub const fn set_bankid(&mut self, val: super::vals::Bankid) {
+        pub const fn set_bankid(&mut self, val: super::vals::Bank) {
             self.0 = (self.0 & !(0x1f << 21usize)) | (((val.to_bits() as u32) & 0x1f) << 21usize);
         }
     }
@@ -1701,262 +1693,6 @@ pub mod vals {
     #[repr(u8)]
     #[derive(Copy, Clone, Debug, Eq, PartialEq, Ord, PartialOrd)]
     #[cfg_attr(feature = "defmt", derive(defmt::Format))]
-    pub enum Bankid {
-        _RESERVED_0 = 0x0,
-        #[doc = "Bank 0."]
-        Bank0 = 0x01,
-        #[doc = "Bank 1."]
-        Bank1 = 0x02,
-        _RESERVED_3 = 0x03,
-        #[doc = "Bank 2."]
-        Bank2 = 0x04,
-        _RESERVED_5 = 0x05,
-        _RESERVED_6 = 0x06,
-        _RESERVED_7 = 0x07,
-        #[doc = "Bank 3."]
-        Bank3 = 0x08,
-        _RESERVED_9 = 0x09,
-        _RESERVED_a = 0x0a,
-        _RESERVED_b = 0x0b,
-        _RESERVED_c = 0x0c,
-        _RESERVED_d = 0x0d,
-        _RESERVED_e = 0x0e,
-        _RESERVED_f = 0x0f,
-        #[doc = "Bank 4."]
-        Bank4 = 0x10,
-        _RESERVED_11 = 0x11,
-        _RESERVED_12 = 0x12,
-        _RESERVED_13 = 0x13,
-        _RESERVED_14 = 0x14,
-        _RESERVED_15 = 0x15,
-        _RESERVED_16 = 0x16,
-        _RESERVED_17 = 0x17,
-        _RESERVED_18 = 0x18,
-        _RESERVED_19 = 0x19,
-        _RESERVED_1a = 0x1a,
-        _RESERVED_1b = 0x1b,
-        _RESERVED_1c = 0x1c,
-        _RESERVED_1d = 0x1d,
-        _RESERVED_1e = 0x1e,
-        _RESERVED_1f = 0x1f,
-    }
-    impl Bankid {
-        #[inline(always)]
-        pub const fn from_bits(val: u8) -> Bankid {
-            unsafe { core::mem::transmute(val & 0x1f) }
-        }
-        #[inline(always)]
-        pub const fn to_bits(self) -> u8 {
-            unsafe { core::mem::transmute(self) }
-        }
-    }
-    impl From<u8> for Bankid {
-        #[inline(always)]
-        fn from(val: u8) -> Bankid {
-            Bankid::from_bits(val)
-        }
-    }
-    impl From<Bankid> for u8 {
-        #[inline(always)]
-        fn from(val: Bankid) -> u8 {
-            Bankid::to_bits(val)
-        }
-    }
-    #[repr(transparent)]
-    #[derive(Copy, Clone, Eq, PartialEq, Ord, PartialOrd)]
-    pub struct BankinfoEngrsize(u8);
-    impl BankinfoEngrsize {
-        #[doc = "Minimum value of \\[ENGRSIZE\\]."]
-        pub const Minsectors: Self = Self(0x0);
-        #[doc = "Maximum value of \\[ENGRSIZE\\]."]
-        pub const Maxsectors: Self = Self(0x20);
-    }
-    impl BankinfoEngrsize {
-        pub const fn from_bits(val: u8) -> BankinfoEngrsize {
-            Self(val & 0xff)
-        }
-        pub const fn to_bits(self) -> u8 {
-            self.0
-        }
-    }
-    impl core::fmt::Debug for BankinfoEngrsize {
-        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-            match self.0 {
-                0x0 => f.write_str("Minsectors"),
-                0x20 => f.write_str("Maxsectors"),
-                other => core::write!(f, "0x{:02X}", other),
-            }
-        }
-    }
-    #[cfg(feature = "defmt")]
-    impl defmt::Format for BankinfoEngrsize {
-        fn format(&self, f: defmt::Formatter) {
-            match self.0 {
-                0x0 => defmt::write!(f, "Minsectors"),
-                0x20 => defmt::write!(f, "Maxsectors"),
-                other => defmt::write!(f, "0x{:02X}", other),
-            }
-        }
-    }
-    impl From<u8> for BankinfoEngrsize {
-        #[inline(always)]
-        fn from(val: u8) -> BankinfoEngrsize {
-            BankinfoEngrsize::from_bits(val)
-        }
-    }
-    impl From<BankinfoEngrsize> for u8 {
-        #[inline(always)]
-        fn from(val: BankinfoEngrsize) -> u8 {
-            BankinfoEngrsize::to_bits(val)
-        }
-    }
-    #[repr(transparent)]
-    #[derive(Copy, Clone, Eq, PartialEq, Ord, PartialOrd)]
-    pub struct BankinfoMainsize(u16);
-    impl BankinfoMainsize {
-        #[doc = "Minimum value of \\[MAINSIZE\\]."]
-        pub const Minsectors: Self = Self(0x08);
-        #[doc = "Maximum value of \\[MAINSIZE\\]."]
-        pub const Maxsectors: Self = Self(0x0200);
-    }
-    impl BankinfoMainsize {
-        pub const fn from_bits(val: u16) -> BankinfoMainsize {
-            Self(val & 0x0fff)
-        }
-        pub const fn to_bits(self) -> u16 {
-            self.0
-        }
-    }
-    impl core::fmt::Debug for BankinfoMainsize {
-        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-            match self.0 {
-                0x08 => f.write_str("Minsectors"),
-                0x0200 => f.write_str("Maxsectors"),
-                other => core::write!(f, "0x{:02X}", other),
-            }
-        }
-    }
-    #[cfg(feature = "defmt")]
-    impl defmt::Format for BankinfoMainsize {
-        fn format(&self, f: defmt::Formatter) {
-            match self.0 {
-                0x08 => defmt::write!(f, "Minsectors"),
-                0x0200 => defmt::write!(f, "Maxsectors"),
-                other => defmt::write!(f, "0x{:02X}", other),
-            }
-        }
-    }
-    impl From<u16> for BankinfoMainsize {
-        #[inline(always)]
-        fn from(val: u16) -> BankinfoMainsize {
-            BankinfoMainsize::from_bits(val)
-        }
-    }
-    impl From<BankinfoMainsize> for u16 {
-        #[inline(always)]
-        fn from(val: BankinfoMainsize) -> u16 {
-            BankinfoMainsize::to_bits(val)
-        }
-    }
-    #[repr(transparent)]
-    #[derive(Copy, Clone, Eq, PartialEq, Ord, PartialOrd)]
-    pub struct BankinfoNonmainsize(u8);
-    impl BankinfoNonmainsize {
-        #[doc = "Minimum value of \\[NONMAINSIZE\\]."]
-        pub const Minsectors: Self = Self(0x0);
-        #[doc = "Maximum value of \\[NONMAINSIZE\\]."]
-        pub const Maxsectors: Self = Self(0x20);
-    }
-    impl BankinfoNonmainsize {
-        pub const fn from_bits(val: u8) -> BankinfoNonmainsize {
-            Self(val & 0xff)
-        }
-        pub const fn to_bits(self) -> u8 {
-            self.0
-        }
-    }
-    impl core::fmt::Debug for BankinfoNonmainsize {
-        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-            match self.0 {
-                0x0 => f.write_str("Minsectors"),
-                0x20 => f.write_str("Maxsectors"),
-                other => core::write!(f, "0x{:02X}", other),
-            }
-        }
-    }
-    #[cfg(feature = "defmt")]
-    impl defmt::Format for BankinfoNonmainsize {
-        fn format(&self, f: defmt::Formatter) {
-            match self.0 {
-                0x0 => defmt::write!(f, "Minsectors"),
-                0x20 => defmt::write!(f, "Maxsectors"),
-                other => defmt::write!(f, "0x{:02X}", other),
-            }
-        }
-    }
-    impl From<u8> for BankinfoNonmainsize {
-        #[inline(always)]
-        fn from(val: u8) -> BankinfoNonmainsize {
-            BankinfoNonmainsize::from_bits(val)
-        }
-    }
-    impl From<BankinfoNonmainsize> for u8 {
-        #[inline(always)]
-        fn from(val: BankinfoNonmainsize) -> u8 {
-            BankinfoNonmainsize::to_bits(val)
-        }
-    }
-    #[repr(transparent)]
-    #[derive(Copy, Clone, Eq, PartialEq, Ord, PartialOrd)]
-    pub struct BankinfoTrimsize(u8);
-    impl BankinfoTrimsize {
-        #[doc = "Minimum value of \\[TRIMSIZE\\]."]
-        pub const Minsectors: Self = Self(0x0);
-        #[doc = "Maximum value of \\[TRIMSIZE\\]."]
-        pub const Maxsectors: Self = Self(0x20);
-    }
-    impl BankinfoTrimsize {
-        pub const fn from_bits(val: u8) -> BankinfoTrimsize {
-            Self(val & 0xff)
-        }
-        pub const fn to_bits(self) -> u8 {
-            self.0
-        }
-    }
-    impl core::fmt::Debug for BankinfoTrimsize {
-        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-            match self.0 {
-                0x0 => f.write_str("Minsectors"),
-                0x20 => f.write_str("Maxsectors"),
-                other => core::write!(f, "0x{:02X}", other),
-            }
-        }
-    }
-    #[cfg(feature = "defmt")]
-    impl defmt::Format for BankinfoTrimsize {
-        fn format(&self, f: defmt::Formatter) {
-            match self.0 {
-                0x0 => defmt::write!(f, "Minsectors"),
-                0x20 => defmt::write!(f, "Maxsectors"),
-                other => defmt::write!(f, "0x{:02X}", other),
-            }
-        }
-    }
-    impl From<u8> for BankinfoTrimsize {
-        #[inline(always)]
-        fn from(val: u8) -> BankinfoTrimsize {
-            BankinfoTrimsize::from_bits(val)
-        }
-    }
-    impl From<BankinfoTrimsize> for u8 {
-        #[inline(always)]
-        fn from(val: BankinfoTrimsize) -> u8 {
-            BankinfoTrimsize::to_bits(val)
-        }
-    }
-    #[repr(u8)]
-    #[derive(Copy, Clone, Debug, Eq, PartialEq, Ord, PartialOrd)]
-    #[cfg_attr(feature = "defmt", derive(defmt::Format))]
     pub enum Command {
         #[doc = "No Operation."]
         Noop = 0x0,
@@ -2192,41 +1928,6 @@ pub mod vals {
         #[inline(always)]
         fn from(val: Mode) -> u8 {
             Mode::to_bits(val)
-        }
-    }
-    #[repr(u8)]
-    #[derive(Copy, Clone, Debug, Eq, PartialEq, Ord, PartialOrd)]
-    #[cfg_attr(feature = "defmt", derive(defmt::Format))]
-    pub enum Numbanks {
-        _RESERVED_0 = 0x0,
-        Minbanks = 0x01,
-        _RESERVED_2 = 0x02,
-        _RESERVED_3 = 0x03,
-        _RESERVED_4 = 0x04,
-        Maxbanks = 0x05,
-        _RESERVED_6 = 0x06,
-        _RESERVED_7 = 0x07,
-    }
-    impl Numbanks {
-        #[inline(always)]
-        pub const fn from_bits(val: u8) -> Numbanks {
-            unsafe { core::mem::transmute(val & 0x07) }
-        }
-        #[inline(always)]
-        pub const fn to_bits(self) -> u8 {
-            unsafe { core::mem::transmute(self) }
-        }
-    }
-    impl From<u8> for Numbanks {
-        #[inline(always)]
-        fn from(val: u8) -> Numbanks {
-            Numbanks::from_bits(val)
-        }
-    }
-    impl From<Numbanks> for u8 {
-        #[inline(always)]
-        fn from(val: Numbanks) -> u8 {
-            Numbanks::to_bits(val)
         }
     }
     #[repr(u8)]

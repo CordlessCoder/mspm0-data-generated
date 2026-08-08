@@ -80,24 +80,22 @@ impl Adc {
     pub const fn clkfreq(self) -> crate::common::Reg<regs::Clkfreq, crate::common::RW> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x1110usize) as _) }
     }
-    #[doc = "Sample Time Compare 0 Register."]
+    #[doc = "Sample Time Compare Register."]
     #[inline(always)]
-    pub const fn scomp0(self) -> crate::common::Reg<regs::Scomp0, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x1114usize) as _) }
-    }
-    #[doc = "Sample Time Compare 1 Register."]
-    #[inline(always)]
-    pub const fn scomp1(self) -> crate::common::Reg<regs::Scomp1, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x1118usize) as _) }
+    pub const fn scomp(self, n: usize) -> crate::common::Reg<regs::Scomp, crate::common::RW> {
+        assert!(n < 2usize);
+        unsafe {
+            crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x1114usize + n * 4usize) as _)
+        }
     }
     #[doc = "Window Comparator Low Threshold Register."]
     #[inline(always)]
-    pub const fn wclow(self) -> crate::common::Reg<regs::Wclow, crate::common::RW> {
+    pub const fn wclow(self) -> crate::common::Reg<regs::Wc, crate::common::RW> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x1148usize) as _) }
     }
     #[doc = "Window Comparator High Threshold Register."]
     #[inline(always)]
-    pub const fn wchigh(self) -> crate::common::Reg<regs::Wchigh, crate::common::RW> {
+    pub const fn wchigh(self) -> crate::common::Reg<regs::Wc, crate::common::RW> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x1150usize) as _) }
     }
     #[doc = "Conversion Memory Control Register."]
@@ -695,17 +693,17 @@ pub mod regs {
         pub const fn set_trigsrc(&mut self, val: super::vals::Trigsrc) {
             self.0 = (self.0 & !(0x01 << 0usize)) | (((val.to_bits() as u32) & 0x01) << 0usize);
         }
-        #[doc = "Start of conversion."]
+        #[doc = "Start of conversion. With SAMPMODE MANUAL the sample phase lasts as long as this bit is set, and clearing it starts the conversion phase; with AUTO, setting it triggers the timer based sample time and clearing it does nothing."]
         #[must_use]
         #[inline(always)]
-        pub const fn sc(&self) -> super::vals::Sc {
+        pub const fn sc(&self) -> bool {
             let val = (self.0 >> 8usize) & 0x01;
-            super::vals::Sc::from_bits(val as u8)
+            val != 0
         }
-        #[doc = "Start of conversion."]
+        #[doc = "Start of conversion. With SAMPMODE MANUAL the sample phase lasts as long as this bit is set, and clearing it starts the conversion phase; with AUTO, setting it triggers the timer based sample time and clearing it does nothing."]
         #[inline(always)]
-        pub const fn set_sc(&mut self, val: super::vals::Sc) {
-            self.0 = (self.0 & !(0x01 << 8usize)) | (((val.to_bits() as u32) & 0x01) << 8usize);
+        pub const fn set_sc(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 8usize)) | (((val as u32) & 0x01) << 8usize);
         }
         #[doc = "Conversion sequence mode."]
         #[must_use]
@@ -777,7 +775,7 @@ pub mod regs {
     #[cfg(feature = "defmt")]
     impl defmt::Format for Ctl1 {
         fn format(&self, f: defmt::Formatter) {
-            defmt :: write ! (f , "Ctl1 {{ trigsrc: {:?}, sc: {:?}, conseq: {:?}, sampmode: {:?}, avgn: {:?}, avgd: {=u8:?} }}" , self . trigsrc () , self . sc () , self . conseq () , self . sampmode () , self . avgn () , self . avgd ())
+            defmt :: write ! (f , "Ctl1 {{ trigsrc: {:?}, sc: {=bool:?}, conseq: {:?}, sampmode: {:?}, avgn: {:?}, avgd: {=u8:?} }}" , self . trigsrc () , self . sc () , self . conseq () , self . sampmode () , self . avgn () , self . avgd ())
         }
     }
     #[doc = "Control Register 2."]
@@ -845,17 +843,17 @@ pub mod regs {
         pub const fn set_fifoen(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 10usize)) | (((val as u32) & 0x01) << 10usize);
         }
-        #[doc = "Number of ADC converted samples to be transferred on a DMA trigger."]
+        #[doc = "Number of ADC converted samples to be transferred on a DMA trigger, up to 24."]
         #[must_use]
         #[inline(always)]
-        pub const fn sampcnt(&self) -> super::vals::Sampcnt {
+        pub const fn sampcnt(&self) -> u8 {
             let val = (self.0 >> 11usize) & 0x1f;
-            super::vals::Sampcnt::from_bits(val as u8)
+            val as u8
         }
-        #[doc = "Number of ADC converted samples to be transferred on a DMA trigger."]
+        #[doc = "Number of ADC converted samples to be transferred on a DMA trigger, up to 24."]
         #[inline(always)]
-        pub const fn set_sampcnt(&mut self, val: super::vals::Sampcnt) {
-            self.0 = (self.0 & !(0x1f << 11usize)) | (((val.to_bits() as u32) & 0x1f) << 11usize);
+        pub const fn set_sampcnt(&mut self, val: u8) {
+            self.0 = (self.0 & !(0x1f << 11usize)) | (((val as u32) & 0x1f) << 11usize);
         }
         #[doc = "Sequencer start address. These bits select which MEMCTLx is used for single conversion or as first MEMCTL for sequence mode. The value of STARTADD is 0x00 to 0x17, corresponding to MEMRES0 to MEMRES23."]
         #[must_use]
@@ -905,7 +903,7 @@ pub mod regs {
     #[cfg(feature = "defmt")]
     impl defmt::Format for Ctl2 {
         fn format(&self, f: defmt::Formatter) {
-            defmt :: write ! (f , "Ctl2 {{ df: {=bool:?}, res: {:?}, rstsampcapen: {=bool:?}, dmaen: {=bool:?}, fifoen: {=bool:?}, sampcnt: {:?}, startadd: {=u8:?}, endadd: {=u8:?} }}" , self . df () , self . res () , self . rstsampcapen () , self . dmaen () , self . fifoen () , self . sampcnt () , self . startadd () , self . endadd ())
+            defmt :: write ! (f , "Ctl2 {{ df: {=bool:?}, res: {:?}, rstsampcapen: {=bool:?}, dmaen: {=bool:?}, fifoen: {=bool:?}, sampcnt: {=u8:?}, startadd: {=u8:?}, endadd: {=u8:?} }}" , self . df () , self . res () , self . rstsampcapen () , self . dmaen () , self . fifoen () , self . sampcnt () , self . startadd () , self . endadd ())
         }
     }
     #[doc = "Module Description."]
@@ -1106,25 +1104,25 @@ pub mod regs {
         #[doc = "Event line mode select for event corresponding to CPU_INT."]
         #[must_use]
         #[inline(always)]
-        pub const fn cpu(&self) -> super::vals::IntCfg {
+        pub const fn cpu(&self) -> super::vals::EvtCfg {
             let val = (self.0 >> 0usize) & 0x03;
-            super::vals::IntCfg::from_bits(val as u8)
+            super::vals::EvtCfg::from_bits(val as u8)
         }
         #[doc = "Event line mode select for event corresponding to CPU_INT."]
         #[inline(always)]
-        pub const fn set_cpu(&mut self, val: super::vals::IntCfg) {
+        pub const fn set_cpu(&mut self, val: super::vals::EvtCfg) {
             self.0 = (self.0 & !(0x03 << 0usize)) | (((val.to_bits() as u32) & 0x03) << 0usize);
         }
         #[doc = "Event line mode select for event corresponding to GEN_EVENT."]
         #[must_use]
         #[inline(always)]
-        pub const fn evt1_cfg(&self) -> super::vals::Evt1Cfg {
+        pub const fn evt1_cfg(&self) -> super::vals::EvtCfg {
             let val = (self.0 >> 2usize) & 0x03;
-            super::vals::Evt1Cfg::from_bits(val as u8)
+            super::vals::EvtCfg::from_bits(val as u8)
         }
         #[doc = "Event line mode select for event corresponding to GEN_EVENT."]
         #[inline(always)]
-        pub const fn set_evt1_cfg(&mut self, val: super::vals::Evt1Cfg) {
+        pub const fn set_evt1_cfg(&mut self, val: super::vals::EvtCfg) {
             self.0 = (self.0 & !(0x03 << 2usize)) | (((val.to_bits() as u32) & 0x03) << 2usize);
         }
     }
@@ -1577,11 +1575,11 @@ pub mod regs {
             )
         }
     }
-    #[doc = "Sample Time Compare 0 Register."]
+    #[doc = "Sample Time Compare Register."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
-    pub struct Scomp0(pub u32);
-    impl Scomp0 {
+    pub struct Scomp(pub u32);
+    impl Scomp {
         #[doc = "Specifies the number of sample clocks. When VAL = 0 or 1, number of sample clocks = Sample clock divide value. When VAL > 1, number of sample clocks = VAL x Sample clock divide value. Note: Sample clock divide value is not the value written to SCLKDIV but the actual divide value (SCLKDIV = 2 implies divide value is 4). Example: VAL = 4, SCLKDIV = 3 implies 32 sample clock cycles."]
         #[must_use]
         #[inline(always)]
@@ -1595,56 +1593,21 @@ pub mod regs {
             self.0 = (self.0 & !(0x03ff << 0usize)) | (((val as u32) & 0x03ff) << 0usize);
         }
     }
-    impl Default for Scomp0 {
+    impl Default for Scomp {
         #[inline(always)]
-        fn default() -> Scomp0 {
-            Scomp0(0)
+        fn default() -> Scomp {
+            Scomp(0)
         }
     }
-    impl core::fmt::Debug for Scomp0 {
+    impl core::fmt::Debug for Scomp {
         fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-            f.debug_struct("Scomp0").field("val", &self.val()).finish()
+            f.debug_struct("Scomp").field("val", &self.val()).finish()
         }
     }
     #[cfg(feature = "defmt")]
-    impl defmt::Format for Scomp0 {
+    impl defmt::Format for Scomp {
         fn format(&self, f: defmt::Formatter) {
-            defmt::write!(f, "Scomp0 {{ val: {=u16:?} }}", self.val())
-        }
-    }
-    #[doc = "Sample Time Compare 1 Register."]
-    #[repr(transparent)]
-    #[derive(Copy, Clone, Eq, PartialEq)]
-    pub struct Scomp1(pub u32);
-    impl Scomp1 {
-        #[doc = "Specifies the number of sample clocks. When VAL = 0 or 1, number of sample clocks = Sample clock divide value. When VAL > 1, number of sample clocks = VAL x Sample clock divide value. Note: Sample clock divide value is not the value written to SCLKDIV but the actual divide value (SCLKDIV = 2 implies divide value is 4). Example: VAL = 4, SCLKDIV = 3 implies 32 sample clock cycles."]
-        #[must_use]
-        #[inline(always)]
-        pub const fn val(&self) -> u16 {
-            let val = (self.0 >> 0usize) & 0x03ff;
-            val as u16
-        }
-        #[doc = "Specifies the number of sample clocks. When VAL = 0 or 1, number of sample clocks = Sample clock divide value. When VAL > 1, number of sample clocks = VAL x Sample clock divide value. Note: Sample clock divide value is not the value written to SCLKDIV but the actual divide value (SCLKDIV = 2 implies divide value is 4). Example: VAL = 4, SCLKDIV = 3 implies 32 sample clock cycles."]
-        #[inline(always)]
-        pub const fn set_val(&mut self, val: u16) {
-            self.0 = (self.0 & !(0x03ff << 0usize)) | (((val as u32) & 0x03ff) << 0usize);
-        }
-    }
-    impl Default for Scomp1 {
-        #[inline(always)]
-        fn default() -> Scomp1 {
-            Scomp1(0)
-        }
-    }
-    impl core::fmt::Debug for Scomp1 {
-        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-            f.debug_struct("Scomp1").field("val", &self.val()).finish()
-        }
-    }
-    #[cfg(feature = "defmt")]
-    impl defmt::Format for Scomp1 {
-        fn format(&self, f: defmt::Formatter) {
-            defmt::write!(f, "Scomp1 {{ val: {=u16:?} }}", self.val())
+            defmt::write!(f, "Scomp {{ val: {=u16:?} }}", self.val())
         }
     }
     #[doc = "Status Register."]
@@ -1739,48 +1702,11 @@ pub mod regs {
             )
         }
     }
-    #[doc = "Window Comparator High Threshold Register."]
+    #[doc = "A window comparator threshold."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
-    pub struct Wchigh(pub u32);
-    impl Wchigh {
-        #[doc = "If DF = 0, unsigned binary format has to be used. The threshold value has to be right aligned, with the MSB on the left. For 10-bits and 8-bits resolution, unused bit have to be 0s. If DF = 1, 2s-complement format has to be used. The value based on the resolution has to be left aligned with the LSB on the right. For 10-bits and 8-bits resolution, unused bit have to be 0s."]
-        #[must_use]
-        #[inline(always)]
-        pub const fn data(&self) -> u16 {
-            let val = (self.0 >> 0usize) & 0xffff;
-            val as u16
-        }
-        #[doc = "If DF = 0, unsigned binary format has to be used. The threshold value has to be right aligned, with the MSB on the left. For 10-bits and 8-bits resolution, unused bit have to be 0s. If DF = 1, 2s-complement format has to be used. The value based on the resolution has to be left aligned with the LSB on the right. For 10-bits and 8-bits resolution, unused bit have to be 0s."]
-        #[inline(always)]
-        pub const fn set_data(&mut self, val: u16) {
-            self.0 = (self.0 & !(0xffff << 0usize)) | (((val as u32) & 0xffff) << 0usize);
-        }
-    }
-    impl Default for Wchigh {
-        #[inline(always)]
-        fn default() -> Wchigh {
-            Wchigh(0)
-        }
-    }
-    impl core::fmt::Debug for Wchigh {
-        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-            f.debug_struct("Wchigh")
-                .field("data", &self.data())
-                .finish()
-        }
-    }
-    #[cfg(feature = "defmt")]
-    impl defmt::Format for Wchigh {
-        fn format(&self, f: defmt::Formatter) {
-            defmt::write!(f, "Wchigh {{ data: {=u16:?} }}", self.data())
-        }
-    }
-    #[doc = "Window Comparator Low Threshold Register."]
-    #[repr(transparent)]
-    #[derive(Copy, Clone, Eq, PartialEq)]
-    pub struct Wclow(pub u32);
-    impl Wclow {
+    pub struct Wc(pub u32);
+    impl Wc {
         #[doc = "If DF = 0, unsigned binary format has to be used. The value based on the resolution has to be right aligned with the MSB on the left. For 10-bits and 8-bits resolution, unused bits have to be 0s. If DF = 1, 2s-complement format has to be used. The value based on the resolution has to be left aligned with the LSB on the right. For 10-bits and 8-bits resolution, unused bits have to be 0s."]
         #[must_use]
         #[inline(always)]
@@ -1794,21 +1720,21 @@ pub mod regs {
             self.0 = (self.0 & !(0xffff << 0usize)) | (((val as u32) & 0xffff) << 0usize);
         }
     }
-    impl Default for Wclow {
+    impl Default for Wc {
         #[inline(always)]
-        fn default() -> Wclow {
-            Wclow(0)
+        fn default() -> Wc {
+            Wc(0)
         }
     }
-    impl core::fmt::Debug for Wclow {
+    impl core::fmt::Debug for Wc {
         fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-            f.debug_struct("Wclow").field("data", &self.data()).finish()
+            f.debug_struct("Wc").field("data", &self.data()).finish()
         }
     }
     #[cfg(feature = "defmt")]
-    impl defmt::Format for Wclow {
+    impl defmt::Format for Wc {
         fn format(&self, f: defmt::Formatter) {
-            defmt::write!(f, "Wclow {{ data: {=u16:?} }}", self.data())
+            defmt::write!(f, "Wc {{ data: {=u16:?} }}", self.data())
         }
     }
 }
@@ -2245,7 +2171,7 @@ pub mod vals {
     #[repr(u8)]
     #[derive(Copy, Clone, Debug, Eq, PartialEq, Ord, PartialOrd)]
     #[cfg_attr(feature = "defmt", derive(defmt::Format))]
-    pub enum Evt1Cfg {
+    pub enum EvtCfg {
         #[doc = "The interrupt or event line is disabled."]
         Disable = 0x0,
         #[doc = "The interrupt or event line is in software mode. Software must clear the RIS."]
@@ -2254,9 +2180,9 @@ pub mod vals {
         Hardware = 0x02,
         _RESERVED_3 = 0x03,
     }
-    impl Evt1Cfg {
+    impl EvtCfg {
         #[inline(always)]
-        pub const fn from_bits(val: u8) -> Evt1Cfg {
+        pub const fn from_bits(val: u8) -> EvtCfg {
             unsafe { core::mem::transmute(val & 0x03) }
         }
         #[inline(always)]
@@ -2264,16 +2190,16 @@ pub mod vals {
             unsafe { core::mem::transmute(self) }
         }
     }
-    impl From<u8> for Evt1Cfg {
+    impl From<u8> for EvtCfg {
         #[inline(always)]
-        fn from(val: u8) -> Evt1Cfg {
-            Evt1Cfg::from_bits(val)
+        fn from(val: u8) -> EvtCfg {
+            EvtCfg::from_bits(val)
         }
     }
-    impl From<Evt1Cfg> for u8 {
+    impl From<EvtCfg> for u8 {
         #[inline(always)]
-        fn from(val: Evt1Cfg) -> u8 {
-            Evt1Cfg::to_bits(val)
+        fn from(val: EvtCfg) -> u8 {
+            EvtCfg::to_bits(val)
         }
     }
     #[repr(u8)]
@@ -2377,40 +2303,6 @@ pub mod vals {
         #[inline(always)]
         fn from(val: GenEventIidxStat) -> u16 {
             GenEventIidxStat::to_bits(val)
-        }
-    }
-    #[repr(u8)]
-    #[derive(Copy, Clone, Debug, Eq, PartialEq, Ord, PartialOrd)]
-    #[cfg_attr(feature = "defmt", derive(defmt::Format))]
-    pub enum IntCfg {
-        #[doc = "The interrupt or event line is disabled."]
-        Disable = 0x0,
-        #[doc = "The interrupt or event line is in software mode. Software must clear the RIS."]
-        Software = 0x01,
-        #[doc = "The interrupt or event line is in hardware mode. The hardware (another module) clears automatically the associated RIS flag."]
-        Hardware = 0x02,
-        _RESERVED_3 = 0x03,
-    }
-    impl IntCfg {
-        #[inline(always)]
-        pub const fn from_bits(val: u8) -> IntCfg {
-            unsafe { core::mem::transmute(val & 0x03) }
-        }
-        #[inline(always)]
-        pub const fn to_bits(self) -> u8 {
-            unsafe { core::mem::transmute(self) }
-        }
-    }
-    impl From<u8> for IntCfg {
-        #[inline(always)]
-        fn from(val: u8) -> IntCfg {
-            IntCfg::from_bits(val)
-        }
-    }
-    impl From<IntCfg> for u8 {
-        #[inline(always)]
-        fn from(val: IntCfg) -> u8 {
-            IntCfg::to_bits(val)
         }
     }
     #[repr(u8)]
@@ -2601,67 +2493,6 @@ pub mod vals {
     #[repr(u8)]
     #[derive(Copy, Clone, Debug, Eq, PartialEq, Ord, PartialOrd)]
     #[cfg_attr(feature = "defmt", derive(defmt::Format))]
-    pub enum Sampcnt {
-        #[doc = "Minimum value."]
-        Min = 0x0,
-        _RESERVED_1 = 0x01,
-        _RESERVED_2 = 0x02,
-        _RESERVED_3 = 0x03,
-        _RESERVED_4 = 0x04,
-        _RESERVED_5 = 0x05,
-        _RESERVED_6 = 0x06,
-        _RESERVED_7 = 0x07,
-        _RESERVED_8 = 0x08,
-        _RESERVED_9 = 0x09,
-        _RESERVED_a = 0x0a,
-        _RESERVED_b = 0x0b,
-        _RESERVED_c = 0x0c,
-        _RESERVED_d = 0x0d,
-        _RESERVED_e = 0x0e,
-        _RESERVED_f = 0x0f,
-        _RESERVED_10 = 0x10,
-        _RESERVED_11 = 0x11,
-        _RESERVED_12 = 0x12,
-        _RESERVED_13 = 0x13,
-        _RESERVED_14 = 0x14,
-        _RESERVED_15 = 0x15,
-        _RESERVED_16 = 0x16,
-        _RESERVED_17 = 0x17,
-        #[doc = "Maximum value."]
-        Max = 0x18,
-        _RESERVED_19 = 0x19,
-        _RESERVED_1a = 0x1a,
-        _RESERVED_1b = 0x1b,
-        _RESERVED_1c = 0x1c,
-        _RESERVED_1d = 0x1d,
-        _RESERVED_1e = 0x1e,
-        _RESERVED_1f = 0x1f,
-    }
-    impl Sampcnt {
-        #[inline(always)]
-        pub const fn from_bits(val: u8) -> Sampcnt {
-            unsafe { core::mem::transmute(val & 0x1f) }
-        }
-        #[inline(always)]
-        pub const fn to_bits(self) -> u8 {
-            unsafe { core::mem::transmute(self) }
-        }
-    }
-    impl From<u8> for Sampcnt {
-        #[inline(always)]
-        fn from(val: u8) -> Sampcnt {
-            Sampcnt::from_bits(val)
-        }
-    }
-    impl From<Sampcnt> for u8 {
-        #[inline(always)]
-        fn from(val: Sampcnt) -> u8 {
-            Sampcnt::to_bits(val)
-        }
-    }
-    #[repr(u8)]
-    #[derive(Copy, Clone, Debug, Eq, PartialEq, Ord, PartialOrd)]
-    #[cfg_attr(feature = "defmt", derive(defmt::Format))]
     pub enum Sampmode {
         #[doc = "Sample timer high phase is used as sample signal."]
         Auto = 0x0,
@@ -2688,37 +2519,6 @@ pub mod vals {
         #[inline(always)]
         fn from(val: Sampmode) -> u8 {
             Sampmode::to_bits(val)
-        }
-    }
-    #[repr(u8)]
-    #[derive(Copy, Clone, Debug, Eq, PartialEq, Ord, PartialOrd)]
-    #[cfg_attr(feature = "defmt", derive(defmt::Format))]
-    pub enum Sc {
-        #[doc = "When SAMPMODE is set to MANUAL, clearing this bit will end the sample phase and the conversion phase will start. When SAMPMODE is set to AUTO, writing 0 has no effect."]
-        Stop = 0x0,
-        #[doc = "When SAMPMODE is set to MANUAL, setting this bit will start the sample phase. Sample phase will last as long as this bit is set. When SAMPMODE is set to AUTO, setting this bit will trigger the timer based sample time."]
-        Start = 0x01,
-    }
-    impl Sc {
-        #[inline(always)]
-        pub const fn from_bits(val: u8) -> Sc {
-            unsafe { core::mem::transmute(val & 0x01) }
-        }
-        #[inline(always)]
-        pub const fn to_bits(self) -> u8 {
-            unsafe { core::mem::transmute(self) }
-        }
-    }
-    impl From<u8> for Sc {
-        #[inline(always)]
-        fn from(val: u8) -> Sc {
-            Sc::from_bits(val)
-        }
-    }
-    impl From<Sc> for u8 {
-        #[inline(always)]
-        fn from(val: Sc) -> u8 {
-            Sc::to_bits(val)
         }
     }
     #[repr(u8)]
