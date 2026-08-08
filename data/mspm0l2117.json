@@ -4361,7 +4361,7 @@
     "TIMB0": {
       "name": "TIMB0",
       "type": "Tim",
-      "version": "v1",
+      "version": "btimer",
       "address": 1074495488,
       "power_domain": "Pd0",
       "pins": [],
@@ -4390,7 +4390,7 @@
     "TIMB1": {
       "name": "TIMB1",
       "type": "Tim",
-      "version": "v1",
+      "version": "btimer",
       "address": 1074503680,
       "power_domain": "Pd0",
       "pins": [],
@@ -4419,7 +4419,7 @@
     "TIMB2": {
       "name": "TIMB2",
       "type": "Tim",
-      "version": "v1",
+      "version": "btimer",
       "address": 1074511872,
       "power_domain": "Pd0",
       "pins": [],
@@ -4448,7 +4448,7 @@
     "TIMB3": {
       "name": "TIMB3",
       "type": "Tim",
-      "version": "v1",
+      "version": "btimer",
       "address": 1074520064,
       "power_domain": "Pd0",
       "pins": [],
@@ -6060,6 +6060,7 @@
     "VREF": {
       "name": "VREF",
       "type": "Vref",
+      "version": "v1",
       "address": 1073938432,
       "power_domain": "Pd0",
       "pins": [

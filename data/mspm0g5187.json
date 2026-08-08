@@ -3326,7 +3326,7 @@
     "TIMB0": {
       "name": "TIMB0",
       "type": "Tim",
-      "version": "v1",
+      "version": "btimer",
       "address": 1074495488,
       "power_domain": "Pd0",
       "pins": [],
@@ -5188,6 +5188,7 @@
     "VREF": {
       "name": "VREF",
       "type": "Vref",
+      "version": "v1",
       "address": 1073938432,
       "power_domain": "Pd0",
       "pins": [

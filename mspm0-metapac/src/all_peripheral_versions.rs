@@ -22,8 +22,9 @@ pub static ALL_PERIPHERAL_VERSIONS: &[(&str, &[&str])] = &[
             "l122x_l222x",
         ],
     ),
-    ("tim", &["v1"]),
+    ("tim", &["btimer", "v1"]),
     ("trng", &["v1"]),
     ("uart", &["v1"]),
+    ("vref", &["v1"]),
     ("wwdt", &["v1"]),
 ];

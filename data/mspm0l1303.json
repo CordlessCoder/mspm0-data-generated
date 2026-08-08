@@ -1410,6 +1410,7 @@
     "VREF": {
       "name": "VREF",
       "type": "Vref",
+      "version": "v1",
       "address": 1073938432,
       "power_domain": "Pd0",
       "pins": [

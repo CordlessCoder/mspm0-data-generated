@@ -1584,7 +1584,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
     Peripheral {
         name: "TIMB0",
         kind: "tim",
-        version: Some("v1"),
+        version: Some("btimer"),
         pins: &[],
         power_domain: PowerDomain::Pd0,
         sys_fentries: None,
@@ -1616,7 +1616,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
     Peripheral {
         name: "TIMB1",
         kind: "tim",
-        version: Some("v1"),
+        version: Some("btimer"),
         pins: &[],
         power_domain: PowerDomain::Pd0,
         sys_fentries: None,
@@ -1648,7 +1648,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
     Peripheral {
         name: "TIMB2",
         kind: "tim",
-        version: Some("v1"),
+        version: Some("btimer"),
         pins: &[],
         power_domain: PowerDomain::Pd0,
         sys_fentries: None,
@@ -1680,7 +1680,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
     Peripheral {
         name: "TIMB3",
         kind: "tim",
-        version: Some("v1"),
+        version: Some("btimer"),
         pins: &[],
         power_domain: PowerDomain::Pd0,
         sys_fentries: None,
@@ -3066,7 +3066,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
     Peripheral {
         name: "VREF",
         kind: "vref",
-        version: None,
+        version: Some("v1"),
         pins: &[
             PeripheralPin {
                 pin: "PA23",
