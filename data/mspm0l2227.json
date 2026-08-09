@@ -5843,7 +5843,10 @@
           "pf": 0
         }
       ],
-      "block_async": false
+      "block_async": false,
+      "vref": {
+        "startup_ns": 15000
+      }
     },
     "WUC": {
       "name": "WUC",

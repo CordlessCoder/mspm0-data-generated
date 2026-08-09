@@ -4456,7 +4456,6 @@
     "RTC_B": {
       "name": "RTC_B",
       "type": "Rtc",
-      "version": "b",
       "address": 1074348032,
       "power_domain": "Pd0",
       "pins": [],
@@ -7868,7 +7867,10 @@
         }
       ],
       "block_async": false,
-      "usable_through": "Standby"
+      "usable_through": "Standby",
+      "vref": {
+        "startup_ns": 200000
+      }
     },
     "WUC": {
       "name": "WUC",

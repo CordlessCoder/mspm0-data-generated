@@ -3,7 +3,6 @@
 #![allow(clippy::identity_op)]
 #![allow(clippy::unnecessary_cast)]
 #![allow(clippy::erasing_op)]
-
 #[derive(Copy, Clone, Eq, PartialEq)]
 pub struct Gprcm {
     ptr: *mut u8,
@@ -19,23 +18,23 @@ impl Gprcm {
     pub const fn as_ptr(&self) -> *mut () {
         self.ptr as _
     }
-    #[doc = "Power enable."]
+    ///Power enable.
     #[inline(always)]
     pub const fn pwren(self) -> crate::common::Reg<regs::Pwren, crate::common::RW> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x0usize) as _) }
     }
-    #[doc = "Reset Control."]
+    ///Reset Control.
     #[inline(always)]
     pub const fn rstctl(self) -> crate::common::Reg<regs::Rstctl, crate::common::W> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x04usize) as _) }
     }
-    #[doc = "Status Register."]
+    ///Status Register.
     #[inline(always)]
     pub const fn stat(self) -> crate::common::Reg<regs::Stat, crate::common::R> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x14usize) as _) }
     }
 }
-#[doc = "PERIPHERALREGION."]
+///PERIPHERALREGION.
 #[derive(Copy, Clone, Eq, PartialEq)]
 pub struct Vref {
     ptr: *mut u8,
@@ -55,46 +54,46 @@ impl Vref {
     pub const fn gprcm(self) -> Gprcm {
         unsafe { Gprcm::from_ptr(self.ptr.wrapping_add(0x0800usize) as _) }
     }
-    #[doc = "Clock Divider."]
+    ///Clock Divider.
     #[inline(always)]
     pub const fn clkdiv(self) -> crate::common::Reg<regs::Clkdiv, crate::common::RW> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x1000usize) as _) }
     }
-    #[doc = "Clock Selection."]
+    ///Clock Selection.
     #[inline(always)]
     pub const fn clksel(self) -> crate::common::Reg<regs::Clksel, crate::common::RW> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x1008usize) as _) }
     }
-    #[doc = "Control 0."]
+    ///Control 0.
     #[inline(always)]
     pub const fn ctl0(self) -> crate::common::Reg<regs::Ctl0, crate::common::RW> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x1100usize) as _) }
     }
-    #[doc = "Control 1."]
+    ///Control 1.
     #[inline(always)]
     pub const fn ctl1(self) -> crate::common::Reg<regs::Ctl1, crate::common::RW> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x1104usize) as _) }
     }
-    #[doc = "Control 2."]
+    ///Control 2.
     #[inline(always)]
     pub const fn ctl2(self) -> crate::common::Reg<regs::Ctl2, crate::common::RW> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x1108usize) as _) }
     }
 }
 pub mod regs {
-    #[doc = "Clock Divider."]
+    ///Clock Divider.
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Clkdiv(pub u32);
     impl Clkdiv {
-        #[doc = "Selects divide ratio of module clock to be used in sample and hold logic."]
+        ///Selects divide ratio of module clock to be used in sample and hold logic.
         #[must_use]
         #[inline(always)]
         pub const fn ratio(&self) -> u8 {
             let val = (self.0 >> 0usize) & 0x07;
             val as u8
         }
-        #[doc = "Selects divide ratio of module clock to be used in sample and hold logic."]
+        ///Selects divide ratio of module clock to be used in sample and hold logic.
         #[inline(always)]
         pub const fn set_ratio(&mut self, val: u8) {
             self.0 = (self.0 & !(0x07 << 0usize)) | (((val as u32) & 0x07) << 0usize);
@@ -108,9 +107,7 @@ pub mod regs {
     }
     impl core::fmt::Debug for Clkdiv {
         fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-            f.debug_struct("Clkdiv")
-                .field("ratio", &self.ratio())
-                .finish()
+            f.debug_struct("Clkdiv").field("ratio", &self.ratio()).finish()
         }
     }
     #[cfg(feature = "defmt")]
@@ -119,43 +116,43 @@ pub mod regs {
             defmt::write!(f, "Clkdiv {{ ratio: {=u8:?} }}", self.ratio())
         }
     }
-    #[doc = "Clock Selection."]
+    ///Clock Selection.
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Clksel(pub u32);
     impl Clksel {
-        #[doc = "Selects LFCLK as clock source if enabled."]
+        ///Selects LFCLK as clock source if enabled.
         #[must_use]
         #[inline(always)]
         pub const fn lfclk_sel(&self) -> bool {
             let val = (self.0 >> 1usize) & 0x01;
             val != 0
         }
-        #[doc = "Selects LFCLK as clock source if enabled."]
+        ///Selects LFCLK as clock source if enabled.
         #[inline(always)]
         pub const fn set_lfclk_sel(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 1usize)) | (((val as u32) & 0x01) << 1usize);
         }
-        #[doc = "Selects MFCLK as clock source if enabled."]
+        ///Selects MFCLK as clock source if enabled.
         #[must_use]
         #[inline(always)]
         pub const fn mfclk_sel(&self) -> bool {
             let val = (self.0 >> 2usize) & 0x01;
             val != 0
         }
-        #[doc = "Selects MFCLK as clock source if enabled."]
+        ///Selects MFCLK as clock source if enabled.
         #[inline(always)]
         pub const fn set_mfclk_sel(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 2usize)) | (((val as u32) & 0x01) << 2usize);
         }
-        #[doc = "Selects BUSCLK as clock source if enabled."]
+        ///Selects BUSCLK as clock source if enabled.
         #[must_use]
         #[inline(always)]
         pub const fn busclk_sel(&self) -> bool {
             let val = (self.0 >> 3usize) & 0x01;
             val != 0
         }
-        #[doc = "Selects BUSCLK as clock source if enabled."]
+        ///Selects BUSCLK as clock source if enabled.
         #[inline(always)]
         pub const fn set_busclk_sel(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 3usize)) | (((val as u32) & 0x01) << 3usize);
@@ -182,18 +179,16 @@ pub mod regs {
             defmt::write!(
                 f,
                 "Clksel {{ lfclk_sel: {=bool:?}, mfclk_sel: {=bool:?}, busclk_sel: {=bool:?} }}",
-                self.lfclk_sel(),
-                self.mfclk_sel(),
-                self.busclk_sel()
+                self.lfclk_sel(), self.mfclk_sel(), self.busclk_sel()
             )
         }
     }
-    #[doc = "Control 0."]
+    ///Control 0.
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Ctl0(pub u32);
     impl Ctl0 {
-        #[doc = "Enables the corresponding VREF reference buffer. A device may implement fewer buffers than the three the register can address; the device datasheet says how many."]
+        ///Enables reference buffer n. Each buffer feeds a different set of on-chip analog consumers rather than being interchangeable: hw_vref.h names buffer 1 COMP_VREF and buffer 2 ADC_VREF, and index 0 is the one TI's own driverlib enables. SLAU846 Figure 23-1 is a superset diagram, so a device need not implement all three; nothing published says which it has.
         #[must_use]
         #[inline(always)]
         pub const fn enable(&self, n: usize) -> bool {
@@ -202,33 +197,34 @@ pub mod regs {
             let val = (self.0 >> offs) & 0x01;
             val != 0
         }
-        #[doc = "Enables the corresponding VREF reference buffer. A device may implement fewer buffers than the three the register can address; the device datasheet says how many."]
+        ///Enables reference buffer n. Each buffer feeds a different set of on-chip analog consumers rather than being interchangeable: hw_vref.h names buffer 1 COMP_VREF and buffer 2 ADC_VREF, and index 0 is the one TI's own driverlib enables. SLAU846 Figure 23-1 is a superset diagram, so a device need not implement all three; nothing published says which it has.
         #[inline(always)]
         pub const fn set_enable(&mut self, n: usize, val: bool) {
             assert!(n < 3usize);
             let offs = 0usize + n * 1usize;
             self.0 = (self.0 & !(0x01 << offs)) | (((val as u32) & 0x01) << offs);
         }
-        #[doc = "Selects the output voltage of the reference buffers. Changing from 2.5V to 1.4V has a very slow slew rate and READY stays set throughout, so that transition has to be timed by the caller."]
+        ///Selects the output voltage of the reference buffers. Changing from 2.5V to 1.4V has a very slow slew rate and READY stays set throughout, so that transition has to be timed by the caller.
         #[must_use]
         #[inline(always)]
         pub const fn bufconfig(&self) -> super::vals::Bufconfig {
             let val = (self.0 >> 7usize) & 0x01;
             super::vals::Bufconfig::from_bits(val as u8)
         }
-        #[doc = "Selects the output voltage of the reference buffers. Changing from 2.5V to 1.4V has a very slow slew rate and READY stays set throughout, so that transition has to be timed by the caller."]
+        ///Selects the output voltage of the reference buffers. Changing from 2.5V to 1.4V has a very slow slew rate and READY stays set throughout, so that transition has to be timed by the caller.
         #[inline(always)]
         pub const fn set_bufconfig(&mut self, val: super::vals::Bufconfig) {
-            self.0 = (self.0 & !(0x01 << 7usize)) | (((val.to_bits() as u32) & 0x01) << 7usize);
+            self.0 = (self.0 & !(0x01 << 7usize))
+                | (((val.to_bits() as u32) & 0x01) << 7usize);
         }
-        #[doc = "This bit enable sample and hold mode."]
+        ///This bit enable sample and hold mode.
         #[must_use]
         #[inline(always)]
         pub const fn shmode(&self) -> bool {
             let val = (self.0 >> 8usize) & 0x01;
             val != 0
         }
-        #[doc = "This bit enable sample and hold mode."]
+        ///This bit enable sample and hold mode.
         #[inline(always)]
         pub const fn set_shmode(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 8usize)) | (((val as u32) & 0x01) << 8usize);
@@ -254,25 +250,34 @@ pub mod regs {
     #[cfg(feature = "defmt")]
     impl defmt::Format for Ctl0 {
         fn format(&self, f: defmt::Formatter) {
-            defmt :: write ! (f , "Ctl0 {{ enable[0]: {=bool:?}, enable[1]: {=bool:?}, enable[2]: {=bool:?}, bufconfig: {:?}, shmode: {=bool:?} }}" , self . enable (0usize) , self . enable (1usize) , self . enable (2usize) , self . bufconfig () , self . shmode ())
+            defmt::write!(
+                f,
+                "Ctl0 {{ enable[0]: {=bool:?}, enable[1]: {=bool:?}, enable[2]: {=bool:?}, bufconfig: {:?}, shmode: {=bool:?} }}",
+                self.enable(0usize), self.enable(1usize), self.enable(2usize), self
+                .bufconfig(), self.shmode()
+            )
         }
     }
-    #[doc = "Control 1."]
+    ///Control 1.
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Ctl1(pub u32);
     impl Ctl1 {
-        #[doc = "VREF output is ready. Once set, it stays set when VREF is disabled and later re-enabled. On a device with more than one reference buffer it only applies to the first one enabled."]
+        ///Reference buffer n has settled. One bit per ENABLE, but not at the same offsets: READY0 is bit 0, READY1 bit 2 and READY2 bit 3, with bit 1 unused. Beware VREF_ERR_01, which leaves the bit set once the buffer has been enabled a first time since reset, so on an affected device it cannot report a later enable and the datasheet startup time is the only signal.
         #[must_use]
         #[inline(always)]
-        pub const fn ready(&self) -> bool {
-            let val = (self.0 >> 0usize) & 0x01;
+        pub const fn ready(&self, n: usize) -> bool {
+            assert!(n < 3usize);
+            let offs = 0usize + ([0usize, 2usize, 3usize][n] as usize);
+            let val = (self.0 >> offs) & 0x01;
             val != 0
         }
-        #[doc = "VREF output is ready. Once set, it stays set when VREF is disabled and later re-enabled. On a device with more than one reference buffer it only applies to the first one enabled."]
+        ///Reference buffer n has settled. One bit per ENABLE, but not at the same offsets: READY0 is bit 0, READY1 bit 2 and READY2 bit 3, with bit 1 unused. Beware VREF_ERR_01, which leaves the bit set once the buffer has been enabled a first time since reset, so on an affected device it cannot report a later enable and the datasheet startup time is the only signal.
         #[inline(always)]
-        pub const fn set_ready(&mut self, val: bool) {
-            self.0 = (self.0 & !(0x01 << 0usize)) | (((val as u32) & 0x01) << 0usize);
+        pub const fn set_ready(&mut self, n: usize, val: bool) {
+            assert!(n < 3usize);
+            let offs = 0usize + ([0usize, 2usize, 3usize][n] as usize);
+            self.0 = (self.0 & !(0x01 << offs)) | (((val as u32) & 0x01) << offs);
         }
     }
     impl Default for Ctl1 {
@@ -284,44 +289,52 @@ pub mod regs {
     impl core::fmt::Debug for Ctl1 {
         fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
             f.debug_struct("Ctl1")
-                .field("ready", &self.ready())
+                .field("ready[0]", &self.ready(0usize))
+                .field("ready[1]", &self.ready(1usize))
+                .field("ready[2]", &self.ready(2usize))
                 .finish()
         }
     }
     #[cfg(feature = "defmt")]
     impl defmt::Format for Ctl1 {
         fn format(&self, f: defmt::Formatter) {
-            defmt::write!(f, "Ctl1 {{ ready: {=bool:?} }}", self.ready())
+            defmt::write!(
+                f,
+                "Ctl1 {{ ready[0]: {=bool:?}, ready[1]: {=bool:?}, ready[2]: {=bool:?} }}",
+                self.ready(0usize), self.ready(1usize), self.ready(2usize)
+            )
         }
     }
-    #[doc = "Control 2."]
+    ///Control 2.
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Ctl2(pub u32);
     impl Ctl2 {
-        #[doc = "Sample and Hold cycle count Total cycles of module clock for sample and hold phase when VREF is working in sample and hold mode in STANDBY to save power. This field should be greater than HCYCLE field. The difference between this field and HCYCLE gives the number of cycles of sample phase. Please refer VREF section of datasheet for recommended values of sample and hold times."]
+        ///Sample and Hold cycle count Total cycles of module clock for sample and hold phase when VREF is working in sample and hold mode in STANDBY to save power. This field should be greater than HCYCLE field. The difference between this field and HCYCLE gives the number of cycles of sample phase. Please refer VREF section of datasheet for recommended values of sample and hold times.
         #[must_use]
         #[inline(always)]
         pub const fn shcycle(&self) -> u16 {
             let val = (self.0 >> 0usize) & 0xffff;
             val as u16
         }
-        #[doc = "Sample and Hold cycle count Total cycles of module clock for sample and hold phase when VREF is working in sample and hold mode in STANDBY to save power. This field should be greater than HCYCLE field. The difference between this field and HCYCLE gives the number of cycles of sample phase. Please refer VREF section of datasheet for recommended values of sample and hold times."]
+        ///Sample and Hold cycle count Total cycles of module clock for sample and hold phase when VREF is working in sample and hold mode in STANDBY to save power. This field should be greater than HCYCLE field. The difference between this field and HCYCLE gives the number of cycles of sample phase. Please refer VREF section of datasheet for recommended values of sample and hold times.
         #[inline(always)]
         pub const fn set_shcycle(&mut self, val: u16) {
-            self.0 = (self.0 & !(0xffff << 0usize)) | (((val as u32) & 0xffff) << 0usize);
+            self.0 = (self.0 & !(0xffff << 0usize))
+                | (((val as u32) & 0xffff) << 0usize);
         }
-        #[doc = "Hold cycle count Total cycles of module clock for hold phase when VREF is working in sample and hold mode in STANDBY to save power. Please refer VREF section of datasheet for recommended values of sample and hold times."]
+        ///Hold cycle count Total cycles of module clock for hold phase when VREF is working in sample and hold mode in STANDBY to save power. Please refer VREF section of datasheet for recommended values of sample and hold times.
         #[must_use]
         #[inline(always)]
         pub const fn hcycle(&self) -> u16 {
             let val = (self.0 >> 16usize) & 0xffff;
             val as u16
         }
-        #[doc = "Hold cycle count Total cycles of module clock for hold phase when VREF is working in sample and hold mode in STANDBY to save power. Please refer VREF section of datasheet for recommended values of sample and hold times."]
+        ///Hold cycle count Total cycles of module clock for hold phase when VREF is working in sample and hold mode in STANDBY to save power. Please refer VREF section of datasheet for recommended values of sample and hold times.
         #[inline(always)]
         pub const fn set_hcycle(&mut self, val: u16) {
-            self.0 = (self.0 & !(0xffff << 16usize)) | (((val as u32) & 0xffff) << 16usize);
+            self.0 = (self.0 & !(0xffff << 16usize))
+                | (((val as u32) & 0xffff) << 16usize);
         }
     }
     impl Default for Ctl2 {
@@ -342,41 +355,40 @@ pub mod regs {
     impl defmt::Format for Ctl2 {
         fn format(&self, f: defmt::Formatter) {
             defmt::write!(
-                f,
-                "Ctl2 {{ shcycle: {=u16:?}, hcycle: {=u16:?} }}",
-                self.shcycle(),
-                self.hcycle()
+                f, "Ctl2 {{ shcycle: {=u16:?}, hcycle: {=u16:?} }}", self.shcycle(), self
+                .hcycle()
             )
         }
     }
-    #[doc = "Power enable."]
+    ///Power enable.
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Pwren(pub u32);
     impl Pwren {
-        #[doc = "Enable the power."]
+        ///Enable the power.
         #[must_use]
         #[inline(always)]
         pub const fn enable(&self) -> bool {
             let val = (self.0 >> 0usize) & 0x01;
             val != 0
         }
-        #[doc = "Enable the power."]
+        ///Enable the power.
         #[inline(always)]
         pub const fn set_enable(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 0usize)) | (((val as u32) & 0x01) << 0usize);
         }
-        #[doc = "KEY to allow Power State Change."]
+        ///KEY to allow Power State Change.
         #[must_use]
         #[inline(always)]
         pub const fn key(&self) -> super::vals::PwrenKey {
             let val = (self.0 >> 24usize) & 0xff;
             super::vals::PwrenKey::from_bits(val as u8)
         }
-        #[doc = "KEY to allow Power State Change."]
+        ///KEY to allow Power State Change.
         #[inline(always)]
         pub const fn set_key(&mut self, val: super::vals::PwrenKey) {
-            self.0 = (self.0 & !(0xff << 24usize)) | (((val.to_bits() as u32) & 0xff) << 24usize);
+            self.0 = (self.0 & !(0xff << 24usize))
+                | (((val.to_bits() as u32) & 0xff) << 24usize);
         }
     }
     impl Default for Pwren {
@@ -397,53 +409,51 @@ pub mod regs {
     impl defmt::Format for Pwren {
         fn format(&self, f: defmt::Formatter) {
             defmt::write!(
-                f,
-                "Pwren {{ enable: {=bool:?}, key: {:?} }}",
-                self.enable(),
-                self.key()
+                f, "Pwren {{ enable: {=bool:?}, key: {:?} }}", self.enable(), self.key()
             )
         }
     }
-    #[doc = "Reset Control."]
+    ///Reset Control.
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Rstctl(pub u32);
     impl Rstctl {
-        #[doc = "Assert reset to the peripheral."]
+        ///Assert reset to the peripheral.
         #[must_use]
         #[inline(always)]
         pub const fn resetassert(&self) -> bool {
             let val = (self.0 >> 0usize) & 0x01;
             val != 0
         }
-        #[doc = "Assert reset to the peripheral."]
+        ///Assert reset to the peripheral.
         #[inline(always)]
         pub const fn set_resetassert(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 0usize)) | (((val as u32) & 0x01) << 0usize);
         }
-        #[doc = "Clear the RESETSTKY bit in the STAT register."]
+        ///Clear the RESETSTKY bit in the STAT register.
         #[must_use]
         #[inline(always)]
         pub const fn resetstkyclr(&self) -> bool {
             let val = (self.0 >> 1usize) & 0x01;
             val != 0
         }
-        #[doc = "Clear the RESETSTKY bit in the STAT register."]
+        ///Clear the RESETSTKY bit in the STAT register.
         #[inline(always)]
         pub const fn set_resetstkyclr(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 1usize)) | (((val as u32) & 0x01) << 1usize);
         }
-        #[doc = "Unlock key."]
+        ///Unlock key.
         #[must_use]
         #[inline(always)]
         pub const fn key(&self) -> super::vals::ResetKey {
             let val = (self.0 >> 24usize) & 0xff;
             super::vals::ResetKey::from_bits(val as u8)
         }
-        #[doc = "Unlock key."]
+        ///Unlock key.
         #[inline(always)]
         pub const fn set_key(&mut self, val: super::vals::ResetKey) {
-            self.0 = (self.0 & !(0xff << 24usize)) | (((val.to_bits() as u32) & 0xff) << 24usize);
+            self.0 = (self.0 & !(0xff << 24usize))
+                | (((val.to_bits() as u32) & 0xff) << 24usize);
         }
     }
     impl Default for Rstctl {
@@ -467,25 +477,23 @@ pub mod regs {
             defmt::write!(
                 f,
                 "Rstctl {{ resetassert: {=bool:?}, resetstkyclr: {=bool:?}, key: {:?} }}",
-                self.resetassert(),
-                self.resetstkyclr(),
-                self.key()
+                self.resetassert(), self.resetstkyclr(), self.key()
             )
         }
     }
-    #[doc = "Status Register."]
+    ///Status Register.
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Stat(pub u32);
     impl Stat {
-        #[doc = "This bit indicates, if the peripheral was reset, since this bit was cleared by RESETSTKYCLR in the RSTCTL register."]
+        ///This bit indicates, if the peripheral was reset, since this bit was cleared by RESETSTKYCLR in the RSTCTL register.
         #[must_use]
         #[inline(always)]
         pub const fn resetstky(&self) -> bool {
             let val = (self.0 >> 16usize) & 0x01;
             val != 0
         }
-        #[doc = "This bit indicates, if the peripheral was reset, since this bit was cleared by RESETSTKYCLR in the RSTCTL register."]
+        ///This bit indicates, if the peripheral was reset, since this bit was cleared by RESETSTKYCLR in the RSTCTL register.
         #[inline(always)]
         pub const fn set_resetstky(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 16usize)) | (((val as u32) & 0x01) << 16usize);
@@ -499,9 +507,7 @@ pub mod regs {
     }
     impl core::fmt::Debug for Stat {
         fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-            f.debug_struct("Stat")
-                .field("resetstky", &self.resetstky())
-                .finish()
+            f.debug_struct("Stat").field("resetstky", &self.resetstky()).finish()
         }
     }
     #[cfg(feature = "defmt")]
@@ -516,9 +522,9 @@ pub mod vals {
     #[derive(Copy, Clone, Debug, Eq, PartialEq, Ord, PartialOrd)]
     #[cfg_attr(feature = "defmt", derive(defmt::Format))]
     pub enum Bufconfig {
-        #[doc = "Configure Output Buffer to 2.5v."]
+        ///Configure Output Buffer to 2.5v.
         Output2p5v = 0x0,
-        #[doc = "Configure Output Buffer to 1.4v."]
+        ///Configure Output Buffer to 1.4v.
         Output1p4v = 0x01,
     }
     impl Bufconfig {

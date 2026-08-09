@@ -2740,6 +2740,15 @@
       "retained_through": "Standby",
       "usable_through": "Sleep"
     },
+    "BEEPER": {
+      "name": "BEEPER",
+      "type": "Beeper",
+      "version": "v1",
+      "address": 1074458624,
+      "power_domain": "Pd0",
+      "pins": [],
+      "block_async": null
+    },
     "COMP0": {
       "name": "COMP0",
       "type": "Comp",
@@ -2891,9 +2900,10 @@
       "name": "CRC0",
       "type": "Crc",
       "address": 1078198272,
-      "power_domain": "Pd0",
+      "power_domain": "Pd1",
       "pins": [],
       "block_async": null,
+      "retained_through": "Standby",
       "usable_through": "Sleep"
     },
     "DEBUGSS": {
@@ -3375,7 +3385,6 @@
     "RTC_B": {
       "name": "RTC_B",
       "type": "Rtc",
-      "version": "b",
       "address": 1074348032,
       "power_domain": "Pd0",
       "pins": [],
@@ -3384,7 +3393,7 @@
     },
     "SPG0": {
       "name": "SPG0",
-      "type": "Unknown",
+      "type": "Spgss",
       "address": 1084878848,
       "power_domain": "Pd0",
       "pins": [],
@@ -5838,7 +5847,10 @@
         }
       ],
       "block_async": null,
-      "usable_through": "Sleep"
+      "usable_through": "Sleep",
+      "vref": {
+        "startup_ns": 30000
+      }
     },
     "WUC": {
       "name": "WUC",

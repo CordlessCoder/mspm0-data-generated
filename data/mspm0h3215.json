@@ -229,6 +229,15 @@
         "vrsel": 3
       }
     },
+    "BEEPER": {
+      "name": "BEEPER",
+      "type": "Beeper",
+      "version": "v1",
+      "address": 1074458624,
+      "power_domain": "Pd0",
+      "pins": [],
+      "block_async": false
+    },
     "CPUSS": {
       "name": "CPUSS",
       "type": "Cpuss",
@@ -3137,7 +3146,10 @@
         }
       ],
       "block_async": false,
-      "usable_through": "Sleep"
+      "usable_through": "Sleep",
+      "vref": {
+        "startup_ns": 30000
+      }
     },
     "WUC": {
       "name": "WUC",

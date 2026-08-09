@@ -3,7 +3,6 @@
 #![allow(clippy::identity_op)]
 #![allow(clippy::unnecessary_cast)]
 #![allow(clippy::erasing_op)]
-
 #[derive(Copy, Clone, Eq, PartialEq)]
 pub struct Gprcm {
     ptr: *mut u8,
@@ -19,28 +18,28 @@ impl Gprcm {
     pub const fn as_ptr(&self) -> *mut () {
         self.ptr as _
     }
-    #[doc = "Power enable."]
+    ///Power enable.
     #[inline(always)]
     pub const fn pwren(self) -> crate::common::Reg<regs::Pwren, crate::common::RW> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x0usize) as _) }
     }
-    #[doc = "Reset Control."]
+    ///Reset Control.
     #[inline(always)]
     pub const fn rstctl(self) -> crate::common::Reg<regs::Rstctl, crate::common::W> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x04usize) as _) }
     }
-    #[doc = "Peripheral Clock Configuration Register."]
+    ///Peripheral Clock Configuration Register.
     #[inline(always)]
     pub const fn clkcfg(self) -> crate::common::Reg<regs::Clkcfg, crate::common::RW> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x08usize) as _) }
     }
-    #[doc = "Status Register."]
+    ///Status Register.
     #[inline(always)]
     pub const fn stat(self) -> crate::common::Reg<regs::Stat, crate::common::R> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x14usize) as _) }
     }
 }
-#[doc = "PERIPHERALREGION."]
+///PERIPHERALREGION.
 #[derive(Copy, Clone, Eq, PartialEq)]
 pub struct Unicomm {
     ptr: *mut u8,
@@ -61,39 +60,42 @@ impl Unicomm {
         assert!(n < 1usize);
         unsafe { Gprcm::from_ptr(self.ptr.wrapping_add(0x0800usize + n * 24usize) as _) }
     }
-    #[doc = "Mode Selection Register."]
+    ///Mode Selection Register.
     #[inline(always)]
     pub const fn ipmode(self) -> crate::common::Reg<regs::Ipmode, crate::common::RW> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x1100usize) as _) }
     }
-    #[doc = "Base address of the SRAM range DMA may read and write, used in security configuration."]
+    ///Base address of the SRAM range DMA may read and write, used in security configuration.
     #[inline(always)]
-    pub const fn baseaddr(self) -> crate::common::Reg<regs::Baseaddr, crate::common::RW> {
+    pub const fn baseaddr(
+        self,
+    ) -> crate::common::Reg<regs::Baseaddr, crate::common::RW> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x1104usize) as _) }
     }
-    #[doc = "Size of the SRAM range DMA may read and write, used in security configuration."]
+    ///Size of the SRAM range DMA may read and write, used in security configuration.
     #[inline(always)]
     pub const fn range(self) -> crate::common::Reg<regs::Range, crate::common::RW> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x1108usize) as _) }
     }
 }
 pub mod regs {
-    #[doc = "Base address of the SRAM range DMA may read and write."]
+    ///Base address of the SRAM range DMA may read and write.
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Baseaddr(pub u32);
     impl Baseaddr {
-        #[doc = "Base address, in units of 64 bytes."]
+        ///Base address, in units of 64 bytes.
         #[must_use]
         #[inline(always)]
         pub const fn addr(&self) -> u32 {
             let val = (self.0 >> 6usize) & 0x01ff_ffff;
             val as u32
         }
-        #[doc = "Base address, in units of 64 bytes."]
+        ///Base address, in units of 64 bytes.
         #[inline(always)]
         pub const fn set_addr(&mut self, val: u32) {
-            self.0 = (self.0 & !(0x01ff_ffff << 6usize)) | (((val as u32) & 0x01ff_ffff) << 6usize);
+            self.0 = (self.0 & !(0x01ff_ffff << 6usize))
+                | (((val as u32) & 0x01ff_ffff) << 6usize);
         }
     }
     impl Default for Baseaddr {
@@ -104,9 +106,7 @@ pub mod regs {
     }
     impl core::fmt::Debug for Baseaddr {
         fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-            f.debug_struct("Baseaddr")
-                .field("addr", &self.addr())
-                .finish()
+            f.debug_struct("Baseaddr").field("addr", &self.addr()).finish()
         }
     }
     #[cfg(feature = "defmt")]
@@ -115,34 +115,35 @@ pub mod regs {
             defmt::write!(f, "Baseaddr {{ addr: {=u32:?} }}", self.addr())
         }
     }
-    #[doc = "Peripheral Clock Configuration Register."]
+    ///Peripheral Clock Configuration Register.
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Clkcfg(pub u32);
     impl Clkcfg {
-        #[doc = "Async Clock Request is blocked from starting SYSOSC or forcing bus clock to 32MHz."]
+        ///Async Clock Request is blocked from starting SYSOSC or forcing bus clock to 32MHz.
         #[must_use]
         #[inline(always)]
         pub const fn blockasync(&self) -> bool {
             let val = (self.0 >> 8usize) & 0x01;
             val != 0
         }
-        #[doc = "Async Clock Request is blocked from starting SYSOSC or forcing bus clock to 32MHz."]
+        ///Async Clock Request is blocked from starting SYSOSC or forcing bus clock to 32MHz.
         #[inline(always)]
         pub const fn set_blockasync(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 8usize)) | (((val as u32) & 0x01) << 8usize);
         }
-        #[doc = "KEY to Allow State Change A9h = KEY to allow write access to this register"]
+        ///KEY to Allow State Change A9h = KEY to allow write access to this register
         #[must_use]
         #[inline(always)]
         pub const fn key(&self) -> super::vals::ClkcfgKey {
             let val = (self.0 >> 24usize) & 0xff;
             super::vals::ClkcfgKey::from_bits(val as u8)
         }
-        #[doc = "KEY to Allow State Change A9h = KEY to allow write access to this register"]
+        ///KEY to Allow State Change A9h = KEY to allow write access to this register
         #[inline(always)]
         pub const fn set_key(&mut self, val: super::vals::ClkcfgKey) {
-            self.0 = (self.0 & !(0xff << 24usize)) | (((val.to_bits() as u32) & 0xff) << 24usize);
+            self.0 = (self.0 & !(0xff << 24usize))
+                | (((val.to_bits() as u32) & 0xff) << 24usize);
         }
     }
     impl Default for Clkcfg {
@@ -163,29 +164,28 @@ pub mod regs {
     impl defmt::Format for Clkcfg {
         fn format(&self, f: defmt::Formatter) {
             defmt::write!(
-                f,
-                "Clkcfg {{ blockasync: {=bool:?}, key: {:?} }}",
-                self.blockasync(),
+                f, "Clkcfg {{ blockasync: {=bool:?}, key: {:?} }}", self.blockasync(),
                 self.key()
             )
         }
     }
-    #[doc = "Mode Selection Register."]
+    ///Mode Selection Register.
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Ipmode(pub u32);
     impl Ipmode {
-        #[doc = "Which of the instance's register maps is active. Only the modes `Peripheral::unicomm` reports are implemented; an instance which implements one has no choice to make and ignores this register."]
+        ///Which of the instance's register maps is active. Only the modes `Peripheral::unicomm` reports are implemented; an instance which implements one has no choice to make and ignores this register.
         #[must_use]
         #[inline(always)]
         pub const fn select(&self) -> super::vals::Select {
             let val = (self.0 >> 0usize) & 0x03;
             super::vals::Select::from_bits(val as u8)
         }
-        #[doc = "Which of the instance's register maps is active. Only the modes `Peripheral::unicomm` reports are implemented; an instance which implements one has no choice to make and ignores this register."]
+        ///Which of the instance's register maps is active. Only the modes `Peripheral::unicomm` reports are implemented; an instance which implements one has no choice to make and ignores this register.
         #[inline(always)]
         pub const fn set_select(&mut self, val: super::vals::Select) {
-            self.0 = (self.0 & !(0x03 << 0usize)) | (((val.to_bits() as u32) & 0x03) << 0usize);
+            self.0 = (self.0 & !(0x03 << 0usize))
+                | (((val.to_bits() as u32) & 0x03) << 0usize);
         }
     }
     impl Default for Ipmode {
@@ -196,9 +196,7 @@ pub mod regs {
     }
     impl core::fmt::Debug for Ipmode {
         fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-            f.debug_struct("Ipmode")
-                .field("select", &self.select())
-                .finish()
+            f.debug_struct("Ipmode").field("select", &self.select()).finish()
         }
     }
     #[cfg(feature = "defmt")]
@@ -207,34 +205,35 @@ pub mod regs {
             defmt::write!(f, "Ipmode {{ select: {:?} }}", self.select())
         }
     }
-    #[doc = "Power enable."]
+    ///Power enable.
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Pwren(pub u32);
     impl Pwren {
-        #[doc = "Enable the power."]
+        ///Enable the power.
         #[must_use]
         #[inline(always)]
         pub const fn enable(&self) -> bool {
             let val = (self.0 >> 0usize) & 0x01;
             val != 0
         }
-        #[doc = "Enable the power."]
+        ///Enable the power.
         #[inline(always)]
         pub const fn set_enable(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 0usize)) | (((val as u32) & 0x01) << 0usize);
         }
-        #[doc = "KEY to allow Power State Change 26h = KEY to allow write access to this register"]
+        ///KEY to allow Power State Change 26h = KEY to allow write access to this register
         #[must_use]
         #[inline(always)]
         pub const fn key(&self) -> super::vals::PwrenKey {
             let val = (self.0 >> 24usize) & 0xff;
             super::vals::PwrenKey::from_bits(val as u8)
         }
-        #[doc = "KEY to allow Power State Change 26h = KEY to allow write access to this register"]
+        ///KEY to allow Power State Change 26h = KEY to allow write access to this register
         #[inline(always)]
         pub const fn set_key(&mut self, val: super::vals::PwrenKey) {
-            self.0 = (self.0 & !(0xff << 24usize)) | (((val.to_bits() as u32) & 0xff) << 24usize);
+            self.0 = (self.0 & !(0xff << 24usize))
+                | (((val.to_bits() as u32) & 0xff) << 24usize);
         }
     }
     impl Default for Pwren {
@@ -255,29 +254,27 @@ pub mod regs {
     impl defmt::Format for Pwren {
         fn format(&self, f: defmt::Formatter) {
             defmt::write!(
-                f,
-                "Pwren {{ enable: {=bool:?}, key: {:?} }}",
-                self.enable(),
-                self.key()
+                f, "Pwren {{ enable: {=bool:?}, key: {:?} }}", self.enable(), self.key()
             )
         }
     }
-    #[doc = "Size of the SRAM range DMA may read and write."]
+    ///Size of the SRAM range DMA may read and write.
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Range(pub u32);
     impl Range {
-        #[doc = "Range in bytes."]
+        ///Range in bytes.
         #[must_use]
         #[inline(always)]
         pub const fn range(&self) -> u32 {
             let val = (self.0 >> 0usize) & 0x000f_ffff;
             val as u32
         }
-        #[doc = "Range in bytes."]
+        ///Range in bytes.
         #[inline(always)]
         pub const fn set_range(&mut self, val: u32) {
-            self.0 = (self.0 & !(0x000f_ffff << 0usize)) | (((val as u32) & 0x000f_ffff) << 0usize);
+            self.0 = (self.0 & !(0x000f_ffff << 0usize))
+                | (((val as u32) & 0x000f_ffff) << 0usize);
         }
     }
     impl Default for Range {
@@ -288,9 +285,7 @@ pub mod regs {
     }
     impl core::fmt::Debug for Range {
         fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-            f.debug_struct("Range")
-                .field("range", &self.range())
-                .finish()
+            f.debug_struct("Range").field("range", &self.range()).finish()
         }
     }
     #[cfg(feature = "defmt")]
@@ -299,46 +294,47 @@ pub mod regs {
             defmt::write!(f, "Range {{ range: {=u32:?} }}", self.range())
         }
     }
-    #[doc = "Reset Control."]
+    ///Reset Control.
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Rstctl(pub u32);
     impl Rstctl {
-        #[doc = "Assert reset to the peripheral."]
+        ///Assert reset to the peripheral.
         #[must_use]
         #[inline(always)]
         pub const fn resetassert(&self) -> bool {
             let val = (self.0 >> 0usize) & 0x01;
             val != 0
         }
-        #[doc = "Assert reset to the peripheral."]
+        ///Assert reset to the peripheral.
         #[inline(always)]
         pub const fn set_resetassert(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 0usize)) | (((val as u32) & 0x01) << 0usize);
         }
-        #[doc = "Clear the RESETSTKY bit in the STAT register."]
+        ///Clear the RESETSTKY bit in the STAT register.
         #[must_use]
         #[inline(always)]
         pub const fn resetstkyclr(&self) -> bool {
             let val = (self.0 >> 1usize) & 0x01;
             val != 0
         }
-        #[doc = "Clear the RESETSTKY bit in the STAT register."]
+        ///Clear the RESETSTKY bit in the STAT register.
         #[inline(always)]
         pub const fn set_resetstkyclr(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 1usize)) | (((val as u32) & 0x01) << 1usize);
         }
-        #[doc = "Unlock key B1h = KEY to allow write access to this register"]
+        ///Unlock key B1h = KEY to allow write access to this register
         #[must_use]
         #[inline(always)]
         pub const fn key(&self) -> super::vals::ResetKey {
             let val = (self.0 >> 24usize) & 0xff;
             super::vals::ResetKey::from_bits(val as u8)
         }
-        #[doc = "Unlock key B1h = KEY to allow write access to this register"]
+        ///Unlock key B1h = KEY to allow write access to this register
         #[inline(always)]
         pub const fn set_key(&mut self, val: super::vals::ResetKey) {
-            self.0 = (self.0 & !(0xff << 24usize)) | (((val.to_bits() as u32) & 0xff) << 24usize);
+            self.0 = (self.0 & !(0xff << 24usize))
+                | (((val.to_bits() as u32) & 0xff) << 24usize);
         }
     }
     impl Default for Rstctl {
@@ -362,25 +358,23 @@ pub mod regs {
             defmt::write!(
                 f,
                 "Rstctl {{ resetassert: {=bool:?}, resetstkyclr: {=bool:?}, key: {:?} }}",
-                self.resetassert(),
-                self.resetstkyclr(),
-                self.key()
+                self.resetassert(), self.resetstkyclr(), self.key()
             )
         }
     }
-    #[doc = "Status Register."]
+    ///Status Register.
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Stat(pub u32);
     impl Stat {
-        #[doc = "This bit indicates, if the peripheral was reset, since this bit was cleared by RESETSTKYCLR in the RSTCTL register."]
+        ///This bit indicates, if the peripheral was reset, since this bit was cleared by RESETSTKYCLR in the RSTCTL register.
         #[must_use]
         #[inline(always)]
         pub const fn resetstky(&self) -> bool {
             let val = (self.0 >> 16usize) & 0x01;
             val != 0
         }
-        #[doc = "This bit indicates, if the peripheral was reset, since this bit was cleared by RESETSTKYCLR in the RSTCTL register."]
+        ///This bit indicates, if the peripheral was reset, since this bit was cleared by RESETSTKYCLR in the RSTCTL register.
         #[inline(always)]
         pub const fn set_resetstky(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 16usize)) | (((val as u32) & 0x01) << 16usize);
@@ -394,9 +388,7 @@ pub mod regs {
     }
     impl core::fmt::Debug for Stat {
         fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-            f.debug_struct("Stat")
-                .field("resetstky", &self.resetstky())
-                .finish()
+            f.debug_struct("Stat").field("resetstky", &self.resetstky()).finish()
         }
     }
     #[cfg(feature = "defmt")]
@@ -540,13 +532,13 @@ pub mod vals {
     #[derive(Copy, Clone, Debug, Eq, PartialEq, Ord, PartialOrd)]
     #[cfg_attr(feature = "defmt", derive(defmt::Format))]
     pub enum Select {
-        #[doc = "The UART register map is active."]
+        ///The UART register map is active.
         Uart = 0x0,
-        #[doc = "The SPI register map is active."]
+        ///The SPI register map is active.
         Spi = 0x01,
-        #[doc = "The I2C controller register map is active."]
+        ///The I2C controller register map is active.
         I2cController = 0x02,
-        #[doc = "The I2C target register map is active. TI's headers call this the peripheral mode."]
+        ///The I2C target register map is active. TI's headers call this the peripheral mode.
         I2cTarget = 0x03,
     }
     impl Select {

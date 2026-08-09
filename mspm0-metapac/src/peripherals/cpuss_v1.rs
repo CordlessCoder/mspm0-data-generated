@@ -3,8 +3,7 @@
 #![allow(clippy::identity_op)]
 #![allow(clippy::unnecessary_cast)]
 #![allow(clippy::erasing_op)]
-
-#[doc = "CPU subsystem"]
+///CPU subsystem
 #[derive(Copy, Clone, Eq, PartialEq)]
 pub struct Cpuss {
     ptr: *mut u8,
@@ -20,29 +19,31 @@ impl Cpuss {
     pub const fn as_ptr(&self) -> *mut () {
         self.ptr as _
     }
-    #[doc = "Event Mode."]
+    ///Event Mode.
     #[inline(always)]
     pub const fn evt_mode(self) -> crate::common::Reg<regs::EvtMode, crate::common::R> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x10e0usize) as _) }
     }
-    #[doc = "Module Description."]
+    ///Module Description.
     #[inline(always)]
     pub const fn desc(self) -> crate::common::Reg<regs::Desc, crate::common::R> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x10fcusize) as _) }
     }
-    #[doc = "CPUSS Interrupt group (x = 0..2). Depending on the model, the later elements of this array may be undefined. For C110x only index 0 is valid. Meanwhile for L222x indices 0 and 1 are valid."]
+    ///CPUSS Interrupt group (x = 0..2). Depending on the model, the later elements of this array may be undefined. For C110x only index 0 is valid. Meanwhile for L222x indices 0 and 1 are valid.
     #[inline(always)]
     pub const fn int_group(self, n: usize) -> IntGroup {
         assert!(n < 2usize);
-        unsafe { IntGroup::from_ptr(self.ptr.wrapping_add(0x1100usize + n * 48usize) as _) }
+        unsafe {
+            IntGroup::from_ptr(self.ptr.wrapping_add(0x1100usize + n * 48usize) as _)
+        }
     }
-    #[doc = "Prefetch/Cache control."]
+    ///Prefetch/Cache control.
     #[inline(always)]
     pub const fn ctl(self) -> crate::common::Reg<regs::Ctl, crate::common::RW> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x1300usize) as _) }
     }
 }
-#[doc = "Interrupt group. Shared across all CPUSS variants."]
+///Interrupt group. Shared across all CPUSS variants.
 #[derive(Copy, Clone, Eq, PartialEq)]
 pub struct IntGroup {
     ptr: *mut u8,
@@ -58,75 +59,75 @@ impl IntGroup {
     pub const fn as_ptr(&self) -> *mut () {
         self.ptr as _
     }
-    #[doc = "Interrupt index"]
+    ///Interrupt index
     #[inline(always)]
     pub const fn iidx(self) -> crate::common::Reg<regs::Iidx, crate::common::R> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x0usize) as _) }
     }
-    #[doc = "Interrupt mask."]
+    ///Interrupt mask.
     #[inline(always)]
     pub const fn imask(self) -> crate::common::Reg<regs::Int, crate::common::R> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x08usize) as _) }
     }
-    #[doc = "Raw interrupt status."]
+    ///Raw interrupt status.
     #[inline(always)]
     pub const fn ris(self) -> crate::common::Reg<regs::Int, crate::common::R> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x10usize) as _) }
     }
-    #[doc = "Masked interrupt status."]
+    ///Masked interrupt status.
     #[inline(always)]
     pub const fn mis(self) -> crate::common::Reg<regs::Int, crate::common::R> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x18usize) as _) }
     }
-    #[doc = "Interrupt set."]
+    ///Interrupt set.
     #[inline(always)]
     pub const fn iset(self) -> crate::common::Reg<regs::Int, crate::common::W> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x20usize) as _) }
     }
-    #[doc = "Interrupt clear."]
+    ///Interrupt clear.
     #[inline(always)]
     pub const fn iclr(self) -> crate::common::Reg<regs::Int, crate::common::W> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x28usize) as _) }
     }
 }
 pub mod regs {
-    #[doc = "Prefetch/Cache control."]
+    ///Prefetch/Cache control.
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Ctl(pub u32);
     impl Ctl {
-        #[doc = "Used to enable/disable instruction prefetch to Flash."]
+        ///Used to enable/disable instruction prefetch to Flash.
         #[must_use]
         #[inline(always)]
         pub const fn prefetch(&self) -> bool {
             let val = (self.0 >> 0usize) & 0x01;
             val != 0
         }
-        #[doc = "Used to enable/disable instruction prefetch to Flash."]
+        ///Used to enable/disable instruction prefetch to Flash.
         #[inline(always)]
         pub const fn set_prefetch(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 0usize)) | (((val as u32) & 0x01) << 0usize);
         }
-        #[doc = "Used to enable/disable Instruction caching on flash access."]
+        ///Used to enable/disable Instruction caching on flash access.
         #[must_use]
         #[inline(always)]
         pub const fn icache(&self) -> bool {
             let val = (self.0 >> 1usize) & 0x01;
             val != 0
         }
-        #[doc = "Used to enable/disable Instruction caching on flash access."]
+        ///Used to enable/disable Instruction caching on flash access.
         #[inline(always)]
         pub const fn set_icache(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 1usize)) | (((val as u32) & 0x01) << 1usize);
         }
-        #[doc = "Literal caching and prefetch enable. This bit is a subset of ICACHE/PREFETCH bit i.e. literal caching or literal prefetching will only happen if ICACHE or PREFETCH bits have been set respectively When enabled, the cache and prefetcher structures inside CPUSS will cache and prefetch literals When disabled, the cache and prefetcher structures inside CPUSS will not cache and prefetch literals."]
+        ///Literal caching and prefetch enable. This bit is a subset of ICACHE/PREFETCH bit i.e. literal caching or literal prefetching will only happen if ICACHE or PREFETCH bits have been set respectively When enabled, the cache and prefetcher structures inside CPUSS will cache and prefetch literals When disabled, the cache and prefetcher structures inside CPUSS will not cache and prefetch literals.
         #[must_use]
         #[inline(always)]
         pub const fn liten(&self) -> bool {
             let val = (self.0 >> 2usize) & 0x01;
             val != 0
         }
-        #[doc = "Literal caching and prefetch enable. This bit is a subset of ICACHE/PREFETCH bit i.e. literal caching or literal prefetching will only happen if ICACHE or PREFETCH bits have been set respectively When enabled, the cache and prefetcher structures inside CPUSS will cache and prefetch literals When disabled, the cache and prefetcher structures inside CPUSS will not cache and prefetch literals."]
+        ///Literal caching and prefetch enable. This bit is a subset of ICACHE/PREFETCH bit i.e. literal caching or literal prefetching will only happen if ICACHE or PREFETCH bits have been set respectively When enabled, the cache and prefetcher structures inside CPUSS will cache and prefetch literals When disabled, the cache and prefetcher structures inside CPUSS will not cache and prefetch literals.
         #[inline(always)]
         pub const fn set_liten(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 2usize)) | (((val as u32) & 0x01) << 2usize);
@@ -151,66 +152,64 @@ pub mod regs {
     impl defmt::Format for Ctl {
         fn format(&self, f: defmt::Formatter) {
             defmt::write!(
-                f,
-                "Ctl {{ prefetch: {=bool:?}, icache: {=bool:?}, liten: {=bool:?} }}",
-                self.prefetch(),
-                self.icache(),
-                self.liten()
+                f, "Ctl {{ prefetch: {=bool:?}, icache: {=bool:?}, liten: {=bool:?} }}",
+                self.prefetch(), self.icache(), self.liten()
             )
         }
     }
-    #[doc = "Module Description."]
+    ///Module Description.
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Desc(pub u32);
     impl Desc {
-        #[doc = "Minor rev of the IP."]
+        ///Minor rev of the IP.
         #[must_use]
         #[inline(always)]
         pub const fn minrev(&self) -> u8 {
             let val = (self.0 >> 0usize) & 0x0f;
             val as u8
         }
-        #[doc = "Minor rev of the IP."]
+        ///Minor rev of the IP.
         #[inline(always)]
         pub const fn set_minrev(&mut self, val: u8) {
             self.0 = (self.0 & !(0x0f << 0usize)) | (((val as u32) & 0x0f) << 0usize);
         }
-        #[doc = "Major rev of the IP."]
+        ///Major rev of the IP.
         #[must_use]
         #[inline(always)]
         pub const fn majrev(&self) -> u8 {
             let val = (self.0 >> 4usize) & 0x0f;
             val as u8
         }
-        #[doc = "Major rev of the IP."]
+        ///Major rev of the IP.
         #[inline(always)]
         pub const fn set_majrev(&mut self, val: u8) {
             self.0 = (self.0 & !(0x0f << 4usize)) | (((val as u32) & 0x0f) << 4usize);
         }
-        #[doc = "Feature Set for the module *instance*."]
+        ///Feature Set for the module *instance*.
         #[must_use]
         #[inline(always)]
         pub const fn featurever(&self) -> u8 {
             let val = (self.0 >> 12usize) & 0x0f;
             val as u8
         }
-        #[doc = "Feature Set for the module *instance*."]
+        ///Feature Set for the module *instance*.
         #[inline(always)]
         pub const fn set_featurever(&mut self, val: u8) {
             self.0 = (self.0 & !(0x0f << 12usize)) | (((val as u32) & 0x0f) << 12usize);
         }
-        #[doc = "Module identification contains a unique peripheral identification number. The assignments are maintained in a central database for all of the platform modules to ensure uniqueness."]
+        ///Module identification contains a unique peripheral identification number. The assignments are maintained in a central database for all of the platform modules to ensure uniqueness.
         #[must_use]
         #[inline(always)]
         pub const fn moduleid(&self) -> u16 {
             let val = (self.0 >> 16usize) & 0xffff;
             val as u16
         }
-        #[doc = "Module identification contains a unique peripheral identification number. The assignments are maintained in a central database for all of the platform modules to ensure uniqueness."]
+        ///Module identification contains a unique peripheral identification number. The assignments are maintained in a central database for all of the platform modules to ensure uniqueness.
         #[inline(always)]
         pub const fn set_moduleid(&mut self, val: u16) {
-            self.0 = (self.0 & !(0xffff << 16usize)) | (((val as u32) & 0xffff) << 16usize);
+            self.0 = (self.0 & !(0xffff << 16usize))
+                | (((val as u32) & 0xffff) << 16usize);
         }
     }
     impl Default for Desc {
@@ -232,25 +231,30 @@ pub mod regs {
     #[cfg(feature = "defmt")]
     impl defmt::Format for Desc {
         fn format(&self, f: defmt::Formatter) {
-            defmt :: write ! (f , "Desc {{ minrev: {=u8:?}, majrev: {=u8:?}, featurever: {=u8:?}, moduleid: {=u16:?} }}" , self . minrev () , self . majrev () , self . featurever () , self . moduleid ())
+            defmt::write!(
+                f,
+                "Desc {{ minrev: {=u8:?}, majrev: {=u8:?}, featurever: {=u8:?}, moduleid: {=u16:?} }}",
+                self.minrev(), self.majrev(), self.featurever(), self.moduleid()
+            )
         }
     }
-    #[doc = "Event Mode."]
+    ///Event Mode.
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct EvtMode(pub u32);
     impl EvtMode {
-        #[doc = "Event line mode select."]
+        ///Event line mode select.
         #[must_use]
         #[inline(always)]
         pub const fn int_cfg(&self) -> super::vals::IntCfg {
             let val = (self.0 >> 0usize) & 0x03;
             super::vals::IntCfg::from_bits(val as u8)
         }
-        #[doc = "Event line mode select."]
+        ///Event line mode select.
         #[inline(always)]
         pub const fn set_int_cfg(&mut self, val: super::vals::IntCfg) {
-            self.0 = (self.0 & !(0x03 << 0usize)) | (((val.to_bits() as u32) & 0x03) << 0usize);
+            self.0 = (self.0 & !(0x03 << 0usize))
+                | (((val.to_bits() as u32) & 0x03) << 0usize);
         }
     }
     impl Default for EvtMode {
@@ -261,9 +265,7 @@ pub mod regs {
     }
     impl core::fmt::Debug for EvtMode {
         fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-            f.debug_struct("EvtMode")
-                .field("int_cfg", &self.int_cfg())
-                .finish()
+            f.debug_struct("EvtMode").field("int_cfg", &self.int_cfg()).finish()
         }
     }
     #[cfg(feature = "defmt")]
@@ -272,22 +274,23 @@ pub mod regs {
             defmt::write!(f, "EvtMode {{ int_cfg: {:?} }}", self.int_cfg())
         }
     }
-    #[doc = "Interrupt index."]
+    ///Interrupt index.
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Iidx(pub u32);
     impl Iidx {
-        #[doc = "Interrupt index status."]
+        ///Interrupt index status.
         #[must_use]
         #[inline(always)]
         pub const fn stat(&self) -> super::vals::Iidx {
             let val = (self.0 >> 0usize) & 0xff;
             super::vals::Iidx::from_bits(val as u8)
         }
-        #[doc = "Interrupt index status."]
+        ///Interrupt index status.
         #[inline(always)]
         pub const fn set_stat(&mut self, val: super::vals::Iidx) {
-            self.0 = (self.0 & !(0xff << 0usize)) | (((val.to_bits() as u32) & 0xff) << 0usize);
+            self.0 = (self.0 & !(0xff << 0usize))
+                | (((val.to_bits() as u32) & 0xff) << 0usize);
         }
     }
     impl Default for Iidx {
@@ -307,19 +310,19 @@ pub mod regs {
             defmt::write!(f, "Iidx {{ stat: {:?} }}", self.stat())
         }
     }
-    #[doc = "One bit per interrupt in the group. Shared by IMASK, RIS, MIS, ISET and ICLR."]
+    ///One bit per interrupt in the group. Shared by IMASK, RIS, MIS, ISET and ICLR.
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Int(pub u32);
     impl Int {
-        #[doc = "The interrupts of the group, as a mask."]
+        ///The interrupts of the group, as a mask.
         #[must_use]
         #[inline(always)]
         pub const fn int(&self) -> u8 {
             let val = (self.0 >> 0usize) & 0xff;
             val as u8
         }
-        #[doc = "The interrupts of the group, as a mask."]
+        ///The interrupts of the group, as a mask.
         #[inline(always)]
         pub const fn set_int(&mut self, val: u8) {
             self.0 = (self.0 & !(0xff << 0usize)) | (((val as u32) & 0xff) << 0usize);
@@ -348,23 +351,23 @@ pub mod vals {
     #[derive(Copy, Clone, Eq, PartialEq, Ord, PartialOrd)]
     pub struct Iidx(u8);
     impl Iidx {
-        #[doc = "No pending interrupt."]
+        ///No pending interrupt.
         pub const NoIntr: Self = Self(0x0);
-        #[doc = "Interrupt 0."]
+        ///Interrupt 0.
         pub const Int0: Self = Self(0x01);
-        #[doc = "Interrupt 1."]
+        ///Interrupt 1.
         pub const Int1: Self = Self(0x02);
-        #[doc = "Interrupt 2."]
+        ///Interrupt 2.
         pub const Int2: Self = Self(0x03);
-        #[doc = "Interrupt 3."]
+        ///Interrupt 3.
         pub const Int3: Self = Self(0x04);
-        #[doc = "Interrupt 4."]
+        ///Interrupt 4.
         pub const Int4: Self = Self(0x05);
-        #[doc = "Interrupt 5."]
+        ///Interrupt 5.
         pub const Int5: Self = Self(0x06);
-        #[doc = "Interrupt 6."]
+        ///Interrupt 6.
         pub const Int6: Self = Self(0x07);
-        #[doc = "Interrupt 7."]
+        ///Interrupt 7.
         pub const Int7: Self = Self(0x08);
     }
     impl Iidx {
@@ -424,11 +427,11 @@ pub mod vals {
     #[derive(Copy, Clone, Debug, Eq, PartialEq, Ord, PartialOrd)]
     #[cfg_attr(feature = "defmt", derive(defmt::Format))]
     pub enum IntCfg {
-        #[doc = "The interrupt or event line is disabled."]
+        ///The interrupt or event line is disabled.
         Disable = 0x0,
-        #[doc = "Event handled by software. Software must clear the associated RIS flag."]
+        ///Event handled by software. Software must clear the associated RIS flag.
         Software = 0x01,
-        #[doc = "Event handled by hardware. The hardware (another module) clears automatically the associated RIS flag."]
+        ///Event handled by hardware. The hardware (another module) clears automatically the associated RIS flag.
         Hardware = 0x02,
         _RESERVED_3 = 0x03,
     }

@@ -117,6 +117,8 @@ pub use cortex_m_rt::interrupt;
 pub use Interrupt as interrupt;
 #[path = "../../peripherals/adc_v1.rs"]
 pub mod adc;
+#[path = "../../peripherals/beeper_v1.rs"]
+pub mod beeper;
 #[path = "../../peripherals/cpuss_v1.rs"]
 pub mod cpuss;
 #[path = "../../peripherals/dma_v1.rs"]
@@ -150,38 +152,45 @@ pub mod vref;
 #[path = "../../peripherals/wwdt_v1.rs"]
 pub mod wwdt;
 pub const ADC0: adc::Adc = unsafe { adc::Adc::from_ptr(1073758208 as *mut _) };
-#[doc = "Address: 1078206464"]
+///Address: 1078206464
 pub const AESADV: () = ();
-#[doc = "Address: 1073774592"]
+pub const BEEPER: beeper::Beeper = unsafe {
+    beeper::Beeper::from_ptr(1074458624 as *mut _)
+};
+///Address: 1073774592
 pub const COMP0: () = ();
 pub const CPUSS: cpuss::Cpuss = unsafe { cpuss::Cpuss::from_ptr(1077936128 as *mut _) };
-#[doc = "Address: 1078198272"]
+///Address: 1078198272
 pub const CRC0: () = ();
-#[doc = "Address: 1074556928"]
+///Address: 1074556928
 pub const DEBUGSS: () = ();
 pub const DMA: dma::Dma = unsafe { dma::Dma::from_ptr(1078108160 as *mut _) };
-#[doc = "Address: 1074565120"]
+///Address: 1074565120
 pub const EVENT: () = ();
-pub const FACTORYREGION: factoryregion::Factoryregion =
-    unsafe { factoryregion::Factoryregion::from_ptr(1103364096 as *mut _) };
-pub const FLASHCTL: flashctl::Flashctl =
-    unsafe { flashctl::Flashctl::from_ptr(1074581504 as *mut _) };
+pub const FACTORYREGION: factoryregion::Factoryregion = unsafe {
+    factoryregion::Factoryregion::from_ptr(1103364096 as *mut _)
+};
+pub const FLASHCTL: flashctl::Flashctl = unsafe {
+    flashctl::Flashctl::from_ptr(1074581504 as *mut _)
+};
 pub const GPIOA: gpio::Gpio = unsafe { gpio::Gpio::from_ptr(1074397184 as *mut _) };
 pub const GPIOB: gpio::Gpio = unsafe { gpio::Gpio::from_ptr(1074405376 as *mut _) };
 pub const IOMUX: iomux::Iomux = unsafe { iomux::Iomux::from_ptr(1078099968 as *mut _) };
-#[doc = "Address: 1074348032"]
+///Address: 1074348032
 pub const IWDT: () = ();
-#[doc = "Address: 1074446336"]
+///Address: 1074446336
 pub const KEYSTORECTL: () = ();
-#[doc = "Address: 1074200576"]
+///Address: 1074200576
 pub const LCD: () = ();
-#[doc = "Address: 1074348032"]
+///Address: 1074348032
 pub const LFSS: () = ();
-#[doc = "Address: 1074348032"]
+///Address: 1074348032
 pub const RTC_B: () = ();
-#[doc = "Address: 1084878848"]
+///Address: 1084878848
 pub const SPG0: () = ();
-pub const SYSCTL: sysctl::Sysctl = unsafe { sysctl::Sysctl::from_ptr(1074458624 as *mut _) };
+pub const SYSCTL: sysctl::Sysctl = unsafe {
+    sysctl::Sysctl::from_ptr(1074458624 as *mut _)
+};
 pub const TIMA0: tim::Tim = unsafe { tim::Tim::from_ptr(1082523648 as *mut _) };
 pub const TIMB0: timb::Tim = unsafe { timb::Tim::from_ptr(1074495488 as *mut _) };
 pub const TIMB1: timb::Tim = unsafe { timb::Tim::from_ptr(1074503680 as *mut _) };
@@ -190,26 +199,43 @@ pub const TIMB3: timb::Tim = unsafe { timb::Tim::from_ptr(1074520064 as *mut _) 
 pub const TIMG1: tim::Tim = unsafe { tim::Tim::from_ptr(1074290688 as *mut _) };
 pub const TIMG14: tim::Tim = unsafe { tim::Tim::from_ptr(1074282496 as *mut _) };
 pub const TIMG2: tim::Tim = unsafe { tim::Tim::from_ptr(1074298880 as *mut _) };
-pub const UC11: unicomm::Unicomm = unsafe { unicomm::Unicomm::from_ptr(1085808640 as *mut _) };
-pub const UC11_UART: unicommuart::Unicommuart =
-    unsafe { unicommuart::Unicommuart::from_ptr(1085284352 as *mut _) };
-pub const UC4: unicomm::Unicomm = unsafe { unicomm::Unicomm::from_ptr(1084751872 as *mut _) };
-pub const UC4_SPI: unicommspi::Unicommspi =
-    unsafe { unicommspi::Unicommspi::from_ptr(1084620800 as *mut _) };
-pub const UC4_UART: unicommuart::Unicommuart =
-    unsafe { unicommuart::Unicommuart::from_ptr(1084227584 as *mut _) };
-pub const UC6: unicomm::Unicomm = unsafe { unicomm::Unicomm::from_ptr(1084760064 as *mut _) };
-pub const UC6_I2CC: unicommi2cc::Unicommi2cc =
-    unsafe { unicommi2cc::Unicommi2cc::from_ptr(1084366848 as *mut _) };
-pub const UC7: unicomm::Unicomm = unsafe { unicomm::Unicomm::from_ptr(1084768256 as *mut _) };
-pub const UC7_I2CT: unicommi2ct::Unicommi2ct =
-    unsafe { unicommi2ct::Unicommi2ct::from_ptr(1084506112 as *mut _) };
-pub const UC8: unicomm::Unicomm = unsafe { unicomm::Unicomm::from_ptr(1085800448 as *mut _) };
-pub const UC8_SPI: unicommspi::Unicommspi =
-    unsafe { unicommspi::Unicommspi::from_ptr(1085669376 as *mut _) };
-pub const UC8_UART: unicommuart::Unicommuart =
-    unsafe { unicommuart::Unicommuart::from_ptr(1085276160 as *mut _) };
+pub const UC11: unicomm::Unicomm = unsafe {
+    unicomm::Unicomm::from_ptr(1085808640 as *mut _)
+};
+pub const UC11_UART: unicommuart::Unicommuart = unsafe {
+    unicommuart::Unicommuart::from_ptr(1085284352 as *mut _)
+};
+pub const UC4: unicomm::Unicomm = unsafe {
+    unicomm::Unicomm::from_ptr(1084751872 as *mut _)
+};
+pub const UC4_SPI: unicommspi::Unicommspi = unsafe {
+    unicommspi::Unicommspi::from_ptr(1084620800 as *mut _)
+};
+pub const UC4_UART: unicommuart::Unicommuart = unsafe {
+    unicommuart::Unicommuart::from_ptr(1084227584 as *mut _)
+};
+pub const UC6: unicomm::Unicomm = unsafe {
+    unicomm::Unicomm::from_ptr(1084760064 as *mut _)
+};
+pub const UC6_I2CC: unicommi2cc::Unicommi2cc = unsafe {
+    unicommi2cc::Unicommi2cc::from_ptr(1084366848 as *mut _)
+};
+pub const UC7: unicomm::Unicomm = unsafe {
+    unicomm::Unicomm::from_ptr(1084768256 as *mut _)
+};
+pub const UC7_I2CT: unicommi2ct::Unicommi2ct = unsafe {
+    unicommi2ct::Unicommi2ct::from_ptr(1084506112 as *mut _)
+};
+pub const UC8: unicomm::Unicomm = unsafe {
+    unicomm::Unicomm::from_ptr(1085800448 as *mut _)
+};
+pub const UC8_SPI: unicommspi::Unicommspi = unsafe {
+    unicommspi::Unicommspi::from_ptr(1085669376 as *mut _)
+};
+pub const UC8_UART: unicommuart::Unicommuart = unsafe {
+    unicommuart::Unicommuart::from_ptr(1085276160 as *mut _)
+};
 pub const VREF: vref::Vref = unsafe { vref::Vref::from_ptr(1073938432 as *mut _) };
-#[doc = "Address: 1078083584"]
+///Address: 1078083584
 pub const WUC: () = ();
 pub const WWDT0: wwdt::Wwdt = unsafe { wwdt::Wwdt::from_ptr(1074266112 as *mut _) };

@@ -3,7 +3,6 @@
 #![allow(clippy::identity_op)]
 #![allow(clippy::unnecessary_cast)]
 #![allow(clippy::erasing_op)]
-
 #[derive(Copy, Clone, Eq, PartialEq)]
 pub struct CpuInt {
     ptr: *mut u8,
@@ -19,32 +18,32 @@ impl CpuInt {
     pub const fn as_ptr(&self) -> *mut () {
         self.ptr as _
     }
-    #[doc = "Interrupt Index Register."]
+    ///Interrupt Index Register.
     #[inline(always)]
     pub const fn iidx(self) -> crate::common::Reg<regs::Iidx, crate::common::R> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x0usize) as _) }
     }
-    #[doc = "Interrupt mask."]
+    ///Interrupt mask.
     #[inline(always)]
     pub const fn imask(self) -> crate::common::Reg<regs::CpuInt, crate::common::RW> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x08usize) as _) }
     }
-    #[doc = "Raw interrupt status."]
+    ///Raw interrupt status.
     #[inline(always)]
     pub const fn ris(self) -> crate::common::Reg<regs::CpuInt, crate::common::R> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x10usize) as _) }
     }
-    #[doc = "Masked interrupt status."]
+    ///Masked interrupt status.
     #[inline(always)]
     pub const fn mis(self) -> crate::common::Reg<regs::CpuInt, crate::common::R> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x18usize) as _) }
     }
-    #[doc = "Interrupt set."]
+    ///Interrupt set.
     #[inline(always)]
     pub const fn iset(self) -> crate::common::Reg<regs::CpuInt, crate::common::W> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x20usize) as _) }
     }
-    #[doc = "Interrupt clear."]
+    ///Interrupt clear.
     #[inline(always)]
     pub const fn iclr(self) -> crate::common::Reg<regs::CpuInt, crate::common::W> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x28usize) as _) }
@@ -65,22 +64,22 @@ impl DmaTrigRx {
     pub const fn as_ptr(&self) -> *mut () {
         self.ptr as _
     }
-    #[doc = "Interrupt mask."]
+    ///Interrupt mask.
     #[inline(always)]
     pub const fn imask(self) -> crate::common::Reg<regs::DmaTrigRx, crate::common::RW> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x08usize) as _) }
     }
-    #[doc = "Raw interrupt status."]
+    ///Raw interrupt status.
     #[inline(always)]
     pub const fn ris(self) -> crate::common::Reg<regs::DmaTrigRx, crate::common::R> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x10usize) as _) }
     }
-    #[doc = "Masked interrupt status."]
+    ///Masked interrupt status.
     #[inline(always)]
     pub const fn mis(self) -> crate::common::Reg<regs::DmaTrigRx, crate::common::R> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x18usize) as _) }
     }
-    #[doc = "Interrupt set."]
+    ///Interrupt set.
     #[inline(always)]
     pub const fn iset(self) -> crate::common::Reg<regs::DmaTrigRx, crate::common::W> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x20usize) as _) }
@@ -101,28 +100,28 @@ impl DmaTrigTx {
     pub const fn as_ptr(&self) -> *mut () {
         self.ptr as _
     }
-    #[doc = "Interrupt mask."]
+    ///Interrupt mask.
     #[inline(always)]
     pub const fn imask(self) -> crate::common::Reg<regs::DmaTrigTx, crate::common::RW> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x08usize) as _) }
     }
-    #[doc = "Raw interrupt status."]
+    ///Raw interrupt status.
     #[inline(always)]
     pub const fn ris(self) -> crate::common::Reg<regs::DmaTrigTx, crate::common::R> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x10usize) as _) }
     }
-    #[doc = "Masked interrupt status."]
+    ///Masked interrupt status.
     #[inline(always)]
     pub const fn mis(self) -> crate::common::Reg<regs::DmaTrigTx, crate::common::R> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x18usize) as _) }
     }
-    #[doc = "Interrupt set."]
+    ///Interrupt set.
     #[inline(always)]
     pub const fn iset(self) -> crate::common::Reg<regs::DmaTrigTx, crate::common::W> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x20usize) as _) }
     }
 }
-#[doc = "PERIPHERALREGION."]
+///PERIPHERALREGION.
 #[derive(Copy, Clone, Eq, PartialEq)]
 pub struct Unicommspi {
     ptr: *mut u8,
@@ -138,17 +137,17 @@ impl Unicommspi {
     pub const fn as_ptr(&self) -> *mut () {
         self.ptr as _
     }
-    #[doc = "Clock Divider."]
+    ///Clock Divider.
     #[inline(always)]
     pub const fn clkdiv(self) -> crate::common::Reg<regs::Clkdiv, crate::common::RW> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x1000usize) as _) }
     }
-    #[doc = "Clock Select for Ultra Low Power peripherals."]
+    ///Clock Select for Ultra Low Power peripherals.
     #[inline(always)]
     pub const fn clksel(self) -> crate::common::Reg<regs::Clksel, crate::common::RW> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x1008usize) as _) }
     }
-    #[doc = "Peripheral Debug Control."]
+    ///Peripheral Debug Control.
     #[inline(always)]
     pub const fn pdbgctl(self) -> crate::common::Reg<regs::Pdbgctl, crate::common::RW> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x1018usize) as _) }
@@ -156,85 +155,92 @@ impl Unicommspi {
     #[inline(always)]
     pub const fn cpu_int(self, n: usize) -> CpuInt {
         assert!(n < 1usize);
-        unsafe { CpuInt::from_ptr(self.ptr.wrapping_add(0x1020usize + n * 44usize) as _) }
+        unsafe {
+            CpuInt::from_ptr(self.ptr.wrapping_add(0x1020usize + n * 44usize) as _)
+        }
     }
     #[inline(always)]
     pub const fn dma_trig_rx(self, n: usize) -> DmaTrigRx {
         assert!(n < 1usize);
-        unsafe { DmaTrigRx::from_ptr(self.ptr.wrapping_add(0x1050usize + n * 36usize) as _) }
+        unsafe {
+            DmaTrigRx::from_ptr(self.ptr.wrapping_add(0x1050usize + n * 36usize) as _)
+        }
     }
     #[inline(always)]
     pub const fn dma_trig_tx(self, n: usize) -> DmaTrigTx {
         assert!(n < 1usize);
-        unsafe { DmaTrigTx::from_ptr(self.ptr.wrapping_add(0x1080usize + n * 36usize) as _) }
+        unsafe {
+            DmaTrigTx::from_ptr(self.ptr.wrapping_add(0x1080usize + n * 36usize) as _)
+        }
     }
-    #[doc = "Interrupt control register."]
+    ///Interrupt control register.
     #[inline(always)]
     pub const fn intctl(self) -> crate::common::Reg<regs::Intctl, crate::common::W> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x10e4usize) as _) }
     }
-    #[doc = "SPI control register 0."]
+    ///SPI control register 0.
     #[inline(always)]
     pub const fn ctl0(self) -> crate::common::Reg<regs::Ctl0, crate::common::RW> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x1100usize) as _) }
     }
-    #[doc = "Status Register."]
+    ///Status Register.
     #[inline(always)]
     pub const fn stat(self) -> crate::common::Reg<regs::Stat, crate::common::R> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x1108usize) as _) }
     }
-    #[doc = "Interrupt FIFO Level Select Register."]
+    ///Interrupt FIFO Level Select Register.
     #[inline(always)]
     pub const fn ifls(self) -> crate::common::Reg<regs::Ifls, crate::common::RW> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x110cusize) as _) }
     }
-    #[doc = "Clock prescaler and divider register."]
+    ///Clock prescaler and divider register.
     #[inline(always)]
     pub const fn clkctl(self) -> crate::common::Reg<regs::Clkctl, crate::common::RW> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x1110usize) as _) }
     }
-    #[doc = "TXDATA Register."]
+    ///TXDATA Register.
     #[inline(always)]
     pub const fn txdata(self) -> crate::common::Reg<regs::Txdata, crate::common::W> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x1120usize) as _) }
     }
-    #[doc = "RXDATA Register."]
+    ///RXDATA Register.
     #[inline(always)]
     pub const fn rxdata(self) -> crate::common::Reg<regs::Rxdata, crate::common::R> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x1124usize) as _) }
     }
-    #[doc = "SPI control register 1."]
+    ///SPI control register 1.
     #[inline(always)]
     pub const fn ctl1(self) -> crate::common::Reg<regs::Ctl1, crate::common::RW> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x114cusize) as _) }
     }
 }
 pub mod regs {
-    #[doc = "Clock prescaler and divider register."]
+    ///Clock prescaler and divider register.
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Clkctl(pub u32);
     impl Clkctl {
-        #[doc = "Serial clock divider: This is used to generate the transmit and receive bit rate of the SPI. The SPI bit rate is (SPI's functional clock frequency)/((SCR+1)*2). SCR is a value from 0-1023."]
+        ///Serial clock divider: This is used to generate the transmit and receive bit rate of the SPI. The SPI bit rate is (SPI's functional clock frequency)/((SCR+1)*2). SCR is a value from 0-1023.
         #[must_use]
         #[inline(always)]
         pub const fn scr(&self) -> u16 {
             let val = (self.0 >> 0usize) & 0x03ff;
             val as u16
         }
-        #[doc = "Serial clock divider: This is used to generate the transmit and receive bit rate of the SPI. The SPI bit rate is (SPI's functional clock frequency)/((SCR+1)*2). SCR is a value from 0-1023."]
+        ///Serial clock divider: This is used to generate the transmit and receive bit rate of the SPI. The SPI bit rate is (SPI's functional clock frequency)/((SCR+1)*2). SCR is a value from 0-1023.
         #[inline(always)]
         pub const fn set_scr(&mut self, val: u16) {
-            self.0 = (self.0 & !(0x03ff << 0usize)) | (((val as u32) & 0x03ff) << 0usize);
+            self.0 = (self.0 & !(0x03ff << 0usize))
+                | (((val as u32) & 0x03ff) << 0usize);
         }
-        #[doc = "Delayed sampling value. In controller mode the data on the input pin will be delayed sampled by the defined clock cycles of internal functional clock hence relaxing the setup time of input data. This setting is useful in systems where the board delays and external peripheral delays are more than the input setup time of the controller. Please refer to the datasheet for values of controller input setup time and assess what DSAMPLE value meets the requirement of the system. Note: High values of DSAMPLE can cause HOLD time violations and must be factored in the calculations."]
+        ///Delayed sampling value. In controller mode the data on the input pin will be delayed sampled by the defined clock cycles of internal functional clock hence relaxing the setup time of input data. This setting is useful in systems where the board delays and external peripheral delays are more than the input setup time of the controller. Please refer to the datasheet for values of controller input setup time and assess what DSAMPLE value meets the requirement of the system. Note: High values of DSAMPLE can cause HOLD time violations and must be factored in the calculations.
         #[must_use]
         #[inline(always)]
         pub const fn dsample(&self) -> u8 {
             let val = (self.0 >> 28usize) & 0x0f;
             val as u8
         }
-        #[doc = "Delayed sampling value. In controller mode the data on the input pin will be delayed sampled by the defined clock cycles of internal functional clock hence relaxing the setup time of input data. This setting is useful in systems where the board delays and external peripheral delays are more than the input setup time of the controller. Please refer to the datasheet for values of controller input setup time and assess what DSAMPLE value meets the requirement of the system. Note: High values of DSAMPLE can cause HOLD time violations and must be factored in the calculations."]
+        ///Delayed sampling value. In controller mode the data on the input pin will be delayed sampled by the defined clock cycles of internal functional clock hence relaxing the setup time of input data. This setting is useful in systems where the board delays and external peripheral delays are more than the input setup time of the controller. Please refer to the datasheet for values of controller input setup time and assess what DSAMPLE value meets the requirement of the system. Note: High values of DSAMPLE can cause HOLD time violations and must be factored in the calculations.
         #[inline(always)]
         pub const fn set_dsample(&mut self, val: u8) {
             self.0 = (self.0 & !(0x0f << 28usize)) | (((val as u32) & 0x0f) << 28usize);
@@ -258,29 +264,28 @@ pub mod regs {
     impl defmt::Format for Clkctl {
         fn format(&self, f: defmt::Formatter) {
             defmt::write!(
-                f,
-                "Clkctl {{ scr: {=u16:?}, dsample: {=u8:?} }}",
-                self.scr(),
-                self.dsample()
+                f, "Clkctl {{ scr: {=u16:?}, dsample: {=u8:?} }}", self.scr(), self
+                .dsample()
             )
         }
     }
-    #[doc = "Clock Divider."]
+    ///Clock Divider.
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Clkdiv(pub u32);
     impl Clkdiv {
-        #[doc = "Selects divide ratio of module clock."]
+        ///Selects divide ratio of module clock.
         #[must_use]
         #[inline(always)]
         pub const fn ratio(&self) -> super::vals::Ratio {
             let val = (self.0 >> 0usize) & 0x07;
             super::vals::Ratio::from_bits(val as u8)
         }
-        #[doc = "Selects divide ratio of module clock."]
+        ///Selects divide ratio of module clock.
         #[inline(always)]
         pub const fn set_ratio(&mut self, val: super::vals::Ratio) {
-            self.0 = (self.0 & !(0x07 << 0usize)) | (((val.to_bits() as u32) & 0x07) << 0usize);
+            self.0 = (self.0 & !(0x07 << 0usize))
+                | (((val.to_bits() as u32) & 0x07) << 0usize);
         }
     }
     impl Default for Clkdiv {
@@ -291,9 +296,7 @@ pub mod regs {
     }
     impl core::fmt::Debug for Clkdiv {
         fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-            f.debug_struct("Clkdiv")
-                .field("ratio", &self.ratio())
-                .finish()
+            f.debug_struct("Clkdiv").field("ratio", &self.ratio()).finish()
         }
     }
     #[cfg(feature = "defmt")]
@@ -302,43 +305,43 @@ pub mod regs {
             defmt::write!(f, "Clkdiv {{ ratio: {:?} }}", self.ratio())
         }
     }
-    #[doc = "Clock Select for Ultra Low Power peripherals."]
+    ///Clock Select for Ultra Low Power peripherals.
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Clksel(pub u32);
     impl Clksel {
-        #[doc = "Selects LFCLK as clock source if enabled."]
+        ///Selects LFCLK as clock source if enabled.
         #[must_use]
         #[inline(always)]
         pub const fn lfclk_sel(&self) -> bool {
             let val = (self.0 >> 1usize) & 0x01;
             val != 0
         }
-        #[doc = "Selects LFCLK as clock source if enabled."]
+        ///Selects LFCLK as clock source if enabled.
         #[inline(always)]
         pub const fn set_lfclk_sel(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 1usize)) | (((val as u32) & 0x01) << 1usize);
         }
-        #[doc = "Selects MFCLK as clock source if enabled."]
+        ///Selects MFCLK as clock source if enabled.
         #[must_use]
         #[inline(always)]
         pub const fn mfclk_sel(&self) -> bool {
             let val = (self.0 >> 2usize) & 0x01;
             val != 0
         }
-        #[doc = "Selects MFCLK as clock source if enabled."]
+        ///Selects MFCLK as clock source if enabled.
         #[inline(always)]
         pub const fn set_mfclk_sel(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 2usize)) | (((val as u32) & 0x01) << 2usize);
         }
-        #[doc = "Selects buscclk as clock source if enabled."]
+        ///Selects buscclk as clock source if enabled.
         #[must_use]
         #[inline(always)]
         pub const fn busclk_sel(&self) -> bool {
             let val = (self.0 >> 3usize) & 0x01;
             val != 0
         }
-        #[doc = "Selects buscclk as clock source if enabled."]
+        ///Selects buscclk as clock source if enabled.
         #[inline(always)]
         pub const fn set_busclk_sel(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 3usize)) | (((val as u32) & 0x01) << 3usize);
@@ -365,157 +368,155 @@ pub mod regs {
             defmt::write!(
                 f,
                 "Clksel {{ lfclk_sel: {=bool:?}, mfclk_sel: {=bool:?}, busclk_sel: {=bool:?} }}",
-                self.lfclk_sel(),
-                self.mfclk_sel(),
-                self.busclk_sel()
+                self.lfclk_sel(), self.mfclk_sel(), self.busclk_sel()
             )
         }
     }
-    #[doc = "Interrupt mask."]
+    ///Interrupt mask.
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct CpuInt(pub u32);
     impl CpuInt {
-        #[doc = "Parity error event mask."]
+        ///Parity error event mask.
         #[must_use]
         #[inline(always)]
         pub const fn per(&self) -> bool {
             let val = (self.0 >> 0usize) & 0x01;
             val != 0
         }
-        #[doc = "Parity error event mask."]
+        ///Parity error event mask.
         #[inline(always)]
         pub const fn set_per(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 0usize)) | (((val as u32) & 0x01) << 0usize);
         }
-        #[doc = "RXFIFO overflow event mask."]
+        ///RXFIFO overflow event mask.
         #[must_use]
         #[inline(always)]
         pub const fn rxfifo_ovf(&self) -> bool {
             let val = (self.0 >> 1usize) & 0x01;
             val != 0
         }
-        #[doc = "RXFIFO overflow event mask."]
+        ///RXFIFO overflow event mask.
         #[inline(always)]
         pub const fn set_rxfifo_ovf(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 1usize)) | (((val as u32) & 0x01) << 1usize);
         }
-        #[doc = "Mask Receive Event."]
+        ///Mask Receive Event.
         #[must_use]
         #[inline(always)]
         pub const fn rx(&self) -> bool {
             let val = (self.0 >> 2usize) & 0x01;
             val != 0
         }
-        #[doc = "Mask Receive Event."]
+        ///Mask Receive Event.
         #[inline(always)]
         pub const fn set_rx(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 2usize)) | (((val as u32) & 0x01) << 2usize);
         }
-        #[doc = "RX FIFO Full Interrupt Mask."]
+        ///RX FIFO Full Interrupt Mask.
         #[must_use]
         #[inline(always)]
         pub const fn rxfull(&self) -> bool {
             let val = (self.0 >> 3usize) & 0x01;
             val != 0
         }
-        #[doc = "RX FIFO Full Interrupt Mask."]
+        ///RX FIFO Full Interrupt Mask.
         #[inline(always)]
         pub const fn set_rxfull(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 3usize)) | (((val as u32) & 0x01) << 3usize);
         }
-        #[doc = "TX FIFO underflow interrupt mask."]
+        ///TX FIFO underflow interrupt mask.
         #[must_use]
         #[inline(always)]
         pub const fn txfifo_unf(&self) -> bool {
             let val = (self.0 >> 4usize) & 0x01;
             val != 0
         }
-        #[doc = "TX FIFO underflow interrupt mask."]
+        ///TX FIFO underflow interrupt mask.
         #[inline(always)]
         pub const fn set_txfifo_unf(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 4usize)) | (((val as u32) & 0x01) << 4usize);
         }
-        #[doc = "Mask Transmit Event."]
+        ///Mask Transmit Event.
         #[must_use]
         #[inline(always)]
         pub const fn tx(&self) -> bool {
             let val = (self.0 >> 5usize) & 0x01;
             val != 0
         }
-        #[doc = "Mask Transmit Event."]
+        ///Mask Transmit Event.
         #[inline(always)]
         pub const fn set_tx(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 5usize)) | (((val as u32) & 0x01) << 5usize);
         }
-        #[doc = "Transmit FIFO Empty event mask."]
+        ///Transmit FIFO Empty event mask.
         #[must_use]
         #[inline(always)]
         pub const fn txempty(&self) -> bool {
             let val = (self.0 >> 6usize) & 0x01;
             val != 0
         }
-        #[doc = "Transmit FIFO Empty event mask."]
+        ///Transmit FIFO Empty event mask.
         #[inline(always)]
         pub const fn set_txempty(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 6usize)) | (((val as u32) & 0x01) << 6usize);
         }
-        #[doc = "SPI Idle event mask."]
+        ///SPI Idle event mask.
         #[must_use]
         #[inline(always)]
         pub const fn idle(&self) -> bool {
             let val = (self.0 >> 8usize) & 0x01;
             val != 0
         }
-        #[doc = "SPI Idle event mask."]
+        ///SPI Idle event mask.
         #[inline(always)]
         pub const fn set_idle(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 8usize)) | (((val as u32) & 0x01) << 8usize);
         }
-        #[doc = "Enable SPI Receive Time-Out event mask."]
+        ///Enable SPI Receive Time-Out event mask.
         #[must_use]
         #[inline(always)]
         pub const fn rtout(&self) -> bool {
             let val = (self.0 >> 9usize) & 0x01;
             val != 0
         }
-        #[doc = "Enable SPI Receive Time-Out event mask."]
+        ///Enable SPI Receive Time-Out event mask.
         #[inline(always)]
         pub const fn set_rtout(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 9usize)) | (((val as u32) & 0x01) << 9usize);
         }
-        #[doc = "Enable DMA Done on RX Event Channel Interrupt."]
+        ///Enable DMA Done on RX Event Channel Interrupt.
         #[must_use]
         #[inline(always)]
         pub const fn dma_done_rx(&self) -> bool {
             let val = (self.0 >> 15usize) & 0x01;
             val != 0
         }
-        #[doc = "Enable DMA Done on RX Event Channel Interrupt."]
+        ///Enable DMA Done on RX Event Channel Interrupt.
         #[inline(always)]
         pub const fn set_dma_done_rx(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 15usize)) | (((val as u32) & 0x01) << 15usize);
         }
-        #[doc = "Enable DMA Done on TX Event Channel Interrupt."]
+        ///Enable DMA Done on TX Event Channel Interrupt.
         #[must_use]
         #[inline(always)]
         pub const fn dma_done_tx(&self) -> bool {
             let val = (self.0 >> 16usize) & 0x01;
             val != 0
         }
-        #[doc = "Enable DMA Done on TX Event Channel Interrupt."]
+        ///Enable DMA Done on TX Event Channel Interrupt.
         #[inline(always)]
         pub const fn set_dma_done_tx(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 16usize)) | (((val as u32) & 0x01) << 16usize);
         }
-        #[doc = "Enable SPI Line Time-Out event mask."]
+        ///Enable SPI Line Time-Out event mask.
         #[must_use]
         #[inline(always)]
         pub const fn ltout(&self) -> bool {
             let val = (self.0 >> 20usize) & 0x01;
             val != 0
         }
-        #[doc = "Enable SPI Line Time-Out event mask."]
+        ///Enable SPI Line Time-Out event mask.
         #[inline(always)]
         pub const fn set_ltout(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 20usize)) | (((val as u32) & 0x01) << 20usize);
@@ -548,82 +549,92 @@ pub mod regs {
     #[cfg(feature = "defmt")]
     impl defmt::Format for CpuInt {
         fn format(&self, f: defmt::Formatter) {
-            defmt :: write ! (f , "CpuInt {{ per: {=bool:?}, rxfifo_ovf: {=bool:?}, rx: {=bool:?}, rxfull: {=bool:?}, txfifo_unf: {=bool:?}, tx: {=bool:?}, txempty: {=bool:?}, idle: {=bool:?}, rtout: {=bool:?}, dma_done_rx: {=bool:?}, dma_done_tx: {=bool:?}, ltout: {=bool:?} }}" , self . per () , self . rxfifo_ovf () , self . rx () , self . rxfull () , self . txfifo_unf () , self . tx () , self . txempty () , self . idle () , self . rtout () , self . dma_done_rx () , self . dma_done_tx () , self . ltout ())
+            defmt::write!(
+                f,
+                "CpuInt {{ per: {=bool:?}, rxfifo_ovf: {=bool:?}, rx: {=bool:?}, rxfull: {=bool:?}, txfifo_unf: {=bool:?}, tx: {=bool:?}, txempty: {=bool:?}, idle: {=bool:?}, rtout: {=bool:?}, dma_done_rx: {=bool:?}, dma_done_tx: {=bool:?}, ltout: {=bool:?} }}",
+                self.per(), self.rxfifo_ovf(), self.rx(), self.rxfull(), self
+                .txfifo_unf(), self.tx(), self.txempty(), self.idle(), self.rtout(), self
+                .dma_done_rx(), self.dma_done_tx(), self.ltout()
+            )
         }
     }
-    #[doc = "SPI control register 0."]
+    ///SPI control register 0.
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Ctl0(pub u32);
     impl Ctl0 {
-        #[doc = "Data Size Select. Values 0 - 2 are reserved and shall not be used. 3h = 4_BIT : 4-bit data SPI allows only values up to 16 Bit."]
+        ///Data Size Select. Values 0 - 2 are reserved and shall not be used. 3h = 4_BIT : 4-bit data SPI allows only values up to 16 Bit.
         #[must_use]
         #[inline(always)]
         pub const fn dss(&self) -> super::vals::Dss {
             let val = (self.0 >> 0usize) & 0x1f;
             super::vals::Dss::from_bits(val as u8)
         }
-        #[doc = "Data Size Select. Values 0 - 2 are reserved and shall not be used. 3h = 4_BIT : 4-bit data SPI allows only values up to 16 Bit."]
+        ///Data Size Select. Values 0 - 2 are reserved and shall not be used. 3h = 4_BIT : 4-bit data SPI allows only values up to 16 Bit.
         #[inline(always)]
         pub const fn set_dss(&mut self, val: super::vals::Dss) {
-            self.0 = (self.0 & !(0x1f << 0usize)) | (((val.to_bits() as u32) & 0x1f) << 0usize);
+            self.0 = (self.0 & !(0x1f << 0usize))
+                | (((val.to_bits() as u32) & 0x1f) << 0usize);
         }
-        #[doc = "Frame format Select."]
+        ///Frame format Select.
         #[must_use]
         #[inline(always)]
         pub const fn frf(&self) -> super::vals::Frf {
             let val = (self.0 >> 5usize) & 0x03;
             super::vals::Frf::from_bits(val as u8)
         }
-        #[doc = "Frame format Select."]
+        ///Frame format Select.
         #[inline(always)]
         pub const fn set_frf(&mut self, val: super::vals::Frf) {
-            self.0 = (self.0 & !(0x03 << 5usize)) | (((val.to_bits() as u32) & 0x03) << 5usize);
+            self.0 = (self.0 & !(0x03 << 5usize))
+                | (((val.to_bits() as u32) & 0x03) << 5usize);
         }
-        #[doc = "CLKOUT polarity (Motorola SPI frame format only)."]
+        ///CLKOUT polarity (Motorola SPI frame format only).
         #[must_use]
         #[inline(always)]
         pub const fn spo(&self) -> bool {
             let val = (self.0 >> 8usize) & 0x01;
             val != 0
         }
-        #[doc = "CLKOUT polarity (Motorola SPI frame format only)."]
+        ///CLKOUT polarity (Motorola SPI frame format only).
         #[inline(always)]
         pub const fn set_spo(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 8usize)) | (((val as u32) & 0x01) << 8usize);
         }
-        #[doc = "CLKOUT phase (Motorola SPI frame format only) This bit selects the clock edge that captures data and enables it to change state. It has the most impact on the first bit transmitted by either permitting or not permitting a clock transition before the first data capture edge."]
+        ///CLKOUT phase (Motorola SPI frame format only) This bit selects the clock edge that captures data and enables it to change state. It has the most impact on the first bit transmitted by either permitting or not permitting a clock transition before the first data capture edge.
         #[must_use]
         #[inline(always)]
         pub const fn sph(&self) -> super::vals::Sph {
             let val = (self.0 >> 9usize) & 0x01;
             super::vals::Sph::from_bits(val as u8)
         }
-        #[doc = "CLKOUT phase (Motorola SPI frame format only) This bit selects the clock edge that captures data and enables it to change state. It has the most impact on the first bit transmitted by either permitting or not permitting a clock transition before the first data capture edge."]
+        ///CLKOUT phase (Motorola SPI frame format only) This bit selects the clock edge that captures data and enables it to change state. It has the most impact on the first bit transmitted by either permitting or not permitting a clock transition before the first data capture edge.
         #[inline(always)]
         pub const fn set_sph(&mut self, val: super::vals::Sph) {
-            self.0 = (self.0 & !(0x01 << 9usize)) | (((val.to_bits() as u32) & 0x01) << 9usize);
+            self.0 = (self.0 & !(0x01 << 9usize))
+                | (((val.to_bits() as u32) & 0x01) << 9usize);
         }
-        #[doc = "Select the CS line to control on data transfer This bit is applicable for both controller/target mode."]
+        ///Select the CS line to control on data transfer This bit is applicable for both controller/target mode.
         #[must_use]
         #[inline(always)]
         pub const fn cssel(&self) -> super::vals::Cssel {
             let val = (self.0 >> 12usize) & 0x03;
             super::vals::Cssel::from_bits(val as u8)
         }
-        #[doc = "Select the CS line to control on data transfer This bit is applicable for both controller/target mode."]
+        ///Select the CS line to control on data transfer This bit is applicable for both controller/target mode.
         #[inline(always)]
         pub const fn set_cssel(&mut self, val: super::vals::Cssel) {
-            self.0 = (self.0 & !(0x03 << 12usize)) | (((val.to_bits() as u32) & 0x03) << 12usize);
+            self.0 = (self.0 & !(0x03 << 12usize))
+                | (((val.to_bits() as u32) & 0x03) << 12usize);
         }
-        #[doc = "Clear shift register counter on CS inactive This bit is relevant only in the peripheral, CTL1.CP=0."]
+        ///Clear shift register counter on CS inactive This bit is relevant only in the peripheral, CTL1.CP=0.
         #[must_use]
         #[inline(always)]
         pub const fn csclr(&self) -> bool {
             let val = (self.0 >> 14usize) & 0x01;
             val != 0
         }
-        #[doc = "Clear shift register counter on CS inactive This bit is relevant only in the peripheral, CTL1.CP=0."]
+        ///Clear shift register counter on CS inactive This bit is relevant only in the peripheral, CTL1.CP=0.
         #[inline(always)]
         pub const fn set_csclr(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 14usize)) | (((val as u32) & 0x01) << 14usize);
@@ -650,166 +661,172 @@ pub mod regs {
     #[cfg(feature = "defmt")]
     impl defmt::Format for Ctl0 {
         fn format(&self, f: defmt::Formatter) {
-            defmt :: write ! (f , "Ctl0 {{ dss: {:?}, frf: {:?}, spo: {=bool:?}, sph: {:?}, cssel: {:?}, csclr: {=bool:?} }}" , self . dss () , self . frf () , self . spo () , self . sph () , self . cssel () , self . csclr ())
+            defmt::write!(
+                f,
+                "Ctl0 {{ dss: {:?}, frf: {:?}, spo: {=bool:?}, sph: {:?}, cssel: {:?}, csclr: {=bool:?} }}",
+                self.dss(), self.frf(), self.spo(), self.sph(), self.cssel(), self
+                .csclr()
+            )
         }
     }
-    #[doc = "SPI control register 1."]
+    ///SPI control register 1.
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Ctl1(pub u32);
     impl Ctl1 {
-        #[doc = "SPI enable."]
+        ///SPI enable.
         #[must_use]
         #[inline(always)]
         pub const fn enable(&self) -> bool {
             let val = (self.0 >> 0usize) & 0x01;
             val != 0
         }
-        #[doc = "SPI enable."]
+        ///SPI enable.
         #[inline(always)]
         pub const fn set_enable(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 0usize)) | (((val as u32) & 0x01) << 0usize);
         }
-        #[doc = "Loop back mode."]
+        ///Loop back mode.
         #[must_use]
         #[inline(always)]
         pub const fn lbm(&self) -> bool {
             let val = (self.0 >> 1usize) & 0x01;
             val != 0
         }
-        #[doc = "Loop back mode."]
+        ///Loop back mode.
         #[inline(always)]
         pub const fn set_lbm(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 1usize)) | (((val as u32) & 0x01) << 1usize);
         }
-        #[doc = "Controller or peripheral mode select. This bit can be modified only when SPI is disabled, CTL1.ENABLE=0."]
+        ///Controller or peripheral mode select. This bit can be modified only when SPI is disabled, CTL1.ENABLE=0.
         #[must_use]
         #[inline(always)]
         pub const fn cp(&self) -> bool {
             let val = (self.0 >> 2usize) & 0x01;
             val != 0
         }
-        #[doc = "Controller or peripheral mode select. This bit can be modified only when SPI is disabled, CTL1.ENABLE=0."]
+        ///Controller or peripheral mode select. This bit can be modified only when SPI is disabled, CTL1.ENABLE=0.
         #[inline(always)]
         pub const fn set_cp(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 2usize)) | (((val as u32) & 0x01) << 2usize);
         }
-        #[doc = "Peripheral-mode: Data output disabled This bit is relevant only in Peripheral mode. In multiple-peripheral system topologies, SPI controller can broadcast a message to all peripherals, while only one peripheral drives the line. POD can be used by the SPI peripheral to disable driving data on the line."]
+        ///Peripheral-mode: Data output disabled This bit is relevant only in Peripheral mode. In multiple-peripheral system topologies, SPI controller can broadcast a message to all peripherals, while only one peripheral drives the line. POD can be used by the SPI peripheral to disable driving data on the line.
         #[must_use]
         #[inline(always)]
         pub const fn pod(&self) -> bool {
             let val = (self.0 >> 3usize) & 0x01;
             val != 0
         }
-        #[doc = "Peripheral-mode: Data output disabled This bit is relevant only in Peripheral mode. In multiple-peripheral system topologies, SPI controller can broadcast a message to all peripherals, while only one peripheral drives the line. POD can be used by the SPI peripheral to disable driving data on the line."]
+        ///Peripheral-mode: Data output disabled This bit is relevant only in Peripheral mode. In multiple-peripheral system topologies, SPI controller can broadcast a message to all peripherals, while only one peripheral drives the line. POD can be used by the SPI peripheral to disable driving data on the line.
         #[inline(always)]
         pub const fn set_pod(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 3usize)) | (((val as u32) & 0x01) << 3usize);
         }
-        #[doc = "MSB first select. Controls the direction of the receive and transmit shift register."]
+        ///MSB first select. Controls the direction of the receive and transmit shift register.
         #[must_use]
         #[inline(always)]
         pub const fn msb(&self) -> bool {
             let val = (self.0 >> 4usize) & 0x01;
             val != 0
         }
-        #[doc = "MSB first select. Controls the direction of the receive and transmit shift register."]
+        ///MSB first select. Controls the direction of the receive and transmit shift register.
         #[inline(always)]
         pub const fn set_msb(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 4usize)) | (((val as u32) & 0x01) << 4usize);
         }
-        #[doc = "Parity receive enable If enabled, parity reception check will be done for both controller and peripheral modes In case of a parity miss-match the parity error flag RIS.PER will be set."]
+        ///Parity receive enable If enabled, parity reception check will be done for both controller and peripheral modes In case of a parity miss-match the parity error flag RIS.PER will be set.
         #[must_use]
         #[inline(always)]
         pub const fn pren(&self) -> bool {
             let val = (self.0 >> 5usize) & 0x01;
             val != 0
         }
-        #[doc = "Parity receive enable If enabled, parity reception check will be done for both controller and peripheral modes In case of a parity miss-match the parity error flag RIS.PER will be set."]
+        ///Parity receive enable If enabled, parity reception check will be done for both controller and peripheral modes In case of a parity miss-match the parity error flag RIS.PER will be set.
         #[inline(always)]
         pub const fn set_pren(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 5usize)) | (((val as u32) & 0x01) << 5usize);
         }
-        #[doc = "Even Parity Select."]
+        ///Even Parity Select.
         #[must_use]
         #[inline(always)]
         pub const fn pes(&self) -> bool {
             let val = (self.0 >> 6usize) & 0x01;
             val != 0
         }
-        #[doc = "Even Parity Select."]
+        ///Even Parity Select.
         #[inline(always)]
         pub const fn set_pes(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 6usize)) | (((val as u32) & 0x01) << 6usize);
         }
-        #[doc = "Parity transmit enable If enabled, parity transmission will be done for both controller and peripheral modes."]
+        ///Parity transmit enable If enabled, parity transmission will be done for both controller and peripheral modes.
         #[must_use]
         #[inline(always)]
         pub const fn pten(&self) -> bool {
             let val = (self.0 >> 8usize) & 0x01;
             val != 0
         }
-        #[doc = "Parity transmit enable If enabled, parity transmission will be done for both controller and peripheral modes."]
+        ///Parity transmit enable If enabled, parity transmission will be done for both controller and peripheral modes.
         #[inline(always)]
         pub const fn set_pten(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 8usize)) | (((val as u32) & 0x01) << 8usize);
         }
-        #[doc = "Suspend external communication."]
+        ///Suspend external communication.
         #[must_use]
         #[inline(always)]
         pub const fn suspend(&self) -> bool {
             let val = (self.0 >> 9usize) & 0x01;
             val != 0
         }
-        #[doc = "Suspend external communication."]
+        ///Suspend external communication.
         #[inline(always)]
         pub const fn set_suspend(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 9usize)) | (((val as u32) & 0x01) << 9usize);
         }
-        #[doc = "Command/Data Mode enable."]
+        ///Command/Data Mode enable.
         #[must_use]
         #[inline(always)]
         pub const fn cdenable(&self) -> bool {
             let val = (self.0 >> 11usize) & 0x01;
             val != 0
         }
-        #[doc = "Command/Data Mode enable."]
+        ///Command/Data Mode enable.
         #[inline(always)]
         pub const fn set_cdenable(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 11usize)) | (((val as u32) & 0x01) << 11usize);
         }
-        #[doc = "Command/Data Mode Value When CTL1.CDENABLE is 1, CS3 line is used as C/D signal to distinguish between Command (C/D low) and Data (C/D high) information. When a value is written into the CTL1.CDMODE bits, the C/D (CS3) line will go low for the given numbers of byte which are sent by the SPI, starting with the next value to be transmitted after which, C/D line will go high automatically 0: Manual mode with C/D signal as High 1-14: C/D is low while this number of bytes are being sent after which, this field sets to 0 and C/D goes high. Reading this field at any time returns the remaining number of command bytes. 15: Manual mode with C/D signal as Low."]
+        ///Command/Data Mode Value When CTL1.CDENABLE is 1, CS3 line is used as C/D signal to distinguish between Command (C/D low) and Data (C/D high) information. When a value is written into the CTL1.CDMODE bits, the C/D (CS3) line will go low for the given numbers of byte which are sent by the SPI, starting with the next value to be transmitted after which, C/D line will go high automatically 0: Manual mode with C/D signal as High 1-14: C/D is low while this number of bytes are being sent after which, this field sets to 0 and C/D goes high. Reading this field at any time returns the remaining number of command bytes. 15: Manual mode with C/D signal as Low.
         #[must_use]
         #[inline(always)]
         pub const fn cdmode(&self) -> super::vals::Cdmode {
             let val = (self.0 >> 12usize) & 0x0f;
             super::vals::Cdmode::from_bits(val as u8)
         }
-        #[doc = "Command/Data Mode Value When CTL1.CDENABLE is 1, CS3 line is used as C/D signal to distinguish between Command (C/D low) and Data (C/D high) information. When a value is written into the CTL1.CDMODE bits, the C/D (CS3) line will go low for the given numbers of byte which are sent by the SPI, starting with the next value to be transmitted after which, C/D line will go high automatically 0: Manual mode with C/D signal as High 1-14: C/D is low while this number of bytes are being sent after which, this field sets to 0 and C/D goes high. Reading this field at any time returns the remaining number of command bytes. 15: Manual mode with C/D signal as Low."]
+        ///Command/Data Mode Value When CTL1.CDENABLE is 1, CS3 line is used as C/D signal to distinguish between Command (C/D low) and Data (C/D high) information. When a value is written into the CTL1.CDMODE bits, the C/D (CS3) line will go low for the given numbers of byte which are sent by the SPI, starting with the next value to be transmitted after which, C/D line will go high automatically 0: Manual mode with C/D signal as High 1-14: C/D is low while this number of bytes are being sent after which, this field sets to 0 and C/D goes high. Reading this field at any time returns the remaining number of command bytes. 15: Manual mode with C/D signal as Low.
         #[inline(always)]
         pub const fn set_cdmode(&mut self, val: super::vals::Cdmode) {
-            self.0 = (self.0 & !(0x0f << 12usize)) | (((val.to_bits() as u32) & 0x0f) << 12usize);
+            self.0 = (self.0 & !(0x0f << 12usize))
+                | (((val.to_bits() as u32) & 0x0f) << 12usize);
         }
-        #[doc = "Counter to repeat last transfer 0: repeat last transfer is disabled. x: repeat the last transfer with the given number. The transfer will be started with writing a data into the TX Buffer. Sending the data will be repeated with the given value, so the data will be transferred X+1 times in total. The behavior is identical as if the data would be written into the TX Buffer that many times as defined by the value here. It can be used to clean a transfer or to pull a certain amount of data by a peripheral."]
+        ///Counter to repeat last transfer 0: repeat last transfer is disabled. x: repeat the last transfer with the given number. The transfer will be started with writing a data into the TX Buffer. Sending the data will be repeated with the given value, so the data will be transferred X+1 times in total. The behavior is identical as if the data would be written into the TX Buffer that many times as defined by the value here. It can be used to clean a transfer or to pull a certain amount of data by a peripheral.
         #[must_use]
         #[inline(always)]
         pub const fn repeattx(&self) -> u8 {
             let val = (self.0 >> 16usize) & 0xff;
             val as u8
         }
-        #[doc = "Counter to repeat last transfer 0: repeat last transfer is disabled. x: repeat the last transfer with the given number. The transfer will be started with writing a data into the TX Buffer. Sending the data will be repeated with the given value, so the data will be transferred X+1 times in total. The behavior is identical as if the data would be written into the TX Buffer that many times as defined by the value here. It can be used to clean a transfer or to pull a certain amount of data by a peripheral."]
+        ///Counter to repeat last transfer 0: repeat last transfer is disabled. x: repeat the last transfer with the given number. The transfer will be started with writing a data into the TX Buffer. Sending the data will be repeated with the given value, so the data will be transferred X+1 times in total. The behavior is identical as if the data would be written into the TX Buffer that many times as defined by the value here. It can be used to clean a transfer or to pull a certain amount of data by a peripheral.
         #[inline(always)]
         pub const fn set_repeattx(&mut self, val: u8) {
             self.0 = (self.0 & !(0xff << 16usize)) | (((val as u32) & 0xff) << 16usize);
         }
-        #[doc = "Receive Timeout (only for Peripheral mode) Defines the number of Clock Cycles before after which the Receive Timeout flag RTOUT is set. The time is calculated using the control register for the clock selection and divider in the Controller mode configuration. A value of 0 disables this function."]
+        ///Receive Timeout (only for Peripheral mode) Defines the number of Clock Cycles before after which the Receive Timeout flag RTOUT is set. The time is calculated using the control register for the clock selection and divider in the Controller mode configuration. A value of 0 disables this function.
         #[must_use]
         #[inline(always)]
         pub const fn rxtimeout(&self) -> u8 {
             let val = (self.0 >> 24usize) & 0x3f;
             val as u8
         }
-        #[doc = "Receive Timeout (only for Peripheral mode) Defines the number of Clock Cycles before after which the Receive Timeout flag RTOUT is set. The time is calculated using the control register for the clock selection and divider in the Controller mode configuration. A value of 0 disables this function."]
+        ///Receive Timeout (only for Peripheral mode) Defines the number of Clock Cycles before after which the Receive Timeout flag RTOUT is set. The time is calculated using the control register for the clock selection and divider in the Controller mode configuration. A value of 0 disables this function.
         #[inline(always)]
         pub const fn set_rxtimeout(&mut self, val: u8) {
             self.0 = (self.0 & !(0x3f << 24usize)) | (((val as u32) & 0x3f) << 24usize);
@@ -843,34 +860,40 @@ pub mod regs {
     #[cfg(feature = "defmt")]
     impl defmt::Format for Ctl1 {
         fn format(&self, f: defmt::Formatter) {
-            defmt :: write ! (f , "Ctl1 {{ enable: {=bool:?}, lbm: {=bool:?}, cp: {=bool:?}, pod: {=bool:?}, msb: {=bool:?}, pren: {=bool:?}, pes: {=bool:?}, pten: {=bool:?}, suspend: {=bool:?}, cdenable: {=bool:?}, cdmode: {:?}, repeattx: {=u8:?}, rxtimeout: {=u8:?} }}" , self . enable () , self . lbm () , self . cp () , self . pod () , self . msb () , self . pren () , self . pes () , self . pten () , self . suspend () , self . cdenable () , self . cdmode () , self . repeattx () , self . rxtimeout ())
+            defmt::write!(
+                f,
+                "Ctl1 {{ enable: {=bool:?}, lbm: {=bool:?}, cp: {=bool:?}, pod: {=bool:?}, msb: {=bool:?}, pren: {=bool:?}, pes: {=bool:?}, pten: {=bool:?}, suspend: {=bool:?}, cdenable: {=bool:?}, cdmode: {:?}, repeattx: {=u8:?}, rxtimeout: {=u8:?} }}",
+                self.enable(), self.lbm(), self.cp(), self.pod(), self.msb(), self
+                .pren(), self.pes(), self.pten(), self.suspend(), self.cdenable(), self
+                .cdmode(), self.repeattx(), self.rxtimeout()
+            )
         }
     }
-    #[doc = "Interrupt mask."]
+    ///Interrupt mask.
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct DmaTrigRx(pub u32);
     impl DmaTrigRx {
-        #[doc = "Receive FIFO event mask."]
+        ///Receive FIFO event mask.
         #[must_use]
         #[inline(always)]
         pub const fn rx(&self) -> bool {
             let val = (self.0 >> 2usize) & 0x01;
             val != 0
         }
-        #[doc = "Receive FIFO event mask."]
+        ///Receive FIFO event mask.
         #[inline(always)]
         pub const fn set_rx(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 2usize)) | (((val as u32) & 0x01) << 2usize);
         }
-        #[doc = "SPI Receive Time-Out event mask."]
+        ///SPI Receive Time-Out event mask.
         #[must_use]
         #[inline(always)]
         pub const fn rtout(&self) -> bool {
             let val = (self.0 >> 9usize) & 0x01;
             val != 0
         }
-        #[doc = "SPI Receive Time-Out event mask."]
+        ///SPI Receive Time-Out event mask.
         #[inline(always)]
         pub const fn set_rtout(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 9usize)) | (((val as u32) & 0x01) << 9usize);
@@ -894,26 +917,24 @@ pub mod regs {
     impl defmt::Format for DmaTrigRx {
         fn format(&self, f: defmt::Formatter) {
             defmt::write!(
-                f,
-                "DmaTrigRx {{ rx: {=bool:?}, rtout: {=bool:?} }}",
-                self.rx(),
-                self.rtout()
+                f, "DmaTrigRx {{ rx: {=bool:?}, rtout: {=bool:?} }}", self.rx(), self
+                .rtout()
             )
         }
     }
-    #[doc = "Interrupt mask."]
+    ///Interrupt mask.
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct DmaTrigTx(pub u32);
     impl DmaTrigTx {
-        #[doc = "Transmit FIFO event mask."]
+        ///Transmit FIFO event mask.
         #[must_use]
         #[inline(always)]
         pub const fn tx(&self) -> bool {
             let val = (self.0 >> 5usize) & 0x01;
             val != 0
         }
-        #[doc = "Transmit FIFO event mask."]
+        ///Transmit FIFO event mask.
         #[inline(always)]
         pub const fn set_tx(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 5usize)) | (((val as u32) & 0x01) << 5usize);
@@ -936,55 +957,57 @@ pub mod regs {
             defmt::write!(f, "DmaTrigTx {{ tx: {=bool:?} }}", self.tx())
         }
     }
-    #[doc = "Interrupt FIFO Level Select Register."]
+    ///Interrupt FIFO Level Select Register.
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Ifls(pub u32);
     impl Ifls {
-        #[doc = "FIFO Level Select for generating events (interrupt/dma). Note: for undefined settings the default configuration is used."]
+        ///FIFO Level Select for generating events (interrupt/dma). Note: for undefined settings the default configuration is used.
         #[must_use]
         #[inline(always)]
         pub const fn txiflsel(&self) -> super::vals::Txiflsel {
             let val = (self.0 >> 0usize) & 0x07;
             super::vals::Txiflsel::from_bits(val as u8)
         }
-        #[doc = "FIFO Level Select for generating events (interrupt/dma). Note: for undefined settings the default configuration is used."]
+        ///FIFO Level Select for generating events (interrupt/dma). Note: for undefined settings the default configuration is used.
         #[inline(always)]
         pub const fn set_txiflsel(&mut self, val: super::vals::Txiflsel) {
-            self.0 = (self.0 & !(0x07 << 0usize)) | (((val.to_bits() as u32) & 0x07) << 0usize);
+            self.0 = (self.0 & !(0x07 << 0usize))
+                | (((val.to_bits() as u32) & 0x07) << 0usize);
         }
-        #[doc = "TX FIFO CLEAR. Setting this bit will clear the TX FIFO contents."]
+        ///TX FIFO CLEAR. Setting this bit will clear the TX FIFO contents.
         #[must_use]
         #[inline(always)]
         pub const fn txclr(&self) -> bool {
             let val = (self.0 >> 3usize) & 0x01;
             val != 0
         }
-        #[doc = "TX FIFO CLEAR. Setting this bit will clear the TX FIFO contents."]
+        ///TX FIFO CLEAR. Setting this bit will clear the TX FIFO contents.
         #[inline(always)]
         pub const fn set_txclr(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 3usize)) | (((val as u32) & 0x01) << 3usize);
         }
-        #[doc = "FIFO Level Select for generating events (interrupt/dma). Note: for undefined settings the default configuration is used."]
+        ///FIFO Level Select for generating events (interrupt/dma). Note: for undefined settings the default configuration is used.
         #[must_use]
         #[inline(always)]
         pub const fn rxiflsel(&self) -> super::vals::Rxiflsel {
             let val = (self.0 >> 4usize) & 0x07;
             super::vals::Rxiflsel::from_bits(val as u8)
         }
-        #[doc = "FIFO Level Select for generating events (interrupt/dma). Note: for undefined settings the default configuration is used."]
+        ///FIFO Level Select for generating events (interrupt/dma). Note: for undefined settings the default configuration is used.
         #[inline(always)]
         pub const fn set_rxiflsel(&mut self, val: super::vals::Rxiflsel) {
-            self.0 = (self.0 & !(0x07 << 4usize)) | (((val.to_bits() as u32) & 0x07) << 4usize);
+            self.0 = (self.0 & !(0x07 << 4usize))
+                | (((val.to_bits() as u32) & 0x07) << 4usize);
         }
-        #[doc = "RX FIFO CLEAR. Setting this bit will clear the RX FIFO contents."]
+        ///RX FIFO CLEAR. Setting this bit will clear the RX FIFO contents.
         #[must_use]
         #[inline(always)]
         pub const fn rxclr(&self) -> bool {
             let val = (self.0 >> 7usize) & 0x01;
             val != 0
         }
-        #[doc = "RX FIFO CLEAR. Setting this bit will clear the RX FIFO contents."]
+        ///RX FIFO CLEAR. Setting this bit will clear the RX FIFO contents.
         #[inline(always)]
         pub const fn set_rxclr(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 7usize)) | (((val as u32) & 0x01) << 7usize);
@@ -1012,29 +1035,27 @@ pub mod regs {
             defmt::write!(
                 f,
                 "Ifls {{ txiflsel: {:?}, txclr: {=bool:?}, rxiflsel: {:?}, rxclr: {=bool:?} }}",
-                self.txiflsel(),
-                self.txclr(),
-                self.rxiflsel(),
-                self.rxclr()
+                self.txiflsel(), self.txclr(), self.rxiflsel(), self.rxclr()
             )
         }
     }
-    #[doc = "Interrupt Index Register."]
+    ///Interrupt Index Register.
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Iidx(pub u32);
     impl Iidx {
-        #[doc = "Interrupt index status."]
+        ///Interrupt index status.
         #[must_use]
         #[inline(always)]
         pub const fn stat(&self) -> super::vals::Stat {
             let val = (self.0 >> 0usize) & 0xff;
             super::vals::Stat::from_bits(val as u8)
         }
-        #[doc = "Interrupt index status."]
+        ///Interrupt index status.
         #[inline(always)]
         pub const fn set_stat(&mut self, val: super::vals::Stat) {
-            self.0 = (self.0 & !(0xff << 0usize)) | (((val.to_bits() as u32) & 0xff) << 0usize);
+            self.0 = (self.0 & !(0xff << 0usize))
+                | (((val.to_bits() as u32) & 0xff) << 0usize);
         }
     }
     impl Default for Iidx {
@@ -1054,19 +1075,19 @@ pub mod regs {
             defmt::write!(f, "Iidx {{ stat: {:?} }}", self.stat())
         }
     }
-    #[doc = "Interrupt control register."]
+    ///Interrupt control register.
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Intctl(pub u32);
     impl Intctl {
-        #[doc = "Writing a 1 to this field re-evaluates the interrupt sources."]
+        ///Writing a 1 to this field re-evaluates the interrupt sources.
         #[must_use]
         #[inline(always)]
         pub const fn inteval(&self) -> bool {
             let val = (self.0 >> 0usize) & 0x01;
             val != 0
         }
-        #[doc = "Writing a 1 to this field re-evaluates the interrupt sources."]
+        ///Writing a 1 to this field re-evaluates the interrupt sources.
         #[inline(always)]
         pub const fn set_inteval(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 0usize)) | (((val as u32) & 0x01) << 0usize);
@@ -1080,9 +1101,7 @@ pub mod regs {
     }
     impl core::fmt::Debug for Intctl {
         fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-            f.debug_struct("Intctl")
-                .field("inteval", &self.inteval())
-                .finish()
+            f.debug_struct("Intctl").field("inteval", &self.inteval()).finish()
         }
     }
     #[cfg(feature = "defmt")]
@@ -1091,36 +1110,37 @@ pub mod regs {
             defmt::write!(f, "Intctl {{ inteval: {=bool:?} }}", self.inteval())
         }
     }
-    #[doc = "Peripheral Debug Control."]
+    ///Peripheral Debug Control.
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Pdbgctl(pub u32);
     impl Pdbgctl {
-        #[doc = "Free run control."]
+        ///Free run control.
         #[must_use]
         #[inline(always)]
         pub const fn free(&self) -> bool {
             let val = (self.0 >> 0usize) & 0x01;
             val != 0
         }
-        #[doc = "Free run control."]
+        ///Free run control.
         #[inline(always)]
         pub const fn set_free(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 0usize)) | (((val as u32) & 0x01) << 0usize);
         }
-        #[doc = "Soft halt boundary control. This function is only available, if \\[FREE\\]
-is set to 'STOP'."]
+        /**Soft halt boundary control. This function is only available, if \[FREE\]
+is set to 'STOP'.*/
         #[must_use]
         #[inline(always)]
         pub const fn soft(&self) -> super::vals::Soft {
             let val = (self.0 >> 1usize) & 0x01;
             super::vals::Soft::from_bits(val as u8)
         }
-        #[doc = "Soft halt boundary control. This function is only available, if \\[FREE\\]
-is set to 'STOP'."]
+        /**Soft halt boundary control. This function is only available, if \[FREE\]
+is set to 'STOP'.*/
         #[inline(always)]
         pub const fn set_soft(&mut self, val: super::vals::Soft) {
-            self.0 = (self.0 & !(0x01 << 1usize)) | (((val.to_bits() as u32) & 0x01) << 1usize);
+            self.0 = (self.0 & !(0x01 << 1usize))
+                | (((val.to_bits() as u32) & 0x01) << 1usize);
         }
     }
     impl Default for Pdbgctl {
@@ -1141,29 +1161,27 @@ is set to 'STOP'."]
     impl defmt::Format for Pdbgctl {
         fn format(&self, f: defmt::Formatter) {
             defmt::write!(
-                f,
-                "Pdbgctl {{ free: {=bool:?}, soft: {:?} }}",
-                self.free(),
-                self.soft()
+                f, "Pdbgctl {{ free: {=bool:?}, soft: {:?} }}", self.free(), self.soft()
             )
         }
     }
-    #[doc = "RXDATA Register."]
+    ///RXDATA Register.
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Rxdata(pub u32);
     impl Rxdata {
-        #[doc = "Received Data When PACKEN=1,two entries of the FIFO are returned as a 32-bit value. When PACKEN=0, 1 entry of FIFO is returned as 16-bit value. As data values are removed by the receive logic from the incoming data frame, they are placed into the entry in the receive FIFO, pointed to by the current FIFO write pointer. Received data less than 16 bits is automatically right justified in the receive buffer."]
+        ///Received Data When PACKEN=1,two entries of the FIFO are returned as a 32-bit value. When PACKEN=0, 1 entry of FIFO is returned as 16-bit value. As data values are removed by the receive logic from the incoming data frame, they are placed into the entry in the receive FIFO, pointed to by the current FIFO write pointer. Received data less than 16 bits is automatically right justified in the receive buffer.
         #[must_use]
         #[inline(always)]
         pub const fn data(&self) -> u16 {
             let val = (self.0 >> 0usize) & 0xffff;
             val as u16
         }
-        #[doc = "Received Data When PACKEN=1,two entries of the FIFO are returned as a 32-bit value. When PACKEN=0, 1 entry of FIFO is returned as 16-bit value. As data values are removed by the receive logic from the incoming data frame, they are placed into the entry in the receive FIFO, pointed to by the current FIFO write pointer. Received data less than 16 bits is automatically right justified in the receive buffer."]
+        ///Received Data When PACKEN=1,two entries of the FIFO are returned as a 32-bit value. When PACKEN=0, 1 entry of FIFO is returned as 16-bit value. As data values are removed by the receive logic from the incoming data frame, they are placed into the entry in the receive FIFO, pointed to by the current FIFO write pointer. Received data less than 16 bits is automatically right justified in the receive buffer.
         #[inline(always)]
         pub const fn set_data(&mut self, val: u16) {
-            self.0 = (self.0 & !(0xffff << 0usize)) | (((val as u32) & 0xffff) << 0usize);
+            self.0 = (self.0 & !(0xffff << 0usize))
+                | (((val as u32) & 0xffff) << 0usize);
         }
     }
     impl Default for Rxdata {
@@ -1174,9 +1192,7 @@ is set to 'STOP'."]
     }
     impl core::fmt::Debug for Rxdata {
         fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-            f.debug_struct("Rxdata")
-                .field("data", &self.data())
-                .finish()
+            f.debug_struct("Rxdata").field("data", &self.data()).finish()
         }
     }
     #[cfg(feature = "defmt")]
@@ -1185,106 +1201,107 @@ is set to 'STOP'."]
             defmt::write!(f, "Rxdata {{ data: {=u16:?} }}", self.data())
         }
     }
-    #[doc = "Status Register."]
+    ///Status Register.
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Stat(pub u32);
     impl Stat {
-        #[doc = "Receive FIFO empty."]
+        ///Receive FIFO empty.
         #[must_use]
         #[inline(always)]
         pub const fn rxfe(&self) -> bool {
             let val = (self.0 >> 2usize) & 0x01;
             val != 0
         }
-        #[doc = "Receive FIFO empty."]
+        ///Receive FIFO empty.
         #[inline(always)]
         pub const fn set_rxfe(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 2usize)) | (((val as u32) & 0x01) << 2usize);
         }
-        #[doc = "Receive FIFO Full The meaning of this bit depends on the state of the FEN bit in the CTL0 register."]
+        ///Receive FIFO Full The meaning of this bit depends on the state of the FEN bit in the CTL0 register.
         #[must_use]
         #[inline(always)]
         pub const fn rxff(&self) -> bool {
             let val = (self.0 >> 3usize) & 0x01;
             val != 0
         }
-        #[doc = "Receive FIFO Full The meaning of this bit depends on the state of the FEN bit in the CTL0 register."]
+        ///Receive FIFO Full The meaning of this bit depends on the state of the FEN bit in the CTL0 register.
         #[inline(always)]
         pub const fn set_rxff(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 3usize)) | (((val as u32) & 0x01) << 3usize);
         }
-        #[doc = "RX FIFO Clear Status."]
+        ///RX FIFO Clear Status.
         #[must_use]
         #[inline(always)]
         pub const fn rxclr(&self) -> bool {
             let val = (self.0 >> 4usize) & 0x01;
             val != 0
         }
-        #[doc = "RX FIFO Clear Status."]
+        ///RX FIFO Clear Status.
         #[inline(always)]
         pub const fn set_rxclr(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 4usize)) | (((val as u32) & 0x01) << 4usize);
         }
-        #[doc = "Transmit FIFO empty."]
+        ///Transmit FIFO empty.
         #[must_use]
         #[inline(always)]
         pub const fn txfe(&self) -> bool {
             let val = (self.0 >> 5usize) & 0x01;
             val != 0
         }
-        #[doc = "Transmit FIFO empty."]
+        ///Transmit FIFO empty.
         #[inline(always)]
         pub const fn set_txfe(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 5usize)) | (((val as u32) & 0x01) << 5usize);
         }
-        #[doc = "Transmit FIFO Full The meaning of this bit depends on the state of the FEN bit in the CTL0 register."]
+        ///Transmit FIFO Full The meaning of this bit depends on the state of the FEN bit in the CTL0 register.
         #[must_use]
         #[inline(always)]
         pub const fn txff(&self) -> bool {
             let val = (self.0 >> 6usize) & 0x01;
             val != 0
         }
-        #[doc = "Transmit FIFO Full The meaning of this bit depends on the state of the FEN bit in the CTL0 register."]
+        ///Transmit FIFO Full The meaning of this bit depends on the state of the FEN bit in the CTL0 register.
         #[inline(always)]
         pub const fn set_txff(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 6usize)) | (((val as u32) & 0x01) << 6usize);
         }
-        #[doc = "TX FIFO Clear Status."]
+        ///TX FIFO Clear Status.
         #[must_use]
         #[inline(always)]
         pub const fn txclr(&self) -> bool {
             let val = (self.0 >> 7usize) & 0x01;
             val != 0
         }
-        #[doc = "TX FIFO Clear Status."]
+        ///TX FIFO Clear Status.
         #[inline(always)]
         pub const fn set_txclr(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 7usize)) | (((val as u32) & 0x01) << 7usize);
         }
-        #[doc = "Busy."]
+        ///Busy.
         #[must_use]
         #[inline(always)]
         pub const fn busy(&self) -> bool {
             let val = (self.0 >> 8usize) & 0x01;
             val != 0
         }
-        #[doc = "Busy."]
+        ///Busy.
         #[inline(always)]
         pub const fn set_busy(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 8usize)) | (((val as u32) & 0x01) << 8usize);
         }
-        #[doc = "Current CDMODE status. This reflects the current counter counter value."]
+        ///Current CDMODE status. This reflects the current counter counter value.
         #[must_use]
         #[inline(always)]
         pub const fn cdmode(&self) -> super::vals::Cdmode {
             let val = (self.0 >> 12usize) & 0x0f;
             super::vals::Cdmode::from_bits(val as u8)
         }
-        #[doc = "Current CDMODE status. This reflects the current counter counter value."]
+        ///Current CDMODE status. This reflects the current counter counter value.
         #[inline(always)]
         pub const fn set_cdmode(&mut self, val: super::vals::Cdmode) {
-            self.0 = (self.0 & !(0x0f << 12usize)) | (((val.to_bits() as u32) & 0x0f) << 12usize);
+            self.0 = (self.0 & !(0x0f << 12usize))
+                | (((val.to_bits() as u32) & 0x0f) << 12usize);
         }
     }
     impl Default for Stat {
@@ -1310,25 +1327,31 @@ is set to 'STOP'."]
     #[cfg(feature = "defmt")]
     impl defmt::Format for Stat {
         fn format(&self, f: defmt::Formatter) {
-            defmt :: write ! (f , "Stat {{ rxfe: {=bool:?}, rxff: {=bool:?}, rxclr: {=bool:?}, txfe: {=bool:?}, txff: {=bool:?}, txclr: {=bool:?}, busy: {=bool:?}, cdmode: {:?} }}" , self . rxfe () , self . rxff () , self . rxclr () , self . txfe () , self . txff () , self . txclr () , self . busy () , self . cdmode ())
+            defmt::write!(
+                f,
+                "Stat {{ rxfe: {=bool:?}, rxff: {=bool:?}, rxclr: {=bool:?}, txfe: {=bool:?}, txff: {=bool:?}, txclr: {=bool:?}, busy: {=bool:?}, cdmode: {:?} }}",
+                self.rxfe(), self.rxff(), self.rxclr(), self.txfe(), self.txff(), self
+                .txclr(), self.busy(), self.cdmode()
+            )
         }
     }
-    #[doc = "TXDATA Register."]
+    ///TXDATA Register.
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Txdata(pub u32);
     impl Txdata {
-        #[doc = "Transmit Data When read, last written value will be returned. If the last write to this field was a 32-bit write (with PACKEN=1), 32-bits will be returned and if the last write was a 16-bit write (PACKEN=0), those 16-bits will be returned. When written, one or two FIFO entries will be written depending on PACKEN value. Data values are removed from the transmit FIFO one value at a time by the transmit logic. It is loaded into the transmit serial shifter, then serially shifted out onto the TXD output pin at the programmed bit rate. When a data size of less than 16 bits is selected, the user must right-justify data written to the transmit FIFO. The transmit logic ignores the unused bits."]
+        ///Transmit Data When read, last written value will be returned. If the last write to this field was a 32-bit write (with PACKEN=1), 32-bits will be returned and if the last write was a 16-bit write (PACKEN=0), those 16-bits will be returned. When written, one or two FIFO entries will be written depending on PACKEN value. Data values are removed from the transmit FIFO one value at a time by the transmit logic. It is loaded into the transmit serial shifter, then serially shifted out onto the TXD output pin at the programmed bit rate. When a data size of less than 16 bits is selected, the user must right-justify data written to the transmit FIFO. The transmit logic ignores the unused bits.
         #[must_use]
         #[inline(always)]
         pub const fn data(&self) -> u16 {
             let val = (self.0 >> 0usize) & 0xffff;
             val as u16
         }
-        #[doc = "Transmit Data When read, last written value will be returned. If the last write to this field was a 32-bit write (with PACKEN=1), 32-bits will be returned and if the last write was a 16-bit write (PACKEN=0), those 16-bits will be returned. When written, one or two FIFO entries will be written depending on PACKEN value. Data values are removed from the transmit FIFO one value at a time by the transmit logic. It is loaded into the transmit serial shifter, then serially shifted out onto the TXD output pin at the programmed bit rate. When a data size of less than 16 bits is selected, the user must right-justify data written to the transmit FIFO. The transmit logic ignores the unused bits."]
+        ///Transmit Data When read, last written value will be returned. If the last write to this field was a 32-bit write (with PACKEN=1), 32-bits will be returned and if the last write was a 16-bit write (PACKEN=0), those 16-bits will be returned. When written, one or two FIFO entries will be written depending on PACKEN value. Data values are removed from the transmit FIFO one value at a time by the transmit logic. It is loaded into the transmit serial shifter, then serially shifted out onto the TXD output pin at the programmed bit rate. When a data size of less than 16 bits is selected, the user must right-justify data written to the transmit FIFO. The transmit logic ignores the unused bits.
         #[inline(always)]
         pub const fn set_data(&mut self, val: u16) {
-            self.0 = (self.0 & !(0xffff << 0usize)) | (((val as u32) & 0xffff) << 0usize);
+            self.0 = (self.0 & !(0xffff << 0usize))
+                | (((val as u32) & 0xffff) << 0usize);
         }
     }
     impl Default for Txdata {
@@ -1339,9 +1362,7 @@ is set to 'STOP'."]
     }
     impl core::fmt::Debug for Txdata {
         fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-            f.debug_struct("Txdata")
-                .field("data", &self.data())
-                .finish()
+            f.debug_struct("Txdata").field("data", &self.data()).finish()
         }
     }
     #[cfg(feature = "defmt")]
@@ -1356,7 +1377,7 @@ pub mod vals {
     #[derive(Copy, Clone, Debug, Eq, PartialEq, Ord, PartialOrd)]
     #[cfg_attr(feature = "defmt", derive(defmt::Format))]
     pub enum Cdmode {
-        #[doc = "Manual mode: Data."]
+        ///Manual mode: Data.
         Data = 0x0,
         _RESERVED_1 = 0x01,
         _RESERVED_2 = 0x02,
@@ -1372,7 +1393,7 @@ pub mod vals {
         _RESERVED_c = 0x0c,
         _RESERVED_d = 0x0d,
         _RESERVED_e = 0x0e,
-        #[doc = "Manual mode: Command."]
+        ///Manual mode: Command.
         Command = 0x0f,
     }
     impl Cdmode {
@@ -1401,13 +1422,13 @@ pub mod vals {
     #[derive(Copy, Clone, Debug, Eq, PartialEq, Ord, PartialOrd)]
     #[cfg_attr(feature = "defmt", derive(defmt::Format))]
     pub enum Cssel {
-        #[doc = "CS line select: 0."]
+        ///CS line select: 0.
         Cssel0 = 0x0,
-        #[doc = "CS line select: 1."]
+        ///CS line select: 1.
         Cssel1 = 0x01,
-        #[doc = "CS line select: 2."]
+        ///CS line select: 2.
         Cssel2 = 0x02,
-        #[doc = "CS line select: 3."]
+        ///CS line select: 3.
         Cssel3 = 0x03,
     }
     impl Cssel {
@@ -1439,31 +1460,31 @@ pub mod vals {
         _RESERVED_0 = 0x0,
         _RESERVED_1 = 0x01,
         _RESERVED_2 = 0x02,
-        #[doc = "Data Size Select bits: 4."]
+        ///Data Size Select bits: 4.
         Dss4 = 0x03,
-        #[doc = "Data Size Select bits: 5."]
+        ///Data Size Select bits: 5.
         Dss5 = 0x04,
-        #[doc = "Data Size Select bits: 6."]
+        ///Data Size Select bits: 6.
         Dss6 = 0x05,
-        #[doc = "Data Size Select bits: 7."]
+        ///Data Size Select bits: 7.
         Dss7 = 0x06,
-        #[doc = "Data Size Select bits: 8."]
+        ///Data Size Select bits: 8.
         Dss8 = 0x07,
-        #[doc = "Data Size Select bits: 9."]
+        ///Data Size Select bits: 9.
         Dss9 = 0x08,
-        #[doc = "Data Size Select bits: 10."]
+        ///Data Size Select bits: 10.
         Dss10 = 0x09,
-        #[doc = "Data Size Select bits: 11."]
+        ///Data Size Select bits: 11.
         Dss11 = 0x0a,
-        #[doc = "Data Size Select bits: 12."]
+        ///Data Size Select bits: 12.
         Dss12 = 0x0b,
-        #[doc = "Data Size Select bits: 13."]
+        ///Data Size Select bits: 13.
         Dss13 = 0x0c,
-        #[doc = "Data Size Select bits: 14."]
+        ///Data Size Select bits: 14.
         Dss14 = 0x0d,
-        #[doc = "Data Size Select bits: 15."]
+        ///Data Size Select bits: 15.
         Dss15 = 0x0e,
-        #[doc = "Data Size Select bits: 16."]
+        ///Data Size Select bits: 16.
         Dss16 = 0x0f,
         _RESERVED_10 = 0x10,
         _RESERVED_11 = 0x11,
@@ -1508,11 +1529,11 @@ pub mod vals {
     #[derive(Copy, Clone, Debug, Eq, PartialEq, Ord, PartialOrd)]
     #[cfg_attr(feature = "defmt", derive(defmt::Format))]
     pub enum Frf {
-        #[doc = "Motorola SPI frame format (3 wire mode)."]
+        ///Motorola SPI frame format (3 wire mode).
         Motorola3wire = 0x0,
-        #[doc = "Motorola SPI frame format (4 wire mode)."]
+        ///Motorola SPI frame format (4 wire mode).
         Motorola4wire = 0x01,
-        #[doc = "TI synchronous serial frame format."]
+        ///TI synchronous serial frame format.
         TiSync = 0x02,
         _RESERVED_3 = 0x03,
     }
@@ -1542,21 +1563,21 @@ pub mod vals {
     #[derive(Copy, Clone, Debug, Eq, PartialEq, Ord, PartialOrd)]
     #[cfg_attr(feature = "defmt", derive(defmt::Format))]
     pub enum Ratio {
-        #[doc = "Do not divide clock source."]
+        ///Do not divide clock source.
         DivBy1 = 0x0,
-        #[doc = "Divide clock source by 2."]
+        ///Divide clock source by 2.
         DivBy2 = 0x01,
-        #[doc = "Divide clock source by 3."]
+        ///Divide clock source by 3.
         DivBy3 = 0x02,
-        #[doc = "Divide clock source by 4."]
+        ///Divide clock source by 4.
         DivBy4 = 0x03,
-        #[doc = "Divide clock source by 5."]
+        ///Divide clock source by 5.
         DivBy5 = 0x04,
-        #[doc = "Divide clock source by 6."]
+        ///Divide clock source by 6.
         DivBy6 = 0x05,
-        #[doc = "Divide clock source by 7."]
+        ///Divide clock source by 7.
         DivBy7 = 0x06,
-        #[doc = "Divide clock source by 8."]
+        ///Divide clock source by 8.
         DivBy8 = 0x07,
     }
     impl Ratio {
@@ -1586,19 +1607,19 @@ pub mod vals {
     #[cfg_attr(feature = "defmt", derive(defmt::Format))]
     pub enum Rxiflsel {
         _RESERVED_0 = 0x0,
-        #[doc = "RX FIFO >= 1/4 full."]
+        ///RX FIFO >= 1/4 full.
         Lvl14 = 0x01,
-        #[doc = "RX FIFO >= 1/2 full (default)."]
+        ///RX FIFO >= 1/2 full (default).
         Lvl12 = 0x02,
-        #[doc = "RX FIFO >= 3/4 full."]
+        ///RX FIFO >= 3/4 full.
         Lvl34 = 0x03,
-        #[doc = "Opposite of empty."]
+        ///Opposite of empty.
         LvlNotEmpty = 0x04,
-        #[doc = "RX FIFO is full."]
+        ///RX FIFO is full.
         LvlFull = 0x05,
-        #[doc = "RX_FIFO >= (MAX_FIFO_LEN -1)."]
+        ///RX_FIFO >= (MAX_FIFO_LEN -1).
         LvlAlmostFull = 0x06,
-        #[doc = "RX_FIFO <= 1."]
+        ///RX_FIFO <= 1.
         LvlAlmostEmpty = 0x07,
     }
     impl Rxiflsel {
@@ -1627,9 +1648,9 @@ pub mod vals {
     #[derive(Copy, Clone, Debug, Eq, PartialEq, Ord, PartialOrd)]
     #[cfg_attr(feature = "defmt", derive(defmt::Format))]
     pub enum Soft {
-        #[doc = "Not supported."]
+        ///Not supported.
         Deprecated = 0x0,
-        #[doc = "The peripheral blocks the debug freeze until it has reached a boundary where it can resume without corruption."]
+        ///The peripheral blocks the debug freeze until it has reached a boundary where it can resume without corruption.
         Delayed = 0x01,
     }
     impl Soft {
@@ -1658,9 +1679,9 @@ pub mod vals {
     #[derive(Copy, Clone, Debug, Eq, PartialEq, Ord, PartialOrd)]
     #[cfg_attr(feature = "defmt", derive(defmt::Format))]
     pub enum Sph {
-        #[doc = "Data is captured on the first clock edge transition."]
+        ///Data is captured on the first clock edge transition.
         First = 0x0,
-        #[doc = "Data is captured on the second clock edge transition."]
+        ///Data is captured on the second clock edge transition.
         Second = 0x01,
     }
     impl Sph {
@@ -1689,35 +1710,35 @@ pub mod vals {
     #[derive(Copy, Clone, Eq, PartialEq, Ord, PartialOrd)]
     pub struct Stat(u8);
     impl Stat {
-        #[doc = "No interrupt pending."]
+        ///No interrupt pending.
         pub const NoIntr: Self = Self(0x0);
-        #[doc = "Transmit Parity Event/interrupt pending."]
+        ///Transmit Parity Event/interrupt pending.
         pub const PerEvt: Self = Self(0x01);
-        #[doc = "RX FIFO Overflow Event/interrupt pending."]
+        ///RX FIFO Overflow Event/interrupt pending.
         pub const RxfifoOfvEvt: Self = Self(0x02);
-        #[doc = "Receive interrupt."]
+        ///Receive interrupt.
         pub const RxEvt: Self = Self(0x03);
-        #[doc = "RX FIFO Full Interrupt."]
+        ///RX FIFO Full Interrupt.
         pub const RxfullEvt: Self = Self(0x04);
-        #[doc = "TX FIFO underflow interrupt."]
+        ///TX FIFO underflow interrupt.
         pub const TxfifoUnfEvt: Self = Self(0x05);
-        #[doc = "Transmit Event."]
+        ///Transmit Event.
         pub const TxEvt: Self = Self(0x06);
-        #[doc = "Transmit Buffer Empty Event/interrupt pending."]
+        ///Transmit Buffer Empty Event/interrupt pending.
         pub const TxEmpty: Self = Self(0x07);
-        #[doc = "End of Transmit Event/interrupt pending."]
+        ///End of Transmit Event/interrupt pending.
         pub const IdleEvt: Self = Self(0x09);
-        #[doc = "SPI receive time-out interrupt."]
+        ///SPI receive time-out interrupt.
         pub const RtoutEvt: Self = Self(0x0a);
-        #[doc = "DMA DONE on RX."]
+        ///DMA DONE on RX.
         pub const DmaDoneRx: Self = Self(0x10);
-        #[doc = "DMA DONE on TX."]
+        ///DMA DONE on TX.
         pub const DmaDoneTx: Self = Self(0x11);
-        #[doc = "DMA PRE IRQ RX INTERRUPT."]
+        ///DMA PRE IRQ RX INTERRUPT.
         pub const DmaPreirqRx: Self = Self(0x13);
-        #[doc = "DMA PRE IRQ TX INTERRUPT."]
+        ///DMA PRE IRQ TX INTERRUPT.
         pub const DmaPreirqTx: Self = Self(0x14);
-        #[doc = "SPI line time-out interrupt."]
+        ///SPI line time-out interrupt.
         pub const Ltout: Self = Self(0x15);
     }
     impl Stat {
@@ -1790,19 +1811,19 @@ pub mod vals {
     #[cfg_attr(feature = "defmt", derive(defmt::Format))]
     pub enum Txiflsel {
         _RESERVED_0 = 0x0,
-        #[doc = "TX FIFO <= 3/4 empty."]
+        ///TX FIFO <= 3/4 empty.
         Lvl34 = 0x01,
-        #[doc = "TX FIFO <= 1/2 empty (default)."]
+        ///TX FIFO <= 1/2 empty (default).
         Lvl12 = 0x02,
-        #[doc = "TX FIFO <= 1/4 empty."]
+        ///TX FIFO <= 1/4 empty.
         Lvl14 = 0x03,
-        #[doc = "Opposite of full."]
+        ///Opposite of full.
         LvlNotFull = 0x04,
-        #[doc = "TX FIFO is empty."]
+        ///TX FIFO is empty.
         LvlEmpty = 0x05,
-        #[doc = "TX FIFO <= 1."]
+        ///TX FIFO <= 1.
         LvlAlmostEmpty = 0x06,
-        #[doc = "TX_FIFO >= (MAX_FIFO_LEN -1)."]
+        ///TX_FIFO >= (MAX_FIFO_LEN -1).
         LvlAlmostFull = 0x07,
     }
     impl Txiflsel {

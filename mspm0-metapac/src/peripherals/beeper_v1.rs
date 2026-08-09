@@ -3,8 +3,7 @@
 #![allow(clippy::identity_op)]
 #![allow(clippy::unnecessary_cast)]
 #![allow(clippy::erasing_op)]
-
-#[doc = "The MSPM0C110x/MSPS003 beeper. This technically exists in the SYSCTL block, but is separated."]
+///The beeper, addressed through SYSCTL: this is one register of that block, split out so the four SYSCTL variants which have it do not each carry a copy. Present on C110x, C1105/C1106, MSPS003, H321x, L112x and L211x.
 #[derive(Copy, Clone, Eq, PartialEq)]
 pub struct Beeper {
     ptr: *mut u8,
@@ -20,41 +19,42 @@ impl Beeper {
     pub const fn as_ptr(&self) -> *mut () {
         self.ptr as _
     }
-    #[doc = "BEEPER Configuration"]
+    ///BEEPER Configuration
     #[inline(always)]
     pub const fn beepcfg(self) -> crate::common::Reg<regs::Beepcfg, crate::common::RW> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x1190usize) as _) }
     }
 }
 pub mod regs {
-    #[doc = "BEEPER Configuration."]
+    ///BEEPER Configuration.
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Beepcfg(pub u32);
     impl Beepcfg {
-        #[doc = "Beeper output enable"]
+        ///Beeper output enable
         #[must_use]
         #[inline(always)]
         pub const fn en(&self) -> bool {
             let val = (self.0 >> 0usize) & 0x01;
             val != 0
         }
-        #[doc = "Beeper output enable"]
+        ///Beeper output enable
         #[inline(always)]
         pub const fn set_en(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 0usize)) | (((val as u32) & 0x01) << 0usize);
         }
-        #[doc = "Beeper Output Frequency Configuration"]
+        ///Beeper Output Frequency Configuration
         #[must_use]
         #[inline(always)]
         pub const fn freq(&self) -> super::vals::Freq {
             let val = (self.0 >> 4usize) & 0x03;
             super::vals::Freq::from_bits(val as u8)
         }
-        #[doc = "Beeper Output Frequency Configuration"]
+        ///Beeper Output Frequency Configuration
         #[inline(always)]
         pub const fn set_freq(&mut self, val: super::vals::Freq) {
-            self.0 = (self.0 & !(0x03 << 4usize)) | (((val.to_bits() as u32) & 0x03) << 4usize);
+            self.0 = (self.0 & !(0x03 << 4usize))
+                | (((val.to_bits() as u32) & 0x03) << 4usize);
         }
     }
     impl Default for Beepcfg {
@@ -75,10 +75,7 @@ pub mod regs {
     impl defmt::Format for Beepcfg {
         fn format(&self, f: defmt::Formatter) {
             defmt::write!(
-                f,
-                "Beepcfg {{ en: {=bool:?}, freq: {:?} }}",
-                self.en(),
-                self.freq()
+                f, "Beepcfg {{ en: {=bool:?}, freq: {:?} }}", self.en(), self.freq()
             )
         }
     }
@@ -88,13 +85,13 @@ pub mod vals {
     #[derive(Copy, Clone, Debug, Eq, PartialEq, Ord, PartialOrd)]
     #[cfg_attr(feature = "defmt", derive(defmt::Format))]
     pub enum Freq {
-        #[doc = "Beeper runs at 8KHz"]
+        ///Beeper runs at 8KHz
         _8khz = 0x0,
-        #[doc = "Beeper runs at 4KHz"]
+        ///Beeper runs at 4KHz
         _4khz = 0x01,
-        #[doc = "Beeper runs at 2KHz"]
+        ///Beeper runs at 2KHz
         _2khz = 0x02,
-        #[doc = "Beeper runs at 1KHz"]
+        ///Beeper runs at 1KHz
         _1khz = 0x03,
     }
     impl Freq {

@@ -2709,7 +2709,6 @@
     "RTC_B": {
       "name": "RTC_B",
       "type": "Rtc",
-      "version": "b",
       "address": 1074348032,
       "power_domain": "Pd0",
       "pins": [],
@@ -2718,7 +2717,7 @@
     },
     "SPG0": {
       "name": "SPG0",
-      "type": "Unknown",
+      "type": "Spgss",
       "address": 1084878848,
       "power_domain": "Pd0",
       "pins": [],
@@ -5329,7 +5328,10 @@
           "pf": 0
         }
       ],
-      "block_async": false
+      "block_async": false,
+      "vref": {
+        "startup_ns": 200000
+      }
     },
     "WUC": {
       "name": "WUC",
