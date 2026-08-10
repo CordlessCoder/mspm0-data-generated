@@ -226,7 +226,12 @@
       },
       "adc": {
         "memctl": 12,
-        "vrsel": 3
+        "vrsel": 3,
+        "internal_channels": {
+          "28": "TemperatureSensor",
+          "29": "Vref",
+          "31": "SupplyMonitor"
+        }
       }
     },
     "BEEPER": {

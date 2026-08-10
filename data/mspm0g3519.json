@@ -3104,7 +3104,11 @@
       },
       "adc": {
         "memctl": 12,
-        "vrsel": 5
+        "vrsel": 5,
+        "internal_channels": {
+          "11": "TemperatureSensor",
+          "15": "SupplyMonitor"
+        }
       }
     },
     "ADC1": {
@@ -3199,7 +3203,11 @@
       },
       "adc": {
         "memctl": 12,
-        "vrsel": 5
+        "vrsel": 5,
+        "internal_channels": {
+          "0": "Dac0",
+          "15": "SupplyMonitor"
+        }
       }
     },
     "AESADV": {

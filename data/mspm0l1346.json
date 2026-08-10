@@ -300,7 +300,14 @@
       },
       "adc": {
         "memctl": 4,
-        "vrsel": 5
+        "vrsel": 5,
+        "internal_channels": {
+          "11": "TemperatureSensor",
+          "12": "Opa0",
+          "13": "Opa1",
+          "14": "Gpamp",
+          "15": "SupplyMonitor"
+        }
       }
     },
     "COMP0": {

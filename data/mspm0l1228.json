@@ -2069,7 +2069,13 @@
       },
       "adc": {
         "memctl": 12,
-        "vrsel": 5
+        "vrsel": 5,
+        "internal_channels": {
+          "28": "Vref",
+          "29": "TemperatureSensor",
+          "30": "VbatMonitor",
+          "31": "SupplyMonitor"
+        }
       }
     },
     "AESADV": {

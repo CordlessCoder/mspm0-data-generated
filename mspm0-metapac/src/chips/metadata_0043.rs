@@ -79,7 +79,28 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
             min_hz: 4000000,
             max_hz: 32000000,
         }),
-        adc: Some(Adc { memctl: 12, vrsel: 3 }),
+        adc: Some(Adc {
+            memctl: 12,
+            vrsel: 3,
+            internal_channels: &[
+                AdcInternalChannel {
+                    channel: 28,
+                    source: AdcInternalSource::Vref,
+                },
+                AdcInternalChannel {
+                    channel: 29,
+                    source: AdcInternalSource::TemperatureSensor,
+                },
+                AdcInternalChannel {
+                    channel: 30,
+                    source: AdcInternalSource::VusbMonitor,
+                },
+                AdcInternalChannel {
+                    channel: 31,
+                    source: AdcInternalSource::SupplyMonitor,
+                },
+            ],
+        }),
         unicomm: None,
         vref: None,
     },
