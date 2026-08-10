@@ -1968,7 +1968,15 @@
           "group_iidx": 3
         }
       ],
-      "block_async": false
+      "block_async": false,
+      "flashctl": {
+        "sector_bytes": 1024,
+        "word_bytes": 8,
+        "weprota_bits": 32,
+        "weprotb_bits": 16,
+        "weprotc_bits": 0,
+        "has_ecc": true
+      }
     },
     "GPAMP": {
       "name": "GPAMP",

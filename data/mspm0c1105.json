@@ -2315,7 +2315,15 @@
           "num": 27
         }
       ],
-      "block_async": null
+      "block_async": null,
+      "flashctl": {
+        "sector_bytes": 1024,
+        "word_bytes": 8,
+        "weprota_bits": 0,
+        "weprotb_bits": 8,
+        "weprotc_bits": 0,
+        "has_ecc": false
+      }
     },
     "GPIOA": {
       "name": "GPIOA",
