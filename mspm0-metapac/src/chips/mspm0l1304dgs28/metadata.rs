@@ -13,7 +13,7 @@ static MEMORY: &[MemoryRegion] = &[
         kind: MemoryKind::Ram,
         address: 536870912,
         size: 2048,
-        retained_through: PowerMode::Standby,
+        retained_through: PowerMode::Standby1,
     },
 ];
 pub static METADATA: Metadata = Metadata {

@@ -17,7 +17,7 @@
       "kind": "Ram",
       "length": 32,
       "address": 538968064,
-      "retained_through": "Standby"
+      "retained_through": "Standby1"
     }
   ],
   "packages": [
@@ -1915,7 +1915,7 @@
         }
       ],
       "block_async": false,
-      "usable_through": "Sleep",
+      "usable_through": "Stop1",
       "clock_range_hz": {
         "min_hz": 4000000,
         "max_hz": 32000000
@@ -2071,7 +2071,7 @@
         }
       ],
       "block_async": true,
-      "usable_through": "Standby"
+      "usable_through": "Standby1"
     },
     "CPUSS": {
       "name": "CPUSS",
@@ -2081,7 +2081,7 @@
       "power_domain": "Pd1",
       "pins": [],
       "block_async": false,
-      "retained_through": "Standby",
+      "retained_through": "Standby1",
       "usable_through": "Run"
     },
     "CRCP0": {
@@ -2091,7 +2091,7 @@
       "power_domain": "Pd1",
       "pins": [],
       "block_async": false,
-      "retained_through": "Standby",
+      "retained_through": "Standby1",
       "usable_through": "Sleep"
     },
     "DEBUGSS": {
@@ -2134,7 +2134,7 @@
         }
       ],
       "block_async": false,
-      "retained_through": "Standby",
+      "retained_through": "Standby1",
       "usable_through": "Sleep"
     },
     "EVENT": {
@@ -2353,7 +2353,7 @@
         }
       ],
       "block_async": false,
-      "usable_through": "Standby"
+      "usable_through": "Standby1"
     },
     "GPIOB": {
       "name": "GPIOB",
@@ -2506,7 +2506,7 @@
         }
       ],
       "block_async": false,
-      "usable_through": "Standby"
+      "usable_through": "Standby1"
     },
     "I2S0": {
       "name": "I2S0",
@@ -2650,7 +2650,7 @@
       "power_domain": "Pd0",
       "pins": [],
       "block_async": false,
-      "usable_through": "Standby"
+      "usable_through": "Standby1"
     },
     "KEYSTORECTL": {
       "name": "KEYSTORECTL",
@@ -2713,7 +2713,7 @@
       "power_domain": "Pd0",
       "pins": [],
       "block_async": false,
-      "usable_through": "Standby"
+      "usable_through": "Standby1"
     },
     "SPG0": {
       "name": "SPG0",
@@ -3337,7 +3337,7 @@
         }
       ],
       "block_async": false,
-      "usable_through": "Standby",
+      "usable_through": "Standby1",
       "clocked_in_standby1": true,
       "timer": {
         "bits": 16,
@@ -3469,7 +3469,7 @@
         }
       ],
       "block_async": false,
-      "usable_through": "Standby",
+      "usable_through": "Standby1",
       "clocked_in_standby1": true,
       "timer": {
         "bits": 16,
@@ -3972,7 +3972,7 @@
         }
       ],
       "block_async": true,
-      "usable_through": "Standby",
+      "usable_through": "Standby1",
       "unicomm": {
         "uart": true,
         "i2c_controller": true,
@@ -3988,7 +3988,7 @@
       "power_domain": "Pd0",
       "pins": [],
       "block_async": null,
-      "usable_through": "Standby"
+      "usable_through": "Standby1"
     },
     "UC0_I2CT": {
       "name": "UC0_I2CT",
@@ -3998,7 +3998,7 @@
       "power_domain": "Pd0",
       "pins": [],
       "block_async": null,
-      "usable_through": "Standby"
+      "usable_through": "Standby1"
     },
     "UC0_UART": {
       "name": "UC0_UART",
@@ -4008,7 +4008,7 @@
       "power_domain": "Pd0",
       "pins": [],
       "block_async": null,
-      "usable_through": "Standby"
+      "usable_through": "Standby1"
     },
     "UC1": {
       "name": "UC1",
@@ -4420,7 +4420,7 @@
         }
       ],
       "block_async": true,
-      "usable_through": "Standby",
+      "usable_through": "Standby1",
       "unicomm": {
         "uart": true,
         "i2c_controller": true,
@@ -4436,7 +4436,7 @@
       "power_domain": "Pd0",
       "pins": [],
       "block_async": null,
-      "usable_through": "Standby"
+      "usable_through": "Standby1"
     },
     "UC1_I2CT": {
       "name": "UC1_I2CT",
@@ -4446,7 +4446,7 @@
       "power_domain": "Pd0",
       "pins": [],
       "block_async": null,
-      "usable_through": "Standby"
+      "usable_through": "Standby1"
     },
     "UC1_UART": {
       "name": "UC1_UART",
@@ -4456,7 +4456,7 @@
       "power_domain": "Pd0",
       "pins": [],
       "block_async": null,
-      "usable_through": "Standby"
+      "usable_through": "Standby1"
     },
     "UC2": {
       "name": "UC2",
@@ -5356,7 +5356,7 @@
         }
       ],
       "block_async": false,
-      "usable_through": "Stop"
+      "usable_through": "Standby0"
     },
     "WWDT1": {
       "name": "WWDT1",
@@ -5373,7 +5373,7 @@
         }
       ],
       "block_async": false,
-      "usable_through": "Stop"
+      "usable_through": "Standby0"
     }
   },
   "interrupts": {

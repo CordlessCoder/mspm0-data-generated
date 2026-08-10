@@ -13,7 +13,7 @@ static MEMORY: &[MemoryRegion] = &[
         kind: MemoryKind::Ram,
         address: 538968064,
         size: 65536,
-        retained_through: PowerMode::Standby,
+        retained_through: PowerMode::Standby1,
     },
     MemoryRegion {
         name: "RAM_BANK",

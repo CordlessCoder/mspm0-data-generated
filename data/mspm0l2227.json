@@ -17,7 +17,7 @@
       "kind": "Ram",
       "length": 32,
       "address": 538968064,
-      "retained_through": "Standby"
+      "retained_through": "Standby1"
     }
   ],
   "packages": [
@@ -1712,7 +1712,7 @@
         }
       ],
       "block_async": false,
-      "usable_through": "Sleep",
+      "usable_through": "Stop1",
       "clock_range_hz": {
         "min_hz": 4000000,
         "max_hz": 32000000
@@ -1735,8 +1735,8 @@
         }
       ],
       "block_async": false,
-      "retained_through": "Standby",
-      "usable_through": "Standby"
+      "retained_through": "Standby1",
+      "usable_through": "Standby1"
     },
     "COMP0": {
       "name": "COMP0",
@@ -1858,7 +1858,7 @@
         }
       ],
       "block_async": true,
-      "usable_through": "Standby"
+      "usable_through": "Standby1"
     },
     "CPUSS": {
       "name": "CPUSS",
@@ -1868,7 +1868,7 @@
       "power_domain": "Pd1",
       "pins": [],
       "block_async": false,
-      "retained_through": "Standby",
+      "retained_through": "Standby1",
       "usable_through": "Run"
     },
     "CRCP0": {
@@ -1878,7 +1878,7 @@
       "power_domain": "Pd1",
       "pins": [],
       "block_async": false,
-      "retained_through": "Standby"
+      "retained_through": "Standby1"
     },
     "DEBUGSS": {
       "name": "DEBUGSS",
@@ -1920,7 +1920,7 @@
         }
       ],
       "block_async": false,
-      "retained_through": "Standby",
+      "retained_through": "Standby1",
       "usable_through": "Sleep"
     },
     "EVENT": {
@@ -2139,7 +2139,7 @@
         }
       ],
       "block_async": false,
-      "usable_through": "Standby"
+      "usable_through": "Standby1"
     },
     "GPIOB": {
       "name": "GPIOB",
@@ -2317,7 +2317,7 @@
         }
       ],
       "block_async": false,
-      "usable_through": "Standby"
+      "usable_through": "Standby1"
     },
     "GPIOC": {
       "name": "GPIOC",
@@ -2385,7 +2385,7 @@
         }
       ],
       "block_async": false,
-      "usable_through": "Standby"
+      "usable_through": "Standby1"
     },
     "I2C0": {
       "name": "I2C0",
@@ -2483,7 +2483,7 @@
         }
       ],
       "block_async": true,
-      "usable_through": "Standby"
+      "usable_through": "Standby1"
     },
     "I2C1": {
       "name": "I2C1",
@@ -2581,7 +2581,7 @@
         }
       ],
       "block_async": true,
-      "usable_through": "Standby"
+      "usable_through": "Standby1"
     },
     "I2C2": {
       "name": "I2C2",
@@ -3081,7 +3081,7 @@
         }
       ],
       "block_async": false,
-      "usable_through": "Standby"
+      "usable_through": "Standby1"
     },
     "LFSS": {
       "name": "LFSS",
@@ -3383,8 +3383,8 @@
         }
       ],
       "block_async": true,
-      "retained_through": "Standby",
-      "usable_through": "Standby"
+      "retained_through": "Standby1",
+      "usable_through": "Standby1"
     },
     "SPI1": {
       "name": "SPI1",
@@ -3656,8 +3656,8 @@
         }
       ],
       "block_async": true,
-      "retained_through": "Standby",
-      "usable_through": "Standby"
+      "retained_through": "Standby1",
+      "usable_through": "Standby1"
     },
     "SYSCTL": {
       "name": "SYSCTL",
@@ -4336,7 +4336,7 @@
         }
       ],
       "block_async": false,
-      "usable_through": "Standby",
+      "usable_through": "Standby1",
       "clocked_in_standby1": true,
       "timer": {
         "bits": 16,
@@ -4488,7 +4488,7 @@
         }
       ],
       "block_async": false,
-      "usable_through": "Standby",
+      "usable_through": "Standby1",
       "clocked_in_standby1": true,
       "timer": {
         "bits": 16,
@@ -4620,7 +4620,7 @@
         }
       ],
       "block_async": false,
-      "usable_through": "Standby",
+      "usable_through": "Standby1",
       "clocked_in_standby1": true,
       "timer": {
         "bits": 32,
@@ -4782,7 +4782,7 @@
         }
       ],
       "block_async": false,
-      "usable_through": "Standby",
+      "usable_through": "Standby1",
       "clocked_in_standby1": true,
       "timer": {
         "bits": 16,
@@ -4909,7 +4909,7 @@
         }
       ],
       "block_async": false,
-      "usable_through": "Standby",
+      "usable_through": "Standby1",
       "clocked_in_standby1": true,
       "timer": {
         "bits": 16,
@@ -5131,7 +5131,7 @@
         }
       ],
       "block_async": false,
-      "usable_through": "Standby",
+      "usable_through": "Standby1",
       "clocked_in_standby1": true,
       "timer": {
         "bits": 16,
@@ -5164,7 +5164,7 @@
       ],
       "block_async": false,
       "retained_through": "Sleep",
-      "usable_through": "Standby",
+      "usable_through": "Standby1",
       "clock_range_hz": {
         "min_hz": 9500000,
         "max_hz": 25000000
@@ -5281,7 +5281,7 @@
         }
       ],
       "block_async": true,
-      "usable_through": "Standby"
+      "usable_through": "Standby1"
     },
     "UART1": {
       "name": "UART1",
@@ -5434,7 +5434,7 @@
         }
       ],
       "block_async": true,
-      "usable_through": "Standby"
+      "usable_through": "Standby1"
     },
     "UART2": {
       "name": "UART2",
@@ -5597,7 +5597,7 @@
         }
       ],
       "block_async": true,
-      "usable_through": "Standby"
+      "usable_through": "Standby1"
     },
     "UART3": {
       "name": "UART3",
@@ -5740,7 +5740,7 @@
         }
       ],
       "block_async": true,
-      "usable_through": "Standby"
+      "usable_through": "Standby1"
     },
     "UART4": {
       "name": "UART4",
@@ -5823,7 +5823,7 @@
         }
       ],
       "block_async": true,
-      "usable_through": "Standby"
+      "usable_through": "Standby1"
     },
     "VREF": {
       "name": "VREF",
@@ -5871,7 +5871,7 @@
         }
       ],
       "block_async": false,
-      "usable_through": "Stop"
+      "usable_through": "Standby0"
     }
   },
   "interrupts": {
