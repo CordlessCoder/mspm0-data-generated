@@ -3349,7 +3349,10 @@
       "block_async": true,
       "usable_through": "Standby1",
       "comp": {
-        "int_vref": true
+        "int_vref": true,
+        "enable_fast_ns": 5000,
+        "enable_ulp_ns": 10000,
+        "dac_settle_ns": 1500
       }
     },
     "COMP1": {
@@ -3420,7 +3423,10 @@
       "block_async": true,
       "usable_through": "Standby1",
       "comp": {
-        "int_vref": true
+        "int_vref": true,
+        "enable_fast_ns": 5000,
+        "enable_ulp_ns": 10000,
+        "dac_settle_ns": 1500
       }
     },
     "COMP2": {
@@ -3476,7 +3482,10 @@
       "block_async": true,
       "usable_through": "Standby1",
       "comp": {
-        "int_vref": true
+        "int_vref": true,
+        "enable_fast_ns": 5000,
+        "enable_ulp_ns": 10000,
+        "dac_settle_ns": 1500
       }
     },
     "CPUSS": {

@@ -299,7 +299,13 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         uart: None,
         opa: None,
         vref: None,
-        comp: Some(Comp { int_vref: false }),
+        comp: Some(Comp {
+            int_vref: false,
+            enable_fast_ns: Some(10000),
+            enable_ulp_ns: Some(10000),
+            dac_settle_ns: Some(1500),
+            dac_settle_pin_ns: None,
+        }),
     },
     Peripheral {
         name: "COMP1",
@@ -342,7 +348,13 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         uart: None,
         opa: None,
         vref: None,
-        comp: Some(Comp { int_vref: false }),
+        comp: Some(Comp {
+            int_vref: false,
+            enable_fast_ns: Some(10000),
+            enable_ulp_ns: Some(10000),
+            dac_settle_ns: Some(1500),
+            dac_settle_pin_ns: None,
+        }),
     },
     Peripheral {
         name: "COMP2",
@@ -380,7 +392,13 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         uart: None,
         opa: None,
         vref: None,
-        comp: Some(Comp { int_vref: false }),
+        comp: Some(Comp {
+            int_vref: false,
+            enable_fast_ns: Some(10000),
+            enable_ulp_ns: Some(10000),
+            dac_settle_ns: Some(1500),
+            dac_settle_pin_ns: None,
+        }),
     },
     Peripheral {
         name: "CPUSS",
