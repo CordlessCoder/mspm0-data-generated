@@ -97,6 +97,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         }),
         unicomm: None,
         uart: None,
+        opa: None,
         vref: None,
     },
     Peripheral {
@@ -158,6 +159,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         adc: None,
         unicomm: None,
         uart: None,
+        opa: None,
         vref: None,
     },
     Peripheral {
@@ -177,6 +179,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         adc: None,
         unicomm: None,
         uart: None,
+        opa: None,
         vref: None,
     },
     Peripheral {
@@ -196,6 +199,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         adc: None,
         unicomm: None,
         uart: None,
+        opa: None,
         vref: None,
     },
     Peripheral {
@@ -232,6 +236,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         adc: None,
         unicomm: None,
         uart: None,
+        opa: None,
         vref: None,
     },
     Peripheral {
@@ -257,6 +262,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         adc: None,
         unicomm: None,
         uart: None,
+        opa: None,
         vref: None,
     },
     Peripheral {
@@ -276,6 +282,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         adc: None,
         unicomm: None,
         uart: None,
+        opa: None,
         vref: None,
     },
     Peripheral {
@@ -295,6 +302,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         adc: None,
         unicomm: None,
         uart: None,
+        opa: None,
         vref: None,
     },
     Peripheral {
@@ -320,6 +328,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         adc: None,
         unicomm: None,
         uart: None,
+        opa: None,
         vref: None,
     },
     Peripheral {
@@ -355,6 +364,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         adc: None,
         unicomm: None,
         uart: None,
+        opa: None,
         vref: None,
     },
     Peripheral {
@@ -491,6 +501,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         adc: None,
         unicomm: None,
         uart: None,
+        opa: None,
         vref: None,
     },
     Peripheral {
@@ -537,6 +548,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         adc: None,
         unicomm: None,
         uart: None,
+        opa: None,
         vref: None,
     },
     Peripheral {
@@ -598,6 +610,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         adc: None,
         unicomm: None,
         uart: None,
+        opa: None,
         vref: None,
     },
     Peripheral {
@@ -617,6 +630,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         adc: None,
         unicomm: None,
         uart: None,
+        opa: None,
         vref: None,
     },
     Peripheral {
@@ -647,6 +661,66 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         adc: None,
         unicomm: None,
         uart: None,
+        opa: Some(Opa {
+            pmux: &[
+                OpaMuxEntry {
+                    position: 1,
+                    input: OpaInput::In(0),
+                },
+                OpaMuxEntry {
+                    position: 4,
+                    input: OpaInput::Dac8(0),
+                },
+                OpaMuxEntry {
+                    position: 5,
+                    input: OpaInput::VrefPlus,
+                },
+                OpaMuxEntry {
+                    position: 6,
+                    input: OpaInput::Rtop(1),
+                },
+                OpaMuxEntry {
+                    position: 7,
+                    input: OpaInput::Gpamp,
+                },
+            ],
+            nmux: &[
+                OpaMuxEntry {
+                    position: 1,
+                    input: OpaInput::In(0),
+                },
+                OpaMuxEntry {
+                    position: 2,
+                    input: OpaInput::In(1),
+                },
+                OpaMuxEntry {
+                    position: 3,
+                    input: OpaInput::Rbot(1),
+                },
+                OpaMuxEntry {
+                    position: 4,
+                    input: OpaInput::OwnRtap,
+                },
+                OpaMuxEntry {
+                    position: 5,
+                    input: OpaInput::OwnRtop,
+                },
+            ],
+            mmux: &[
+                OpaMuxEntry {
+                    position: 1,
+                    input: OpaInput::In(1),
+                },
+                OpaMuxEntry {
+                    position: 2,
+                    input: OpaInput::Ground,
+                },
+                OpaMuxEntry {
+                    position: 4,
+                    input: OpaInput::Rtop(1),
+                },
+            ],
+        }),
         vref: None,
     },
     Peripheral {
@@ -677,6 +751,66 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         adc: None,
         unicomm: None,
         uart: None,
+        opa: Some(Opa {
+            pmux: &[
+                OpaMuxEntry {
+                    position: 1,
+                    input: OpaInput::In(0),
+                },
+                OpaMuxEntry {
+                    position: 4,
+                    input: OpaInput::Dac8(0),
+                },
+                OpaMuxEntry {
+                    position: 5,
+                    input: OpaInput::VrefPlus,
+                },
+                OpaMuxEntry {
+                    position: 6,
+                    input: OpaInput::Rtop(0),
+                },
+                OpaMuxEntry {
+                    position: 7,
+                    input: OpaInput::Gpamp,
+                },
+            ],
+            nmux: &[
+                OpaMuxEntry {
+                    position: 1,
+                    input: OpaInput::In(0),
+                },
+                OpaMuxEntry {
+                    position: 2,
+                    input: OpaInput::In(1),
+                },
+                OpaMuxEntry {
+                    position: 3,
+                    input: OpaInput::Rbot(0),
+                },
+                OpaMuxEntry {
+                    position: 4,
+                    input: OpaInput::OwnRtap,
+                },
+                OpaMuxEntry {
+                    position: 5,
+                    input: OpaInput::OwnRtop,
+                },
+            ],
+            mmux: &[
+                OpaMuxEntry {
+                    position: 1,
+                    input: OpaInput::In(1),
+                },
+                OpaMuxEntry {
+                    position: 2,
+                    input: OpaInput::Ground,
+                },
+                OpaMuxEntry {
+                    position: 4,
+                    input: OpaInput::Rtop(0),
+                },
+            ],
+        }),
         vref: None,
     },
     Peripheral {
@@ -788,6 +922,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         adc: None,
         unicomm: None,
         uart: None,
+        opa: None,
         vref: None,
     },
     Peripheral {
@@ -859,6 +994,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         adc: None,
         unicomm: None,
         uart: None,
+        opa: None,
         vref: None,
     },
     Peripheral {
@@ -918,6 +1054,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         adc: None,
         unicomm: None,
         uart: None,
+        opa: None,
         vref: None,
     },
     Peripheral {
@@ -987,6 +1124,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         adc: None,
         unicomm: None,
         uart: None,
+        opa: None,
         vref: None,
     },
     Peripheral {
@@ -1051,6 +1189,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         adc: None,
         unicomm: None,
         uart: None,
+        opa: None,
         vref: None,
     },
     Peripheral {
@@ -1120,6 +1259,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         adc: None,
         unicomm: None,
         uart: None,
+        opa: None,
         vref: None,
     },
     Peripheral {
@@ -1202,6 +1342,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
             iso7816: true,
             manchester: true,
         }),
+        opa: None,
         vref: None,
     },
     Peripheral {
@@ -1294,6 +1435,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
             iso7816: false,
             manchester: false,
         }),
+        opa: None,
         vref: None,
     },
     Peripheral {
@@ -1324,7 +1466,11 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         adc: None,
         unicomm: None,
         uart: None,
-        vref: Some(Vref { startup_ns: Some(15000) }),
+        opa: None,
+        vref: Some(Vref {
+            startup_ns: Some(15000),
+            output_to_pin: false,
+        }),
     },
     Peripheral {
         name: "WUC",
@@ -1343,6 +1489,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         adc: None,
         unicomm: None,
         uart: None,
+        opa: None,
         vref: None,
     },
     Peripheral {
@@ -1368,6 +1515,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         adc: None,
         unicomm: None,
         uart: None,
+        opa: None,
         vref: None,
     },
 ];

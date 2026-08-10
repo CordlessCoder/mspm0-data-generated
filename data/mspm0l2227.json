@@ -5888,7 +5888,8 @@
       ],
       "block_async": false,
       "vref": {
-        "startup_ns": 15000
+        "startup_ns": 15000,
+        "output_to_pin": false
       }
     },
     "WUC": {

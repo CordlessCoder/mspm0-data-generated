@@ -1127,7 +1127,8 @@
       "block_async": false,
       "usable_through": "Stop0",
       "vref": {
-        "startup_ns": 10000
+        "startup_ns": 10000,
+        "output_to_pin": false
       }
     },
     "WUC": {

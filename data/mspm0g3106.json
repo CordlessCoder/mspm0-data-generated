@@ -3364,7 +3364,8 @@
       "block_async": false,
       "usable_through": "Standby1",
       "vref": {
-        "startup_ns": 200000
+        "startup_ns": 200000,
+        "output_to_pin": true
       }
     },
     "WUC": {

@@ -93,6 +93,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         }),
         unicomm: None,
         uart: None,
+        opa: None,
         vref: None,
     },
     Peripheral {
@@ -118,6 +119,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         adc: None,
         unicomm: None,
         uart: None,
+        opa: None,
         vref: None,
     },
     Peripheral {
@@ -199,6 +201,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         adc: None,
         unicomm: None,
         uart: None,
+        opa: None,
         vref: None,
     },
     Peripheral {
@@ -218,6 +221,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         adc: None,
         unicomm: None,
         uart: None,
+        opa: None,
         vref: None,
     },
     Peripheral {
@@ -237,6 +241,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         adc: None,
         unicomm: None,
         uart: None,
+        opa: None,
         vref: None,
     },
     Peripheral {
@@ -273,6 +278,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         adc: None,
         unicomm: None,
         uart: None,
+        opa: None,
         vref: None,
     },
     Peripheral {
@@ -298,6 +304,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         adc: None,
         unicomm: None,
         uart: None,
+        opa: None,
         vref: None,
     },
     Peripheral {
@@ -317,6 +324,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         adc: None,
         unicomm: None,
         uart: None,
+        opa: None,
         vref: None,
     },
     Peripheral {
@@ -336,6 +344,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         adc: None,
         unicomm: None,
         uart: None,
+        opa: None,
         vref: None,
     },
     Peripheral {
@@ -361,6 +370,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         adc: None,
         unicomm: None,
         uart: None,
+        opa: None,
         vref: None,
     },
     Peripheral {
@@ -380,6 +390,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         adc: None,
         unicomm: None,
         uart: None,
+        opa: None,
         vref: None,
     },
     Peripheral {
@@ -516,6 +527,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         adc: None,
         unicomm: None,
         uart: None,
+        opa: None,
         vref: None,
     },
     Peripheral {
@@ -547,6 +559,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         adc: None,
         unicomm: None,
         uart: None,
+        opa: None,
         vref: None,
     },
     Peripheral {
@@ -638,6 +651,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         adc: None,
         unicomm: None,
         uart: None,
+        opa: None,
         vref: None,
     },
     Peripheral {
@@ -657,6 +671,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         adc: None,
         unicomm: None,
         uart: None,
+        opa: None,
         vref: None,
     },
     Peripheral {
@@ -676,6 +691,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         adc: None,
         unicomm: None,
         uart: None,
+        opa: None,
         vref: None,
     },
     Peripheral {
@@ -695,6 +711,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         adc: None,
         unicomm: None,
         uart: None,
+        opa: None,
         vref: None,
     },
     Peripheral {
@@ -731,6 +748,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         adc: None,
         unicomm: None,
         uart: None,
+        opa: None,
         vref: None,
     },
     Peripheral {
@@ -756,6 +774,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         adc: None,
         unicomm: None,
         uart: None,
+        opa: None,
         vref: None,
     },
     Peripheral {
@@ -775,6 +794,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         adc: None,
         unicomm: None,
         uart: None,
+        opa: None,
         vref: None,
     },
     Peripheral {
@@ -794,6 +814,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         adc: None,
         unicomm: None,
         uart: None,
+        opa: None,
         vref: None,
     },
     Peripheral {
@@ -905,6 +926,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         adc: None,
         unicomm: None,
         uart: None,
+        opa: None,
         vref: None,
     },
     Peripheral {
@@ -1129,6 +1151,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         adc: None,
         unicomm: None,
         uart: None,
+        opa: None,
         vref: None,
     },
     Peripheral {
@@ -1167,6 +1190,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         adc: None,
         unicomm: None,
         uart: None,
+        opa: None,
         vref: None,
     },
     Peripheral {
@@ -1251,6 +1275,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         adc: None,
         unicomm: None,
         uart: None,
+        opa: None,
         vref: None,
     },
     Peripheral {
@@ -1315,6 +1340,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         adc: None,
         unicomm: None,
         uart: None,
+        opa: None,
         vref: None,
     },
     Peripheral {
@@ -1399,6 +1425,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         adc: None,
         unicomm: None,
         uart: None,
+        opa: None,
         vref: None,
     },
     Peripheral {
@@ -1530,6 +1557,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
             spi: false,
         }),
         uart: None,
+        opa: None,
         vref: None,
     },
     Peripheral {
@@ -1549,6 +1577,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         adc: None,
         unicomm: None,
         uart: None,
+        opa: None,
         vref: None,
     },
     Peripheral {
@@ -1568,6 +1597,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         adc: None,
         unicomm: None,
         uart: None,
+        opa: None,
         vref: None,
     },
     Peripheral {
@@ -1593,6 +1623,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
             iso7816: true,
             manchester: true,
         }),
+        opa: None,
         vref: None,
     },
     Peripheral {
@@ -1844,6 +1875,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
             spi: false,
         }),
         uart: None,
+        opa: None,
         vref: None,
     },
     Peripheral {
@@ -1863,6 +1895,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         adc: None,
         unicomm: None,
         uart: None,
+        opa: None,
         vref: None,
     },
     Peripheral {
@@ -1882,6 +1915,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         adc: None,
         unicomm: None,
         uart: None,
+        opa: None,
         vref: None,
     },
     Peripheral {
@@ -1907,6 +1941,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
             iso7816: false,
             manchester: false,
         }),
+        opa: None,
         vref: None,
     },
     Peripheral {
@@ -2038,6 +2073,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
             spi: true,
         }),
         uart: None,
+        opa: None,
         vref: None,
     },
     Peripheral {
@@ -2057,6 +2093,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         adc: None,
         unicomm: None,
         uart: None,
+        opa: None,
         vref: None,
     },
     Peripheral {
@@ -2288,6 +2325,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
             spi: true,
         }),
         uart: None,
+        opa: None,
         vref: None,
     },
     Peripheral {
@@ -2307,6 +2345,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         adc: None,
         unicomm: None,
         uart: None,
+        opa: None,
         vref: None,
     },
     Peripheral {
@@ -2332,6 +2371,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
             iso7816: true,
             manchester: false,
         }),
+        opa: None,
         vref: None,
     },
     Peripheral {
@@ -2368,6 +2408,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         adc: None,
         unicomm: None,
         uart: None,
+        opa: None,
         vref: None,
     },
     Peripheral {
@@ -2398,7 +2439,11 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         adc: None,
         unicomm: None,
         uart: None,
-        vref: Some(Vref { startup_ns: Some(200000) }),
+        opa: None,
+        vref: Some(Vref {
+            startup_ns: Some(200000),
+            output_to_pin: true,
+        }),
     },
     Peripheral {
         name: "WUC",
@@ -2417,6 +2462,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         adc: None,
         unicomm: None,
         uart: None,
+        opa: None,
         vref: None,
     },
     Peripheral {
@@ -2442,6 +2488,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         adc: None,
         unicomm: None,
         uart: None,
+        opa: None,
         vref: None,
     },
     Peripheral {
@@ -2467,6 +2514,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         adc: None,
         unicomm: None,
         uart: None,
+        opa: None,
         vref: None,
     },
 ];
