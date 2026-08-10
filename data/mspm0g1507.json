@@ -1831,7 +1831,10 @@
         }
       ],
       "block_async": true,
-      "usable_through": "Standby1"
+      "usable_through": "Standby1",
+      "comp": {
+        "int_vref": false
+      }
     },
     "COMP1": {
       "name": "COMP1",
@@ -1899,7 +1902,10 @@
         }
       ],
       "block_async": true,
-      "usable_through": "Standby1"
+      "usable_through": "Standby1",
+      "comp": {
+        "int_vref": false
+      }
     },
     "COMP2": {
       "name": "COMP2",
@@ -1952,7 +1958,10 @@
         }
       ],
       "block_async": true,
-      "usable_through": "Standby1"
+      "usable_through": "Standby1",
+      "comp": {
+        "int_vref": false
+      }
     },
     "CPUSS": {
       "name": "CPUSS",

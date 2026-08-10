@@ -2889,7 +2889,10 @@
         }
       ],
       "block_async": null,
-      "usable_through": "Standby1"
+      "usable_through": "Standby1",
+      "comp": {
+        "int_vref": true
+      }
     },
     "CPUSS": {
       "name": "CPUSS",
