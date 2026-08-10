@@ -155,7 +155,7 @@ pub mod flashctl;
 pub mod gpio;
 #[path = "../../peripherals/iomux_v1.rs"]
 pub mod iomux;
-#[path = "../../peripherals/sysctl_g350x_g310x_g150x_g110x.rs"]
+#[path = "../../peripherals/sysctl_g518x.rs"]
 pub mod sysctl;
 #[path = "../../peripherals/tim_v1.rs"]
 pub mod tim;

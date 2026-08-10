@@ -2732,7 +2732,7 @@
     "SYSCTL": {
       "name": "SYSCTL",
       "type": "Sysctl",
-      "version": "g350x_g310x_g150x_g110x",
+      "version": "g518x",
       "address": 1074458624,
       "power_domain": "Pd0",
       "pins": [
@@ -4014,7 +4014,14 @@
       "power_domain": "Pd0",
       "pins": [],
       "block_async": null,
-      "usable_through": "Standby1"
+      "usable_through": "Standby1",
+      "uart": {
+        "lin": true,
+        "dali": true,
+        "irda": true,
+        "iso7816": true,
+        "manchester": true
+      }
     },
     "UC1": {
       "name": "UC1",
@@ -4462,7 +4469,14 @@
       "power_domain": "Pd0",
       "pins": [],
       "block_async": null,
-      "usable_through": "Standby1"
+      "usable_through": "Standby1",
+      "uart": {
+        "lin": true,
+        "dali": false,
+        "irda": false,
+        "iso7816": false,
+        "manchester": false
+      }
     },
     "UC2": {
       "name": "UC2",
@@ -5288,7 +5302,14 @@
       "pins": [],
       "block_async": null,
       "retained_through": "Sleep",
-      "usable_through": "Sleep"
+      "usable_through": "Sleep",
+      "uart": {
+        "lin": false,
+        "dali": false,
+        "irda": false,
+        "iso7816": true,
+        "manchester": false
+      }
     },
     "USBFS0": {
       "name": "USBFS0",

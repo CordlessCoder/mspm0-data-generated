@@ -68,6 +68,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
             ],
         }),
         unicomm: None,
+        uart: None,
         vref: None,
     },
     Peripheral {
@@ -143,6 +144,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
             ],
         }),
         unicomm: None,
+        uart: None,
         vref: None,
     },
     Peripheral {
@@ -161,6 +163,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         clock_range_hz: None,
         adc: None,
         unicomm: None,
+        uart: None,
         vref: None,
     },
     Peripheral {
@@ -179,6 +182,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         clock_range_hz: None,
         adc: None,
         unicomm: None,
+        uart: None,
         vref: None,
     },
     Peripheral {
@@ -214,6 +218,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         clock_range_hz: None,
         adc: None,
         unicomm: None,
+        uart: None,
         vref: None,
     },
     Peripheral {
@@ -238,6 +243,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         clock_range_hz: None,
         adc: None,
         unicomm: None,
+        uart: None,
         vref: None,
     },
     Peripheral {
@@ -256,6 +262,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         clock_range_hz: None,
         adc: None,
         unicomm: None,
+        uart: None,
         vref: None,
     },
     Peripheral {
@@ -274,6 +281,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         clock_range_hz: None,
         adc: None,
         unicomm: None,
+        uart: None,
         vref: None,
     },
     Peripheral {
@@ -298,6 +306,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         clock_range_hz: None,
         adc: None,
         unicomm: None,
+        uart: None,
         vref: None,
     },
     Peripheral {
@@ -332,6 +341,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         clock_range_hz: None,
         adc: None,
         unicomm: None,
+        uart: None,
         vref: None,
     },
     Peripheral {
@@ -457,6 +467,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         clock_range_hz: None,
         adc: None,
         unicomm: None,
+        uart: None,
         vref: None,
     },
     Peripheral {
@@ -481,6 +492,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         clock_range_hz: None,
         adc: None,
         unicomm: None,
+        uart: None,
         vref: None,
     },
     Peripheral {
@@ -526,6 +538,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         clock_range_hz: None,
         adc: None,
         unicomm: None,
+        uart: None,
         vref: None,
     },
     Peripheral {
@@ -591,6 +604,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         clock_range_hz: None,
         adc: None,
         unicomm: None,
+        uart: None,
         vref: None,
     },
     Peripheral {
@@ -609,6 +623,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         clock_range_hz: None,
         adc: None,
         unicomm: None,
+        uart: None,
         vref: None,
     },
     Peripheral {
@@ -639,6 +654,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         clock_range_hz: None,
         adc: None,
         unicomm: None,
+        uart: None,
         vref: None,
     },
     Peripheral {
@@ -704,6 +720,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         clock_range_hz: None,
         adc: None,
         unicomm: None,
+        uart: None,
         vref: None,
     },
     Peripheral {
@@ -764,6 +781,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         clock_range_hz: None,
         adc: None,
         unicomm: None,
+        uart: None,
         vref: None,
     },
     Peripheral {
@@ -839,6 +857,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         clock_range_hz: None,
         adc: None,
         unicomm: None,
+        uart: None,
         vref: None,
     },
     Peripheral {
@@ -997,6 +1016,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         clock_range_hz: None,
         adc: None,
         unicomm: None,
+        uart: None,
         vref: None,
     },
     Peripheral {
@@ -1100,6 +1120,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         clock_range_hz: None,
         adc: None,
         unicomm: None,
+        uart: None,
         vref: None,
     },
     Peripheral {
@@ -1148,6 +1169,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         clock_range_hz: None,
         adc: None,
         unicomm: None,
+        uart: None,
         vref: None,
     },
     Peripheral {
@@ -1196,6 +1218,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         clock_range_hz: None,
         adc: None,
         unicomm: None,
+        uart: None,
         vref: None,
     },
     Peripheral {
@@ -1244,6 +1267,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         clock_range_hz: None,
         adc: None,
         unicomm: None,
+        uart: None,
         vref: None,
     },
     Peripheral {
@@ -1322,6 +1346,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         clock_range_hz: None,
         adc: None,
         unicomm: None,
+        uart: None,
         vref: None,
     },
     Peripheral {
@@ -1415,6 +1440,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         clock_range_hz: None,
         adc: None,
         unicomm: None,
+        uart: None,
         vref: None,
     },
     Peripheral {
@@ -1470,6 +1496,13 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         clock_range_hz: None,
         adc: None,
         unicomm: None,
+        uart: Some(Uart {
+            lin: true,
+            dali: true,
+            irda: true,
+            iso7816: true,
+            manchester: true,
+        }),
         vref: None,
     },
     Peripheral {
@@ -1520,6 +1553,13 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         clock_range_hz: None,
         adc: None,
         unicomm: None,
+        uart: Some(Uart {
+            lin: false,
+            dali: false,
+            irda: false,
+            iso7816: false,
+            manchester: false,
+        }),
         vref: None,
     },
     Peripheral {
@@ -1575,6 +1615,13 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         clock_range_hz: None,
         adc: None,
         unicomm: None,
+        uart: Some(Uart {
+            lin: false,
+            dali: false,
+            irda: false,
+            iso7816: false,
+            manchester: false,
+        }),
         vref: None,
     },
     Peripheral {
@@ -1620,6 +1667,13 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         clock_range_hz: None,
         adc: None,
         unicomm: None,
+        uart: Some(Uart {
+            lin: false,
+            dali: false,
+            irda: false,
+            iso7816: false,
+            manchester: false,
+        }),
         vref: None,
     },
     Peripheral {
@@ -1649,6 +1703,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         clock_range_hz: None,
         adc: None,
         unicomm: None,
+        uart: None,
         vref: Some(Vref { startup_ns: Some(200000) }),
     },
     Peripheral {
@@ -1667,6 +1722,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         clock_range_hz: None,
         adc: None,
         unicomm: None,
+        uart: None,
         vref: None,
     },
     Peripheral {
@@ -1691,6 +1747,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         clock_range_hz: None,
         adc: None,
         unicomm: None,
+        uart: None,
         vref: None,
     },
     Peripheral {
@@ -1715,6 +1772,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         clock_range_hz: None,
         adc: None,
         unicomm: None,
+        uart: None,
         vref: None,
     },
 ];

@@ -829,14 +829,14 @@ pub mod regs {
         pub const fn set_exclken(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 0usize)) | (((val as u32) & 0x01) << 0usize);
         }
-        ///Enable the MFCLK.
+        ///Enable the MFPCLK.
         #[must_use]
         #[inline(always)]
         pub const fn mfpclken(&self) -> bool {
             let val = (self.0 >> 4usize) & 0x01;
             val != 0
         }
-        ///Enable the MFCLK.
+        ///Enable the MFPCLK.
         #[inline(always)]
         pub const fn set_mfpclken(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 4usize)) | (((val as u32) & 0x01) << 4usize);
@@ -2093,7 +2093,7 @@ pub mod vals {
         Ulpclk = 0x01,
         Lfclk = 0x02,
         ///NOTE: This must be divided in post divider.
-        Mfclk = 0x03,
+        Mfpclk = 0x03,
         Hfclk = 0x04,
         ///NOTE: Must be 48MHz or below.
         Syspllout1 = 0x05,

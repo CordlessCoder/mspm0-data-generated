@@ -5251,7 +5251,14 @@
         }
       ],
       "block_async": true,
-      "usable_through": "Standby1"
+      "usable_through": "Standby1",
+      "uart": {
+        "lin": true,
+        "dali": true,
+        "irda": true,
+        "iso7816": true,
+        "manchester": true
+      }
     },
     "UART1": {
       "name": "UART1",
@@ -5404,7 +5411,14 @@
         }
       ],
       "block_async": true,
-      "usable_through": "Standby1"
+      "usable_through": "Standby1",
+      "uart": {
+        "lin": true,
+        "dali": true,
+        "irda": true,
+        "iso7816": true,
+        "manchester": true
+      }
     },
     "UART2": {
       "name": "UART2",
@@ -5567,7 +5581,14 @@
         }
       ],
       "block_async": true,
-      "usable_through": "Standby1"
+      "usable_through": "Standby1",
+      "uart": {
+        "lin": false,
+        "dali": false,
+        "irda": false,
+        "iso7816": false,
+        "manchester": false
+      }
     },
     "UART3": {
       "name": "UART3",
@@ -5710,7 +5731,14 @@
         }
       ],
       "block_async": true,
-      "usable_through": "Standby1"
+      "usable_through": "Standby1",
+      "uart": {
+        "lin": false,
+        "dali": false,
+        "irda": false,
+        "iso7816": false,
+        "manchester": false
+      }
     },
     "UART4": {
       "name": "UART4",
@@ -5793,7 +5821,14 @@
         }
       ],
       "block_async": true,
-      "usable_through": "Standby1"
+      "usable_through": "Standby1",
+      "uart": {
+        "lin": false,
+        "dali": false,
+        "irda": false,
+        "iso7816": false,
+        "manchester": false
+      }
     },
     "VREF": {
       "name": "VREF",

@@ -1107,7 +1107,14 @@
         }
       ],
       "block_async": true,
-      "usable_through": "Standby1"
+      "usable_through": "Standby1",
+      "uart": {
+        "lin": true,
+        "dali": true,
+        "irda": true,
+        "iso7816": true,
+        "manchester": true
+      }
     },
     "VREF": {
       "name": "VREF",
