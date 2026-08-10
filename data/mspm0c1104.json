@@ -618,6 +618,7 @@
     "CRC": {
       "name": "CRC",
       "type": "Crc",
+      "version": "16",
       "address": 1078198272,
       "power_domain": "Pd1",
       "pins": [],

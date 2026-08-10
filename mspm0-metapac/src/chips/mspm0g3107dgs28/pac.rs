@@ -157,6 +157,8 @@ pub mod adc;
 pub mod canfd;
 #[path = "../../peripherals/cpuss_v1.rs"]
 pub mod cpuss;
+#[path = "../../peripherals/crc_v1.rs"]
+pub mod crc;
 #[path = "../../peripherals/dma_v1.rs"]
 pub mod dma;
 #[path = "../../peripherals/factoryregion_v1.rs"]
@@ -187,8 +189,7 @@ pub const ADC1: adc::Adc = unsafe { adc::Adc::from_ptr(1073750016 as *mut _) };
 pub const AES: () = ();
 pub const CANFD0: canfd::Canfd = unsafe { canfd::Canfd::from_ptr(1079017472 as *mut _) };
 pub const CPUSS: cpuss::Cpuss = unsafe { cpuss::Cpuss::from_ptr(1077936128 as *mut _) };
-///Address: 1078198272
-pub const CRC: () = ();
+pub const CRC: crc::Crc = unsafe { crc::Crc::from_ptr(1078198272 as *mut _) };
 ///Address: 1074556928
 pub const DEBUGSS: () = ();
 pub const DMA: dma::Dma = unsafe { dma::Dma::from_ptr(1078108160 as *mut _) };

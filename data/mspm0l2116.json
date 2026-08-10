@@ -2757,6 +2757,7 @@
     "COMP0": {
       "name": "COMP0",
       "type": "Comp",
+      "version": "dacout",
       "address": 1073774592,
       "power_domain": "Pd0",
       "pins": [
@@ -2904,6 +2905,7 @@
     "CRC0": {
       "name": "CRC0",
       "type": "Crc",
+      "version": "16",
       "address": 1078198272,
       "power_domain": "Pd1",
       "pins": [],

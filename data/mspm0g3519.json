@@ -3313,6 +3313,7 @@
     "COMP0": {
       "name": "COMP0",
       "type": "Comp",
+      "version": "v1",
       "address": 1073774592,
       "power_domain": "Pd0",
       "pins": [
@@ -3435,6 +3436,7 @@
     "COMP1": {
       "name": "COMP1",
       "type": "Comp",
+      "version": "v1",
       "address": 1073782784,
       "power_domain": "Pd0",
       "pins": [
@@ -3502,6 +3504,7 @@
     "COMP2": {
       "name": "COMP2",
       "type": "Comp",
+      "version": "v1",
       "address": 1073790976,
       "power_domain": "Pd0",
       "pins": [
@@ -3565,6 +3568,7 @@
     "CRCP0": {
       "name": "CRCP0",
       "type": "Crc",
+      "version": "p",
       "address": 1078198272,
       "power_domain": "Pd1",
       "pins": [],

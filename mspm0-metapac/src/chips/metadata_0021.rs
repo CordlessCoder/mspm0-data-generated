@@ -222,7 +222,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
     Peripheral {
         name: "COMP0",
         kind: "comp",
-        version: None,
+        version: Some("v1"),
         pins: &[
             PeripheralPin {
                 pin: "PA26",
@@ -293,7 +293,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
     Peripheral {
         name: "COMP1",
         kind: "comp",
-        version: None,
+        version: Some("v1"),
         pins: &[
             PeripheralPin {
                 pin: "PB24",
@@ -354,7 +354,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
     Peripheral {
         name: "COMP2",
         kind: "comp",
-        version: None,
+        version: Some("v1"),
         pins: &[
             PeripheralPin {
                 pin: "PB19",
@@ -419,7 +419,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
     Peripheral {
         name: "CRC",
         kind: "crc",
-        version: None,
+        version: Some("v1"),
         pins: &[],
         power_domain: PowerDomain::Pd1,
         sys_fentries: None,

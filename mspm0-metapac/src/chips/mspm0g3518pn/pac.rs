@@ -181,8 +181,12 @@ pub use Interrupt as interrupt;
 pub mod adc;
 #[path = "../../peripherals/canfd_v1.rs"]
 pub mod canfd;
+#[path = "../../peripherals/comp_v1.rs"]
+pub mod comp;
 #[path = "../../peripherals/cpuss_v1.rs"]
 pub mod cpuss;
+#[path = "../../peripherals/crc_p.rs"]
+pub mod crc;
 #[path = "../../peripherals/dma_v1.rs"]
 pub mod dma;
 #[path = "../../peripherals/factoryregion_v1.rs"]
@@ -215,15 +219,11 @@ pub const ADC1: adc::Adc = unsafe { adc::Adc::from_ptr(1073750016 as *mut _) };
 pub const AESADV: () = ();
 pub const CANFD0: canfd::Canfd = unsafe { canfd::Canfd::from_ptr(1079017472 as *mut _) };
 pub const CANFD1: canfd::Canfd = unsafe { canfd::Canfd::from_ptr(1079050240 as *mut _) };
-///Address: 1073774592
-pub const COMP0: () = ();
-///Address: 1073782784
-pub const COMP1: () = ();
-///Address: 1073790976
-pub const COMP2: () = ();
+pub const COMP0: comp::Comp = unsafe { comp::Comp::from_ptr(1073774592 as *mut _) };
+pub const COMP1: comp::Comp = unsafe { comp::Comp::from_ptr(1073782784 as *mut _) };
+pub const COMP2: comp::Comp = unsafe { comp::Comp::from_ptr(1073790976 as *mut _) };
 pub const CPUSS: cpuss::Cpuss = unsafe { cpuss::Cpuss::from_ptr(1077936128 as *mut _) };
-///Address: 1078198272
-pub const CRCP0: () = ();
+pub const CRCP0: crc::Crc = unsafe { crc::Crc::from_ptr(1078198272 as *mut _) };
 ///Address: 1073840128
 pub const DAC0: () = ();
 ///Address: 1074556928

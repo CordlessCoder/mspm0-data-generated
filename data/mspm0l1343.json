@@ -266,6 +266,7 @@
     "COMP0": {
       "name": "COMP0",
       "type": "Comp",
+      "version": "v1",
       "address": 1073774592,
       "power_domain": "Pd0",
       "pins": [
@@ -334,6 +335,7 @@
     "CRC": {
       "name": "CRC",
       "type": "Crc",
+      "version": "v1",
       "address": 1078198272,
       "power_domain": "Pd1",
       "pins": [],
