@@ -242,31 +242,31 @@ pub mod regs {
             self.0 = (self.0 & !(0x07 << 4usize))
                 | (((val.to_bits() as u32) & 0x07) << 4usize);
         }
-        ///DMA source width. This bit selects the source data width as a byte, half word, word or long word.
+        ///DMA source width. This bit selects the source data width as a byte, half word, word, long word or long-long word.
         #[must_use]
         #[inline(always)]
         pub const fn srcwdth(&self) -> super::vals::Wdth {
-            let val = (self.0 >> 8usize) & 0x03;
+            let val = (self.0 >> 8usize) & 0x07;
             super::vals::Wdth::from_bits(val as u8)
         }
-        ///DMA source width. This bit selects the source data width as a byte, half word, word or long word.
+        ///DMA source width. This bit selects the source data width as a byte, half word, word, long word or long-long word.
         #[inline(always)]
         pub const fn set_srcwdth(&mut self, val: super::vals::Wdth) {
-            self.0 = (self.0 & !(0x03 << 8usize))
-                | (((val.to_bits() as u32) & 0x03) << 8usize);
+            self.0 = (self.0 & !(0x07 << 8usize))
+                | (((val.to_bits() as u32) & 0x07) << 8usize);
         }
-        ///DMA destination width. This bit selects the destination as a byte, half word, word or long word.
+        ///DMA destination width. This bit selects the destination as a byte, half word, word, long word or long-long word.
         #[must_use]
         #[inline(always)]
         pub const fn dstwdth(&self) -> super::vals::Wdth {
-            let val = (self.0 >> 12usize) & 0x03;
+            let val = (self.0 >> 12usize) & 0x07;
             super::vals::Wdth::from_bits(val as u8)
         }
-        ///DMA destination width. This bit selects the destination as a byte, half word, word or long word.
+        ///DMA destination width. This bit selects the destination as a byte, half word, word, long word or long-long word.
         #[inline(always)]
         pub const fn set_dstwdth(&mut self, val: super::vals::Wdth) {
-            self.0 = (self.0 & !(0x03 << 12usize))
-                | (((val.to_bits() as u32) & 0x03) << 12usize);
+            self.0 = (self.0 & !(0x07 << 12usize))
+                | (((val.to_bits() as u32) & 0x07) << 12usize);
         }
         ///DMA source increment. This bit selects automatic incrementing or decrementing of the source address DMASA for each transfer. The amount of change to the DMASA is based on the definitin in the DMASRCWDTH. For example an increment of 1 (+1) on a WORD transfer will increment the DMASA by 4.
         #[must_use]
@@ -1368,11 +1368,16 @@ pub mod vals {
         Word = 0x02,
         ///Destination data width is LONG-WORD (64-bit).
         Long = 0x03,
+        ///Destination data width is LONG-LONG-WORD (128-bit). Only on devices whose Peripheral::dma reports long_long_transfers.
+        Longlong = 0x04,
+        _RESERVED_5 = 0x05,
+        _RESERVED_6 = 0x06,
+        _RESERVED_7 = 0x07,
     }
     impl Wdth {
         #[inline(always)]
         pub const fn from_bits(val: u8) -> Wdth {
-            unsafe { core::mem::transmute(val & 0x03) }
+            unsafe { core::mem::transmute(val & 0x07) }
         }
         #[inline(always)]
         pub const fn to_bits(self) -> u8 {

@@ -203,7 +203,10 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         comp: None,
         flashctl: None,
         sysctl: None,
-        dma: Some(Dma { long_long_transfers: false }),
+        dma: Some(Dma {
+            long_long_transfers: false,
+            auto_enable: false,
+        }),
     },
     Peripheral {
         name: "EVENT",

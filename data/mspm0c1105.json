@@ -2285,7 +2285,8 @@
       "retained_through": "Standby1",
       "usable_through": "Sleep",
       "dma": {
-        "long_long_transfers": true
+        "long_long_transfers": true,
+        "auto_enable": true
       }
     },
     "EVENT": {

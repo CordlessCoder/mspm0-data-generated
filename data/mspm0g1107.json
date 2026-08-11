@@ -1986,7 +1986,8 @@
       "retained_through": "Standby1",
       "usable_through": "Sleep",
       "dma": {
-        "long_long_transfers": false
+        "long_long_transfers": false,
+        "auto_enable": false
       }
     },
     "EVENT": {
