@@ -2896,7 +2896,10 @@
           "group_iidx": 6
         }
       ],
-      "block_async": false
+      "block_async": false,
+      "sysctl": {
+        "bor_warning_levels": true
+      }
     },
     "TIMA0": {
       "name": "TIMA0",

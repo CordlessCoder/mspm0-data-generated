@@ -1470,7 +1470,10 @@
           "num": 0
         }
       ],
-      "block_async": true
+      "block_async": true,
+      "sysctl": {
+        "bor_warning_levels": false
+      }
     },
     "TIMA0": {
       "name": "TIMA0",
