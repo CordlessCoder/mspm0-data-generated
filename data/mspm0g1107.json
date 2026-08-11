@@ -1984,7 +1984,10 @@
       ],
       "block_async": false,
       "retained_through": "Standby1",
-      "usable_through": "Sleep"
+      "usable_through": "Sleep",
+      "dma": {
+        "long_long_transfers": false
+      }
     },
     "EVENT": {
       "name": "EVENT",

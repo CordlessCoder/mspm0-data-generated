@@ -114,6 +114,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         comp: None,
         flashctl: None,
         sysctl: None,
+        dma: None,
     },
     Peripheral {
         name: "AESADV",
@@ -143,6 +144,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         comp: None,
         flashctl: None,
         sysctl: None,
+        dma: None,
     },
     Peripheral {
         name: "BEEPER",
@@ -166,6 +168,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         comp: None,
         flashctl: None,
         sysctl: None,
+        dma: None,
     },
     Peripheral {
         name: "COMP0",
@@ -282,6 +285,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         }),
         flashctl: None,
         sysctl: None,
+        dma: None,
     },
     Peripheral {
         name: "CPUSS",
@@ -305,6 +309,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         comp: None,
         flashctl: None,
         sysctl: None,
+        dma: None,
     },
     Peripheral {
         name: "CRC0",
@@ -328,6 +333,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         comp: None,
         flashctl: None,
         sysctl: None,
+        dma: None,
     },
     Peripheral {
         name: "DEBUGSS",
@@ -368,6 +374,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         comp: None,
         flashctl: None,
         sysctl: None,
+        dma: None,
     },
     Peripheral {
         name: "DMA",
@@ -397,6 +404,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         comp: None,
         flashctl: None,
         sysctl: None,
+        dma: Some(Dma { long_long_transfers: true }),
     },
     Peripheral {
         name: "EVENT",
@@ -420,6 +428,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         comp: None,
         flashctl: None,
         sysctl: None,
+        dma: None,
     },
     Peripheral {
         name: "FACTORYREGION",
@@ -443,6 +452,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         comp: None,
         flashctl: None,
         sysctl: None,
+        dma: None,
     },
     Peripheral {
         name: "FLASHCTL",
@@ -479,6 +489,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
             has_ecc: true,
         }),
         sysctl: None,
+        dma: None,
     },
     Peripheral {
         name: "GPAMP",
@@ -502,6 +513,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         comp: None,
         flashctl: None,
         sysctl: None,
+        dma: None,
     },
     Peripheral {
         name: "GPIOA",
@@ -672,6 +684,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         comp: None,
         flashctl: None,
         sysctl: None,
+        dma: None,
     },
     Peripheral {
         name: "GPIOB",
@@ -701,6 +714,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         comp: None,
         flashctl: None,
         sysctl: None,
+        dma: None,
     },
     Peripheral {
         name: "IOMUX",
@@ -724,6 +738,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         comp: None,
         flashctl: None,
         sysctl: None,
+        dma: None,
     },
     Peripheral {
         name: "IWDT",
@@ -747,6 +762,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         comp: None,
         flashctl: None,
         sysctl: None,
+        dma: None,
     },
     Peripheral {
         name: "KEYSTORECTL",
@@ -770,6 +786,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         comp: None,
         flashctl: None,
         sysctl: None,
+        dma: None,
     },
     Peripheral {
         name: "LCD",
@@ -945,6 +962,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         comp: None,
         flashctl: None,
         sysctl: None,
+        dma: None,
     },
     Peripheral {
         name: "LFSS",
@@ -990,6 +1008,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         comp: None,
         flashctl: None,
         sysctl: None,
+        dma: None,
     },
     Peripheral {
         name: "RTC_B",
@@ -1013,6 +1032,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         comp: None,
         flashctl: None,
         sysctl: None,
+        dma: None,
     },
     Peripheral {
         name: "SPG0",
@@ -1036,6 +1056,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         comp: None,
         flashctl: None,
         sysctl: None,
+        dma: None,
     },
     Peripheral {
         name: "SYSCTL",
@@ -1166,6 +1187,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         comp: None,
         flashctl: None,
         sysctl: Some(Sysctl { bor_warning_levels: true }),
+        dma: None,
     },
     Peripheral {
         name: "TIMA0",
@@ -1444,6 +1466,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         comp: None,
         flashctl: None,
         sysctl: None,
+        dma: None,
     },
     Peripheral {
         name: "TIMB0",
@@ -1486,6 +1509,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         comp: None,
         flashctl: None,
         sysctl: None,
+        dma: None,
     },
     Peripheral {
         name: "TIMB1",
@@ -1528,6 +1552,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         comp: None,
         flashctl: None,
         sysctl: None,
+        dma: None,
     },
     Peripheral {
         name: "TIMB2",
@@ -1570,6 +1595,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         comp: None,
         flashctl: None,
         sysctl: None,
+        dma: None,
     },
     Peripheral {
         name: "TIMB3",
@@ -1612,6 +1638,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         comp: None,
         flashctl: None,
         sysctl: None,
+        dma: None,
     },
     Peripheral {
         name: "TIMG1",
@@ -1685,6 +1712,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         comp: None,
         flashctl: None,
         sysctl: None,
+        dma: None,
     },
     Peripheral {
         name: "TIMG14",
@@ -1878,6 +1906,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         comp: None,
         flashctl: None,
         sysctl: None,
+        dma: None,
     },
     Peripheral {
         name: "TIMG2",
@@ -1981,6 +2010,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         comp: None,
         flashctl: None,
         sysctl: None,
+        dma: None,
     },
     Peripheral {
         name: "UC11",
@@ -2046,6 +2076,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         comp: None,
         flashctl: None,
         sysctl: None,
+        dma: None,
     },
     Peripheral {
         name: "UC11_UART",
@@ -2075,6 +2106,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         comp: None,
         flashctl: None,
         sysctl: None,
+        dma: None,
     },
     Peripheral {
         name: "UC4",
@@ -2350,6 +2382,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         comp: None,
         flashctl: None,
         sysctl: None,
+        dma: None,
     },
     Peripheral {
         name: "UC4_SPI",
@@ -2373,6 +2406,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         comp: None,
         flashctl: None,
         sysctl: None,
+        dma: None,
     },
     Peripheral {
         name: "UC4_UART",
@@ -2402,6 +2436,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         comp: None,
         flashctl: None,
         sysctl: None,
+        dma: None,
     },
     Peripheral {
         name: "UC6",
@@ -2472,6 +2507,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         comp: None,
         flashctl: None,
         sysctl: None,
+        dma: None,
     },
     Peripheral {
         name: "UC6_I2CC",
@@ -2495,6 +2531,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         comp: None,
         flashctl: None,
         sysctl: None,
+        dma: None,
     },
     Peripheral {
         name: "UC7",
@@ -2610,6 +2647,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         comp: None,
         flashctl: None,
         sysctl: None,
+        dma: None,
     },
     Peripheral {
         name: "UC7_I2CT",
@@ -2633,6 +2671,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         comp: None,
         flashctl: None,
         sysctl: None,
+        dma: None,
     },
     Peripheral {
         name: "UC8",
@@ -2808,6 +2847,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         comp: None,
         flashctl: None,
         sysctl: None,
+        dma: None,
     },
     Peripheral {
         name: "UC8_SPI",
@@ -2831,6 +2871,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         comp: None,
         flashctl: None,
         sysctl: None,
+        dma: None,
     },
     Peripheral {
         name: "UC8_UART",
@@ -2860,6 +2901,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         comp: None,
         flashctl: None,
         sysctl: None,
+        dma: None,
     },
     Peripheral {
         name: "VREF",
@@ -2897,6 +2939,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         comp: None,
         flashctl: None,
         sysctl: None,
+        dma: None,
     },
     Peripheral {
         name: "WUC",
@@ -2920,6 +2963,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         comp: None,
         flashctl: None,
         sysctl: None,
+        dma: None,
     },
     Peripheral {
         name: "WWDT0",
@@ -2949,6 +2993,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         comp: None,
         flashctl: None,
         sysctl: None,
+        dma: None,
     },
 ];
 pub(crate) static INTERRUPTS: &[Interrupt] = &[

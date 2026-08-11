@@ -2960,7 +2960,10 @@
       ],
       "block_async": null,
       "retained_through": "Standby1",
-      "usable_through": "Sleep"
+      "usable_through": "Sleep",
+      "dma": {
+        "long_long_transfers": true
+      }
     },
     "EVENT": {
       "name": "EVENT",
