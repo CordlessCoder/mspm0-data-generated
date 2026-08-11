@@ -3486,5 +3486,11 @@
     "stop2": 8800,
     "standby0": 12800,
     "standby1": 12800
+  },
+  "temperature_sensor": {
+    "tstrim_c": 30,
+    "tsc_uv_per_c": -1900,
+    "settling_ns": 10000,
+    "calibration_reference": "internal_4v05"
   }
 }

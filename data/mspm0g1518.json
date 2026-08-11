@@ -8440,5 +8440,12 @@
     "standby0": 11400,
     "standby1": 11400,
     "shutdown": 315000
+  },
+  "temperature_sensor": {
+    "tstrim_c": 30,
+    "tsc_uv_per_c": -1900,
+    "settling_ns": 12500,
+    "calibration_sample_ns": 12500,
+    "calibration_reference": "internal_1v4"
   }
 }

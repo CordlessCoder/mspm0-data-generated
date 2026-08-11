@@ -139,4 +139,11 @@ pub static METADATA: Metadata = Metadata {
         standby1: Some(15200),
         shutdown: Some(252000),
     },
+    temperature_sensor: Some(TemperatureSensor {
+        tstrim_c: 30,
+        tsc_uv_per_c: -1800,
+        settling_ns: Some(12500),
+        calibration_sample_ns: Some(12500),
+        calibration_reference: CalibrationReference::Vdd,
+    }),
 };
