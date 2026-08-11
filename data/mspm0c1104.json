@@ -514,6 +514,26 @@
     "PA4": 5,
     "PA6": 7
   },
+  "io_structure": {
+    "PA0": "OpenDrain",
+    "PA1": "OpenDrain",
+    "PA11": "Standard",
+    "PA16": "Standard",
+    "PA17": "Standard",
+    "PA18": "Standard",
+    "PA19": "Standard",
+    "PA2": "Standard",
+    "PA20": "Standard",
+    "PA22": "Standard",
+    "PA23": "Standard",
+    "PA24": "Standard",
+    "PA25": "Standard",
+    "PA26": "Standard",
+    "PA27": "Standard",
+    "PA28": "Standard",
+    "PA4": "Standard",
+    "PA6": "Standard"
+  },
   "wakeup_pins": [],
   "peripherals": {
     "ADC0": {

@@ -964,30 +964,36 @@ pub(crate) static PINS: &[Pin] = &[
         pin: "PA27",
         pincm: 28u8,
         wakeup: Some(false),
+        structure: IoStructure::Standard,
     },
     Pin {
         pin: "PA1",
         pincm: 2u8,
         wakeup: Some(false),
+        structure: IoStructure::OpenDrain,
     },
     Pin {
         pin: "PA0",
         pincm: 1u8,
         wakeup: Some(false),
+        structure: IoStructure::OpenDrain,
     },
     Pin {
         pin: "PA19",
         pincm: 20u8,
         wakeup: Some(false),
+        structure: IoStructure::Standard,
     },
     Pin {
         pin: "PA20",
         pincm: 21u8,
         wakeup: Some(false),
+        structure: IoStructure::Standard,
     },
     Pin {
         pin: "PA24",
         pincm: 25u8,
         wakeup: Some(false),
+        structure: IoStructure::Standard,
     },
 ];

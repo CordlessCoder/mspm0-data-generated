@@ -169,6 +169,26 @@
     "PA4": 5,
     "PA6": 7
   },
+  "io_structure": {
+    "PA0": "OpenDrain",
+    "PA1": "OpenDrain",
+    "PA11": "StandardLowLeakage",
+    "PA16": "StandardLowLeakage",
+    "PA17": "StandardLowLeakage",
+    "PA18": "StandardLowLeakage",
+    "PA19": "StandardLowLeakage",
+    "PA2": "StandardLowLeakage",
+    "PA20": "StandardLowLeakage",
+    "PA22": "StandardLowLeakage",
+    "PA23": "StandardLowLeakage",
+    "PA24": "StandardLowLeakage",
+    "PA25": "StandardLowLeakage",
+    "PA26": "StandardLowLeakage",
+    "PA27": "StandardLowLeakage",
+    "PA28": "StandardLowLeakage",
+    "PA4": "StandardLowLeakage",
+    "PA6": "StandardLowLeakage"
+  },
   "peripherals": {
     "ADC0": {
       "name": "ADC0",
