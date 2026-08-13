@@ -482,6 +482,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         dma: Some(Dma {
             long_long_transfers: true,
             auto_enable: true,
+            stride_mode: true,
         }),
     },
     Peripheral {

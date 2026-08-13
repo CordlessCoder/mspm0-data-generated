@@ -423,7 +423,8 @@
       "usable_through": "Sleep",
       "dma": {
         "long_long_transfers": false,
-        "auto_enable": false
+        "auto_enable": false,
+        "stride_mode": false
       }
     },
     "EVENT": {
