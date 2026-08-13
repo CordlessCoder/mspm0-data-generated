@@ -556,7 +556,8 @@
         "internal_channels": {
           "11": "TemperatureSensor",
           "15": "SupplyMonitor"
-        }
+        },
+        "wakeup_max_ns": 5000
       }
     },
     "BEEPER": {

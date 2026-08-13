@@ -2597,7 +2597,8 @@
         "internal_channels": {
           "11": "TemperatureSensor",
           "15": "SupplyMonitor"
-        }
+        },
+        "wakeup_max_ns": 5000
       }
     },
     "ADC1": {
@@ -2696,7 +2697,8 @@
         "internal_channels": {
           "0": "Dac0",
           "15": "SupplyMonitor"
-        }
+        },
+        "wakeup_max_ns": 5000
       }
     },
     "AESADV": {

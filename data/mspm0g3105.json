@@ -725,7 +725,8 @@
           "11": "TemperatureSensor",
           "14": "Gpamp",
           "15": "SupplyMonitor"
-        }
+        },
+        "wakeup_max_ns": 5000
       }
     },
     "ADC1": {
@@ -800,7 +801,8 @@
           "12": "TemperatureSensor",
           "14": "Gpamp",
           "15": "SupplyMonitor"
-        }
+        },
+        "wakeup_max_ns": 5000
       }
     },
     "AES": {

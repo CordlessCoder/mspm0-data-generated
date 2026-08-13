@@ -1801,7 +1801,8 @@
           "29": "TemperatureSensor",
           "30": "VbatMonitor",
           "31": "SupplyMonitor"
-        }
+        },
+        "wakeup_max_ns": 5000
       }
     },
     "AESADV": {

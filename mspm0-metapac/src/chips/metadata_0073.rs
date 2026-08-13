@@ -74,6 +74,8 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
                     source: AdcInternalSource::SupplyMonitor,
                 },
             ],
+            wakeup_max_ns: None,
+            wakeup_typ_ns: Some(1000),
         }),
         unicomm: None,
         uart: None,

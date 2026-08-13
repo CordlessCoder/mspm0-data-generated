@@ -290,7 +290,8 @@
           "13": "Opa1",
           "14": "Gpamp",
           "15": "SupplyMonitor"
-        }
+        },
+        "wakeup_typ_ns": 1000
       }
     },
     "COMP0": {

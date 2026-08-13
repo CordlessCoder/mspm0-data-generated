@@ -1022,7 +1022,8 @@
           "11": "TemperatureSensor",
           "14": "Gpamp",
           "15": "SupplyMonitor"
-        }
+        },
+        "wakeup_typ_ns": 1000
       }
     },
     "CPUSS": {

@@ -2153,7 +2153,8 @@
           "28": "TemperatureSensor",
           "29": "Vref",
           "31": "SupplyMonitor"
-        }
+        },
+        "wakeup_max_ns": 5000
       }
     },
     "BEEPER": {
