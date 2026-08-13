@@ -2335,7 +2335,8 @@
       "dma": {
         "long_long_transfers": true,
         "auto_enable": true,
-        "stride_mode": true
+        "stride_mode": true,
+        "gather_mode": true
       }
     },
     "EVENT": {

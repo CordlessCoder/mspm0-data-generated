@@ -232,6 +232,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
             long_long_transfers: false,
             auto_enable: false,
             stride_mode: false,
+            gather_mode: false,
         }),
     },
     Peripheral {
