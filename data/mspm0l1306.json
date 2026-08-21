@@ -930,7 +930,12 @@
           "14": "Gpamp",
           "15": "SupplyMonitor"
         },
-        "wakeup_typ_ns": 1000
+        "wakeup_typ_ns": 1000,
+        "sample_min_ns": 156,
+        "pga_sample_ns": {
+          "1": 310,
+          "32": 1500
+        }
       }
     },
     "COMP0": {
@@ -1713,7 +1718,7 @@
           "group_iidx": 6
         }
       ],
-      "block_async": true,
+      "block_async": false,
       "sysctl": {
         "bor_warning_levels": true
       }

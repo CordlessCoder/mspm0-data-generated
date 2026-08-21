@@ -279,7 +279,8 @@
           "29": "Vref",
           "31": "SupplyMonitor"
         },
-        "wakeup_max_ns": 5000
+        "wakeup_max_ns": 5000,
+        "sample_min_ns": 400
       }
     },
     "BEEPER": {
@@ -1524,7 +1525,7 @@
           "num": 0
         }
       ],
-      "block_async": true,
+      "block_async": false,
       "sysctl": {
         "bor_warning_levels": false
       }

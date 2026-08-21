@@ -2154,7 +2154,8 @@
           "29": "Vref",
           "31": "SupplyMonitor"
         },
-        "wakeup_max_ns": 5000
+        "wakeup_max_ns": 5000,
+        "sample_min_ns": 188
       }
     },
     "BEEPER": {

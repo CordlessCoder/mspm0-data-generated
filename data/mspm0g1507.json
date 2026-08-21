@@ -1732,7 +1732,16 @@
           "14": "Gpamp",
           "15": "SupplyMonitor"
         },
-        "wakeup_max_ns": 5000
+        "wakeup_max_ns": 5000,
+        "sample_min_ns": 63,
+        "pga_sample_ns": {
+          "1": 220,
+          "2": 480,
+          "4": 550,
+          "8": 850,
+          "16": 1600,
+          "32": 2600
+        }
       }
     },
     "ADC1": {
@@ -1810,7 +1819,16 @@
           "14": "Gpamp",
           "15": "SupplyMonitor"
         },
-        "wakeup_max_ns": 5000
+        "wakeup_max_ns": 5000,
+        "sample_min_ns": 63,
+        "pga_sample_ns": {
+          "1": 220,
+          "2": 480,
+          "4": 550,
+          "8": 850,
+          "16": 1600,
+          "32": 2600
+        }
       }
     },
     "AES": {
@@ -3263,7 +3281,7 @@
           "group_iidx": 6
         }
       ],
-      "block_async": true,
+      "block_async": false,
       "sysctl": {
         "bor_warning_levels": true
       }

@@ -88,6 +88,8 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
             ],
             wakeup_max_ns: Some(5000),
             wakeup_typ_ns: None,
+            sample_min_ns: Some(188),
+            pga_sample_ns: &[],
         }),
         unicomm: None,
         uart: None,

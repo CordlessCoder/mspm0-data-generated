@@ -90,7 +90,7 @@ impl Dma {
     pub const fn int_event(self, n: usize) -> IntEvent {
         assert!(n < 2usize);
         unsafe {
-            IntEvent::from_ptr(self.ptr.wrapping_add(0x1020usize + n * 44usize) as _)
+            IntEvent::from_ptr(self.ptr.wrapping_add(0x1020usize + n * 48usize) as _)
         }
     }
     ///Event Mode.
