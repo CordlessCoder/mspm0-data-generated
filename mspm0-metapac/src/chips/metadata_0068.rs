@@ -76,18 +76,22 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
                 AdcInternalChannel {
                     channel: 28,
                     source: AdcInternalSource::Vref,
+                    sample_min_ns: Some(4000),
                 },
                 AdcInternalChannel {
                     channel: 29,
                     source: AdcInternalSource::TemperatureSensor,
+                    sample_min_ns: None,
                 },
                 AdcInternalChannel {
                     channel: 30,
                     source: AdcInternalSource::VbatMonitor,
+                    sample_min_ns: Some(5000),
                 },
                 AdcInternalChannel {
                     channel: 31,
                     source: AdcInternalSource::SupplyMonitor,
+                    sample_min_ns: Some(5000),
                 },
             ],
             wakeup_max_ns: Some(5000),

@@ -924,11 +924,23 @@
         "memctl": 4,
         "vrsel": 5,
         "internal_channels": {
-          "11": "TemperatureSensor",
-          "12": "Opa0",
-          "13": "Opa1",
-          "14": "Gpamp",
-          "15": "SupplyMonitor"
+          "11": {
+            "source": "TemperatureSensor"
+          },
+          "12": {
+            "source": "Opa0"
+          },
+          "13": {
+            "source": "Opa1"
+          },
+          "14": {
+            "source": "Gpamp",
+            "sample_min_ns": 2500
+          },
+          "15": {
+            "source": "SupplyMonitor",
+            "sample_min_ns": 3000
+          }
         },
         "wakeup_typ_ns": 1000,
         "sample_min_ns": 156,

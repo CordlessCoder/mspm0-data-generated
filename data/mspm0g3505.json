@@ -1576,10 +1576,20 @@
         "memctl": 12,
         "vrsel": 5,
         "internal_channels": {
-          "11": "TemperatureSensor",
-          "13": "Opa0",
-          "14": "Gpamp",
-          "15": "SupplyMonitor"
+          "11": {
+            "source": "TemperatureSensor"
+          },
+          "13": {
+            "source": "Opa0"
+          },
+          "14": {
+            "source": "Gpamp",
+            "sample_min_ns": 3000
+          },
+          "15": {
+            "source": "SupplyMonitor",
+            "sample_min_ns": 5000
+          }
         },
         "wakeup_max_ns": 5000,
         "sample_min_ns": 63,
@@ -1662,11 +1672,24 @@
         "memctl": 12,
         "vrsel": 5,
         "internal_channels": {
-          "0": "Dac0",
-          "12": "TemperatureSensor",
-          "13": "Opa1",
-          "14": "Gpamp",
-          "15": "SupplyMonitor"
+          "0": {
+            "source": "Dac0",
+            "sample_min_ns": 500
+          },
+          "12": {
+            "source": "TemperatureSensor"
+          },
+          "13": {
+            "source": "Opa1"
+          },
+          "14": {
+            "source": "Gpamp",
+            "sample_min_ns": 3000
+          },
+          "15": {
+            "source": "SupplyMonitor",
+            "sample_min_ns": 5000
+          }
         },
         "wakeup_max_ns": 5000,
         "sample_min_ns": 63,

@@ -2595,8 +2595,13 @@
         "memctl": 12,
         "vrsel": 5,
         "internal_channels": {
-          "11": "TemperatureSensor",
-          "15": "SupplyMonitor"
+          "11": {
+            "source": "TemperatureSensor"
+          },
+          "15": {
+            "source": "SupplyMonitor",
+            "sample_min_ns": 5000
+          }
         },
         "wakeup_max_ns": 5000,
         "sample_min_ns": 63
@@ -2696,8 +2701,14 @@
         "memctl": 12,
         "vrsel": 5,
         "internal_channels": {
-          "0": "Dac0",
-          "15": "SupplyMonitor"
+          "0": {
+            "source": "Dac0",
+            "sample_min_ns": 500
+          },
+          "15": {
+            "source": "SupplyMonitor",
+            "sample_min_ns": 5000
+          }
         },
         "wakeup_max_ns": 5000,
         "sample_min_ns": 63

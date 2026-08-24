@@ -264,8 +264,13 @@
         "memctl": 4,
         "vrsel": 3,
         "internal_channels": {
-          "11": "TemperatureSensor",
-          "15": "SupplyMonitor"
+          "11": {
+            "source": "TemperatureSensor"
+          },
+          "15": {
+            "source": "SupplyMonitor",
+            "sample_min_ns": 3000
+          }
         },
         "wakeup_max_ns": 5000,
         "sample_min_ns": 166

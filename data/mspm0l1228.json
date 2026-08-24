@@ -2147,10 +2147,21 @@
         "memctl": 12,
         "vrsel": 5,
         "internal_channels": {
-          "28": "Vref",
-          "29": "TemperatureSensor",
-          "30": "VbatMonitor",
-          "31": "SupplyMonitor"
+          "28": {
+            "source": "Vref",
+            "sample_min_ns": 4000
+          },
+          "29": {
+            "source": "TemperatureSensor"
+          },
+          "30": {
+            "source": "VbatMonitor",
+            "sample_min_ns": 5000
+          },
+          "31": {
+            "source": "SupplyMonitor",
+            "sample_min_ns": 5000
+          }
         },
         "wakeup_max_ns": 5000,
         "sample_min_ns": 156
