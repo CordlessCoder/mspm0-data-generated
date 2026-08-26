@@ -125,6 +125,8 @@ pub mod gpio;
 pub mod i2c;
 #[path = "../../peripherals/iomux_v1.rs"]
 pub mod iomux;
+#[path = "../../peripherals/spi_v1.rs"]
+pub mod spi;
 #[path = "../../peripherals/sysctl_c110x.rs"]
 pub mod sysctl;
 #[path = "../../peripherals/tim_v1.rs"]
@@ -155,8 +157,7 @@ pub const FLASHCTL: flashctl::Flashctl = unsafe {
 pub const GPIOA: gpio::Gpio = unsafe { gpio::Gpio::from_ptr(1074397184 as *mut _) };
 pub const I2C0: i2c::I2c = unsafe { i2c::I2c::from_ptr(1074724864 as *mut _) };
 pub const IOMUX: iomux::Iomux = unsafe { iomux::Iomux::from_ptr(1078099968 as *mut _) };
-///Address: 1078362112
-pub const SPI0: () = ();
+pub const SPI0: spi::Spi = unsafe { spi::Spi::from_ptr(1078362112 as *mut _) };
 pub const SYSCTL: sysctl::Sysctl = unsafe {
     sysctl::Sysctl::from_ptr(1074458624 as *mut _)
 };

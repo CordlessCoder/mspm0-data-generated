@@ -183,6 +183,8 @@ pub mod iomux;
 pub mod mathacl;
 #[path = "../../peripherals/opa_v1.rs"]
 pub mod opa;
+#[path = "../../peripherals/spi_v1.rs"]
+pub mod spi;
 #[path = "../../peripherals/sysctl_g350x_g310x_g150x_g110x.rs"]
 pub mod sysctl;
 #[path = "../../peripherals/tim_v1.rs"]
@@ -228,10 +230,8 @@ pub const OPA0: opa::Opa = unsafe { opa::Opa::from_ptr(1073872896 as *mut _) };
 pub const OPA1: opa::Opa = unsafe { opa::Opa::from_ptr(1073881088 as *mut _) };
 ///Address: 1074348032
 pub const RTC: () = ();
-///Address: 1078362112
-pub const SPI0: () = ();
-///Address: 1078370304
-pub const SPI1: () = ();
+pub const SPI0: spi::Spi = unsafe { spi::Spi::from_ptr(1078362112 as *mut _) };
+pub const SPI1: spi::Spi = unsafe { spi::Spi::from_ptr(1078370304 as *mut _) };
 pub const SYSCTL: sysctl::Sysctl = unsafe {
     sysctl::Sysctl::from_ptr(1074458624 as *mut _)
 };

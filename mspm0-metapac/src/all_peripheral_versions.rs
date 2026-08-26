@@ -15,6 +15,7 @@ pub static ALL_PERIPHERAL_VERSIONS: &[(&str, &[&str])] = &[
     ("iomux", &["v1"]),
     ("mathacl", &["v1"]),
     ("opa", &["v1"]),
+    ("spi", &["v1"]),
     (
         "sysctl",
         &[

@@ -4712,6 +4712,7 @@
     "SPI0": {
       "name": "SPI0",
       "type": "Spi",
+      "version": "v1",
       "address": 1078362112,
       "power_domain": "Pd1",
       "pins": [
@@ -4965,6 +4966,7 @@
     "SPI1": {
       "name": "SPI1",
       "type": "Spi",
+      "version": "v1",
       "address": 1078370304,
       "power_domain": "Pd1",
       "pins": [
@@ -5238,6 +5240,7 @@
     "SPI2": {
       "name": "SPI2",
       "type": "Spi",
+      "version": "v1",
       "address": 1078378496,
       "power_domain": "Pd1",
       "pins": [
