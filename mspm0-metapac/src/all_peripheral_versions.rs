@@ -6,6 +6,7 @@ pub static ALL_PERIPHERAL_VERSIONS: &[(&str, &[&str])] = &[
     ("comp", &["dacout", "v1"]),
     ("cpuss", &["v1"]),
     ("crc", &["16", "p", "v1"]),
+    ("dac", &["v1"]),
     ("dma", &["v1"]),
     ("factoryregion", &["v1"]),
     ("flashctl", &["v1"]),

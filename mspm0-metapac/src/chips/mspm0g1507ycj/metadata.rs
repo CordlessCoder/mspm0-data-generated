@@ -5,7 +5,7 @@ static MEMORY: &[MemoryRegion] = &[
         name: "FLASH",
         kind: MemoryKind::Flash,
         address: 0,
-        size: 65536,
+        size: 131072,
         retained_through: PowerMode::Shutdown,
     },
     MemoryRegion {

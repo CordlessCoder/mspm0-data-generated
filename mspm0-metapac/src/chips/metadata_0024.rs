@@ -473,7 +473,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
     Peripheral {
         name: "DAC0",
         kind: "dac",
-        version: None,
+        version: Some("v1"),
         pins: &[
             PeripheralPin {
                 pin: "PA15",

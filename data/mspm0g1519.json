@@ -3017,6 +3017,7 @@
     "DAC0": {
       "name": "DAC0",
       "type": "Dac",
+      "version": "v1",
       "address": 1073840128,
       "power_domain": "Pd0",
       "pins": [
