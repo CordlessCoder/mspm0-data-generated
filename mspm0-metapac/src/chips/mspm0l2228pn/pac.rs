@@ -38,6 +38,8 @@ pub enum Group0 {
     WWDT0 = 0,
     DEBUGSS = 2,
     FLASHCTL = 3,
+    WUC_FSUB0 = 4,
+    WUC_FSUB1 = 5,
     SYSCTL = 6,
 }
 impl TryFrom<u8> for Group0 {
@@ -48,6 +50,8 @@ impl TryFrom<u8> for Group0 {
             0 => Ok(Self::WWDT0),
             2 => Ok(Self::DEBUGSS),
             3 => Ok(Self::FLASHCTL),
+            4 => Ok(Self::WUC_FSUB0),
+            5 => Ok(Self::WUC_FSUB1),
             6 => Ok(Self::SYSCTL),
             _ => Err(()),
         }

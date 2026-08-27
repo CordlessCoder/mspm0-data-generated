@@ -7646,6 +7646,8 @@
         "1": "WWDT1",
         "2": "DEBUGSS",
         "3": "FLASHCTL",
+        "4": "WUC_FSUB0",
+        "5": "WUC_FSUB1",
         "6": "SYSCTL"
       }
     },

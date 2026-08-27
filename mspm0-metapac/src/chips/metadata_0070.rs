@@ -1879,6 +1879,14 @@ pub(crate) static INTERRUPT_GROUPS: &[InterruptGroup] = &[
                 number: 3,
             },
             GroupInterrupt {
+                name: "WUC_FSUB0",
+                number: 4,
+            },
+            GroupInterrupt {
+                name: "WUC_FSUB1",
+                number: 5,
+            },
+            GroupInterrupt {
                 name: "SYSCTL",
                 number: 6,
             },
