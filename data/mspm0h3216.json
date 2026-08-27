@@ -621,6 +621,7 @@
     "DEBUGSS": {
       "name": "DEBUGSS",
       "type": "Debugss",
+      "version": "v1",
       "address": 1074556928,
       "power_domain": "Pd0",
       "pins": [
