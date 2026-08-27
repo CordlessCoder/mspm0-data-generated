@@ -177,6 +177,8 @@ pub mod unicommspi;
 pub mod unicommuart;
 #[path = "../../peripherals/vref_v1.rs"]
 pub mod vref;
+#[path = "../../peripherals/wuc_v1.rs"]
+pub mod wuc;
 #[path = "../../peripherals/wwdt_v1.rs"]
 pub mod wwdt;
 pub const ADC0: adc::Adc = unsafe { adc::Adc::from_ptr(1073758208 as *mut _) };
@@ -263,7 +265,6 @@ pub const UC3_UART: unicommuart::Unicommuart = unsafe {
 ///Address: 1078456320
 pub const USBFS0: () = ();
 pub const VREF: vref::Vref = unsafe { vref::Vref::from_ptr(1073938432 as *mut _) };
-///Address: 1078083584
-pub const WUC: () = ();
+pub const WUC: wuc::Wuc = unsafe { wuc::Wuc::from_ptr(1078083584 as *mut _) };
 pub const WWDT0: wwdt::Wwdt = unsafe { wwdt::Wwdt::from_ptr(1074266112 as *mut _) };
 pub const WWDT1: wwdt::Wwdt = unsafe { wwdt::Wwdt::from_ptr(1074274304 as *mut _) };

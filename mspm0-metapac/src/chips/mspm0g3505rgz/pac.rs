@@ -199,6 +199,8 @@ pub mod trng;
 pub mod uart;
 #[path = "../../peripherals/vref_v1.rs"]
 pub mod vref;
+#[path = "../../peripherals/wuc_v1.rs"]
+pub mod wuc;
 #[path = "../../peripherals/wwdt_v1.rs"]
 pub mod wwdt;
 pub const ADC0: adc::Adc = unsafe { adc::Adc::from_ptr(1073741824 as *mut _) };
@@ -253,7 +255,6 @@ pub const UART1: uart::Uart = unsafe { uart::Uart::from_ptr(1074790400 as *mut _
 pub const UART2: uart::Uart = unsafe { uart::Uart::from_ptr(1074798592 as *mut _) };
 pub const UART3: uart::Uart = unsafe { uart::Uart::from_ptr(1078984704 as *mut _) };
 pub const VREF: vref::Vref = unsafe { vref::Vref::from_ptr(1073938432 as *mut _) };
-///Address: 1078083584
-pub const WUC: () = ();
+pub const WUC: wuc::Wuc = unsafe { wuc::Wuc::from_ptr(1078083584 as *mut _) };
 pub const WWDT0: wwdt::Wwdt = unsafe { wwdt::Wwdt::from_ptr(1074266112 as *mut _) };
 pub const WWDT1: wwdt::Wwdt = unsafe { wwdt::Wwdt::from_ptr(1074274304 as *mut _) };

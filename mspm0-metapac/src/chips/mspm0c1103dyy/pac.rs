@@ -135,6 +135,8 @@ pub mod tim;
 pub mod uart;
 #[path = "../../peripherals/vref_v1.rs"]
 pub mod vref;
+#[path = "../../peripherals/wuc_v1.rs"]
+pub mod wuc;
 #[path = "../../peripherals/wwdt_v1.rs"]
 pub mod wwdt;
 pub const ADC0: adc::Adc = unsafe { adc::Adc::from_ptr(1073758208 as *mut _) };
@@ -166,6 +168,5 @@ pub const TIMG14: tim::Tim = unsafe { tim::Tim::from_ptr(1074282496 as *mut _) }
 pub const TIMG8: tim::Tim = unsafe { tim::Tim::from_ptr(1074331648 as *mut _) };
 pub const UART0: uart::Uart = unsafe { uart::Uart::from_ptr(1074823168 as *mut _) };
 pub const VREF: vref::Vref = unsafe { vref::Vref::from_ptr(1073938432 as *mut _) };
-///Address: 1078083584
-pub const WUC: () = ();
+pub const WUC: wuc::Wuc = unsafe { wuc::Wuc::from_ptr(1078083584 as *mut _) };
 pub const WWDT0: wwdt::Wwdt = unsafe { wwdt::Wwdt::from_ptr(1074266112 as *mut _) };

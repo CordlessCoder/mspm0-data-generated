@@ -1518,6 +1518,7 @@
     "WUC": {
       "name": "WUC",
       "type": "Wuc",
+      "version": "v1",
       "address": 1078083584,
       "power_domain": "Pd0",
       "pins": [],

@@ -38,5 +38,6 @@ pub static ALL_PERIPHERAL_VERSIONS: &[(&str, &[&str])] = &[
     ("unicommspi", &["v1"]),
     ("unicommuart", &["v1"]),
     ("vref", &["v1"]),
+    ("wuc", &["v1"]),
     ("wwdt", &["v1"]),
 ];
