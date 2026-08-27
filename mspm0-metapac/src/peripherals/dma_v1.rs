@@ -952,7 +952,8 @@ pub mod vals {
     pub enum Em {
         ///Normal mode is related to transfers from SRC to DST.
         Normal = 0x0,
-        _RESERVED_1 = 0x01,
+        ///Gather mode will read a data from an address table located at SA, and the data is transfered to the DA.
+        Gathermode = 0x01,
         ///Fill mode will copy the SA register content as data to DA.
         Fillmode = 0x02,
         ///Table mode will read an address and data value from SA and write the data to address.
